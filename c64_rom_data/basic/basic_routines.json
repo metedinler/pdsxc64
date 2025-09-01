@@ -1,0 +1,648 @@
+{
+  "$A000": {
+    "name": "START",
+    "description": "BASIC başlangıç rutini, sistemi başlatır ve komut satırı döngüsüne geçer.",
+    "parameters": [],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A644": {
+    "name": "INIT",
+    "description": "BASIC sistemini başlatır, sıfır sayfası işaretçilerini ($7A-$7B) ve bellek sınırlarını ayarlar.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F-$60", "description": "Geçici işaretçi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A65E": {
+    "name": "SUB_A65E",
+    "description": "Bellek sınırlarını ayarlar, geçici işaretçi ($5F-$60) ile çalışır.",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Geçici işaretçi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A7AE": {
+    "name": "MAIN_LOOP",
+    "description": "BASIC komut satırı döngüsü, kullanıcı girişini alır ve komutları yürütür.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$A96B": {
+    "name": "CHRGET",
+    "description": "Programdan karakter okur ($7A-$7B işaretçisi), boşlukları ve iki noktayı işler.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"register": "A", "description": "Okunan karakter (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C"]
+  },
+  "$A7E4": {
+    "name": "SUB_A7E4",
+    "description": "Komut çözümleme, token'ları tanır ve yürütme için hazırlar.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["C"]
+  },
+  "$A7ED": {
+    "name": "SUB_A7ED",
+    "description": "Komut yürütme, token tablosundan adres alarak komutları çalıştırır.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F-$60", "description": "Komut adresi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A8F8": {
+    "name": "SUB_A8F8",
+    "description": "Token çözümleme, programdaki token'ları ($80-$CB) tanır.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["C"]
+  },
+  "$A82C": {
+    "name": "SUB_A82C",
+    "description": "Token tablosu arama, token işaretçisini ($5F-$60) ayarlar.",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Token işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A871": {
+    "name": "LEN",
+    "description": "LEN(string) fonksiyonunu hesaplar, string uzunluğunu A register'ına döndürür ($C3 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "String adresi"},
+      {"register": "A", "description": "String uzunluğu (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$AB1E": {
+    "name": "STROUT",
+    "description": "PRINT komutunu yürütür, string'i ($5F-$60) ekrana basar ($99 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "String adresi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B526": {
+    "name": "SUB_B526",
+    "description": "Sayı çözümleme, programdan sayısal değerleri ($7A-$7B) okur ve tampona ($5F-$60) kaydeder.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F-$60", "description": "Sayı tamponu"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B7F7": {
+    "name": "SUB_B7F7",
+    "description": "String işaretçisini alır, programdan ($7A-$7B) string adresini ($5F-$60) ayarlar.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F-$60", "description": "String adresi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$B7B5": {
+    "name": "SUB_B7B5",
+    "description": "Sayı dönüştürme, ASCII rakamları ($7A-$7B) sayıya çevirir ve ($5F) kaydeder.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F", "description": "Sayı tamponu"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C"]
+  },
+  "$B8A7": {
+    "name": "SUB_B8A7",
+    "description": "İlk sayıyı alır, programdan ($7A-$7B) sayıyı ($5F) kaydeder.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F", "description": "Sayı tamponu"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$B86A": {
+    "name": "SUB_B86A",
+    "description": "İkinci sayıyı alır, programdan ($7A-$7B) sayıyı ($60) kaydeder.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$60", "description": "Sayı tamponu"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$B79B": {
+    "name": "ADD",
+    "description": "Toplama operatörü (+), iki sayıyı ($5F, $60) toplar ve sonucu ($5F) kaydeder ($AA token).",
+    "parameters": [
+      {"zeropage": "$5F", "description": "İlk sayı"},
+      {"zeropage": "$60", "description": "İkinci sayı"},
+      {"register": "A", "description": "Sonuç (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C", "V"]
+  },
+  "$B9EA": {
+    "name": "SUBTRACT",
+    "description": "Çıkarma operatörü (-), ikinci sayı ($60) birinci sayıdan ($5F) çıkar ve sonucu ($5F) kaydeder ($AB token).",
+    "parameters": [
+      {"zeropage": "$5F", "description": "İlk sayı"},
+      {"zeropage": "$60", "description": "İkinci sayı"},
+      {"register": "A", "description": "Sonuç (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C", "V"]
+  },
+  "$BA28": {
+    "name": "MULTIPLY",
+    "description": "Çarpma operatörü (*), iki sayıyı ($5F, $60) çarpar ve sonucu ($61-$62) kaydeder ($AC token).",
+    "parameters": [
+      {"zeropage": "$5F", "description": "İlk sayı"},
+      {"zeropage": "$60", "description": "İkinci sayı"},
+      {"zeropage": "$61-$62", "description": "Sonuç"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C"]
+  },
+  "$BB0F": {
+    "name": "DIVIDE",
+    "description": "Bölme operatörü (/), bölüneni ($5F) bölene ($60) böler ve sonucu ($61) kaydeder ($AD token).",
+    "parameters": [
+      {"zeropage": "$5F", "description": "Bölünen"},
+      {"zeropage": "$60", "description": "Bölen"},
+      {"zeropage": "$61", "description": "Bölüm"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C"]
+  },
+  "$A9FF": {
+    "name": "GOTO",
+    "description": "GOTO komutunu yürütür, belirtilen satıra ($5F-$60) atlar ($89 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Hedef adres"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$AD8A": {
+    "name": "FOR",
+    "description": "FOR döngüsünü başlatır, döngü değişkenini ($5F-$60) ayarlar ($81 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F-$60", "description": "Döngü değişkeni"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$AE83": {
+    "name": "NEXT",
+    "description": "NEXT komutunu yürütür, FOR döngüsünü ilerletir ve sınır kontrolü yapar ($82 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Döngü değişkeni ve sınırı"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C"]
+  },
+  "$B391": {
+    "name": "INPUT",
+    "description": "INPUT komutunu yürütür, kullanıcıdan giriş alır ve değişkene ($5F-$60) kaydeder ($85 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F-$60", "description": "Giriş değişkeni"},
+      {"register": "A", "description": "Girilen karakter"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$AABC": {
+    "name": "ERROR",
+    "description": "Hata mesajını ekrana basar, hata kodunu ($7A-$7B) okur.",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"register": "A", "description": "Hata kodu"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$A7AE": {
+    "name": "END",
+    "description": "END komutunu yürütür, programı sonlandırır ve komut satırı döngüsüne döner ($80 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$B67D": {
+    "name": "CONCAT",
+    "description": "İki string'i birleştirir, string'leri ($5F-$60, $61-$62) birleştirir.",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "İlk string adresi"},
+      {"zeropage": "$61-$62", "description": "İkinci string adresi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B475": {
+    "name": "STRCMP",
+    "description": "İki string'i karşılaştırır, string'leri ($5F-$60, $61-$62) karşılaştırır.",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "İlk string adresi"},
+      {"zeropage": "$61-$62", "description": "İkinci string adresi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C"]
+  },
+  "$B3B3": {
+    "name": "USR",
+    "description": "Kullanıcı tanımlı makine kodu rutinini çağırır, $0311-$0312 adresinden JSR yapar ($B7 token).",
+    "parameters": [
+      {"zeropage": "$0311-$0312", "description": "USR vektörü"},
+      {"zeropage": "$5F-$60", "description": "Parametre adresi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$B82D": {
+    "name": "PEEK",
+    "description": "PEEK fonksiyonu, belirtilen adresteki ($5F-$60) baytı okur ve A register'ına döndürür ($C2 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Okunacak adres"},
+      {"register": "A", "description": "Okunan bayt (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B824": {
+    "name": "POKE",
+    "description": "POKE komutunu yürütür, belirtilen adrese ($60-$61) bayt yazar ($97 token).",
+    "parameters": [
+      {"zeropage": "$60-$61", "description": "Hedef adres"},
+      {"zeropage": "$5F", "description": "Yazılacak bayt"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$B77B": {
+    "name": "CHR",
+    "description": "CHR$ fonksiyonu, sayısal kodu ($5F) karaktere çevirir ve ekrana basar ($C7 token).",
+    "parameters": [
+      {"zeropage": "$5F", "description": "Karakter kodu"},
+      {"register": "A", "description": "Karakter kodu"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B6EC": {
+    "name": "ASC",
+    "description": "ASC fonksiyonu, string'in ($5F-$60) ilk karakterinin ASCII kodunu A register'ına döndürür ($C6 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "String adresi"},
+      {"register": "A", "description": "ASCII kodu (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B737": {
+    "name": "LEFT",
+    "description": "LEFT$ fonksiyonu, string'in ($5F-$60) solundan belirtilen uzunlukta parça alır ($C8 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "String adresi"},
+      {"zeropage": "$61", "description": "Uzunluk"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B700": {
+    "name": "RIGHT",
+    "description": "RIGHT$ fonksiyonu, string'in ($5F-$60) sağından belirtilen uzunlukta parça alır ($C9 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "String adresi"},
+      {"zeropage": "$61", "description": "Uzunluk"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B72C": {
+    "name": "MID",
+    "description": "MID$ fonksiyonu, string'in ($5F-$60) belirtilen konumdan uzunlukta parça alır ($CA token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "String adresi"},
+      {"zeropage": "$61", "description": "Başlangıç konumu"},
+      {"zeropage": "$62", "description": "Uzunluk"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$AD9E": {
+    "name": "IF",
+    "description": "IF komutunu yürütür, koşula göre ($5F-$60) komut çalıştırır ($8B token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Koşul değeri"},
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$AE8D": {
+    "name": "GOSUB",
+    "description": "GOSUB komutunu yürütür, alt rutine ($5F-$60) atlar ve dönüş adresini yığına kaydeder ($8D token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Hedef adres"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$AEF1": {
+    "name": "RETURN",
+    "description": "RETURN komutunu yürütür, GOSUB'dan yığından adres alarak döner ($8E token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A93A": {
+    "name": "ON",
+    "description": "ON komutunu yürütür, sayıya ($5F) göre komut seçer ($91 token).",
+    "parameters": [
+      {"zeropage": "$5F", "description": "Seçim sayısı"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$A8A0": {
+    "name": "REM",
+    "description": "REM komutunu yürütür, yorum satırını ($7A-$7B) atlar ($8F token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$A9A5": {
+    "name": "DATA",
+    "description": "DATA komutunu yürütür, veri satırını ($7A-$7B) tanımlar ($83 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A81D": {
+    "name": "READ",
+    "description": "READ komutunu yürütür, DATA satırından ($7A-$7B) veri okur ($87 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"zeropage": "$5F-$60", "description": "Veri değişkeni"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$A857": {
+    "name": "RESTORE",
+    "description": "RESTORE komutunu yürütür, DATA işaretçisini ($7A-$7B) sıfırlar ($8C token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$B0BA": {
+    "name": "SGN",
+    "description": "SGN fonksiyonu, sayının ($5F) işaretini döndürür (0, 1, -1) ($B4 token).",
+    "parameters": [
+      {"zeropage": "$5F", "description": "Sayı"},
+      {"register": "A", "description": "İşaret (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "N"]
+  },
+  "$BCCC": {
+    "name": "INT",
+    "description": "INT fonksiyonu, sayının ($5F-$60) tamsayı kısmını döndürür ($B5 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Sayı"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B37D": {
+    "name": "ABS",
+    "description": "ABS fonksiyonu, sayının ($5F-$60) mutlak değerini döndürür ($B6 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Sayı"},
+      {"register": "A", "description": "Mutlak değer (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "N"]
+  },
+  "$B9D9": {
+    "name": "FRE",
+    "description": "FRE fonksiyonu, boş bellek miktarını ($5F-$60) döndürür ($B8 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Boş bellek miktarı (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B9BC": {
+    "name": "POS",
+    "description": "POS fonksiyonu, imlecin sütun pozisyonunu ($D3) döndürür ($B9 token).",
+    "parameters": [
+      {"zeropage": "$D3", "description": "İmleç sütun pozisyonu"},
+      {"register": "A", "description": "Pozisyon (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$BC9B": {
+    "name": "SQR",
+    "description": "SQR fonksiyonu, sayının ($5F-$60) karekökünü hesaplar ($BA token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Sayı"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B8F3": {
+    "name": "RND",
+    "description": "RND fonksiyonu, rastgele sayı üretir ve ($5F-$60) döndürür ($BB token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Rastgele sayı (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$BBA2": {
+    "name": "LOG",
+    "description": "LOG fonksiyonu, sayının ($5F-$60) doğal logaritmasını hesaplar ($BC token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Sayı"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$BF71": {
+    "name": "EXP",
+    "description": "EXP fonksiyonu, e^x hesaplar ($5F-$60) ve sonucu döndürür ($BD token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Sayı"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$BFED": {
+    "name": "COS",
+    "description": "COS fonksiyonu, kosinüs hesaplar ($5F-$60) ve sonucu döndürür ($BE token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Açı (radyan)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$BFB4": {
+    "name": "SIN",
+    "description": "SIN fonksiyonu, sinüs hesaplar ($5F-$60) ve sonucu döndürür ($BF token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Açı (radyan)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$BFE6": {
+    "name": "TAN",
+    "description": "TAN fonksiyonu, tanjant hesaplar ($5F-$60) ve sonucu döndürür ($C0 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Açı (radyan)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B947": {
+    "name": "ATN",
+    "description": "ATN fonksiyonu, arktanjant hesaplar ($5F-$60) ve sonucu döndürür ($C1 token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Sayı"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$A9DA": {
+    "name": "RUN",
+    "description": "RUN komutunu yürütür, programı ($7A-$7B) başlatır ($8A token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A8D2": {
+    "name": "STOP",
+    "description": "STOP komutunu yürütür, programı durdurur ($90 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$A831": {
+    "name": "CONT",
+    "description": "CONT komutunu yürütür, durdurulan programı sürdürür ($9A token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A8B8": {
+    "name": "LIST",
+    "description": "LIST komutunu yürütür, programı ($7A-$7B) listeler ($9B token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A613": {
+    "name": "CLR",
+    "description": "CLR komutunu yürütür, değişkenleri ve yığını temizler ($9C token).",
+    "parameters": [],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A9C4": {
+    "name": "CMD",
+    "description": "CMD komutunu yürütür, çıkış cihazını değiştirir ($9D token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A9E3": {
+    "name": "SYS",
+    "description": "SYS komutunu yürütür, belirtilen adrese ($5F-$60) atlar ($9E token).",
+    "parameters": [
+      {"zeropage": "$5F-$60", "description": "Hedef adres"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  },
+  "$A98B": {
+    "name": "OPEN",
+    "description": "OPEN komutunu yürütür, dosya veya cihaz açar ($9F token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z", "C"]
+  },
+  "$A9A2": {
+    "name": "CLOSE",
+    "description": "CLOSE komutunu yürütür, dosya veya cihazı kapatır ($A0 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$B79B": {
+    "name": "GET",
+    "description": "GET komutunu yürütür, tek karakter giriş alır ($A1 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"},
+      {"register": "A", "description": "Girilen karakter (dönüş)"}
+    ],
+    "input_flags": [],
+    "output_flags": ["Z"]
+  },
+  "$A533": {
+    "name": "NEW",
+    "description": "NEW komutunu yürütür, programı ve değişkenleri sıfırlar ($A2 token).",
+    "parameters": [
+      {"zeropage": "$7A-$7B", "description": "Program işaretçisi"}
+    ],
+    "input_flags": [],
+    "output_flags": []
+  }
+}
