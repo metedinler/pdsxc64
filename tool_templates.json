@@ -1,0 +1,106 @@
+{
+  "templates": {
+    "assemblers": {
+      "64tass": {
+        "basic": "%TOOL_PATH% %DOSYAADI% -o %CIKTI%",
+        "with_listing": "%TOOL_PATH% %DOSYAADI% -o %CIKTI% --list=%LISTING%",
+        "with_labels": "%TOOL_PATH% %DOSYAADI% -o %CIKTI% --labels=%SYMBOLS%",
+        "full_featured": "%TOOL_PATH% --verbose %DOSYAADI% -o %CIKTI% --list=%LISTING% --labels=%SYMBOLS%",
+        "cross_reference": "%TOOL_PATH% %DOSYAADI% -o %CIKTI% --list=%LISTING% --labels=%SYMBOLS% --vice-labels",
+        "multiple_files": "%TOOL_PATH% %DOSYAADI% -I %YOL% -o %CIKTI%"
+      },
+      "acme": {
+        "basic": "%TOOL_PATH% %DOSYAADI%",
+        "with_output": "%TOOL_PATH% --outfile %CIKTI% %DOSYAADI%",
+        "cbm_format": "%TOOL_PATH% --format cbm %DOSYAADI%",
+        "with_listing": "%TOOL_PATH% --outfile %CIKTI% --report %LISTING% %DOSYAADI%",
+        "with_symbols": "%TOOL_PATH% --outfile %CIKTI% --labeldump %SYMBOLS% %DOSYAADI%",
+        "full_featured": "%TOOL_PATH% --format cbm --outfile %CIKTI% --report %LISTING% --labeldump %SYMBOLS% %DOSYAADI%"
+      },
+      "dasm": {
+        "basic": "%TOOL_PATH% %DOSYAADI% -o%CIKTI%",
+        "with_listing": "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -l%LISTING%",
+        "with_symbols": "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -s%SYMBOLS%",
+        "full_featured": "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -l%LISTING% -s%SYMBOLS%",
+        "verbose": "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -v3",
+        "format_1": "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -f1"
+      },
+      "kickass": {
+        "basic": "java -jar %TOOL_PATH% %DOSYAADI%",
+        "with_output": "java -jar %TOOL_PATH% -o %CIKTI% %DOSYAADI%",
+        "with_symbols": "java -jar %TOOL_PATH% -symbolfile -vicesymbols %DOSYAADI%",
+        "with_listing": "java -jar %TOOL_PATH% -showmem %DOSYAADI%",
+        "full_featured": "java -jar %TOOL_PATH% -o %CIKTI% -symbolfile -vicesymbols -showmem %DOSYAADI%",
+        "with_lib": "java -jar %TOOL_PATH% -libdir %YOL%/lib %DOSYAADI%"
+      },
+      "ca65": {
+        "basic": "%TOOL_PATH% %DOSYAADI%",
+        "with_output": "%TOOL_PATH% -o %CIKTI% %DOSYAADI%",
+        "with_listing": "%TOOL_PATH% -l %LISTING% %DOSYAADI%",
+        "c64_target": "%TOOL_PATH% -t c64 %DOSYAADI%",
+        "with_debug": "%TOOL_PATH% -g -o %CIKTI% %DOSYAADI%",
+        "full_featured": "%TOOL_PATH% -t c64 -g -l %LISTING% -o %CIKTI% %DOSYAADI%"
+      },
+      "xa": {
+        "basic": "%TOOL_PATH% %DOSYAADI%",
+        "with_output": "%TOOL_PATH% -o %CIKTI% %DOSYAADI%",
+        "with_listing": "%TOOL_PATH% -l %LISTING% %DOSYAADI%",
+        "c64_compatible": "%TOOL_PATH% -XC %DOSYAADI%",
+        "full_featured": "%TOOL_PATH% -XC -o %CIKTI% -l %LISTING% %DOSYAADI%"
+      }
+    },
+    "compilers": {
+      "cc65": {
+        "basic": "%TOOL_PATH% -t c64 %DOSYAADI%",
+        "optimized": "%TOOL_PATH% -t c64 -O %DOSYAADI%",
+        "with_output": "%TOOL_PATH% -t c64 -o %CIKTI% %DOSYAADI%",
+        "with_listing": "%TOOL_PATH% -t c64 -l %LISTING% %DOSYAADI%",
+        "debug": "%TOOL_PATH% -t c64 -g %DOSYAADI%",
+        "full_featured": "%TOOL_PATH% -t c64 -O -o %CIKTI% -l %LISTING% %DOSYAADI%"
+      },
+      "oscar64": {
+        "basic": "%TOOL_PATH% %DOSYAADI%",
+        "with_output": "%TOOL_PATH% %DOSYAADI% -o %CIKTI%",
+        "c64_target": "%TOOL_PATH% -tm=c64 %DOSYAADI%",
+        "optimized": "%TOOL_PATH% -O2 %DOSYAADI% -o %CIKTI%",
+        "with_listing": "%TOOL_PATH% %DOSYAADI% -o %CIKTI% -l",
+        "full_featured": "%TOOL_PATH% -tm=c64 -O2 %DOSYAADI% -o %CIKTI% -l"
+      }
+    },
+    "interpreters": {
+      "python": {
+        "basic": "%TOOL_PATH% %DOSYAADI%",
+        "with_module": "%TOOL_PATH% -m %MODULE% %DOSYAADI%",
+        "interactive": "%TOOL_PATH% -i %DOSYAADI%",
+        "optimized": "%TOOL_PATH% -O %DOSYAADI%",
+        "with_options": "%TOOL_PATH% %OPTIONS% %DOSYAADI%"
+      }
+    },
+    "utilities": {
+      "c1541": {
+        "format_disk": "%TOOL_PATH% -format diskname,id d64 %CIKTI%",
+        "attach_disk": "%TOOL_PATH% -attach %DOSYAADI%",
+        "write_file": "%TOOL_PATH% -attach %DOSYAADI% -write %CIKTI% filename",
+        "read_file": "%TOOL_PATH% -attach %DOSYAADI% -read filename %CIKTI%",
+        "list_files": "%TOOL_PATH% -attach %DOSYAADI% -list"
+      },
+      "petcat": {
+        "tokenize": "%TOOL_PATH% -w2 -o %CIKTI% -- %DOSYAADI%",
+        "detokenize": "%TOOL_PATH% -2 -o %CIKTI% -- %DOSYAADI%",
+        "list_program": "%TOOL_PATH% -2 -- %DOSYAADI%"
+      }
+    }
+  },
+  "variables": {
+    "%TOOL_PATH%": "Full path to the tool executable",
+    "%YOL%": "Working directory path",
+    "%DOSYAADI%": "Input filename (source file)",
+    "%CIKTI%": "Output filename (compiled/assembled file)",
+    "%BASLANGIC%": "Start address (e.g., $0801)",
+    "%FORMAT%": "Output format (prg, bin, etc.)",
+    "%LISTING%": "Listing filename (.lst)",
+    "%SYMBOLS%": "Symbol filename (.sym/.lbl)",
+    "%MODULE%": "Python module name",
+    "%OPTIONS%": "Additional command line options"
+  }
+}
