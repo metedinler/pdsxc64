@@ -1,0 +1,88 @@
+=== C6510 USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c6510-1.0.0/c6510/bin/win_x64/c6510.exe
+Category: assemblers
+Learning Date: 2025-07-29 13:10:02.149769
+============================================================
+
+COMMAND: c6510 --help
+----------------------------------------
+STDOUT:
+c6510 version 1.0.0 - a macro based cross-assembler for C64
+  Originally written by CRT a.k.a. John Hammarberg
+  Extended by Krikkit a.k.a. Robert Lundquist
+Usage: c6510 [OPTIONS...] FILES...
+Example: c6510 -s output.prg - + input.s
+Options:
+  -h, --help                              This help text
+  -i, --input <file>                      Add source file to assemble
+  -p, --path <path>                       Add a search path for includes
+  -d, --declare <name>[=<value>]          Define constant 'name', with optional value, before any files are assembled
+  -s, --save <file> <start> <end>         Save a block of memory after assembly in PRG format. Labels can be used as addresses
+  -f, --freeze <src file> <dst file>      Update a VICE compatible freeze image with assembled content
+  -y, --sym <file>                        Dump a symbol file in VICE format
+  -wo, --warn-overwrite                   Only warn when overwriting already defined memory (default treat as error)
+  -b, --build-file <file>                 Save build file with include paths
+
+Return Code: 4294967295
+
+============================================================
+
+COMMAND: c6510 -h
+----------------------------------------
+STDOUT:
+c6510 version 1.0.0 - a macro based cross-assembler for C64
+  Originally written by CRT a.k.a. John Hammarberg
+  Extended by Krikkit a.k.a. Robert Lundquist
+Usage: c6510 [OPTIONS...] FILES...
+Example: c6510 -s output.prg - + input.s
+Options:
+  -h, --help                              This help text
+  -i, --input <file>                      Add source file to assemble
+  -p, --path <path>                       Add a search path for includes
+  -d, --declare <name>[=<value>]          Define constant 'name', with optional value, before any files are assembled
+  -s, --save <file> <start> <end>         Save a block of memory after assembly in PRG format. Labels can be used as addresses
+  -f, --freeze <src file> <dst file>      Update a VICE compatible freeze image with assembled content
+  -y, --sym <file>                        Dump a symbol file in VICE format
+  -wo, --warn-overwrite                   Only warn when overwriting already defined memory (default treat as error)
+  -b, --build-file <file>                 Save build file with include paths
+
+Return Code: 4294967295
+
+============================================================
+
+COMMAND: c6510 --version
+----------------------------------------
+STDERR:
+Error: File not found '--version'
+
+Return Code: 4294967295
+
+============================================================
+
+COMMAND: c6510 -v
+----------------------------------------
+STDERR:
+Error: File not found '-v'
+
+Return Code: 4294967295
+
+============================================================
+
+COMMAND: c6510 -?
+----------------------------------------
+STDERR:
+Error: File not found '-?'
+
+Return Code: 4294967295
+
+============================================================
+
+COMMAND: c6510 /?
+----------------------------------------
+STDERR:
+Error: File not found '/?'
+
+Return Code: 4294967295
+
+============================================================
+
