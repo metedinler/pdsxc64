@@ -1,0 +1,48 @@
+=== BASEDIT USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BasEdit.Net (1)/BasEdit.exe
+Category: special
+Learning Date: 2025-07-29 07:48:19.102051
+============================================================
+
+COMMAND: basedit --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: basedit -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: basedit --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: basedit -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: basedit -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: basedit /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
