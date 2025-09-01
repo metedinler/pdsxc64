@@ -1,0 +1,69 @@
+=== P2HEX USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/p2hex.exe
+Category: special
+Learning Date: 2025-07-29 07:37:44.528683
+============================================================
+
+COMMAND: p2hex --help
+----------------------------------------
+STDERR:
+invalid parameter (-help for help): --help
+program terminated
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2hex -h
+----------------------------------------
+STDERR:
+invalid option (-help for help): -h
+program terminated
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2hex --version
+----------------------------------------
+STDERR:
+invalid parameter (-help for help): --version
+program terminated
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2hex -v
+----------------------------------------
+STDOUT:
+P2HEX V1.42 Beta [Bld 291]
+(C) 1992,2025 Alfred Arnold
+
+STDERR:
+p2hex.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2hex -?
+----------------------------------------
+STDERR:
+invalid option (-help for help): -?
+program terminated
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2hex /?
+----------------------------------------
+STDERR:
+invalid option (-help for help): /?
+program terminated
+
+Return Code: 1
+
+============================================================
+
