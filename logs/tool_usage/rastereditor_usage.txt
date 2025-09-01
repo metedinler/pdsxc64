@@ -1,0 +1,48 @@
+=== RASTEREDITOR USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/bin/c64-picextender.exe
+Category: special
+Learning Date: 2025-07-29 12:38:20.823967
+============================================================
+
+COMMAND: rastereditor --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: rastereditor -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: rastereditor --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: rastereditor -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: rastereditor -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: rastereditor /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
