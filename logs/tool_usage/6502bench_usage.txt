@@ -1,0 +1,48 @@
+=== 6502BENCH USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/6502bench100/SourceGen.exe
+Category: assemblers
+Learning Date: 2025-07-28 23:08:18.574530
+============================================================
+
+COMMAND: 6502bench --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502bench -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502bench --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502bench -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502bench -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502bench /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
