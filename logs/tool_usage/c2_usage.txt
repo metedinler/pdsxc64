@@ -1,0 +1,102 @@
+=== C2 USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c2_0.6.4_mingw_win64 (1)/c2_0.6.4/c2.exe
+Category: assemblers
+Learning Date: 2025-07-29 08:28:24.983204
+============================================================
+
+COMMAND: c2 --help
+----------------------------------------
+STDOUT:
+c2 cross assembler version: 0.6.4 (0.6.4)
+Copyright (C) 2022-2024  John Hammarberg (CRT)
+Usage: c2.exe [options] [file]
+
+STDERR:
+-h, --help               Show this help
+    --version            Show version
+-L, --license            Show GPL3
+-r, --rebuild            Force a project rebuild
+    --clean              Delete project intermediate files
+-X, --no-execute         Do not execute anything after build
+-B, --no-build           Do not build
+-p, --project            <filename>: Explicitly load project file
+-d, --direct             <template> <source>: Direct assembly
+-c, --create-project     <template> <name> [path]: Creates a new project
+                         based on the specified template. If a path is
+                         given it will be created and used, otherwise the
+                         current directory is used
+-l, --list-templates     List available templates for project creation
+-D, --c2-library-dir     <path>: Add a c2 library path
+-C, --compiler           <path>: Explicitly set compiler
+-i, --include            <path>: Add an include search path for source
+                         and binaries
+-v, --verbose            Output more information. Can be stacked for even
+                         more: -vvv
+
+Return Code: 0
+
+============================================================
+
+COMMAND: c2 -h
+----------------------------------------
+STDOUT:
+c2 cross assembler version: 0.6.4 (0.6.4)
+Copyright (C) 2022-2024  John Hammarberg (CRT)
+Usage: c2.exe [options] [file]
+
+STDERR:
+-h, --help               Show this help
+    --version            Show version
+-L, --license            Show GPL3
+-r, --rebuild            Force a project rebuild
+    --clean              Delete project intermediate files
+-X, --no-execute         Do not execute anything after build
+-B, --no-build           Do not build
+-p, --project            <filename>: Explicitly load project file
+-d, --direct             <template> <source>: Direct assembly
+-c, --create-project     <template> <name> [path]: Creates a new project
+                         based on the specified template. If a path is
+                         given it will be created and used, otherwise the
+                         current directory is used
+-l, --list-templates     List available templates for project creation
+-D, --c2-library-dir     <path>: Add a c2 library path
+-C, --compiler           <path>: Explicitly set compiler
+-i, --include            <path>: Add an include search path for source
+                         and binaries
+-v, --verbose            Output more information. Can be stacked for even
+                         more: -vvv
+
+Return Code: 0
+
+============================================================
+
+COMMAND: c2 --version
+----------------------------------------
+STDOUT:
+0.6.4 (0.6.4)
+
+Return Code: 0
+
+============================================================
+
+COMMAND: c2 -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c2 -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c2 /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
