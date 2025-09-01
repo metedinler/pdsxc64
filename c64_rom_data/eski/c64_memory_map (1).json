@@ -1,0 +1,77 @@
+{
+  "$0000": {
+    "end_addr": "$00FF",
+    "name": "Zero Page",
+    "description": "Sıfır sayfası, sistem değişkenleri ve işaretçiler için kullanılır. BASIC ve KERNAL tarafından yoğun şekilde kullanılan adresler ($02-$90, $FB-$FE gibi). Örneğin, $7A-$7B program işaretçisi, $5F-$60 değişken işaretçisi. Kullanıcı programları için sadece birkaç adres ($FB-$FE) güvenli."
+  },
+  "$0100": {
+    "end_addr": "$01FF",
+    "name": "Stack",
+    "description": "Yığın (stack) alanı, kesmeler, alt rutin çağrıları (JSR/RTS) ve geçici veri saklama için kullanılır. Yığın işaretçisi ($01FF'den aşağıya) SP register'ı tarafından kontrol edilir."
+  },
+  "$0200": {
+    "end_addr": "$03FF",
+    "name": "System Work RAM",
+    "description": "Sistem çalışma RAM'i, BASIC ve KERNAL için geçici veri saklama alanı. Örneğin, $033C-$03FB kaset tamponu olarak kullanılır. Kullanıcı programları için dikkatli kullanılmalı."
+  },
+  "$0400": {
+    "end_addr": "$07E7",
+    "name": "Screen RAM",
+    "description": "Ekran RAM'i, varsayılan olarak 40x25 karakterlik ekran matrisini tutar (1000 bayt). Her bayt bir ekran kodunu temsil eder ('SCREEN[position]'). Örneğin, POKE 1024,1 'A' karakterini sol üst köşeye yazar. VIC-II tarafından okunur ($D018 ile adres değiştirilebilir)."
+  },
+  "$07E8": {
+    "end_addr": "$07FF",
+    "name": "Unused RAM",
+    "description": "Kullanılmayan RAM, ekran RAM'i sonrası küçük bir alan. Kullanıcı programları için serbest, ancak genellikle tampon olarak kullanılır."
+  },
+  "$0800": {
+    "end_addr": "$9FFF",
+    "name": "BASIC Program RAM",
+    "description": "BASIC programlarının ve değişkenlerinin saklandığı ana RAM alanı (38 KB). Varsayılan olarak $0800-$9FFF kullanılır, ancak $0001 (LORAM) ile değiştirilebilir. Örneğin, $0800-$0801 yükleme adresi, $0802 sonrası program kodu."
+  },
+  "$A000": {
+    "end_addr": "$BFFF",
+    "name": "BASIC ROM",
+    "description": "BASIC V2 ROM, BASIC interpreter kodunu içerir ($A000-$BFFF, 8 KB). Örneğin, $A871 LEN rutini, $AB1E PRINT rutini. $0001 (LORAM=0) ile RAM'e geçilebilir, ROM'a yazma alttaki RAM'e yazılır."
+  },
+  "$C000": {
+    "end_addr": "$CFFF",
+    "name": "Free RAM",
+    "description": "Serbest RAM alanı, kullanıcı programları veya ek veri için kullanılır (4 KB). BASIC veya KERNAL tarafından kullanılmaz, güvenli bir alandır."
+  },
+  "$D000": {
+    "end_addr": "$D3FF",
+    "name": "VIC-II",
+    "description": "VIC-II grafik yongası register'ları, ekran, sprite ve renk ayarlarını kontrol eder ('VIC.register'). Örneğin, $D000-$D001 sprite 0 koordinatları, $D011 ekran kontrolü. $0001 (CHAREN=1) ile görünür, aksi takdirde karakter ROM ($D000-$DFFF) görünür."
+  },
+  "$D400": {
+    "end_addr": "$D7FF",
+    "name": "SID",
+    "description": "SID ses yongası register'ları, ses frekansı, dalga formu ve filtre ayarlarını kontrol eder. Örneğin, $D400-$D401 ses 1 frekansı, $D418 ses seviyesi."
+  },
+  "$D800": {
+    "end_addr": "$DBE7",
+    "name": "Color RAM",
+    "description": "Renk RAM'i, ekran karakterlerinin renklerini tutar (1000 bayt, 'COLOR[position]'). Sadece düşük 4 bit (0-3) kullanılır, 0-15 PETSCII renk kodu. Örneğin, POKE 55296,1 sol üst köşeyi beyaza boyar."
+  },
+  "$DBE8": {
+    "end_addr": "$DFFF",
+    "name": "Unused IO",
+    "description": "Kullanılmayan I/O alanı, yazılabilir ancak işlevsiz. Genişletme kartuşları için ayrılmış."
+  },
+  "$DE00": {
+    "end_addr": "$DEFF",
+    "name": "Expansion IO1",
+    "description": "Genişletme portu I/O alanı 1, kartuşlar veya harici cihazlar için kullanılır. Standart C64'te genellikle boştur."
+  },
+  "$DF00": {
+    "end_addr": "$DFFF",
+    "name": "Expansion IO2",
+    "description": "Genişletme portu I/O alanı 2, kartuşlar veya harici cihazlar için kullanılır. Standart C64'te genellikle boştur."
+  },
+  "$E000": {
+    "end_addr": "$FFFF",
+    "name": "KERNAL ROM",
+    "description": "KERNAL ROM, sistem yönetimi ve I/O işlemleri için kod içerir (8 KB). Örneğin, $FFD2 CHROUT, $FFD5 LOAD. $0001 (HIRAM=0) ile RAM'e geçilebilir, ROM'a yazma alttaki RAM'e yazılır."
+  }
+}
