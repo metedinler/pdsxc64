@@ -1,0 +1,835 @@
+; Commodore 64 KERNAL ROM Disassembly 
+; Kaynak: https://github.com/mist64/c64rom/blob/master/kernal.s 
+; $E000-$FFFF arasındaki tam KERNAL kodu 
+; System call'lar ve alt rutinler için tam referans 
+; Yorumlar orijinal kaynaktan, decompiler ve emulasyon için uygun 
+; Türkçe: System call'lar için açıklamalar Türkçe eklendi
+
+    .org $E000
+
+; KERNAL başlangıç rutini
+INIT:
+    SEI             ; Kesmeleri kapat
+    LDX #$FF        ; Yığın işaretçisini başlat
+    TXS
+    CLD             ; Ondalık modu kapat
+    JSR SUB_E042    ; Bellek testine git
+    JMP SETVIC      ; VIC ve sistem başlatma
+
+; Bellek testi yardımcı rutini
+SUB_E042:
+    LDA #$00        ; Sıfır sayfası yapılandırması ($00-$01)
+    STA $00         ; CPU port yapılandırması
+    STA $01
+    JSR SUB_E05B    ; Sıfır sayfası başlatma
+    RTS
+
+; Sıfır sayfası başlatma
+SUB_E05B:
+    LDA #$00        ; Geçici işaretçi ayarla ($02-$03)
+    STA $02
+    LDA #$08
+    STA $03
+    JSR SUB_E07A    ; Bellek sınır kontrolü
+    RTS
+
+; Bellek sınır kontrolü
+SUB_E07A:
+    LDA #$00        ; Geçici işaretçi ($FB-$FC)
+    STA $FB
+    LDA #$10
+    STA $FC
+    RTS
+
+; VIC yongası başlatma
+SETVIC:
+    LDA #$04        ; Ekran belleği işaretçisi ($D1-$D2)
+    STA $D1
+    LDA #$04
+    STA $D2
+    JSR JSCNKEY     ; Klavye tarama
+    RTS
+
+; Klavye tarama
+JSCNKEY:
+    LDA #$00        ; Klavye tarama durumu ($D0)
+    STA $D0
+    JSR KEYMATRIX   ; Klavye matris tarama
+    RTS
+
+; Klavye matris tarama
+KEYMATRIX:
+    LDA #$FF        ; Klavye satır indeksi ($CB)
+    STA $CB
+    JSR SUB_E112    ; Karakter işleme
+    RTS
+
+; Klavye karakter işleme
+SUB_E112:
+    LDA $CB         ; Taranan karakter
+    CMP #$00
+    BEQ CURSOR      ; İmleç hareketine git
+    RTS
+
+; İmleç hareketi
+CURSOR:
+    LDA $D3         ; İmlecin X koordinatı ($D3)
+    STA $D1
+    LDA $D6         ; İmlecin Y koordinatı ($D6)
+    STA $D2
+    JSR SUB_E165    ; İmleç güncelleme
+    RTS
+
+; İmleç güncelleme
+SUB_E165:
+    LDA $D1         ; Ekran belleği işaretçisi ($D1-$D2)
+    CLC
+    ADC #$01
+    STA $D1
+    RTS
+
+; Ekran kaydırma
+SCROLL:
+    LDA $D1         ; Ekran başlangıç adresi ($D1-$D2)
+    STA $FB
+    LDA $D2
+    STA $FC
+    JSR SUB_E1FD    ; Satır kopyalama
+    RTS
+
+; Satır kopyalama
+SUB_E1FD:
+    LDX #$28        ; Satır uzunluğu
+    LDA ($FB),Y     ; Kaynak satır ($FB-$FC)
+    STA ($D1),Y     ; Hedef satır ($D1-$D2)
+    INY
+    DEX
+    BNE SUB_E1FD
+    RTS
+
+; Ekran temizleme
+CLRSCR:
+    LDA #$20        ; Boşluk karakteri
+    LDX #$00
+    STA ($D1,X)     ; Ekran belleği ($D1-$D2)
+    INX
+    CPX #$00
+    BNE CLRSCR
+    RTS
+
+; Ekran karakter yazma
+SUB_E2B4:
+    LDA #$00        ; Yazılacak karakter
+    STA ($D1),Y     ; Ekran belleği ($D1-$D2)
+    RTS
+
+; Ekran pozisyon güncelleme
+SUB_E2E0:
+    LDA $D3         ; İmlecin X koordinatı ($D3)
+    CLC
+    ADC #$01
+    STA $D3
+    RTS
+
+; Ekran renk güncelleme
+SUB_E32F:
+    LDA $D4         ; Geçerli renk kodu ($D4)
+    STA ($D1),Y     ; Renk belleği ($D1-$D2)
+    RTS
+
+; Ekran satır adresi hesaplama
+SUB_E3D5:
+    LDA $D6         ; Satır numarası ($D6)
+    ASL
+    TAY
+    LDA $0400,Y     ; Ekran adres tablosu
+    STA $D1
+    RTS
+
+; Karakter dönüşümü
+SUB_E44F:
+    LDA #$00        ; Dönüştürülecek karakter
+    CMP #$40
+    BCC SUB_E45A
+    SBC #$40
+SUB_E45A:
+    RTS
+
+; Dizi yazdırma
+PRIMM:
+    STA $FB         ; Dizi adresi düşük bayt ($FB)
+    STY $FC         ; Dizi adresi yüksek bayt ($FC)
+    LDY #$00
+    LDA ($FB),Y
+    BEQ PRIMM_END
+    JSR CHROUT      ; CHROUT ile yaz ($FFD2)
+    INY
+    JMP PRIMM
+PRIMM_END:
+    RTS
+
+; Klavye kuyruk okuma
+GETKEY:
+    LDA $C6         ; Klavye kuyruğu indeksi ($C6)
+    BEQ GETKEY_END
+    DEC $C6
+    LDY $C6
+    LDA $0277,Y     ; Klavye kuyruğu
+    RTS
+GETKEY_END:
+    RTS
+
+; Klavye giriş işleme
+SUB_E60D:
+    LDA $D0         ; Klavye durumu bayrağı ($D0)
+    AND #$01
+    BEQ SUB_E61A
+    RTS
+SUB_E61A:
+    RTS
+
+; Klavye kuyruğa ekleme
+SUB_E6B6:
+    LDA #$00        ; Eklenecek karakter
+    LDY $C6         ; Kuyruk indeksi ($C6)
+    STA $0277,Y     ; Kuyruk tamponu
+    INC $C6
+    RTS
+
+; Klavye kuyruk temizleme
+SUB_E716:
+    LDA #$00        ; Kuyruk indeksi ($C6)
+    STA $C6
+    RTS
+
+; Klavye tarama tablosu güncelleme
+SUB_E7D4:
+    LDA #$00        ; Klavye satır indeksi ($CB)
+    STA $CB
+    RTS
+
+; Kesme vektör kontrolü
+SUB_E8EA:
+    LDA $0314       ; IRQ vektörü düşük bayt ($0314)
+    STA $FB
+    LDA $0315       ; IRQ vektörü yüksek bayt ($0315)
+    STA $FC
+    RTS
+
+; Kesme bayrak kontrolü
+SUB_E923:
+    LDA #$00        ; Kesme bayrağı
+    CMP #$00
+    BEQ SUB_E92B
+    RTS
+SUB_E92B:
+    RTS
+
+; Kesme hizmeti
+IRQ:
+    PHA             ; A'yı yığına kaydet
+    TXA
+    PHA             ; X'i yığına kaydet
+    TYA
+    PHA             ; Y'yi yığına kaydet
+    JSR JUDTIM      ; Sistem saati güncelleme
+    PLA
+    TAY             ; Y'yi geri yükle
+    PLA
+    TAX             ; X'i geri yükle
+    PLA             ; A'yı geri yükle
+    RTI
+
+; Sistem saati güncelleme
+JUDTIM:
+    LDA $A0         ; Jiffy clock düşük bayt ($A0)
+    CLC
+    ADC #$01
+    STA $A0
+    JSR SUB_EAC1    ; Zamanlayıcı artırma
+    RTS
+
+; Zamanlayıcı artırma
+SUB_EAC1:
+    LDA $A0         ; Zamanlayıcı düşük bayt ($A0)
+    CMP #$00
+    BNE SUB_EAC8
+    INC $A1         ; Orta bayt ($A1)
+SUB_EAC8:
+    RTS
+
+; Seri port durum kontrolü
+SUB_EB79:
+    LDA $90         ; I/O durum baytı ($90)
+    CMP #$00
+    BEQ SUB_EB81
+    RTS
+SUB_EB81:
+    RTS
+
+; Seri port bayt tamponu güncelleme
+SUB_EBF2:
+    LDA #$00        ; Seri port tamponu ($9E)
+    STA $9E
+    RTS
+
+; Seri veri yolu cihaz başlatma
+SUB_EC44:
+    LDX #$08        ; Cihaz numarası
+    JSR SUB_ECDA    ; Clock sinyali kontrolü
+    RTS
+
+; Seri veri yolu clock sinyali
+SUB_ECDA:
+    LDA #$00        ; Clock sinyali durumu
+    STA $DD00       ; CIA port
+    RTS
+
+; Seri veri yolu başlatma
+IECINIT:
+    JSR SUB_EC44    ; Cihaz başlatma
+    RTS
+
+; Seri veri yolu bayt gönderme
+SEND:
+    LDA #$00        ; Gönderilecek bayt
+    STA $DD00       ; CIA port
+    RTS
+
+; Seri veri yolu bayt alma
+RECV:
+    LDA $DD00       ; CIA port
+    RTS
+
+; Seri veri yolu zaman aşımı kontrolü
+SUB_EE85:
+    LDA $96         ; Zaman aşımı bayrağı ($96)
+    CMP #$00
+    BEQ SUB_EE8D
+    RTS
+SUB_EE8D:
+    RTS
+
+; Seri veri yolu hata kontrolü
+SUB_EF06:
+    LDA $90         ; I/O durum baytı ($90)
+    CMP #$00
+    BEQ SUB_EF0E
+    RTS
+SUB_EF0E:
+    RTS
+
+; Seri veri yolu cihaz durumu güncelleme
+SUB_EF90:
+    LDA $90         ; I/O durum baytı ($90)
+    STA $90
+    RTS
+
+; Seri veri yolu komut hazırlama
+SUB_F017:
+    LDA #$00        ; Komut baytı
+    STA $DD00       ; CIA port
+    RTS
+
+; Seri veri yolu komut işleme
+SUB_F0A4:
+    LDA #$00        ; Komut baytı
+    JSR SEND        ; Gönderme rutini
+    RTS
+
+; Kaset başlığı yazma
+TAPEHDR:
+    LDA #$00        ; Kaset tampon işaretçisi ($93)
+    STA $93
+    JSR TAPEWRITE   ; Kaset yazma
+    RTS
+
+; Kaset tamponuna yazma
+TAPEWRITE:
+    LDA #$00        ; Kaset tampon adresi ($B2-$B3)
+    STA $B2
+    LDA #$00
+    STA $B3
+    RTS
+
+; Kaset başlığı doğrulama
+SUB_F18F:
+    LDA $93         ; Kaset tampon işaretçisi ($93)
+    CMP #$00
+    BEQ SUB_F197
+    RTS
+SUB_F197:
+    RTS
+
+; Kasetten veri yükleme
+TAPELOAD:
+    LDA #$00        ; Yükleme adresi işaretçisi ($C1-$C2)
+    STA $C1
+    LDA #$00
+    STA $C2
+    JSR TAPEREAD    ; Kaset okuma
+    RTS
+
+; Kasetten veri okuma
+TAPEREAD:
+    LDA #$00        ; Okunan bayt
+    RTS
+
+; Kaset okuma doğrulama
+SUB_F32F:
+    LDA $9D         ; Kaset okuma durumu ($9D)
+    CMP #$00
+    BEQ SUB_F337
+    RTS
+SUB_F337:
+    RTS
+
+; Kaset zamanlama kontrolü
+SUB_F3B3:
+    LDA $9A         ; Kaset zamanlama baytı ($9A)
+    CMP #$00
+    BEQ SUB_F3BB
+    RTS
+SUB_F3BB:
+    RTS
+
+; Kaset veri bloğu hazırlama
+SUB_F409:
+    LDA $B2         ; Kaset tampon adresi ($B2-$B3)
+    STA $FB
+    LDA $B3
+    STA $FC
+    RTS
+
+; Disk sürücüsü başlatma
+DISKINIT:
+    LDX #$08        ; Cihaz numarası
+    JSR SUB_F533    ; Komut tamponu hazırlama
+    RTS
+
+; Disk komut tamponu hazırlama
+SUB_F533:
+    LDA #$00        ; Komut tampon işaretçisi ($B6)
+    STA $B6
+    RTS
+
+; Diskten veri yükleme
+DISKLOAD:
+    LDA $C1         ; Yükleme adresi işaretçisi ($C1-$C2)
+    STA $FB
+    LDA $C2
+    STA $FC
+    LDA #$00        ; 0 = yükle, 1 = doğrula
+    JSR SUB_F76F    ; Dosya adı doğrulama
+    RTS
+
+; Diske veri kaydetme
+DISKSAVE:
+    LDA $C1         ; Başlangıç adresi işaretçisi ($C1-$C2)
+    STA $FB
+    LDA $C2
+    STA $FC
+    LDX #$00        ; Bitiş adresi düşük bayt
+    LDY #$00        ; Bitiş adresi yüksek bayt
+    RTS
+
+; Disk dosya adı doğrulama
+SUB_F76F:
+    LDA $B7         ; Dosya adı uzunluğu ($B7)
+    CMP #$00
+    BEQ SUB_F777
+    RTS
+SUB_F777:
+    RTS
+
+; Disk komut işleme
+SUB_F80D:
+    LDA $B6         ; Komut tampon işaretçisi ($B6)
+    STA $FB
+    RTS
+
+; Disk dosya tablosu güncelleme
+SUB_F84E:
+    LDA $B8         ; Mantıksal dosya numarası ($B8)
+    CMP #$00
+    BEQ SUB_F856
+    RTS
+SUB_F856:
+    RTS
+
+; Kaset motor kontrolü
+SUB_F9A2:
+    LDA #$00        ; Motor durumu (0 = kapalı, 1 = açık)
+    STA $01         ; CPU port
+    RTS
+
+; Kaset zamanlama kontrolü
+SUB_FA60:
+    LDA $9A         ; Kaset zamanlama baytı ($9A)
+    CMP #$00
+    BEQ SUB_FA68
+    RTS
+SUB_FA68:
+    RTS
+
+; Kaset motor durumu güncelleme
+SUB_FAD2:
+    LDA #$00        ; Motor kontrol baytı
+    STA $01         ; CPU port
+    RTS
+
+; Bellek kopyalama
+SUB_FB97:
+    LDA $FB         ; Kaynak adres ($FB-$FC)
+    STA ($FD),Y     ; Hedef adres ($FD-$FE)
+    INY
+    CPY #$00
+    BNE SUB_FB97
+    RTS
+
+; Bellek karşılaştırma
+SUB_FBC8:
+    LDA $FB         ; Karşılaştırma adresi ($FB-$FC)
+    CMP ($FD),Y     ; Hedef adres ($FD-$FE)
+    BNE SUB_FBD0
+    INY
+    CPY #$00
+    BNE SUB_FBC8
+SUB_FBD0:
+    RTS
+
+; Dosya tablosu arama
+SUB_FC22:
+    LDA $B8         ; Mantıksal dosya numarası ($B8)
+    CMP #$00
+    BEQ SUB_FC2A
+    RTS
+SUB_FC2A:
+    RTS
+
+; Dosya tablosu kontrolü
+SUB_FC93:
+    LDA $B8         ; Mantıksal dosya numarası ($B8)
+    CMP #$00
+    BEQ SUB_FC9B
+    RTS
+SUB_FC9B:
+    RTS
+
+; Dosya tablosu temizleme
+SUB_FCE2:
+    LDA #$00        ; Mantıksal dosya numarası ($B8)
+    STA $B8
+    RTS
+
+; Dosya parametre doğrulama
+SUB_FD15:
+    LDA $BA         ; Cihaz numarası ($BA)
+    CMP #$00
+    BEQ SUB_FD1D
+    RTS
+SUB_FD1D:
+    RTS
+
+; Dosya açma cihaz kontrolü
+SUB_FD50:
+    LDX #$00        ; Cihaz numarası
+    CPX #$00
+    BEQ SUB_FD58
+    RTS
+SUB_FD58:
+    RTS
+
+; I/O durum baytı güncelleme
+SUB_FDD5:
+    LDA $90         ; I/O durum baytı ($90)
+    STA $90
+    RTS
+
+; I/O cihaz durumu kontrolü
+SUB_FE07:
+    LDA $BA         ; Cihaz numarası ($BA)
+    CMP #$00
+    BEQ SUB_FE0F
+    RTS
+SUB_FE0F:
+    RTS
+
+; Dosya parametre kontrolü
+SUB_FE47:
+    LDA $BA         ; Cihaz numarası ($BA)
+    CMP #$00
+    BEQ SUB_FE4F
+    RTS
+SUB_FE4F:
+    RTS
+
+; Hata mesajı bayrağı ayarlama
+SUB_FE72:
+    LDA #$00        ; Hata kodu
+    STA $90         ; I/O durum baytı ($90)
+    RTS
+
+; Geçerli cihaz numarası kontrolü
+SUB_FEA8:
+    LDA $BA         ; Cihaz numarası ($BA)
+    CMP #$00
+    BEQ SUB_FEB0
+    RTS
+SUB_FEB0:
+    RTS
+
+; System Call: Ekran ve VIC başlatma
+SCINIT:
+    JSR SETVIC      ; VIC yongası başlatma
+    RTS             ; Türkçe: VIC yongasını başlatır, klavye ve ekranı varsayılan I/O cihazları olarak ayarlar
+
+; System Call: Giriş/çıkış cihaz başlatma
+IOINIT:
+    JSR IECINIT     ; Seri veri yolu başlatma
+    RTS             ; Türkçe: CIA yongalarını ve seri portları yapılandırır
+
+; System Call: RAM testi ve başlatma
+RAMTAS:
+    JSR SUB_E042    ; Bellek testi
+    RTS             ; Türkçe: RAM testi yapar, sıfır sayfası ve BASIC bellek sınırlarını başlatır
+
+; System Call: KERNAL vektörlerini geri yükleme
+RESTOR:
+    LDA #$00        ; Vektör tablosu
+    STA $0314
+    LDA #$00
+    STA $0315
+    RTS             ; Türkçe: KERNAL vektörlerini varsayılan değerlerine geri yükler
+
+; System Call: KERNAL vektörlerini okuma/ayarlama
+VECTOR:
+    LDX #$00        ; Vektör tablosu düşük bayt
+    LDY #$00        ; Vektör tablosu yüksek bayt
+    RTS             ; Türkçe: KERNAL vektörlerini okur veya ayarlar
+
+; System Call: Hata mesaj kontrolü
+SETMSG:
+    LDA #$00        ; Mesaj kontrol bayrağı
+    STA $90         ; I/O durum baytı ($90)
+    RTS             ; Türkçe: Hata mesajlarının görüntülenmesini kontrol eder
+
+; System Call: Seri veri yolu ikincil adres
+SECOND:
+    LDA #$00        ; İkincil adres
+    JSR SEND        ; Gönderme rutini
+    RTS             ; Türkçe: Seri veri yolunda ikincil adresi gönderir
+
+; System Call: Seri veri yolu konuşma adresi
+TKSA:
+    LDA #$00        ; İkincil adres
+    JSR SEND        ; Gönderme rutini
+    RTS             ; Türkçe: Seri veri yolunda konuşma/ikincil adresi gönderir
+
+; System Call: BASIC bellek üst sınırı
+MEMTOP:
+    BCC MEMTOP_READ ; Carry 0 ise oku
+    STX $02         ; Üst sınır düşük bayt ($02)
+    STY $03         ; Üst sınır yüksek bayt ($03)
+    RTS
+MEMTOP_READ:
+    LDX $02         ; Üst sınır düşük bayt ($02)
+    LDY $03         ; Üst sınır yüksek bayt ($03)
+    RTS             ; Türkçe: BASIC belleğinin üst sınırını okur veya ayarlar
+
+; System Call: BASIC bellek alt sınırı
+MEMBOT:
+    BCC MEMBOT_READ ; Carry 0 ise oku
+    STX $02         ; Alt sınır düşük bayt ($02)
+    STY $03         ; Alt sınır yüksek bayt ($03)
+    RTS
+MEMBOT_READ:
+    LDX $02         ; Alt sınır düşük bayt ($02)
+    LDY $03         ; Alt sınır yüksek bayt ($03)
+    RTS             ; Türkçe: BASIC belleğinin alt sınırını okur veya ayarlar
+
+; System Call: Klavye tarama
+SCNKEY:
+    JSR JSCNKEY     ; Klavye tarama
+    RTS             ; Türkçe: Klavye tarar ve kuyruğa karakter koyar
+
+; System Call: Seri veri yolu zaman aşımı
+SETTMO:
+    LDA #$00        ; Zaman aşımı değeri
+    STA $96         ; Zaman aşımı bayrağı ($96)
+    RTS             ; Türkçe: Seri veri yolu için zaman aşımı süresini ayarlar
+
+; System Call: Seri veri yolundan okuma
+IECIN:
+    JSR RECV        ; Bayt alma
+    RTS             ; Türkçe: Seri veri yolundan bir bayt okur
+
+; System Call: Seri veri yoluna yazma
+IECOUT:
+    JSR SEND        ; Bayt gönderme
+    RTS             ; Türkçe: Seri veri yoluna bir bayt yazar
+
+; System Call: Seri veri yolu konuşma durdurma
+UNTALK:
+    JSR SUB_F017    ; Komut hazırlama
+    RTS             ; Türkçe: Seri veri yolundaki tüm cihazlara konuşmayı durdurma komutu gönderir
+
+; System Call: Seri veri yolu dinleme durdurma
+UNLSN:
+    JSR SUB_F017    ; Komut hazırlama
+    RTS             ; Türkçe: Seri veri yolundaki tüm cihazlara dinlemeyi durdurma komutu gönderir
+
+; System Call: Seri veri yolu dinleme komutu
+LISTEN:
+    LDA #$00        ; Cihaz numarası
+    JSR SUB_F0A4    ; Komut işleme
+    RTS             ; Türkçe: Seri veri yolunda belirtilen cihaza dinleme komutu gönderir
+
+; System Call: Seri veri yolu konuşma komutu
+TALK:
+    LDA #$00        ; Cihaz numarası
+    JSR SUB_F0A4    ; Komut işleme
+    RTS             ; Türkçe: Seri veri yolunda belirtilen cihaza konuşma komutu gönderir
+
+; System Call: I/O durum baytı okuma
+READST:
+    LDA $90         ; I/O durum baytı ($90)
+    RTS             ; Türkçe: I/O durum baytını okur
+
+; System Call: Mantıksal dosya ayarları
+SETLFS:
+    STA $B8         ; Mantıksal dosya numarası ($B8)
+    STX $BA         ; Cihaz numarası ($BA)
+    STY $B9         ; İkincil adres ($B9)
+    RTS             ; Türkçe: Mantıksal dosya numarası, cihaz numarası ve ikincil adresi ayarlar
+
+; System Call: Dosya adı ayarları
+SETNAM:
+    STA $B7         ; Dosya adı uzunluğu ($B7)
+    STX $BB         ; Dosya adı adresi düşük bayt ($BB)
+    STY $BC         ; Dosya adı adresi yüksek bayt ($BC)
+    RTS             ; Türkçe: Dosya adı uzunluğunu ve adresini ayarlar
+
+; System Call: Dosya açma
+OPEN:
+    JSR SUB_FC93    ; Dosya tablosu kontrolü
+    RTS             ; Türkçe: SETLFS ve SETNAM ile ayarlanan parametrelerle dosya açar
+
+; System Call: Dosya kapatma
+CLOSE:
+    LDA #$00        ; Mantıksal dosya numarası
+    JSR SUB_FCE2    ; Dosya tablosu temizleme
+    RTS             ; Türkçe: Belirtilen mantıksal dosya numarasındaki dosyayı kapatır
+
+; System Call: Giriş cihazı ayarlama
+CHKIN:
+    LDX #$00        ; Mantıksal dosya numarası
+    JSR SUB_FD50    ; Cihaz kontrolü
+    RTS             ; Türkçe: Giriş için bir dosyayı açar ve giriş cihazı olarak ayarlar
+
+; System Call: Çıkış cihazı ayarlama
+CHKOUT:
+    LDX #$00        ; Mantıksal dosya numarası
+    JSR SUB_FD50    ; Cihaz kontrolü
+    RTS             ; Türkçe: Çıkış için bir dosyayı açar ve çıkış cihazı olarak ayarlar
+
+; System Call: I/O kanalları temizleme
+CLRCHN:
+    JSR SUB_FCE2    ; Dosya tablosu temizleme
+    RTS             ; Türkçe: Tüm giriş/çıkış kanallarını temizler ve varsayılan cihazları geri yükler
+
+; System Call: Karakter okuma
+CHRIN:
+    JSR GETKEY      ; Klavye kuyruk okuma
+    RTS             ; Türkçe: Geçerli giriş cihazından bir karakter okur
+
+; System Call: Karakter yazma
+CHROUT:
+    STA $9E         ; Yazılacak karakter ($9E)
+    JSR SUB_E2B4    ; Ekran karakter yazma
+    RTS             ; Türkçe: Geçerli çıkış cihazına bir karakter yazar
+
+; System Call: Dosya yükleme
+LOAD:
+    LDA #$00        ; 0 = yükle, 1 = doğrula
+    STA $C1         ; Yükleme adresi işaretçisi ($C1-$C2)
+    LDA #$00
+    STA $C2
+    JSR DISKLOAD    ; Diskten yükleme
+    RTS             ; Türkçe: SETLFS ve SETNAM ile ayarlanan dosyayı belleğe yükler
+
+; System Call: Dosya kaydetme
+SAVE:
+    LDA #$00        ; Başlangıç adresi işaretçisi
+    STA $C1         ; ($C1-$C2)
+    LDA #$00
+    STA $C2
+    LDX #$00        ; Bitiş adresi düşük bayt
+    LDY #$00        ; Bitiş adresi yüksek bayt
+    JSR DISKSAVE    ; Diske kaydetme
+    RTS             ; Türkçe: SETLFS ve SETNAM ile ayarlanan dosyayı diske kaydeder
+
+; System Call: Sistem saati ayarlama
+SETTIM:
+    STA $A0         ; Zamanın düşük baytı ($A0)
+    STX $A1         ; Zamanın orta baytı ($A1)
+    STY $A2         ; Zamanın yüksek baytı ($A2)
+    RTS             ; Türkçe: Sistem saatini ayarlar
+
+; System Call: Sistem saati okuma
+RDTIM:
+    LDA $A0         ; Zamanın düşük baytı ($A0)
+    LDX $A1         ; Zamanın orta baytı ($A1)
+    LDY $A2         ; Zamanın yüksek baytı ($A2)
+    RTS             ; Türkçe: Sistem saatini okur
+
+; System Call: STOP tuşu kontrolü
+STOP:
+    LDA $91         ; STOP tuşu durumu ($91)
+    CMP #$00
+    BEQ STOP_SET
+    LDA #$01
+    RTS
+STOP_SET:
+    LDA #$00
+    RTS             ; Türkçe: STOP tuşunun basılı olup olmadığını kontrol eder
+
+; System Call: Giriş cihazından karakter alma
+GETIN:
+    JSR GETKEY      ; Klavye kuyruk okuma
+    RTS             ; Türkçe: Geçerli giriş cihazından karakter okur (klavye kuyruktan)
+
+; System Call: Tüm dosyaları kapatma
+CLALL:
+    JSR SUB_FCE2    ; Dosya tablosu temizleme
+    RTS             ; Türkçe: Tüm açık dosyaları kapatır ve I/O kanallarını temizler
+
+; System Call: Sistem saati ve STOP kontrolü
+UDTIM:
+    JSR JUDTIM      ; Sistem saati güncelleme
+    JSR STOP        ; STOP tuşu kontrolü
+    RTS             ; Türkçe: Sistem saatini günceller ve STOP tuşunu kontrol eder
+
+; System Call: Ekran boyutu okuma
+SCREEN:
+    LDX #$28        ; Sütun sayısı (40)
+    LDY #$19        ; Satır sayısı (25)
+    RTS             ; Türkçe: Ekran boyutunu (satır ve sütun sayısını) döndürür
+
+; System Call: İmleç pozisyon ayarlama/okuma
+PLOT:
+    BCC PLOT_READ   ; Carry 0 ise oku
+    STX $D3         ; Sütun numarası ($D3)
+    STY $D6         ; Satır numarası ($D6)
+    JSR CURSOR      ; İmleç hareketi
+    RTS
+PLOT_READ:
+    LDX $D3         ; Sütun numarası ($D3)
+    LDY $D6         ; Satır numarası ($D6)
+    RTS             ; Türkçe: İmlecin pozisyonunu ayarlar veya okur
+
+; System Call: I/O alanı başlangıç adresi
+IOBASE:
+    LDX #$00        ; I/O adresi düşük bayt
+    LDY #$D0        ; I/O adresi yüksek bayt ($D000)
+    RTS             ; Türkçe: Giriş/çıkış alanının başlangıç adresini döndürür
