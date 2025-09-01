@@ -1,0 +1,257 @@
+{
+  "$A000": {
+    "name": "BASIC_COLD_START",
+    "size": 3,
+    "description": "BASIC soğuk başlatma (Cold Start). BASIC interpreter'ını tamamen sıfırlar ve başlatır.",
+    "usage": "BASIC, sistem başlatma",
+    "detailed_info": "Tüm BASIC değişkenlerini temizler, program memory'sini sıfırlar, I/O'yu başlatır ve 'READY.' mesajını gösterir.",
+    "example": "JMP $A000 ; BASIC'i yeniden başlat"
+  },
+  "$A003": {
+    "name": "BASIC_WARM_START", 
+    "size": 3,
+    "description": "BASIC sıcak başlatma (Warm Start). BASIC'i program hafızasını koruyarak yeniden başlatır.",
+    "usage": "BASIC, soft reset",
+    "detailed_info": "Değişkenleri temizler ama program memory'sini korur. 'READY.' mesajını gösterir.",
+    "example": "JMP $A003 ; BASIC warm start"
+  },
+  "$A52A": {
+    "name": "BASIC_CHRGET",
+    "size": 3,
+    "description": "BASIC kaynak kodundan karakter al (Get Next Character). BASIC program metninden bir sonraki karakteri alır.",
+    "usage": "BASIC, parser",
+    "detailed_info": "TXTPTR ($7A/$7B) adresindeki karakteri A'ya yükler ve pointer'ı artırır. Z flag karaktere göre ayarlanır.",
+    "returns": "A: Karakter, Z flag: durum",
+    "registers_affected": "A, flags",
+    "example": "JSR $A52A ; sonraki karakteri al"
+  },
+  "$A560": {
+    "name": "BASIC_CHRGOT",
+    "size": 3,
+    "description": "BASIC mevcut karakteri al (Get Current Character). TXTPTR'daki mevcut karakteri tekrar alır.",
+    "usage": "BASIC, parser",
+    "detailed_info": "TXTPTR'ı artırmadan mevcut karakteri A'ya yükler. Parser'da lookahead için kullanılır.",
+    "returns": "A: Mevcut karakter",
+    "registers_affected": "A, flags",
+    "example": "JSR $A560 ; mevcut karakteri al"
+  },
+  "$A579": {
+    "name": "BASIC_FRMNUM",
+    "size": 3,
+    "description": "Sayısal ifade hesapla (Evaluate Numeric Expression). BASIC ifadesini hesaplar ve floating point sonuç üretir.",
+    "usage": "BASIC, expression evaluator",
+    "detailed_info": "TXTPTR'daki ifadeyi parse eder ve hesaplar. Sonucu floating point accumulator'a ($61-$66) koyar.",
+    "returns": "FAC: Sonuç",
+    "registers_affected": "A, X, Y, FAC",
+    "example": "JSR $A579 ; numeric expression evaluate"
+  },
+  "$A613": {
+    "name": "BASIC_FRMEVL",
+    "size": 3,
+    "description": "Genel ifade hesapla (Evaluate General Expression). String veya numeric ifadeyi hesaplar.",
+    "usage": "BASIC, expression evaluator",
+    "detailed_info": "İfade tipine göre string veya numeric evaluation yapar. Sonucu uygun yere koyar.",
+    "returns": "Tipe göre değişir",
+    "registers_affected": "A, X, Y",
+    "example": "JSR $A613 ; general expression evaluate"
+  },
+  "$A71A": {
+    "name": "BASIC_ISVAR",
+    "size": 3,
+    "description": "Değişken adını kontrol et (Check Variable Name). Geçerli değişken adı olup olmadığını kontrol eder.",
+    "usage": "BASIC, variable handling",
+    "detailed_info": "TXTPTR'daki string'in geçerli değişken adı olup olmadığını kontrol eder.",
+    "returns": "Carry: 0=geçerli, 1=geçersiz",
+    "registers_affected": "A, flags",
+    "example": "JSR $A71A ; değişken adını kontrol et"
+  },
+  "$A7E4": {
+    "name": "BASIC_PTRGET",
+    "size": 3,
+    "description": "Değişken pointer'ını al (Get Variable Pointer). Değişken tablosunda değişkenin pointer'ını bulur.",
+    "usage": "BASIC, variable handling",
+    "detailed_info": "Değişken tablosunda belirtilen değişkeni arar ve pointer'ını döndürür. Yoksa yeni oluşturur.",
+    "returns": "Pointer to variable",
+    "registers_affected": "A, X, Y",
+    "example": "JSR $A7E4 ; değişken pointer'ını al"
+  },
+  "$A8F8": {
+    "name": "BASIC_AYINT",
+    "size": 3,
+    "description": "Floating point'i integer'a çevir (Convert FP to Integer). FAC'daki floating point değeri integer'a çevirir.",
+    "usage": "BASIC, type conversion",
+    "detailed_info": "Floating point accumulator'daki değeri 16-bit signed integer'a çevirir. X/A'ya sonucu koyar.",
+    "returns": "X/A: Integer değer (high/low)",
+    "registers_affected": "A, X",
+    "example": "JSR $A8F8 ; FP to integer"
+  },
+  "$A96B": {
+    "name": "BASIC_GIVAYF",
+    "size": 3,
+    "description": "Integer'ı floating point'e çevir (Convert Integer to FP). A/Y'deki integer'ı floating point'e çevirir.",
+    "usage": "BASIC, type conversion", 
+    "detailed_info": "A/Y registerlarındaki 16-bit integer'ı floating point'e çevirir ve FAC'a koyar.",
+    "parameters": "A/Y: Integer değer (low/high)",
+    "returns": "FAC: FP değer",
+    "registers_affected": "FAC",
+    "example": "LDA #$64 : LDY #$00 : JSR $A96B ; 100'ü FP'e çevir"
+  },
+  "$AA2C": {
+    "name": "BASIC_GETADR",
+    "size": 3,
+    "description": "Adres al (Get Address). FAC'daki değeri bellek adresi olarak döndürür.",
+    "usage": "BASIC, address handling",
+    "detailed_info": "FAC'daki floating point değeri 16-bit adrese çevirir. POKE, PEEK için kullanılır.",
+    "returns": "X/Y: Adres (low/high)",
+    "registers_affected": "A, X, Y",
+    "example": "JSR $AA2C ; FP'den adres al"
+  },
+  "$AB1E": {
+    "name": "BASIC_FLOATC",
+    "size": 3,
+    "description": "Sabiti floating point'e çevir (Convert Constant to FP). Memory'deki sabit değeri FP'e çevirir.",
+    "usage": "BASIC, constant handling",
+    "detailed_info": "A/Y'deki adresteki packed constant'ı floating point'e çevirir.",
+    "parameters": "A/Y: Constant adresi",
+    "returns": "FAC: FP değer",
+    "registers_affected": "FAC",
+    "example": "JSR $AB1E ; constant'ı FP'e çevir"
+  },
+  "$AB57": {
+    "name": "BASIC_FSUB",
+    "size": 3,
+    "description": "Floating point çıkarma (FP Subtraction). FAC - memory location hesaplar.",
+    "usage": "BASIC, arithmetic",
+    "detailed_info": "A/Y'deki adresteki FP değerini FAC'dan çıkarır. Sonucu FAC'a koyar.",
+    "parameters": "A/Y: İkinci operand adresi",
+    "returns": "FAC: Sonuç",
+    "registers_affected": "FAC",
+    "example": "JSR $AB57 ; FP subtraction"
+  },
+  "$AB5B": {
+    "name": "BASIC_FSUBT",
+    "size": 3,
+    "description": "Floating point çıkarma ters (FP Subtraction Reverse). memory location - FAC hesaplar.",
+    "usage": "BASIC, arithmetic",
+    "detailed_info": "FAC'ı A/Y'deki adresteki FP değerinden çıkarır. Sonucu FAC'a koyar.",
+    "parameters": "A/Y: Birinci operand adresi",
+    "returns": "FAC: Sonuç", 
+    "registers_affected": "FAC",
+    "example": "JSR $AB5B ; FP subtraction reverse"
+  },
+  "$AB86": {
+    "name": "BASIC_FADD",
+    "size": 3,
+    "description": "Floating point toplama (FP Addition). FAC + memory location hesaplar.",
+    "usage": "BASIC, arithmetic",
+    "detailed_info": "FAC ile A/Y'deki adresteki FP değerini toplar. Sonucu FAC'a koyar.",
+    "parameters": "A/Y: İkinci operand adresi",
+    "returns": "FAC: Sonuç",
+    "registers_affected": "FAC",
+    "example": "JSR $AB86 ; FP addition"
+  },
+  "$AC07": {
+    "name": "BASIC_FMULT",
+    "size": 3,
+    "description": "Floating point çarpma (FP Multiplication). FAC * memory location hesaplar.",
+    "usage": "BASIC, arithmetic",
+    "detailed_info": "FAC ile A/Y'deki adresteki FP değerini çarpar. Sonucu FAC'a koyar.",
+    "parameters": "A/Y: İkinci operand adresi",
+    "returns": "FAC: Sonuç",
+    "registers_affected": "FAC",
+    "example": "JSR $AC07 ; FP multiplication"
+  },
+  "$AC63": {
+    "name": "BASIC_FDIV",
+    "size": 3,
+    "description": "Floating point bölme (FP Division). FAC / memory location hesaplar.",
+    "usage": "BASIC, arithmetic",
+    "detailed_info": "FAC'ı A/Y'deki adresteki FP değerine böler. Sonucu FAC'a koyar.",
+    "parameters": "A/Y: Bölen adresi",
+    "returns": "FAC: Sonuç",
+    "registers_affected": "FAC", 
+    "example": "JSR $AC63 ; FP division"
+  },
+  "$AD8A": {
+    "name": "BASIC_FOUT",
+    "size": 3,
+    "description": "Floating point'i string'e çevir (Convert FP to String). FAC'daki değeri decimal string'e çevirir.",
+    "usage": "BASIC, output formatting",
+    "detailed_info": "FAC'daki floating point değeri decimal string'e çevirir. PRINT komutu için kullanılır.",
+    "returns": "String pointer",
+    "registers_affected": "A, X, Y",
+    "example": "JSR $AD8A ; FP to string"
+  },
+  "$AE83": {
+    "name": "BASIC_VAL",
+    "size": 3,
+    "description": "String'i sayıya çevir (Convert String to Number). String'deki sayısal değeri floating point'e çevirir.",
+    "usage": "BASIC, input parsing",
+    "detailed_info": "A/Y'deki string pointer'ındaki sayısal değeri parse eder ve FAC'a koyar. VAL() fonksiyonu için kullanılır.",
+    "parameters": "A/Y: String pointer",
+    "returns": "FAC: Sayısal değer",
+    "registers_affected": "FAC",
+    "example": "JSR $AE83 ; string to number"
+  },
+  "$AF06": {
+    "name": "BASIC_GETNUM",
+    "size": 3,
+    "description": "Sayı al (Get Number). TXTPTR'dan sayısal değer okur ve FAC'a koyar.",
+    "usage": "BASIC, number parsing",
+    "detailed_info": "TXTPTR'daki pozisyondan numeric constant okur, parse eder ve FAC'a koyar.",
+    "returns": "FAC: Sayısal değer",
+    "registers_affected": "FAC",
+    "example": "JSR $AF06 ; sayı al"
+  },
+  "$AF8F": {
+    "name": "BASIC_LINGET",
+    "size": 3,
+    "description": "Satır numarası al (Get Line Number). TXTPTR'dan satır numarası okur.",
+    "usage": "BASIC, line handling",
+    "detailed_info": "TXTPTR'dan BASIC satır numarasını okur ve 16-bit integer olarak döndürür.",
+    "returns": "Line number",
+    "registers_affected": "A, X, Y",
+    "example": "JSR $AF8F ; satır numarası al"
+  },
+  "$B08B": {
+    "name": "BASIC_FCOMP",
+    "size": 3,
+    "description": "Floating point karşılaştır (FP Compare). FAC ile memory location'ı karşılaştırır.",
+    "usage": "BASIC, comparison",
+    "detailed_info": "FAC ile A/Y'deki adresteki FP değerini karşılaştırır. Sonucu A registerında döndürür.",
+    "parameters": "A/Y: Karşılaştırılacak değer adresi",
+    "returns": "A: 0=eşit, 1=FAC>mem, $FF=FAC<mem",
+    "registers_affected": "A",
+    "example": "JSR $B08B ; FP compare"
+  },
+  "$B0F3": {
+    "name": "BASIC_SIGN",
+    "size": 3,
+    "description": "Floating point işaret (FP Sign). FAC'ın işaretini kontrol eder.",
+    "usage": "BASIC, sign check",
+    "detailed_info": "FAC'daki değerin işaretini kontrol eder ve A registerında döndürür.",
+    "returns": "A: 0=sıfır, 1=pozitif, $FF=negatif",
+    "registers_affected": "A",
+    "example": "JSR $B0F3 ; FP sign check"
+  },
+  "$B1AA": {
+    "name": "BASIC_ABS",
+    "size": 3,
+    "description": "Floating point mutlak değer (FP Absolute Value). FAC'ın mutlak değerini alır.",
+    "usage": "BASIC, math functions",
+    "detailed_info": "FAC'daki değerin mutlak değerini hesaplar ve FAC'a geri koyar. ABS() fonksiyonu.",
+    "returns": "FAC: Mutlak değer",
+    "registers_affected": "FAC",
+    "example": "JSR $B1AA ; FP absolute value"
+  },
+  "$B391": {
+    "name": "BASIC_RND",
+    "size": 3,
+    "description": "Rastgele sayı üret (Generate Random Number). 0-1 arası rastgele sayı üretir.",
+    "usage": "BASIC, random number",
+    "detailed_info": "0 ile 1 arasında rastgele floating point sayı üretir ve FAC'a koyar. RND() fonksiyonu.",
+    "returns": "FAC: Rastgele sayı (0-1)",
+    "registers_affected": "FAC",
+    "example": "JSR $B391 ; random number"
+  }
+}
