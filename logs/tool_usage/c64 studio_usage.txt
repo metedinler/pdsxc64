@@ -1,0 +1,30 @@
+=== C64 STUDIO USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64StudioRelease3.5/C64StudioRelease/net3.5/C64Studio.exe
+Category: ides
+Learning Date: 2025-07-29 13:01:57.621283
+============================================================
+
+COMMAND: c64 studio --help
+----------------------------------------
+TIMEOUT: Command took too long to execute
+
+COMMAND: c64 studio -h
+----------------------------------------
+TIMEOUT: Command took too long to execute
+
+COMMAND: c64 studio --version
+----------------------------------------
+TIMEOUT: Command took too long to execute
+
+COMMAND: c64 studio -v
+----------------------------------------
+TIMEOUT: Command took too long to execute
+
+COMMAND: c64 studio -?
+----------------------------------------
+TIMEOUT: Command took too long to execute
+
+COMMAND: c64 studio /?
+----------------------------------------
+TIMEOUT: Command took too long to execute
+
