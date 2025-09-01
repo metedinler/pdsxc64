@@ -1,0 +1,70 @@
+=== PLIST USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/plist.exe
+Category: special
+Learning Date: 2025-07-29 07:40:35.739681
+============================================================
+
+COMMAND: plist --help
+----------------------------------------
+STDERR:
+plist.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: plist -h
+----------------------------------------
+STDERR:
+plist.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: plist --version
+----------------------------------------
+STDOUT:
+PLIST V1.42 Beta [Bld 291]
+(C) 1992,2025 Alfred Arnold
+
+
+STDERR:
+plist.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: plist -v
+----------------------------------------
+STDOUT:
+PLIST V1.42 Beta [Bld 291]
+(C) 1992,2025 Alfred Arnold
+
+
+STDERR:
+plist.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: plist -?
+----------------------------------------
+STDERR:
+plist.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: plist /?
+----------------------------------------
+STDERR:
+plist.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
