@@ -1,0 +1,45 @@
+=== 6502 SIMULATOR USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/6502_1.2.12/6502.exe
+Category: emulators
+Learning Date: 2025-07-28 23:04:37.995398
+============================================================
+
+COMMAND: 6502 simulator --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502 simulator -h
+----------------------------------------
+TIMEOUT: Command took too long to execute
+
+COMMAND: 6502 simulator --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502 simulator -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502 simulator -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: 6502 simulator /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
