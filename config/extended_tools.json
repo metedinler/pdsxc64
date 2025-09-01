@@ -1,0 +1,329 @@
+{
+  "assemblers": {
+    "64tass": {
+      "patterns": ["64tass", "64tass.exe", "tass", "tass.exe"],
+      "description": "Turbo Assembler for 6502/65816",
+      "priority": 1,
+      "verification": ["--version", "-V", "--help"],
+      "source": "basic"
+    },
+    "acme": {
+      "patterns": ["acme", "acme.exe", "ACME", "ACME.exe"],
+      "description": "ACME Cross-Assembler",
+      "priority": 1,
+      "verification": ["--version", "-V", "--help"],
+      "source": "basic"
+    },
+    "dasm": {
+      "patterns": ["dasm", "dasm.exe", "DASM", "DASM.exe"],
+      "description": "DASM 6502 Assembler",
+      "priority": 2,
+      "verification": ["--version", "-V", "--help"],
+      "source": "basic"
+    },
+    "kickass": {
+      "patterns": ["KickAss.jar", "kickass.jar", "kick.jar", "KickAssembler.jar", "Kickass IDE.exe"],
+      "description": "Kick Assembler",
+      "priority": 2,
+      "verification": ["java", "-jar", "%path%", "--version"],
+      "source": "basic"
+    },
+    "ca65": {
+      "patterns": ["ca65", "ca65.exe", "CA65", "CA65.exe"],
+      "description": "CC65 Assembler",
+      "priority": 2,
+      "verification": ["--version", "-V"],
+      "source": "basic"
+    },
+    "xa": {
+      "patterns": ["xa", "xa.exe", "XA", "XA.exe"],
+      "description": "XA Cross Assembler",
+      "priority": 3,
+      "verification": ["--version", "-V"],
+      "source": "basic"
+    },
+    "tmpx": {
+      "patterns": ["tmpx", "tmpx.exe", "TMPX", "TMPX.exe"],
+      "description": "Turbo Macro Pro",
+      "priority": 3,
+      "verification": ["--version", "--help"],
+      "source": "extended"
+    },
+    "crass": {
+      "patterns": ["crass", "crass.exe", "CRASS", "CRASS.exe"],
+      "description": "C64 Reassembler",
+      "priority": 3,
+      "verification": ["--version", "--help"],
+      "source": "extended"
+    },
+    "ophis": {
+      "patterns": ["ophis", "ophis.exe", "Ophis", "Ophis.exe"],
+      "description": "Ophis 6502 Assembler",
+      "priority": 3,
+      "verification": ["--version", "--help"],
+      "source": "extended"
+    },
+    "BeebAsm": {
+      "patterns": ["beebasm", "beebasm.exe", "BeebAsm", "BeebAsm.exe"],
+      "description": "BBC Micro Assembler",
+      "priority": 4,
+      "verification": ["--version", "--help"],
+      "source": "extended"
+    },
+    "as65": {
+      "patterns": ["as65", "as65.exe", "AS65", "AS65.exe"],
+      "description": "AS65 Assembler",
+      "priority": 4,
+      "verification": ["--version", "--help"],
+      "source": "extended"
+    },
+    "xasm": {
+      "patterns": ["xasm", "xasm.exe", "XASM", "XASM.exe"],
+      "description": "XASM Cross Assembler",
+      "priority": 4,
+      "verification": ["--version", "--help"],
+      "source": "external"
+    },
+    "mads": {
+      "patterns": ["mads", "mads.exe", "MADS", "MADS.exe"],
+      "description": "Mad Assembler",
+      "priority": 3,
+      "verification": ["--version", "--help"],
+      "source": "external"
+    },
+    "asmx": {
+      "patterns": ["asmx", "asmx.exe", "ASMX", "ASMX.exe"],
+      "description": "ASMX Cross Assembler",
+      "priority": 4,
+      "verification": ["--version", "--help"],
+      "source": "extended"
+    }
+  },
+  "compilers": {
+    "cc65": {
+      "patterns": ["cc65", "cc65.exe", "cl65", "cl65.exe"],
+      "description": "CC65 C Compiler",
+      "priority": 1,
+      "verification": ["--version", "-V"],
+      "source": "basic"
+    },
+    "oscar64": {
+      "patterns": ["oscar64", "oscar64.exe", "Oscar64", "Oscar64.exe"],
+      "description": "Oscar64 C Compiler for C64",
+      "priority": 1,
+      "verification": ["--version", "-V", "--help"],
+      "source": "basic"
+    },
+    "llvm-mos": {
+      "patterns": ["mos-c64-clang", "mos-c64-clang.exe", "llvm-mos"],
+      "description": "LLVM-MOS C Compiler",
+      "priority": 2,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "z88dk": {
+      "patterns": ["z88dk-z80asm", "z88dk-z80asm.exe", "zcc", "zcc.exe"],
+      "description": "Z88DK Cross Compiler",
+      "priority": 3,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "vbcc": {
+      "patterns": ["vbcc", "vbcc.exe", "vc", "vc.exe"],
+      "description": "VBCC Cross Compiler",
+      "priority": 3,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "ugbasic": {
+      "patterns": ["ugbc", "ugbc.exe", "ugbasic", "ugbasic.exe"],
+      "description": "ugBASIC Compiler",
+      "priority": 3,
+      "verification": ["--version"],
+      "source": "external"
+    },
+    "millfork": {
+      "patterns": ["millfork", "millfork.exe", "millfork.jar"],
+      "description": "Millfork Compiler",
+      "priority": 3,
+      "verification": ["--version"],
+      "source": "external"
+    }
+  },
+  "interpreters": {
+    "python": {
+      "patterns": ["python", "python.exe", "python3", "python3.exe", "py", "py.exe"],
+      "description": "Python Interpreter",
+      "priority": 1,
+      "verification": ["--version"],
+      "source": "basic"
+    },
+    "qbasic": {
+      "patterns": ["qbasic.exe", "qb.exe", "QBasic.exe", "QB.exe"],
+      "description": "QBasic Interpreter",
+      "priority": 3,
+      "verification": ["/?"],
+      "source": "basic"
+    },
+    "freebasic": {
+      "patterns": ["fbc", "fbc.exe", "FBC", "FBC.exe"],
+      "description": "FreeBASIC Compiler",
+      "priority": 3,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "perl": {
+      "patterns": ["perl", "perl.exe", "Perl", "Perl.exe"],
+      "description": "Perl Interpreter",
+      "priority": 4,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "java": {
+      "patterns": ["java", "java.exe", "Java", "Java.exe"],
+      "description": "Java Runtime",
+      "priority": 2,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "node": {
+      "patterns": ["node", "node.exe", "Node", "Node.exe"],
+      "description": "Node.js Runtime",
+      "priority": 3,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "cbmbasic": {
+      "patterns": ["cbmbasic", "cbmbasic.exe", "CBMBasic", "CBMBasic.exe"],
+      "description": "CBM BASIC Interpreter",
+      "priority": 3,
+      "verification": ["--version", "--help"],
+      "source": "external"
+    }
+  },
+  "ides": {
+    "vscode": {
+      "patterns": ["code", "code.exe", "Code.exe", "VSCode.exe"],
+      "description": "Visual Studio Code",
+      "priority": 1,
+      "verification": ["--version"],
+      "source": "basic"
+    },
+    "crossviper": {
+      "patterns": ["CrossViper.exe", "crossviper", "CrossViper", "viper.exe"],
+      "description": "CrossViper IDE",
+      "priority": 2,
+      "verification": ["--version", "--help"],
+      "source": "external"
+    },
+    "relaunch64": {
+      "patterns": ["Relaunch64.jar", "relaunch64.jar", "Relaunch64", "relaunch"],
+      "description": "Relaunch64 IDE",
+      "priority": 2,
+      "verification": ["java", "-jar", "%path%", "--version"],
+      "source": "extended"
+    },
+    "cbm-prg-studio": {
+      "patterns": ["C64Studio.exe", "CBMStudio.exe", "CBM-prg-Studio.exe"],
+      "description": "CBM Program Studio",
+      "priority": 2,
+      "verification": ["/?"],
+      "source": "external"
+    },
+    "atom": {
+      "patterns": ["atom", "atom.exe", "Atom", "Atom.exe"],
+      "description": "Atom Editor",
+      "priority": 3,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "sublime": {
+      "patterns": ["sublime_text.exe", "subl.exe", "Sublime", "sublime"],
+      "description": "Sublime Text",
+      "priority": 3,
+      "verification": ["--version"],
+      "source": "extended"
+    },
+    "notepad++": {
+      "patterns": ["notepad++.exe", "notepad.exe", "Notepad++"],
+      "description": "Notepad++",
+      "priority": 4,
+      "verification": ["/?"],
+      "source": "extended"
+    },
+    "charpad": {
+      "patterns": ["CharPad.exe", "charpad.exe", "CharPad"],
+      "description": "CharPad Character Editor",
+      "priority": 3,
+      "verification": ["/?"],
+      "source": "external"
+    },
+    "spritepad": {
+      "patterns": ["SpritePad.exe", "spritepad.exe", "SpritePad"],
+      "description": "SpritePad Sprite Editor",
+      "priority": 3,
+      "verification": ["/?"],
+      "source": "external"
+    }
+  },
+  "emulators": {
+    "vice": {
+      "patterns": ["x64", "x64.exe", "x64sc", "x64sc.exe", "xvic", "xvic.exe", "x128", "x128.exe"],
+      "description": "VICE C64 Emulator",
+      "priority": 1,
+      "verification": ["--version", "-h"],
+      "source": "basic"
+    },
+    "ccs64": {
+      "patterns": ["CCS64.exe", "ccs64.exe", "CCS64"],
+      "description": "CCS64 Emulator",
+      "priority": 2,
+      "verification": ["/?"],
+      "source": "basic"
+    },
+    "hoxs64": {
+      "patterns": ["Hoxs64.exe", "hoxs64.exe", "Hoxs64"],
+      "description": "Hoxs64 Emulator",
+      "priority": 2,
+      "verification": ["/?"],
+      "source": "extended"
+    },
+    "frodo": {
+      "patterns": ["Frodo.exe", "frodo.exe", "Frodo"],
+      "description": "Frodo C64 Emulator",
+      "priority": 3,
+      "verification": ["--version", "/?"],
+      "source": "extended"
+    },
+    "c64forever": {
+      "patterns": ["C64Forever.exe", "c64forever.exe", "C64Forever"],
+      "description": "C64 Forever",
+      "priority": 2,
+      "verification": ["/?"],
+      "source": "extended"
+    },
+    "winvice": {
+      "patterns": ["WinVICE.exe", "winvice.exe", "WinVICE"],
+      "description": "WinVICE Emulator",
+      "priority": 2,
+      "verification": ["--version"],
+      "source": "extended"
+    }
+  },
+  "utilities": {
+    "6502disasm": {
+      "patterns": ["6502disasm.py", "6502disasm.exe", "disasm6502"],
+      "description": "6502 Disassembler",
+      "priority": 3,
+      "verification": ["--version", "--help"],
+      "source": "external"
+    },
+    "petcat": {
+      "patterns": ["petcat", "petcat.exe", "Petcat", "Petcat.exe"],
+      "description": "PETSCII to ASCII Converter",
+      "priority": 3,
+      "verification": ["--version", "--help"],
+      "source": "external"
+    }
+  }
+}
