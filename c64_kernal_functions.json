@@ -1,0 +1,150 @@
+{
+  "c64_kernal_functions": {
+    "description": "C64 KERNAL ROM fonksiyonları - Sistem çağrıları",
+    "rom_version": "901227-03",
+    "address_range": "0xE000-0xFFFF",
+    "functions": {
+      "0xE500": {
+        "name": "RESET",
+        "description": "Sistem reset vektörü",
+        "parameters": "none",
+        "returns": "none",
+        "usage": "Cold start işlemi",
+        "category": "system"
+      },
+      "0xFFD2": {
+        "name": "CHROUT",
+        "description": "Karakter çıktısı",
+        "parameters": "A = karakter kodu",
+        "returns": "none", 
+        "usage": "Ekrana karakter yazdırma",
+        "category": "io",
+        "opcodes": ["JSR $FFD2"]
+      },
+      "0xFFCF": {
+        "name": "CHRIN", 
+        "description": "Karakter girişi",
+        "parameters": "none",
+        "returns": "A = karakter kodu",
+        "usage": "Klavyeden karakter okuma",
+        "category": "io",
+        "opcodes": ["JSR $FFCF"]
+      },
+      "0xFFE4": {
+        "name": "GETIN",
+        "description": "Karakter al (beklemeden)",
+        "parameters": "none", 
+        "returns": "A = karakter kodu (0 = boş)",
+        "usage": "Non-blocking karakter okuma",
+        "category": "io",
+        "opcodes": ["JSR $FFE4"]
+      },
+      "0xE544": {
+        "name": "CLRSCR",
+        "description": "Ekranı temizle",
+        "parameters": "none",
+        "returns": "none",
+        "usage": "Ekran temizleme",
+        "category": "screen",
+        "opcodes": ["JSR $E544"]
+      },
+      "0xFFBA": {
+        "name": "SETLFS",
+        "description": "Logical file numarası ayarla",
+        "parameters": "A = logical file, X = device, Y = secondary",
+        "returns": "none",
+        "usage": "Dosya açma hazırlığı",
+        "category": "file",
+        "opcodes": ["JSR $FFBA"]
+      },
+      "0xFFBD": {
+        "name": "SETNAM",
+        "description": "Dosya adı ayarla",
+        "parameters": "A = dosya adı uzunluğu, XY = dosya adı adresi",
+        "returns": "none", 
+        "usage": "Dosya adı belirleme",
+        "category": "file",
+        "opcodes": ["JSR $FFBD"]
+      },
+      "0xFFC0": {
+        "name": "OPEN",
+        "description": "Dosya aç",
+        "parameters": "Önceden SETLFS ve SETNAM ile ayarlanmış",
+        "returns": "Carry = hata durumu",
+        "usage": "Dosya açma",
+        "category": "file",
+        "opcodes": ["JSR $FFC0"]
+      },
+      "0xFFC3": {
+        "name": "CLOSE",
+        "description": "Dosya kapat",
+        "parameters": "A = logical file numarası",
+        "returns": "none",
+        "usage": "Dosya kapatma",
+        "category": "file", 
+        "opcodes": ["JSR $FFC3"]
+      },
+      "0xFFC6": {
+        "name": "CHKIN",
+        "description": "Giriş kanalı ayarla",
+        "parameters": "X = logical file numarası",
+        "returns": "Carry = hata durumu",
+        "usage": "Dosyadan okuma kanalı",
+        "category": "file",
+        "opcodes": ["JSR $FFC6"]
+      },
+      "0xFFC9": {
+        "name": "CHKOUT",
+        "description": "Çıkış kanalı ayarla", 
+        "parameters": "X = logical file numarası",
+        "returns": "Carry = hata durumu",
+        "usage": "Dosyaya yazma kanalı",
+        "category": "file",
+        "opcodes": ["JSR $FFC9"]
+      },
+      "0xFFCC": {
+        "name": "CLRCHN",
+        "description": "I/O kanallarını sıfırla",
+        "parameters": "none",
+        "returns": "none",
+        "usage": "Varsayılan I/O kanallarına dön",
+        "category": "file",
+        "opcodes": ["JSR $FFCC"]
+      },
+      "0xFFE1": {
+        "name": "STOP",
+        "description": "STOP tuşu kontrol",
+        "parameters": "none",
+        "returns": "Z flag = STOP tuşu durumu",
+        "usage": "Program durdurmak için",
+        "category": "system",
+        "opcodes": ["JSR $FFE1"]
+      },
+      "0xA659": {
+        "name": "RUN",
+        "description": "BASIC programı çalıştır",
+        "parameters": "none",
+        "returns": "none",
+        "usage": "BASIC RUN komutu",
+        "category": "basic",
+        "opcodes": ["JSR $A659"]
+      },
+      "0xA533": {
+        "name": "LIST",
+        "description": "BASIC programı listele",
+        "parameters": "none",
+        "returns": "none",
+        "usage": "BASIC LIST komutu", 
+        "category": "basic",
+        "opcodes": ["JSR $A533"]
+      }
+    },
+    "categories": {
+      "system": "Sistem kontrol fonksiyonları",
+      "io": "Giriş/Çıkış fonksiyonları",
+      "screen": "Ekran kontrol fonksiyonları", 
+      "file": "Dosya işlem fonksiyonları",
+      "basic": "BASIC interpreter fonksiyonları"
+    }
+  }
+}
