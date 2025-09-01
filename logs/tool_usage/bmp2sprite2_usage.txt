@@ -1,0 +1,78 @@
+=== BMP2SPRITE2 USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/bmp2sprite-1.4-win64/bmp2sprite-1.4-win64/bmp2sprite-1.4-win64.exe
+Category: special
+Learning Date: 2025-07-29 11:40:49.968499
+============================================================
+
+COMMAND: bmp2sprite2 --help
+----------------------------------------
+STDOUT:
+bmp2sprite v1.4 [06.06.2017] *** by fieserWolF
+Description: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <add_zero_byte 1=on
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite2 -h
+----------------------------------------
+STDOUT:
+bmp2sprite v1.4 [06.06.2017] *** by fieserWolF
+Description: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <add_zero_byte 1=on
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite2 --version
+----------------------------------------
+STDOUT:
+bmp2sprite v1.4 [06.06.2017] *** by fieserWolF
+Description: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <add_zero_byte 1=on
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite2 -v
+----------------------------------------
+STDOUT:
+bmp2sprite v1.4 [06.06.2017] *** by fieserWolF
+Description: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <add_zero_byte 1=on
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite2 -?
+----------------------------------------
+STDOUT:
+bmp2sprite v1.4 [06.06.2017] *** by fieserWolF
+Description: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <add_zero_byte 1=on
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite2 /?
+----------------------------------------
+STDOUT:
+bmp2sprite v1.4 [06.06.2017] *** by fieserWolF
+Description: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <add_zero_byte 1=on
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
