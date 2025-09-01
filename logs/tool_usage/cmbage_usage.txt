@@ -1,0 +1,60 @@
+=== CMBAGE USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/cbmage/cbmage-master/binaries/win64/cbmage.exe
+Category: special
+Learning Date: 2025-07-29 16:53:24.103924
+============================================================
+
+COMMAND: cmbage --help
+----------------------------------------
+STDERR:
+I/O error: file not found
+
+Return Code: 2
+
+============================================================
+
+COMMAND: cmbage -h
+----------------------------------------
+STDERR:
+I/O error: file not found
+
+Return Code: 2
+
+============================================================
+
+COMMAND: cmbage --version
+----------------------------------------
+STDERR:
+I/O error: file not found
+
+Return Code: 2
+
+============================================================
+
+COMMAND: cmbage -v
+----------------------------------------
+STDERR:
+I/O error: file not found
+
+Return Code: 2
+
+============================================================
+
+COMMAND: cmbage -?
+----------------------------------------
+STDERR:
+I/O error: file not found
+
+Return Code: 2
+
+============================================================
+
+COMMAND: cmbage /?
+----------------------------------------
+STDERR:
+I/O error: file not found
+
+Return Code: 2
+
+============================================================
+
