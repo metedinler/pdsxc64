@@ -1,0 +1,104 @@
+{
+  "$002B-$002C": {
+    "name": "TXTTAB",
+    "size": 2,
+    "description": "BASIC programının başlangıç adresi işaretçisi. $2B düşük bayt, $2C yüksek bayt. Varsayılan $0801 (BASIC programı). CHRGET ($A96B) tarafından kullanılır. Stack ile ilişkisi: GOSUB ($AE8D) ve FOR ($AD8A) dönüş adreslerini $0100-$01FF yığınına kaydeder. Decompiler'da 'txttab' olarak işaretlenir, örneğin LDA $2B -> txttab_lo = A.",
+    "usage": "BASIC, program işaretçisi"
+  },
+  "$002D-$002E": {
+    "name": "VARTAB",
+    "size": 2,
+    "description": "Değişken tablosu başlangıç adresi işaretçisi. $2D düşük bayt, $2E yüksek bayt. BASIC değişkenleri buradan başlar. CLR ($A613) tarafından sıfırlanır. Stack ile ilişkisi: Değişken işlemleri (örneğin, INPUT $B391) yığında geçici veri saklar. Decompiler'da 'vartab' olarak işaretlenir, örneğin LDA $2D -> vartab_lo = A.",
+    "usage": "BASIC, değişken tablosu"
+  },
+  "$002F-$0030": {
+    "name": "ARYTAB",
+    "size": 2,
+    "description": "Dizi tablosu başlangıç adresi işaretçisi. $2F düşük bayt, $30 yüksek bayt. DIM ($A86A) tarafından kullanılır. Stack ile ilişkisi: Dizi işlemleri yığında geçici indeks saklar. Decompiler'da 'arytab' olarak işaretlenir, örneğin LDA $2F -> arytab_lo = A.",
+    "usage": "BASIC, dizi tablosu"
+  },
+  "$0031-$0032": {
+    "name": "STREND",
+    "size": 2,
+    "description": "String ve dizi tablosu bitiş adresi işaretçisi. $31 düşük bayt, $32 yüksek bayt. String işlemleri (örneğin, LEN $A871) burayı kontrol eder. Stack ile ilişkisi: String birleştirme (CONCAT $B67D) yığında geçici veri saklar. Decompiler'da 'strend' olarak işaretlenir, örneğin LDA $31 -> strend_lo = A.",
+    "usage": "BASIC, string/dizi sonu"
+  },
+  "$0033-$0034": {
+    "name": "FRETOP",
+    "size": 2,
+    "description": "Serbest bellek üst sınırı işaretçisi. $33 düşük bayt, $34 yüksek bayt. FRE ($B9D9) tarafından kullanılır. Stack ile ilişkisi: Bellek yönetimi sırasında yığında geçici adresler saklanır. Decompiler'da 'fretop' olarak işaretlenir, örneğin LDA $33 -> fretop_lo = A.",
+    "usage": "BASIC, bellek yönetimi"
+  },
+  "$0035-$0036": {
+    "name": "FRESPC",
+    "size": 2,
+    "description": "Serbest string alanı işaretçisi. $35 düşük bayt, $36 yüksek bayt. String işlemleri (örneğin, STR$ $B6A3) için kullanılır. Stack ile ilişkisi: String kopyalama yığında geçici işaretçiler saklar. Decompiler'da 'frespc' olarak işaretlenir, örneğin LDA $35 -> frespc_lo = A.",
+    "usage": "BASIC, string yönetimi"
+  },
+  "$0037-$0038": {
+    "name": "MEMSIZ",
+    "size": 2,
+    "description": "BASIC bellek üst sınırı işaretçisi. $37 düşük bayt, $38 yüksek bayt. FRE ($B9D9) ve CLR ($A613) tarafından kullanılır. Stack ile ilişkisi: Bellek yönetimi yığında adres hesaplamaları yapar. Decompiler'da 'memsiz' olarak işaretlenir, örneğin LDA $37 -> memsiz_lo = A.",
+    "usage": "BASIC, bellek yönetimi"
+  },
+  "$0039-$003A": {
+    "name": "DATLIN",
+    "size": 2,
+    "description": "Geçerli DATA satır numarası işaretçisi. $39 düşük bayt, $3A yüksek bayt. READ ($A81D) ve RESTORE ($A857) tarafından kullanılır. Stack ile ilişkisi: DATA okuma sırasında yığında geçici işaretçiler saklanır. Decompiler'da 'datlin' olarak işaretlenir, örneğin LDA $39 -> datlin_lo = A.",
+    "usage": "BASIC, DATA işlemleri"
+  },
+  "$003B-$003C": {
+    "name": "DATPTR",
+    "size": 2,
+    "description": "DATA işaretçisi, geçerli DATA verisinin adresini tutar. $3B düşük bayt, $3C yüksek bayt. READ ($A81D) tarafından kullanılır. Stack ile ilişkisi: DATA okuma yığında geçici adresler saklar. Decompiler'da 'datptr' olarak işaretlenir, örneğin LDA $3B -> datptr_lo = A.",
+    "usage": "BASIC, DATA işlemleri"
+  },
+  "$003D-$003E": {
+    "name": "VARNAM",
+    "size": 2,
+    "description": "Geçerli değişken adı işaretçisi. $3D düşük bayt, $3E yüksek bayt. Değişken işlemleri (örneğin, INPUT $B391) için kullanılır. Stack ile ilişkisi: Değişken tanımlama yığında geçici veri saklar. Decompiler'da 'varnam' olarak işaretlenir, örneğin LDA $3D -> varnam_lo = A.",
+    "usage": "BASIC, değişken işlemleri"
+  },
+  "$003F-$0040": {
+    "name": "VARPTR",
+    "size": 2,
+    "description": "Değişken işaretçisi, geçerli değişkenin adresini tutar. $3F düşük bayt, $40 yüksek bayt. Değişken işlemleri (örneğin, LET $A88C) için kullanılır. Stack ile ilişkisi: Değişken atama yığında adres saklar. Decompiler'da 'varptr' olarak işaretlenir, örneğin LDA $3F -> varptr_lo = A.",
+    "usage": "BASIC, değişken işlemleri"
+  },
+  "$0041-$0042": {
+    "name": "FORPTR",
+    "size": 2,
+    "description": "FOR döngüsü işaretçisi, döngü değişkenini tutar. $41 düşük bayt, $42 yüksek bayt. FOR ($AD8A) ve NEXT ($AE83) tarafından kullanılır. Stack ile ilişkisi: FOR döngüsü yığında döngü değişkeni ve sınır saklar ($0100-$01FF). Decompiler'da 'forptr' olarak işaretlenir, örneğin LDA $41 -> forptr_lo = A.",
+    "usage": "BASIC, döngü işlemleri"
+  },
+  "$0043-$0044": {
+    "name": "TEMPPT",
+    "size": 2,
+    "description": "Geçici işaretçi, BASIC işlemleri için kullanılır. $43 düşük bayt, $44 yüksek bayt. Örneğin, string işlemleri (LEN $A871). Stack ile ilişkisi: Geçici veri yığında saklanır. Decompiler'da 'temppt' olarak işaretlenir, örneğin LDA $43 -> temppt_lo = A.",
+    "usage": "BASIC, geçici işaretçi"
+  },
+  "$0045-$0046": {
+    "name": "LASTPT",
+    "size": 2,
+    "description": "Son kullanılan işaretçi, BASIC işlemleri için geçici saklama. $45 düşük bayt, $46 yüksek bayt. Decompiler'da 'lastpt' olarak işaretlenir, örneğin LDA $45 -> lastpt_lo = A.",
+    "usage": "BASIC, geçici işaretçi"
+  },
+  "$0314-$0315": {
+    "name": "IRQ_VECTOR",
+    "size": 2,
+    "description": "IRQ kesme vektörü, kesme rutini adresini tutar. $314 düşük bayt, $315 yüksek bayt. Varsayılan $EA31 (IRQ). Stack ile ilişkisi: IRQ kesmesi ($EA31) A, X, Y register'larını yığına ($0100-$01FF) kaydeder. Decompiler'da 'irq_vector' olarak işaretlenir, örneğin LDA $314 -> irq_vector_lo = A.",
+    "usage": "KERNAL, kesme yönetimi"
+  },
+  "$0316-$0317": {
+    "name": "BRK_VECTOR",
+    "size": 2,
+    "description": "BRK kesme vektörü, hata kesmesi adresini tutar. $316 düşük bayt, $317 yüksek bayt. Stack ile ilişkisi: BRK kesmesi yığına program sayacı ve durum bayraklarını kaydeder. Decompiler'da 'brk_vector' olarak işaretlenir, örneğin LDA $316 -> brk_vector_lo = A.",
+    "usage": "KERNAL, kesme yönetimi"
+  },
+  "$0318-$0319": {
+    "name": "NMI_VECTOR",
+    "size": 2,
+    "description": "NMI kesme vektörü, donanım kesmesi adresini tutar. $318 düşük bayt, $319 yüksek bayt. Stack ile ilişkisi: NMI kesmesi yığına program sayacı ve durum bayraklarını kaydeder. Decompiler'da 'nmi_vector' olarak işaretlenir, örneğin LDA $318 -> nmi_vector_lo = A.",
+    "usage": "KERNAL, kesme yönetimi"
+  }
+}
