@@ -1,0 +1,3479 @@
+{
+  "last_detection": "2025-07-28T22:03:58.780206",
+  "tools": {
+    "assemblers": {
+      "64tass": {
+        "path": "C:\\Users\\dell\\Documents\\64tass-os-x\\64tass-os-x\\64tass",
+        "verified": true,
+        "enabled": true,
+        "version": "",
+        "detection_date": "2025-07-28T22:03:58.780234",
+        "category": "assemblers"
+      },
+      "acme": {
+        "path": "C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\acme0.97mac\\acme",
+        "verified": true,
+        "enabled": true,
+        "version": "",
+        "detection_date": "2025-07-28T22:03:58.780242",
+        "category": "assemblers"
+      },
+      "dasm": {
+        "path": "C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\dasm.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Warning: Unable to open '--version'\n\nComplete. (0)",
+        "detection_date": "2025-07-28T22:03:58.780247",
+        "category": "assemblers"
+      },
+      "ca65": {
+        "path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/cc65-snapshot-win32/bin/cc65.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "cc65 V2.19 - Git 32313a8",
+        "detection_date": "2025-07-22T23:56:06.826528",
+        "category": "assemblers",
+        "source": "manual"
+      },
+      "dreamass": {
+        "path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/c64 compiler/dreamass/dreamass.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "DreamAss 0.9.1",
+        "detection_date": "2025-07-23T00:00:58.596426",
+        "category": "assemblers",
+        "source": "manual"
+      },
+      "kickass": {
+        "path": "C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\KickAssembler\\KickAss.jar",
+        "verified": true,
+        "enabled": true,
+        "version": "",
+        "detection_date": "2025-07-28T22:03:58.780251",
+        "category": "assemblers"
+      },
+      "c64dmon32": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/64Dmon32_100beta/C64Dmon32.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-28T23:02:00.630599",
+        "category": "assemblers",
+        "source": "manual"
+      },
+      "6502bench": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/6502bench100/SourceGen.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-28T23:08:10.036437",
+        "category": "assemblers",
+        "source": "manual"
+      },
+      "a64": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/a64_0.1.1_windows_386/a64_0.1.1_windows_386/a64.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "version     Print version information (api, cli)",
+        "detection_date": "2025-07-28T23:16:27.622901",
+        "category": "assemblers",
+        "source": "manual"
+      },
+      "c2": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c2_0.6.4_mingw_win64 (1)/c2_0.6.4/c2.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "0.6.4 (0.6.4)",
+        "detection_date": "2025-07-29T08:28:23.020745",
+        "category": "assemblers",
+        "source": "manual"
+      },
+      "chararset minion": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64CharsetMinion/C64 Charset Minion.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T12:16:32.591893",
+        "category": "assemblers",
+        "source": "manual"
+      },
+      "64ass": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64StudioRelease3.5/C64StudioRelease/net3.5/C64Ass/C64Ass.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "-V, --VERSION                  - Display version",
+        "detection_date": "2025-07-29T13:03:36.805758",
+        "category": "assemblers",
+        "source": "manual"
+      },
+      "c6510": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c6510-1.0.0/c6510/bin/win_x64/c6510.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "c6510 version 1.0.0 - a macro based cross-assembler for C64",
+        "detection_date": "2025-07-29T13:10:00.153476",
+        "category": "assemblers",
+        "source": "manual"
+      }
+    },
+    "compilers": {
+      "oscar64": {
+        "path": "C:\\Program Files\\oscar64\\bin\\oscar64.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "",
+        "detection_date": "2025-07-28T22:03:58.780268",
+        "category": "compilers"
+      },
+      "cc65": {
+        "path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/cc65-snapshot-win32/bin/ca65.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "ca65 V2.19 - Git 32313a8",
+        "detection_date": "2025-07-22T23:13:37.197001",
+        "category": "compilers",
+        "source": "manual"
+      }
+    },
+    "interpreters": {
+      "python": {
+        "path": "C:\\Program Files\\Python313\\python.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Python 3.13.5",
+        "detection_date": "2025-07-28T22:03:58.780275",
+        "category": "interpreters"
+      },
+      "qbasic": {
+        "path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/qb64/qb64.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-23T02:55:47.539019",
+        "category": "interpreters",
+        "source": "manual"
+      },
+      "freebasic": {
+        "path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/c64 compiler/FreeBASIC/fbc64.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "FreeBASIC Compiler - Version 1.10.1 (2023-12-24), built for win64 (64bit)",
+        "detection_date": "2025-07-23T03:04:15.986390",
+        "category": "interpreters",
+        "source": "manual"
+      }
+    },
+    "ides": {
+      "vscode": {
+        "path": "C:\\Users\\dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code",
+        "verified": true,
+        "enabled": true,
+        "version": "",
+        "detection_date": "2025-07-28T22:03:58.780280",
+        "category": "ides"
+      },
+      "ide64": {
+        "path": "C:/Users/dell/Downloads/commodore64 icin/IDE65XX_0.1.1_Windows-64bit/Windows-64bit/IDE65xx.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-22T14:05:31.171409",
+        "category": "ides",
+        "source": "manual"
+      },
+      "relaunch64": {
+        "path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/Relaunch64.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "INFO: Latest stable Relaunch64-build: 20161031",
+        "detection_date": "2025-07-22T14:15:35.065233",
+        "category": "ides",
+        "source": "manual"
+      },
+      "c64 studio": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64StudioRelease3.5/C64StudioRelease/net3.5/C64Studio.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Interactive tool (timeout)",
+        "detection_date": "2025-07-29T13:01:46.197768",
+        "category": "ides",
+        "source": "manual"
+      }
+    },
+    "emulators": {
+      "ccs64": {
+        "path": "C:\\Users\\dell\\Documents\\CCS64 V3.9.3\\Release\\CCS64.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "",
+        "detection_date": "2025-07-28T22:03:58.780285",
+        "category": "emulators"
+      },
+      "6502 simulator": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/6502_1.2.12/6502.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-28T23:04:34.739022",
+        "category": "emulators",
+        "source": "manual"
+      },
+      "vice": {
+        "path": "C:/Users/dell/Downloads/commodore64 icin/GTK3VICE-3.9-win64/GTK3VICE-3.9-win64/bin/x64sc.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "x64sc (VICE 3.9)",
+        "detection_date": "2025-07-28T23:22:43.605862",
+        "category": "emulators",
+        "source": "manual"
+      },
+      "albert": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/ALBERT-1.0.47-win64-portable/ALBERT-1.0.47-win64-portable/bin/albert.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "(albert.exe:5604): Gtk-WARNING **: 00:24:20.190: Unable to locate theme engine in module_path: \"murr",
+        "detection_date": "2025-07-29T00:24:18.486953",
+        "category": "emulators",
+        "source": "manual"
+      },
+      "ape": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/ape/ape.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T00:33:14.280842",
+        "category": "emulators",
+        "source": "manual"
+      },
+      "albert2": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/ALBERT-2.4.1-windows-x86_64-portable/ALBERT-2.4.1/bin/albert.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T00:34:40.364490",
+        "category": "emulators",
+        "source": "manual"
+      },
+      "c64debugger": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64 Debugger v0.64.56 Win32/C64 Debugger/C64Debugger.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T08:31:48.492984",
+        "category": "emulators",
+        "source": "manual"
+      },
+      "c64emu": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c64emu-beta3-install-package/EMU beta3 install package/C64EMU.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T12:23:12.083592",
+        "category": "emulators",
+        "source": "manual"
+      }
+    },
+    "utilities": {},
+    "special": {
+      "asl compiler": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/asl.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "invalid option (-help for help): --help",
+        "detection_date": "2025-07-29T07:30:49.526801",
+        "category": "special",
+        "source": "manual"
+      },
+      "alink": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/alink.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "alink.exe: no input files (-help for help)",
+        "detection_date": "2025-07-29T07:33:15.054241",
+        "category": "special",
+        "source": "manual"
+      },
+      "p2bin": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/p2bin.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "invalid parameter (-help for help): --version",
+        "detection_date": "2025-07-29T07:35:25.076258",
+        "category": "special",
+        "source": "manual"
+      },
+      "p2hex": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/p2hex.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "invalid parameter (-help for help): --version",
+        "detection_date": "2025-07-29T07:37:43.334499",
+        "category": "special",
+        "source": "manual"
+      },
+      "pbind": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/pbind.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "PBIND V1.42 Beta [Bld 291]",
+        "detection_date": "2025-07-29T07:39:14.869994",
+        "category": "special",
+        "source": "manual"
+      },
+      "plist": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/plist.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "PLIST V1.42 Beta [Bld 291]",
+        "detection_date": "2025-07-29T07:40:31.924304",
+        "category": "special",
+        "source": "manual"
+      },
+      "basedit": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BasEdit.Net (1)/BasEdit.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Interactive tool (timeout)",
+        "detection_date": "2025-07-29T07:48:07.555833",
+        "category": "special",
+        "source": "manual"
+      },
+      "basicv2": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/basicv2-master (2)/basicv2-master/dist/basicv2.jar",
+        "verified": true,
+        "enabled": true,
+        "version": "com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!",
+        "detection_date": "2025-07-29T08:00:30.783326",
+        "category": "special",
+        "source": "manual"
+      },
+      "charpad": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BitmapToCharpad/BitmapToCharpad.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T08:06:38.753158",
+        "category": "special",
+        "source": "manual"
+      },
+      "bmp2petlogo": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BMP2PETLOGO_1.0/BMP2PETLOGO.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T08:10:16.226304",
+        "category": "special",
+        "source": "manual"
+      },
+      "bmp2petscii-win64": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/bmp2petscii-0.2/bmp2petscii-0.2/bmp2petscii-win64.exe",
+        "verified": false,
+        "enabled": true,
+        "version": "",
+        "detection_date": "2025-07-29T08:25:48.901182",
+        "category": "special",
+        "source": "manual"
+      },
+      "bmp2sprite": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/bmp2sprite/bmp2sprite/bmp2sprite.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "bmp2sprite v1.0 [05.09.2011] *** by fieserWolF",
+        "detection_date": "2025-07-29T11:38:44.964673",
+        "category": "special",
+        "source": "manual"
+      },
+      "bmp2sprite2": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/bmp2sprite-1.4-win64/bmp2sprite-1.4-win64/bmp2sprite-1.4-win64.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "bmp2sprite v1.4 [06.06.2017] *** by fieserWolF",
+        "detection_date": "2025-07-29T11:40:48.784533",
+        "category": "special",
+        "source": "manual"
+      },
+      "charsetminion": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64CharsetMinion/C64 Charset Minion.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T12:17:57.647775",
+        "category": "special",
+        "source": "manual"
+      },
+      "c64list": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64List3.03/C64List.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "-------------------------------------------------------------------------------",
+        "detection_date": "2025-07-29T12:32:01.863137",
+        "category": "special",
+        "source": "manual"
+      },
+      "picextender": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/bin/c64-picextender.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T12:35:08.011041",
+        "category": "special",
+        "source": "manual"
+      },
+      "rastereditor": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/bin/c64-picextender.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T12:38:16.609000",
+        "category": "special",
+        "source": "manual"
+      },
+      "cbm file finder": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/CBM_FileFinder.1.0/Release/CBM FileFinder.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "Available",
+        "detection_date": "2025-07-29T16:46:33.522831",
+        "category": "special",
+        "source": "manual"
+      },
+      "cmbage": {
+        "path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/cbmage/cbmage-master/binaries/win64/cbmage.exe",
+        "verified": true,
+        "enabled": true,
+        "version": "I/O error: file not found",
+        "detection_date": "2025-07-29T16:53:22.618686",
+        "category": "special",
+        "source": "manual"
+      }
+    }
+  },
+  "tool_usage": {
+    "command_templates": {
+      "64tass": [
+        "%TOOL_PATH% %DOSYAADI% -o %CIKTI%",
+        "%TOOL_PATH% --verbose %DOSYAADI% -o %CIKTI%",
+        "%TOOL_PATH% --list %DOSYAADI% -o %CIKTI% --list=%CIKTI%.lst",
+        "%TOOL_PATH% --labels %DOSYAADI% -o %CIKTI% --labels=%CIKTI%.lbl"
+      ],
+      "acme": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% --outfile %CIKTI% %DOSYAADI%",
+        "%TOOL_PATH% --format cbm %DOSYAADI%"
+      ],
+      "dasm": [
+        "%TOOL_PATH% %DOSYAADI% -o%CIKTI%",
+        "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -l%CIKTI%.lst",
+        "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -s%CIKTI%.sym"
+      ],
+      "python": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% -m %MODULE% %DOSYAADI%"
+      ],
+      "vscode": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "ccs64": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "ide64": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "relaunch64": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "oscar64": [
+        "%TOOL_PATH% %DOSYAADI% -o %CIKTI%",
+        "%TOOL_PATH% -tm=c64 %DOSYAADI% -o %CIKTI%"
+      ],
+      "cc65": [
+        "%TOOL_PATH% -t c64 %DOSYAADI%",
+        "%TOOL_PATH% -t c64 -O %DOSYAADI% -o %CIKTI%"
+      ],
+      "ca65": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "dreamass": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "qbasic": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "c64dmon32": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "6502 simulator": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "6502bench": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "albert": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "ape": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "asl compiler": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "alink": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "p2bin": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "p2hex": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "pbind": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "plist": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "basedit": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "basicv2": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "charpad": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "bmp2petlogo": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "bmp2sprite": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "c2": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "c64debugger": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "bmp2sprite2": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "chararset minion": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "charsetminion": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "c64emu": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "c64list": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "picextender": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "rastereditor": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "c64 studio": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "64ass": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "c6510": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "cbm file finder": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ]
+    },
+    "help_info": {},
+    "usage_examples": {},
+    "64tass": {
+      "tool_name": "64tass",
+      "tool_path": "C:\\Users\\dell\\Documents\\64tass-os-x\\64tass-os-x\\64tass",
+      "category": "assemblers",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI% -o %CIKTI%",
+        "%TOOL_PATH% --verbose %DOSYAADI% -o %CIKTI%",
+        "%TOOL_PATH% --list %DOSYAADI% -o %CIKTI% --list=%CIKTI%.lst",
+        "%TOOL_PATH% --labels %DOSYAADI% -o %CIKTI% --labels=%CIKTI%.lbl"
+      ],
+      "variables_used": []
+    },
+    "acme": {
+      "tool_name": "acme",
+      "tool_path": "C:\\Users\\dell\\Documents\\acme-os-x\\acme-os-x\\acme",
+      "category": "assemblers",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% --outfile %CIKTI% %DOSYAADI%",
+        "%TOOL_PATH% --format cbm %DOSYAADI%"
+      ],
+      "variables_used": []
+    },
+    "dasm": {
+      "tool_name": "dasm",
+      "tool_path": "C:\\Users\\dell\\Documents\\dasm-os-x\\dasm-os-x\\dasm",
+      "category": "assemblers",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI% -o%CIKTI%",
+        "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -l%CIKTI%.lst",
+        "%TOOL_PATH% %DOSYAADI% -o%CIKTI% -s%CIKTI%.sym"
+      ],
+      "variables_used": []
+    },
+    "python": {
+      "tool_name": "python",
+      "tool_path": "C:\\Program Files\\Python313\\python.exe",
+      "category": "interpreters",
+      "help_outputs": {
+        "--help": {
+          "stdout": "usage: C:\\Program Files\\Python313\\python.exe [option] ... [-c cmd | -m mod | file | -] [arg] ...\nOptions (and corresponding environment variables):\n-b     : issue warnings about converting bytes/bytearray to str and comparing\n         bytes/bytearray with str or bytes with int. (-bb: issue errors)\n-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x\n-c cmd : program passed in as string (terminates option list)\n-d     : turn on parser debugging output (for experts only, only works on\n         debug builds); also PYTHONDEBUG=x\n-E     : ignore PYTHON* environment variables (such as PYTHONPATH)\n-h     : print this help message and exit (also -? or --help)\n-i     : inspect interactively after running script; forces a prompt even\n         if stdin does not appear to be a terminal; also PYTHONINSPECT=x\n-I     : isolate Python from the user's environment (implies -E, -P and -s)\n-m mod : run library module as a script (terminates option list)\n-O     : remove assert and __debug__-dependent statements; add .opt-1 before\n         .pyc extension; also PYTHONOPTIMIZE=x\n-OO    : do -O changes and also discard docstrings; add .opt-2 before\n         .pyc extension\n-P     : don't prepend a potentially unsafe path to sys.path; also\n         PYTHONSAFEPATH\n-q     : don't print version and copyright messages on interactive startup\n-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE=x\n-S     : don't imply 'import site' on initialization\n-u     : force the stdout and stderr streams to be unbuffered;\n         this option has no effect on stdin; also PYTHONUNBUFFERED=x\n-v     : verbose (trace import statements); also PYTHONVERBOSE=x\n         can be supplied multiple times to increase verbosity\n-V     : print the Python version number and exit (also --version)\n         when given twice, print more information about the build\n-W arg : warning control; arg is action:message:category:module:lineno\n         also PYTHONWARNINGS=arg\n-x     : skip first line of source, allowing use of non-Unix forms of #!cmd\n-X opt : set implementation-specific option\n--check-hash-based-pycs always|default|never:\n         control how Python invalidates hash-based .pyc files\n--help-env: print help about Python environment variables and exit\n--help-xoptions: print help about implementation-specific -X options and exit\n--help-all: print complete help information and exit\n\nArguments:\nfile   : program read from script file\n-      : program read from stdin (default; interactive mode if a tty)\narg ...: arguments passed to program in sys.argv[1:]\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-h": {
+          "stdout": "usage: C:\\Program Files\\Python313\\python.exe [option] ... [-c cmd | -m mod | file | -] [arg] ...\nOptions (and corresponding environment variables):\n-b     : issue warnings about converting bytes/bytearray to str and comparing\n         bytes/bytearray with str or bytes with int. (-bb: issue errors)\n-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x\n-c cmd : program passed in as string (terminates option list)\n-d     : turn on parser debugging output (for experts only, only works on\n         debug builds); also PYTHONDEBUG=x\n-E     : ignore PYTHON* environment variables (such as PYTHONPATH)\n-h     : print this help message and exit (also -? or --help)\n-i     : inspect interactively after running script; forces a prompt even\n         if stdin does not appear to be a terminal; also PYTHONINSPECT=x\n-I     : isolate Python from the user's environment (implies -E, -P and -s)\n-m mod : run library module as a script (terminates option list)\n-O     : remove assert and __debug__-dependent statements; add .opt-1 before\n         .pyc extension; also PYTHONOPTIMIZE=x\n-OO    : do -O changes and also discard docstrings; add .opt-2 before\n         .pyc extension\n-P     : don't prepend a potentially unsafe path to sys.path; also\n         PYTHONSAFEPATH\n-q     : don't print version and copyright messages on interactive startup\n-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE=x\n-S     : don't imply 'import site' on initialization\n-u     : force the stdout and stderr streams to be unbuffered;\n         this option has no effect on stdin; also PYTHONUNBUFFERED=x\n-v     : verbose (trace import statements); also PYTHONVERBOSE=x\n         can be supplied multiple times to increase verbosity\n-V     : print the Python version number and exit (also --version)\n         when given twice, print more information about the build\n-W arg : warning control; arg is action:message:category:module:lineno\n         also PYTHONWARNINGS=arg\n-x     : skip first line of source, allowing use of non-Unix forms of #!cmd\n-X opt : set implementation-specific option\n--check-hash-based-pycs always|default|never:\n         control how Python invalidates hash-based .pyc files\n--help-env: print help about Python environment variables and exit\n--help-xoptions: print help about implementation-specific -X options and exit\n--help-all: print complete help information and exit\n\nArguments:\nfile   : program read from script file\n-      : program read from stdin (default; interactive mode if a tty)\narg ...: arguments passed to program in sys.argv[1:]\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "--version": {
+          "stdout": "Python 3.13.5\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-?": {
+          "stdout": "usage: C:\\Program Files\\Python313\\python.exe [option] ... [-c cmd | -m mod | file | -] [arg] ...\nOptions (and corresponding environment variables):\n-b     : issue warnings about converting bytes/bytearray to str and comparing\n         bytes/bytearray with str or bytes with int. (-bb: issue errors)\n-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x\n-c cmd : program passed in as string (terminates option list)\n-d     : turn on parser debugging output (for experts only, only works on\n         debug builds); also PYTHONDEBUG=x\n-E     : ignore PYTHON* environment variables (such as PYTHONPATH)\n-h     : print this help message and exit (also -? or --help)\n-i     : inspect interactively after running script; forces a prompt even\n         if stdin does not appear to be a terminal; also PYTHONINSPECT=x\n-I     : isolate Python from the user's environment (implies -E, -P and -s)\n-m mod : run library module as a script (terminates option list)\n-O     : remove assert and __debug__-dependent statements; add .opt-1 before\n         .pyc extension; also PYTHONOPTIMIZE=x\n-OO    : do -O changes and also discard docstrings; add .opt-2 before\n         .pyc extension\n-P     : don't prepend a potentially unsafe path to sys.path; also\n         PYTHONSAFEPATH\n-q     : don't print version and copyright messages on interactive startup\n-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE=x\n-S     : don't imply 'import site' on initialization\n-u     : force the stdout and stderr streams to be unbuffered;\n         this option has no effect on stdin; also PYTHONUNBUFFERED=x\n-v     : verbose (trace import statements); also PYTHONVERBOSE=x\n         can be supplied multiple times to increase verbosity\n-V     : print the Python version number and exit (also --version)\n         when given twice, print more information about the build\n-W arg : warning control; arg is action:message:category:module:lineno\n         also PYTHONWARNINGS=arg\n-x     : skip first line of source, allowing use of non-Unix forms of #!cmd\n-X opt : set implementation-specific option\n--check-hash-based-pycs always|default|never:\n         control how Python invalidates hash-based .pyc files\n--help-env: print help about Python environment variables and exit\n--help-xoptions: print help about implementation-specific -X options and exit\n--help-all: print complete help information and exit\n\nArguments:\nfile   : program read from script file\n-      : program read from stdin (default; interactive mode if a tty)\narg ...: arguments passed to program in sys.argv[1:]\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "/?": {
+          "stdout": "usage: C:\\Program Files\\Python313\\python.exe [option] ... [-c cmd | -m mod | file | -] [arg] ...\nOptions (and corresponding environment variables):\n-b     : issue warnings about converting bytes/bytearray to str and comparing\n         bytes/bytearray with str or bytes with int. (-bb: issue errors)\n-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x\n-c cmd : program passed in as string (terminates option list)\n-d     : turn on parser debugging output (for experts only, only works on\n         debug builds); also PYTHONDEBUG=x\n-E     : ignore PYTHON* environment variables (such as PYTHONPATH)\n-h     : print this help message and exit (also -? or --help)\n-i     : inspect interactively after running script; forces a prompt even\n         if stdin does not appear to be a terminal; also PYTHONINSPECT=x\n-I     : isolate Python from the user's environment (implies -E, -P and -s)\n-m mod : run library module as a script (terminates option list)\n-O     : remove assert and __debug__-dependent statements; add .opt-1 before\n         .pyc extension; also PYTHONOPTIMIZE=x\n-OO    : do -O changes and also discard docstrings; add .opt-2 before\n         .pyc extension\n-P     : don't prepend a potentially unsafe path to sys.path; also\n         PYTHONSAFEPATH\n-q     : don't print version and copyright messages on interactive startup\n-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE=x\n-S     : don't imply 'import site' on initialization\n-u     : force the stdout and stderr streams to be unbuffered;\n         this option has no effect on stdin; also PYTHONUNBUFFERED=x\n-v     : verbose (trace import statements); also PYTHONVERBOSE=x\n         can be supplied multiple times to increase verbosity\n-V     : print the Python version number and exit (also --version)\n         when given twice, print more information about the build\n-W arg : warning control; arg is action:message:category:module:lineno\n         also PYTHONWARNINGS=arg\n-x     : skip first line of source, allowing use of non-Unix forms of #!cmd\n-X opt : set implementation-specific option\n--check-hash-based-pycs always|default|never:\n         control how Python invalidates hash-based .pyc files\n--help-env: print help about Python environment variables and exit\n--help-xoptions: print help about implementation-specific -X options and exit\n--help-all: print complete help information and exit\n\nArguments:\nfile   : program read from script file\n-      : program read from stdin (default; interactive mode if a tty)\narg ...: arguments passed to program in sys.argv[1:]\n",
+          "stderr": "",
+          "returncode": 0
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% -m %MODULE% %DOSYAADI%"
+      ],
+      "variables_used": [
+        "-c",
+        "-m",
+        "-b",
+        "-b",
+        "-B",
+        "-c",
+        "-d",
+        "-E",
+        "-h",
+        "--help",
+        "-i",
+        "-I",
+        "-E",
+        "-P",
+        "-s",
+        "-m",
+        "-O",
+        "-d",
+        "-O",
+        "-O",
+        "-P",
+        "-q",
+        "-s",
+        "-S",
+        "-u",
+        "-v",
+        "-V",
+        "--version",
+        "-W",
+        "-x",
+        "-U",
+        "-X",
+        "-s",
+        "--check-hash-based-pycs",
+        "-b",
+        "--help-env",
+        "--help-xoptions",
+        "-s",
+        "-X",
+        "--help-all",
+        "-c",
+        "-m",
+        "-b",
+        "-b",
+        "-B",
+        "-c",
+        "-d",
+        "-E",
+        "-h",
+        "--help",
+        "-i",
+        "-I",
+        "-E",
+        "-P",
+        "-s",
+        "-m",
+        "-O",
+        "-d",
+        "-O",
+        "-O",
+        "-P",
+        "-q",
+        "-s",
+        "-S",
+        "-u",
+        "-v",
+        "-V",
+        "--version",
+        "-W",
+        "-x",
+        "-U",
+        "-X",
+        "-s",
+        "--check-hash-based-pycs",
+        "-b",
+        "--help-env",
+        "--help-xoptions",
+        "-s",
+        "-X",
+        "--help-all",
+        "-c",
+        "-m",
+        "-b",
+        "-b",
+        "-B",
+        "-c",
+        "-d",
+        "-E",
+        "-h",
+        "--help",
+        "-i",
+        "-I",
+        "-E",
+        "-P",
+        "-s",
+        "-m",
+        "-O",
+        "-d",
+        "-O",
+        "-O",
+        "-P",
+        "-q",
+        "-s",
+        "-S",
+        "-u",
+        "-v",
+        "-V",
+        "--version",
+        "-W",
+        "-x",
+        "-U",
+        "-X",
+        "-s",
+        "--check-hash-based-pycs",
+        "-b",
+        "--help-env",
+        "--help-xoptions",
+        "-s",
+        "-X",
+        "--help-all",
+        "-c",
+        "-m",
+        "-b",
+        "-b",
+        "-B",
+        "-c",
+        "-d",
+        "-E",
+        "-h",
+        "--help",
+        "-i",
+        "-I",
+        "-E",
+        "-P",
+        "-s",
+        "-m",
+        "-O",
+        "-d",
+        "-O",
+        "-O",
+        "-P",
+        "-q",
+        "-s",
+        "-S",
+        "-u",
+        "-v",
+        "-V",
+        "--version",
+        "-W",
+        "-x",
+        "-U",
+        "-X",
+        "-s",
+        "--check-hash-based-pycs",
+        "-b",
+        "--help-env",
+        "--help-xoptions",
+        "-s",
+        "-X",
+        "--help-all"
+      ]
+    },
+    "vscode": {
+      "tool_name": "vscode",
+      "tool_path": "C:\\Users\\dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code",
+      "category": "ides",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "ccs64": {
+      "tool_name": "ccs64",
+      "tool_path": "C:\\Users\\dell\\Documents\\CCS64 V3.9.3\\Release\\CCS64.exe",
+      "category": "emulators",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "ide64": {
+      "tool_name": "ide64",
+      "tool_path": "C:/Users/dell/Downloads/commodore64 icin/IDE65XX_0.1.1_Windows-64bit/Windows-64bit/IDE65xx.exe",
+      "category": "ides",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "relaunch64": {
+      "tool_name": "relaunch64",
+      "tool_path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/Relaunch64.exe",
+      "category": "ides",
+      "help_outputs": {
+        "--help": {
+          "stdout": "",
+          "stderr": "Tem 22, 2025 2:15:42 PM de.relaunch64.popelganda.CheckForUpdates finished\nINFO: Latest stable Relaunch64-build: 20161031\n",
+          "returncode": 259
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "Tem 22, 2025 2:15:45 PM de.relaunch64.popelganda.CheckForUpdates finished\nINFO: Latest stable Relaunch64-build: 20161031\n",
+          "returncode": 259
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "Tem 22, 2025 2:15:48 PM de.relaunch64.popelganda.CheckForUpdates finished\nINFO: Latest stable Relaunch64-build: 20161031\n",
+          "returncode": 259
+        },
+        "-v": {
+          "stdout": "",
+          "stderr": "Tem 22, 2025 2:15:51 PM de.relaunch64.popelganda.CheckForUpdates finished\nINFO: Latest stable Relaunch64-build: 20161031\n",
+          "returncode": 259
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "Tem 22, 2025 2:15:54 PM de.relaunch64.popelganda.CheckForUpdates finished\nINFO: Latest stable Relaunch64-build: 20161031\n",
+          "returncode": 259
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "Tem 22, 2025 2:15:57 PM de.relaunch64.popelganda.CheckForUpdates finished\nINFO: Latest stable Relaunch64-build: 20161031\n",
+          "returncode": 259
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-b",
+        "-b",
+        "-b",
+        "-b",
+        "-b",
+        "-b"
+      ]
+    },
+    "oscar64": {
+      "tool_name": "oscar64",
+      "tool_path": "C:/Program Files/oscar64/bin/oscar64.exe",
+      "category": "compilers",
+      "help_outputs": {
+        "--help": {
+          "stdout": "",
+          "stderr": "oscar64: error 3004: Invalid command line argument '--help'\n",
+          "returncode": 20
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "oscar64: error 3004: Invalid command line argument '-h'\n",
+          "returncode": 20
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "oscar64: error 3004: Invalid command line argument '--version'\n",
+          "returncode": 20
+        },
+        "-v": {
+          "stdout": "Starting oscar64 1.31.262.0\nCompiling \"C:/Program Files/oscar64/include/crt.c\"\nIncluding \"C:/Program Files/oscar64/include/crt.h\"\nGlobal analyzer\nGenerate intermediate code\n",
+          "stderr": "C:/Program Files/oscar64/include/crt.c(30, 5) : error 3022: Calling undefined function 'main()->i16'\nC:/Program Files/oscar64/include/crt.c(276, 12) : info 1003: Called from here\nC:/Program Files/oscar64/include/crt.c(30, 5) : error 3022: Calling undefined function 'main()->i16'\n",
+          "returncode": 20
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "oscar64: error 3004: Invalid command line argument '-?'\n",
+          "returncode": 20
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "oscar64: error 3001: Could not open source file. '/?'\n",
+          "returncode": 20
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI% -o %CIKTI%",
+        "%TOOL_PATH% -tm=c64 %DOSYAADI% -o %CIKTI%"
+      ],
+      "variables_used": [
+        "--help",
+        "-h",
+        "--version"
+      ]
+    },
+    "cc65": {
+      "tool_name": "cc65",
+      "tool_path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/cc65-snapshot-win32/bin/ca65.exe",
+      "category": "compilers",
+      "help_outputs": {
+        "--help": {
+          "stdout": "Usage: ca65 [options] file\nShort options:\n  -D name[=value]\t\tDefine a symbol\n  -I dir\t\t\tSet an include directory search path\n  -U\t\t\t\tMark unresolved symbols as import\n  -V\t\t\t\tPrint the assembler version\n  -W n\t\t\t\tSet warning level n\n  -d\t\t\t\tDebug mode\n  -g\t\t\t\tAdd debug info to object file\n  -h\t\t\t\tHelp (this text)\n  -i\t\t\t\tIgnore case of symbols\n  -l name\t\t\tCreate a listing file if assembly was ok\n  -mm model\t\t\tSet the memory model\n  -o name\t\t\tName the output file\n  -s\t\t\t\tEnable smart mode\n  -S\t\t\t\tEnable segment offset listing\n  -t sys\t\t\tSet the target system\n  -v\t\t\t\tIncrease verbosity\n  -x\t\t\t\tExpand macros\n\nLong options:\n  --auto-import\t\t\tMark unresolved symbols as import\n  --bin-include-dir dir\t\tSet a search path for binary includes\n  --color [on|auto|off]\t\tColor diagnostics (default: auto)\n  --cpu type\t\t\tSet cpu type\n  --create-dep name\t\tCreate a make dependency file\n  --create-full-dep name\tCreate a full make dependency file\n  --debug\t\t\tDebug mode\n  --debug-info\t\t\tAdd debug info to object file\n  --expand-macros\t\tExpand macros in the listing\n  --feature name\t\tSet an emulation feature\n  --help\t\t\tHelp (this text)\n  --ignore-case\t\t\tIgnore case of symbols\n  --include-dir dir\t\tSet an include directory search path\n  --large-alignment\t\tDon't warn about large alignments\n  --listing name\t\tCreate a listing file if assembly was ok\n  --list-bytes n\t\tMaximum number of bytes per listing line\n  --memory-model model\t\tSet the memory model\n  --no-utf8\t\t\tDisable use of UTF-8 in diagnostics\n  --pagelength n\t\tSet the page length for the listing\n  --relax-checks\t\tRelax some checks (see docs)\n  --segment-list\t\tEnable segment offset listing\n  --smart\t\t\tEnable smart mode\n  --target sys\t\t\tSet the target system\n  --verbose\t\t\tIncrease verbosity\n  --version\t\t\tPrint the assembler version\n  --warnings-as-errors\t\tTreat warnings as errors\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-h": {
+          "stdout": "Usage: ca65 [options] file\nShort options:\n  -D name[=value]\t\tDefine a symbol\n  -I dir\t\t\tSet an include directory search path\n  -U\t\t\t\tMark unresolved symbols as import\n  -V\t\t\t\tPrint the assembler version\n  -W n\t\t\t\tSet warning level n\n  -d\t\t\t\tDebug mode\n  -g\t\t\t\tAdd debug info to object file\n  -h\t\t\t\tHelp (this text)\n  -i\t\t\t\tIgnore case of symbols\n  -l name\t\t\tCreate a listing file if assembly was ok\n  -mm model\t\t\tSet the memory model\n  -o name\t\t\tName the output file\n  -s\t\t\t\tEnable smart mode\n  -S\t\t\t\tEnable segment offset listing\n  -t sys\t\t\tSet the target system\n  -v\t\t\t\tIncrease verbosity\n  -x\t\t\t\tExpand macros\n\nLong options:\n  --auto-import\t\t\tMark unresolved symbols as import\n  --bin-include-dir dir\t\tSet a search path for binary includes\n  --color [on|auto|off]\t\tColor diagnostics (default: auto)\n  --cpu type\t\t\tSet cpu type\n  --create-dep name\t\tCreate a make dependency file\n  --create-full-dep name\tCreate a full make dependency file\n  --debug\t\t\tDebug mode\n  --debug-info\t\t\tAdd debug info to object file\n  --expand-macros\t\tExpand macros in the listing\n  --feature name\t\tSet an emulation feature\n  --help\t\t\tHelp (this text)\n  --ignore-case\t\t\tIgnore case of symbols\n  --include-dir dir\t\tSet an include directory search path\n  --large-alignment\t\tDon't warn about large alignments\n  --listing name\t\tCreate a listing file if assembly was ok\n  --list-bytes n\t\tMaximum number of bytes per listing line\n  --memory-model model\t\tSet the memory model\n  --no-utf8\t\t\tDisable use of UTF-8 in diagnostics\n  --pagelength n\t\tSet the page length for the listing\n  --relax-checks\t\tRelax some checks (see docs)\n  --segment-list\t\tEnable segment offset listing\n  --smart\t\t\tEnable smart mode\n  --target sys\t\t\tSet the target system\n  --verbose\t\t\tIncrease verbosity\n  --version\t\t\tPrint the assembler version\n  --warnings-as-errors\t\tTreat warnings as errors\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "ca65 V2.19 - Git 32313a8\n",
+          "returncode": 0
+        },
+        "-v": {
+          "stdout": "",
+          "stderr": "ca65: No input files\n",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "ca65: Unknown option: -?\n",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "ca65: Fatal error: Cannot open input file â€˜/?â€™: Invalid argument\n",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% -t c64 %DOSYAADI%",
+        "%TOOL_PATH% -t c64 -O %DOSYAADI% -o %CIKTI%"
+      ],
+      "variables_used": [
+        "-D",
+        "-I",
+        "-U",
+        "-V",
+        "-W",
+        "-d",
+        "-g",
+        "-h",
+        "-i",
+        "-l",
+        "-m",
+        "-o",
+        "-s",
+        "-S",
+        "-t",
+        "-v",
+        "-x",
+        "--auto-import",
+        "--bin-include-dir",
+        "--color",
+        "--cpu",
+        "--create-dep",
+        "--create-full-dep",
+        "--debug",
+        "--debug-info",
+        "--expand-macros",
+        "--feature",
+        "--help",
+        "--ignore-case",
+        "--include-dir",
+        "--large-alignment",
+        "--listing",
+        "--list-bytes",
+        "--memory-model",
+        "--no-utf",
+        "--pagelength",
+        "--relax-checks",
+        "--segment-list",
+        "--smart",
+        "--target",
+        "--verbose",
+        "--version",
+        "--warnings-as-errors",
+        "-D",
+        "-I",
+        "-U",
+        "-V",
+        "-W",
+        "-d",
+        "-g",
+        "-h",
+        "-i",
+        "-l",
+        "-m",
+        "-o",
+        "-s",
+        "-S",
+        "-t",
+        "-v",
+        "-x",
+        "--auto-import",
+        "--bin-include-dir",
+        "--color",
+        "--cpu",
+        "--create-dep",
+        "--create-full-dep",
+        "--debug",
+        "--debug-info",
+        "--expand-macros",
+        "--feature",
+        "--help",
+        "--ignore-case",
+        "--include-dir",
+        "--large-alignment",
+        "--listing",
+        "--list-bytes",
+        "--memory-model",
+        "--no-utf",
+        "--pagelength",
+        "--relax-checks",
+        "--segment-list",
+        "--smart",
+        "--target",
+        "--verbose",
+        "--version",
+        "--warnings-as-errors"
+      ]
+    },
+    "ca65": {
+      "tool_name": "ca65",
+      "tool_path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/cc65-snapshot-win32/bin/cc65.exe",
+      "category": "assemblers",
+      "help_outputs": {
+        "--help": {
+          "stdout": "Usage: cc65 [options] file\nShort options:\n  -Cl\t\t\t\tMake local variables static\n  -Dsym[=defn]\t\t\tDefine a symbol\n  -E\t\t\t\tStop after the preprocessing stage\n  -I dir\t\t\tSet an include directory search path\n  -O\t\t\t\tOptimize code\n  -Oi\t\t\t\tOptimize code, inline more code\n  -Or\t\t\t\tEnable register variables\n  -Os\t\t\t\tInline some standard functions\n  -T\t\t\t\tInclude source as comment\n  -V\t\t\t\tPrint the compiler version number\n  -W [-+]warning[,...]\t\tControl warnings ('-' disables, '+' enables)\n  -d\t\t\t\tDebug mode\n  -dM\t\t\t\tOutput all user macros (needs -E)\n  -dP\t\t\t\tOutput all predefined macros (needs -E)\n  -g\t\t\t\tAdd debug info to object file\n  -h\t\t\t\tHelp (this text)\n  -j\t\t\t\tDefault characters are signed\n  -mm model\t\t\tSet the memory model\n  -o name\t\t\tName the output file\n  -r\t\t\t\tEnable register variables\n  -t sys\t\t\tSet the target system\n  -v\t\t\t\tIncrease verbosity\n\nLong options:\n  --add-source\t\t\tInclude source as comment\n  --all-cdecl\t\t\tMake functions default to __cdecl__\n  --bss-name seg\t\tSet the name of the BSS segment\n  --check-stack\t\t\tGenerate stack overflow checks\n  --code-name seg\t\tSet the name of the CODE segment\n  --codesize x\t\t\tAccept larger code by factor x\n  --cpu type\t\t\tSet cpu type (6502, 65c02)\n  --create-dep name\t\tCreate a make dependency file\n  --create-full-dep name\tCreate a full make dependency file\n  --data-name seg\t\tSet the name of the DATA segment\n  --debug\t\t\tDebug mode\n  --debug-tables name\t\tWrite symbol table debug info to a file\n  --debug-info\t\t\tAdd debug info to object file\n  --debug-opt name\t\tDebug optimization steps\n  --debug-opt-output\t\tDebug output of each optimization step\n  --dep-target target\t\tUse this dependency target\n  --disable-opt name\t\tDisable an optimization step\n  --eagerly-inline-funcs\tEagerly inline some known functions\n  --enable-opt name\t\tEnable an optimization step\n  --help\t\t\tHelp (this text)\n  --include-dir dir\t\tSet an include directory search path\n  --inline-stdfuncs\t\tInline some standard functions\n  --list-opt-steps\t\tList all optimizer steps and exit\n  --list-warnings\t\tList available warning types for -W\n  --local-strings\t\tEmit string literals immediately\n  --memory-model model\t\tSet the memory model\n  --register-space b\t\tSet space available for register variables\n  --register-vars\t\tEnable register variables\n  --rodata-name seg\t\tSet the name of the RODATA segment\n  --signed-chars\t\tDefault characters are signed\n  --standard std\t\tLanguage standard (c89, c99, cc65)\n  --static-locals\t\tMake local variables static\n  --target sys\t\t\tSet the target system\n  --verbose\t\t\tIncrease verbosity\n  --version\t\t\tPrint the compiler version number\n  --warnings-as-errors\t\tTreat warnings as errors\n  --writable-strings\t\tMake string literals writable\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-h": {
+          "stdout": "Usage: cc65 [options] file\nShort options:\n  -Cl\t\t\t\tMake local variables static\n  -Dsym[=defn]\t\t\tDefine a symbol\n  -E\t\t\t\tStop after the preprocessing stage\n  -I dir\t\t\tSet an include directory search path\n  -O\t\t\t\tOptimize code\n  -Oi\t\t\t\tOptimize code, inline more code\n  -Or\t\t\t\tEnable register variables\n  -Os\t\t\t\tInline some standard functions\n  -T\t\t\t\tInclude source as comment\n  -V\t\t\t\tPrint the compiler version number\n  -W [-+]warning[,...]\t\tControl warnings ('-' disables, '+' enables)\n  -d\t\t\t\tDebug mode\n  -dM\t\t\t\tOutput all user macros (needs -E)\n  -dP\t\t\t\tOutput all predefined macros (needs -E)\n  -g\t\t\t\tAdd debug info to object file\n  -h\t\t\t\tHelp (this text)\n  -j\t\t\t\tDefault characters are signed\n  -mm model\t\t\tSet the memory model\n  -o name\t\t\tName the output file\n  -r\t\t\t\tEnable register variables\n  -t sys\t\t\tSet the target system\n  -v\t\t\t\tIncrease verbosity\n\nLong options:\n  --add-source\t\t\tInclude source as comment\n  --all-cdecl\t\t\tMake functions default to __cdecl__\n  --bss-name seg\t\tSet the name of the BSS segment\n  --check-stack\t\t\tGenerate stack overflow checks\n  --code-name seg\t\tSet the name of the CODE segment\n  --codesize x\t\t\tAccept larger code by factor x\n  --cpu type\t\t\tSet cpu type (6502, 65c02)\n  --create-dep name\t\tCreate a make dependency file\n  --create-full-dep name\tCreate a full make dependency file\n  --data-name seg\t\tSet the name of the DATA segment\n  --debug\t\t\tDebug mode\n  --debug-tables name\t\tWrite symbol table debug info to a file\n  --debug-info\t\t\tAdd debug info to object file\n  --debug-opt name\t\tDebug optimization steps\n  --debug-opt-output\t\tDebug output of each optimization step\n  --dep-target target\t\tUse this dependency target\n  --disable-opt name\t\tDisable an optimization step\n  --eagerly-inline-funcs\tEagerly inline some known functions\n  --enable-opt name\t\tEnable an optimization step\n  --help\t\t\tHelp (this text)\n  --include-dir dir\t\tSet an include directory search path\n  --inline-stdfuncs\t\tInline some standard functions\n  --list-opt-steps\t\tList all optimizer steps and exit\n  --list-warnings\t\tList available warning types for -W\n  --local-strings\t\tEmit string literals immediately\n  --memory-model model\t\tSet the memory model\n  --register-space b\t\tSet space available for register variables\n  --register-vars\t\tEnable register variables\n  --rodata-name seg\t\tSet the name of the RODATA segment\n  --signed-chars\t\tDefault characters are signed\n  --standard std\t\tLanguage standard (c89, c99, cc65)\n  --static-locals\t\tMake local variables static\n  --target sys\t\t\tSet the target system\n  --verbose\t\t\tIncrease verbosity\n  --version\t\t\tPrint the compiler version number\n  --warnings-as-errors\t\tTreat warnings as errors\n  --writable-strings\t\tMake string literals writable\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "cc65 V2.19 - Git 32313a8\n",
+          "returncode": 0
+        },
+        "-v": {
+          "stdout": "",
+          "stderr": "cc65: No input files\n",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "Usage: cc65 [options] file\nShort options:\n  -Cl\t\t\t\tMake local variables static\n  -Dsym[=defn]\t\t\tDefine a symbol\n  -E\t\t\t\tStop after the preprocessing stage\n  -I dir\t\t\tSet an include directory search path\n  -O\t\t\t\tOptimize code\n  -Oi\t\t\t\tOptimize code, inline more code\n  -Or\t\t\t\tEnable register variables\n  -Os\t\t\t\tInline some standard functions\n  -T\t\t\t\tInclude source as comment\n  -V\t\t\t\tPrint the compiler version number\n  -W [-+]warning[,...]\t\tControl warnings ('-' disables, '+' enables)\n  -d\t\t\t\tDebug mode\n  -dM\t\t\t\tOutput all user macros (needs -E)\n  -dP\t\t\t\tOutput all predefined macros (needs -E)\n  -g\t\t\t\tAdd debug info to object file\n  -h\t\t\t\tHelp (this text)\n  -j\t\t\t\tDefault characters are signed\n  -mm model\t\t\tSet the memory model\n  -o name\t\t\tName the output file\n  -r\t\t\t\tEnable register variables\n  -t sys\t\t\tSet the target system\n  -v\t\t\t\tIncrease verbosity\n\nLong options:\n  --add-source\t\t\tInclude source as comment\n  --all-cdecl\t\t\tMake functions default to __cdecl__\n  --bss-name seg\t\tSet the name of the BSS segment\n  --check-stack\t\t\tGenerate stack overflow checks\n  --code-name seg\t\tSet the name of the CODE segment\n  --codesize x\t\t\tAccept larger code by factor x\n  --cpu type\t\t\tSet cpu type (6502, 65c02)\n  --create-dep name\t\tCreate a make dependency file\n  --create-full-dep name\tCreate a full make dependency file\n  --data-name seg\t\tSet the name of the DATA segment\n  --debug\t\t\tDebug mode\n  --debug-tables name\t\tWrite symbol table debug info to a file\n  --debug-info\t\t\tAdd debug info to object file\n  --debug-opt name\t\tDebug optimization steps\n  --debug-opt-output\t\tDebug output of each optimization step\n  --dep-target target\t\tUse this dependency target\n  --disable-opt name\t\tDisable an optimization step\n  --eagerly-inline-funcs\tEagerly inline some known functions\n  --enable-opt name\t\tEnable an optimization step\n  --help\t\t\tHelp (this text)\n  --include-dir dir\t\tSet an include directory search path\n  --inline-stdfuncs\t\tInline some standard functions\n  --list-opt-steps\t\tList all optimizer steps and exit\n  --list-warnings\t\tList available warning types for -W\n  --local-strings\t\tEmit string literals immediately\n  --memory-model model\t\tSet the memory model\n  --register-space b\t\tSet space available for register variables\n  --register-vars\t\tEnable register variables\n  --rodata-name seg\t\tSet the name of the RODATA segment\n  --signed-chars\t\tDefault characters are signed\n  --standard std\t\tLanguage standard (c89, c99, cc65)\n  --static-locals\t\tMake local variables static\n  --target sys\t\t\tSet the target system\n  --verbose\t\t\tIncrease verbosity\n  --version\t\t\tPrint the compiler version number\n  --warnings-as-errors\t\tTreat warnings as errors\n  --writable-strings\t\tMake string literals writable\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "(outside file scope):0: Fatal: Cannot open input file '/?': Invalid argument\n",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-C",
+        "-D",
+        "-E",
+        "-I",
+        "-O",
+        "-O",
+        "-O",
+        "-O",
+        "-T",
+        "-V",
+        "-W",
+        "-d",
+        "-d",
+        "-E",
+        "-d",
+        "-E",
+        "-g",
+        "-h",
+        "-j",
+        "-m",
+        "-o",
+        "-r",
+        "-t",
+        "-v",
+        "--add-source",
+        "--all-cdecl",
+        "--bss-name",
+        "--check-stack",
+        "--code-name",
+        "--codesize",
+        "--cpu",
+        "--create-dep",
+        "--create-full-dep",
+        "--data-name",
+        "--debug",
+        "--debug-tables",
+        "--debug-info",
+        "--debug-opt",
+        "--debug-opt-output",
+        "--dep-target",
+        "--disable-opt",
+        "--eagerly-inline-funcs",
+        "--enable-opt",
+        "--help",
+        "--include-dir",
+        "--inline-stdfuncs",
+        "--list-opt-steps",
+        "--list-warnings",
+        "-W",
+        "--local-strings",
+        "--memory-model",
+        "--register-space",
+        "--register-vars",
+        "--rodata-name",
+        "--signed-chars",
+        "--standard",
+        "--static-locals",
+        "--target",
+        "--verbose",
+        "--version",
+        "--warnings-as-errors",
+        "--writable-strings",
+        "-C",
+        "-D",
+        "-E",
+        "-I",
+        "-O",
+        "-O",
+        "-O",
+        "-O",
+        "-T",
+        "-V",
+        "-W",
+        "-d",
+        "-d",
+        "-E",
+        "-d",
+        "-E",
+        "-g",
+        "-h",
+        "-j",
+        "-m",
+        "-o",
+        "-r",
+        "-t",
+        "-v",
+        "--add-source",
+        "--all-cdecl",
+        "--bss-name",
+        "--check-stack",
+        "--code-name",
+        "--codesize",
+        "--cpu",
+        "--create-dep",
+        "--create-full-dep",
+        "--data-name",
+        "--debug",
+        "--debug-tables",
+        "--debug-info",
+        "--debug-opt",
+        "--debug-opt-output",
+        "--dep-target",
+        "--disable-opt",
+        "--eagerly-inline-funcs",
+        "--enable-opt",
+        "--help",
+        "--include-dir",
+        "--inline-stdfuncs",
+        "--list-opt-steps",
+        "--list-warnings",
+        "-W",
+        "--local-strings",
+        "--memory-model",
+        "--register-space",
+        "--register-vars",
+        "--rodata-name",
+        "--signed-chars",
+        "--standard",
+        "--static-locals",
+        "--target",
+        "--verbose",
+        "--version",
+        "--warnings-as-errors",
+        "--writable-strings",
+        "-C",
+        "-D",
+        "-E",
+        "-I",
+        "-O",
+        "-O",
+        "-O",
+        "-O",
+        "-T",
+        "-V",
+        "-W",
+        "-d",
+        "-d",
+        "-E",
+        "-d",
+        "-E",
+        "-g",
+        "-h",
+        "-j",
+        "-m",
+        "-o",
+        "-r",
+        "-t",
+        "-v",
+        "--add-source",
+        "--all-cdecl",
+        "--bss-name",
+        "--check-stack",
+        "--code-name",
+        "--codesize",
+        "--cpu",
+        "--create-dep",
+        "--create-full-dep",
+        "--data-name",
+        "--debug",
+        "--debug-tables",
+        "--debug-info",
+        "--debug-opt",
+        "--debug-opt-output",
+        "--dep-target",
+        "--disable-opt",
+        "--eagerly-inline-funcs",
+        "--enable-opt",
+        "--help",
+        "--include-dir",
+        "--inline-stdfuncs",
+        "--list-opt-steps",
+        "--list-warnings",
+        "-W",
+        "--local-strings",
+        "--memory-model",
+        "--register-space",
+        "--register-vars",
+        "--rodata-name",
+        "--signed-chars",
+        "--standard",
+        "--static-locals",
+        "--target",
+        "--verbose",
+        "--version",
+        "--warnings-as-errors",
+        "--writable-strings"
+      ]
+    },
+    "dreamass": {
+      "tool_name": "dreamass",
+      "tool_path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/c64 compiler/dreamass/dreamass.exe",
+      "category": "assemblers",
+      "help_outputs": {
+        "--help": {
+          "stdout": "Usage: C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/c64 compiler/dreamass/dreamass.exe [OPTION | FILE]...\nA crossassembler for 6510, 65816 and compatible CPUs.\n\nOptions:\n  -d,  --debug <FILENAME>       write debug output to <FILENAME>.\n                                default is no debug output.\n  -D<VAR>=<VAL>                 define variable <VAR> with value <VAL>.\n  -e,  --error-log <FILENAME>   log all errors to <FILENAME>.\n                                default is no errorlogging.\n  -h,  --help                   display this help and exit.\n  -I<PATH>                      add <PATH> to include paths.\n  -l,  --label-log <FILENAME>   write all labels with their value to <FILENAME>.\n                                default is no label log.\n  -me, --max-errors <NUMBER>    stop after <NUMBER> errors, 0 means endless.\n                                default is 20.\n  -mw, --max-warnings <NUMBER>  stop after <NUMBER> warnings, 0 means endless.\n                                default is 20.\n  -o,  --output <FILENAME>      write output to <FILENAME>.\n                                default is a.out .\n  -r,  --simple-redefine        allow simple redefines.\n                                default is off.\n  -v,  --verbose                be verbose.\n                                default is verbose off.\n       --version                display version information and exit.\n  -W<TAG>                       modify warning level.\n\nNon-option arguments are filenames of assembler sources. They are searched\nin the directory where dreamass was invoked from. If this fails, all include\npaths are searched in the order of their appearance on the comandline.\nFiles included from within the assembler source are searched the same way.\n\nExamples:\n  dreamass main.src                             assemble main.src to a.out\n  dreamass -o main.prg main.src                 assemble main.src to main.prg\n  dreamass -Dcars=20 race.src                   define cars=20 and assemble race.src\n  dreamass -DData=\"names.db\" addressbook.src    define Data=\"names.db\" and assemble addressbook.src\n\nEmail bug reports to DocBacardi@the-dreams.de.\nDreamAss home page: http://rrtools.berlios.de\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-h": {
+          "stdout": "Usage: C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/c64 compiler/dreamass/dreamass.exe [OPTION | FILE]...\nA crossassembler for 6510, 65816 and compatible CPUs.\n\nOptions:\n  -d,  --debug <FILENAME>       write debug output to <FILENAME>.\n                                default is no debug output.\n  -D<VAR>=<VAL>                 define variable <VAR> with value <VAL>.\n  -e,  --error-log <FILENAME>   log all errors to <FILENAME>.\n                                default is no errorlogging.\n  -h,  --help                   display this help and exit.\n  -I<PATH>                      add <PATH> to include paths.\n  -l,  --label-log <FILENAME>   write all labels with their value to <FILENAME>.\n                                default is no label log.\n  -me, --max-errors <NUMBER>    stop after <NUMBER> errors, 0 means endless.\n                                default is 20.\n  -mw, --max-warnings <NUMBER>  stop after <NUMBER> warnings, 0 means endless.\n                                default is 20.\n  -o,  --output <FILENAME>      write output to <FILENAME>.\n                                default is a.out .\n  -r,  --simple-redefine        allow simple redefines.\n                                default is off.\n  -v,  --verbose                be verbose.\n                                default is verbose off.\n       --version                display version information and exit.\n  -W<TAG>                       modify warning level.\n\nNon-option arguments are filenames of assembler sources. They are searched\nin the directory where dreamass was invoked from. If this fails, all include\npaths are searched in the order of their appearance on the comandline.\nFiles included from within the assembler source are searched the same way.\n\nExamples:\n  dreamass main.src                             assemble main.src to a.out\n  dreamass -o main.prg main.src                 assemble main.src to main.prg\n  dreamass -Dcars=20 race.src                   define cars=20 and assemble race.src\n  dreamass -DData=\"names.db\" addressbook.src    define Data=\"names.db\" and assemble addressbook.src\n\nEmail bug reports to DocBacardi@the-dreams.de.\nDreamAss home page: http://rrtools.berlios.de\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "--version": {
+          "stdout": "DreamAss 0.9.1\n\nCopyright (C) 2002-2009 Christoph Thelen.\nThere is NO warranty.  You may redistribute this software\nunder the terms of the GNU General Public License.\nFor more information about these matters, see the files named COPYING.\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-v": {
+          "stdout": "No sourcefiles - nothing to do.\n\n\nBye.\n\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-?": {
+          "stdout": "*** command line ***:1: error:file not found: -?\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "*** command line ***:1: error:file not found: /?\n",
+          "stderr": "",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-d",
+        "--debug",
+        "-D",
+        "-e",
+        "--error-log",
+        "-h",
+        "--help",
+        "-I",
+        "-l",
+        "--label-log",
+        "-m",
+        "--max-errors",
+        "-m",
+        "--max-warnings",
+        "-o",
+        "--output",
+        "-r",
+        "--simple-redefine",
+        "-v",
+        "--verbose",
+        "--version",
+        "-W",
+        "-o",
+        "-o",
+        "-D",
+        "-D",
+        "-d",
+        "-d",
+        "--debug",
+        "-D",
+        "-e",
+        "--error-log",
+        "-h",
+        "--help",
+        "-I",
+        "-l",
+        "--label-log",
+        "-m",
+        "--max-errors",
+        "-m",
+        "--max-warnings",
+        "-o",
+        "--output",
+        "-r",
+        "--simple-redefine",
+        "-v",
+        "--verbose",
+        "--version",
+        "-W",
+        "-o",
+        "-o",
+        "-D",
+        "-D",
+        "-d"
+      ]
+    },
+    "qbasic": {
+      "tool_name": "qbasic",
+      "tool_path": "C:/Users/dell/Documents/projeler/d64_converter/disaridan kullanilacak ornek programlar/qb64/qb64.exe",
+      "category": "interpreters",
+      "help_outputs": {
+        "--help": {
+          "stdout": "QB64 Compiler V2.1\n\nUsage: qb64 [switches] <file>\n\nOptions:\n  <file>                  Source file to load\n  -c                      Compile instead of edit\n  -o <output file>        Write output executable to <output file>\n  -x                      Compile instead of edit and output the result to the\n                             console\n  -w                      Show warnings\n  -q                      Quiet mode (does not inhibit warnings or errors)\n  -m                      Do not colorize compiler output (monochrome mode)\n  -e                      Enable OPTION _EXPLICIT, making variable declaration\n                             mandatory (per-compilation; doesn't affect the\n                             source file or global settings)\n  -s[:switch=true/false]  View/edit compiler settings\n  -l:<line number>        Start the IDE at the specified line number\n  -p                      Purge all pre-compiled content first\n  -z                      Generate C code without compiling to executable\n\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-?": {
+          "stdout": "QB64 Compiler V2.1\n\nUsage: qb64 [switches] <file>\n\nOptions:\n  <file>                  Source file to load\n  -c                      Compile instead of edit\n  -o <output file>        Write output executable to <output file>\n  -x                      Compile instead of edit and output the result to the\n                             console\n  -w                      Show warnings\n  -q                      Quiet mode (does not inhibit warnings or errors)\n  -m                      Do not colorize compiler output (monochrome mode)\n  -e                      Enable OPTION _EXPLICIT, making variable declaration\n                             mandatory (per-compilation; doesn't affect the\n                             source file or global settings)\n  -s[:switch=true/false]  View/edit compiler settings\n  -l:<line number>        Start the IDE at the specified line number\n  -p                      Purge all pre-compiled content first\n  -z                      Generate C code without compiling to executable\n\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "/?": {
+          "stdout": "QB64 Compiler V2.1\n\nUsage: qb64 [switches] <file>\n\nOptions:\n  <file>                  Source file to load\n  -c                      Compile instead of edit\n  -o <output file>        Write output executable to <output file>\n  -x                      Compile instead of edit and output the result to the\n                             console\n  -w                      Show warnings\n  -q                      Quiet mode (does not inhibit warnings or errors)\n  -m                      Do not colorize compiler output (monochrome mode)\n  -e                      Enable OPTION _EXPLICIT, making variable declaration\n                             mandatory (per-compilation; doesn't affect the\n                             source file or global settings)\n  -s[:switch=true/false]  View/edit compiler settings\n  -l:<line number>        Start the IDE at the specified line number\n  -p                      Purge all pre-compiled content first\n  -z                      Generate C code without compiling to executable\n\n",
+          "stderr": "",
+          "returncode": 0
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-c",
+        "-o",
+        "-x",
+        "-w",
+        "-q",
+        "-m",
+        "-e",
+        "-c",
+        "-s",
+        "-l",
+        "-p",
+        "-c",
+        "-z",
+        "-c",
+        "-o",
+        "-x",
+        "-w",
+        "-q",
+        "-m",
+        "-e",
+        "-c",
+        "-s",
+        "-l",
+        "-p",
+        "-c",
+        "-z",
+        "-c",
+        "-o",
+        "-x",
+        "-w",
+        "-q",
+        "-m",
+        "-e",
+        "-c",
+        "-s",
+        "-l",
+        "-p",
+        "-c",
+        "-z"
+      ]
+    },
+    "c64dmon32": {
+      "tool_name": "c64dmon32",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/64Dmon32_100beta/C64Dmon32.exe",
+      "category": "assemblers",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "6502 simulator": {
+      "tool_name": "6502 simulator",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/6502_1.2.12/6502.exe",
+      "category": "emulators",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "6502bench": {
+      "tool_name": "6502bench",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/6502bench100/SourceGen.exe",
+      "category": "assemblers",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "albert": {
+      "tool_name": "albert",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/ALBERT-1.0.47-win64-portable/ALBERT-1.0.47-win64-portable/bin/albert.exe",
+      "category": "emulators",
+      "help_outputs": {
+        "--help": {
+          "stdout": "",
+          "stderr": "\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.259: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.259: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.260: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.260: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.264: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.265: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.273: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.274: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.274: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:12656): Gtk-WARNING **: 00:24:23.274: Unable to locate theme engine in module_path: \"murrine\",\n",
+          "returncode": 0
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.315: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.315: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.315: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.316: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.320: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.320: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.328: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.328: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.329: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:13120): Gtk-WARNING **: 00:24:26.329: Unable to locate theme engine in module_path: \"murrine\",\n",
+          "returncode": 0
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.647: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.648: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.648: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.648: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.653: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.654: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.661: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.662: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.662: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:3552): Gtk-WARNING **: 00:24:28.663: Unable to locate theme engine in module_path: \"murrine\",\n",
+          "returncode": 0
+        },
+        "-v": {
+          "stdout": "",
+          "stderr": "\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.082: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.083: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.083: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.083: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.088: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.089: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.096: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.096: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.097: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:1236): Gtk-WARNING **: 00:24:31.097: Unable to locate theme engine in module_path: \"murrine\",\n",
+          "returncode": 0
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.703: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.703: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.703: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.704: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.709: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.710: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.717: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.718: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.718: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6324): Gtk-WARNING **: 00:24:36.719: Unable to locate theme engine in module_path: \"murrine\",\n",
+          "returncode": 0
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.184: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.185: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.185: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.185: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.191: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.192: Unable to locate theme engine in module_path: \"adwaita\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.199: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.200: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.200: Unable to locate theme engine in module_path: \"murrine\",\n\n(albert.exe:6580): Gtk-WARNING **: 00:24:40.201: Unable to locate theme engine in module_path: \"murrine\",\n",
+          "returncode": 0
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W",
+        "-W"
+      ]
+    },
+    "ape": {
+      "tool_name": "ape",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/ape/ape.exe",
+      "category": "emulators",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "asl compiler": {
+      "tool_name": "asl compiler",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/asl.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "invalid option (-help for help): --help\n",
+          "stderr": "",
+          "returncode": 4
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "asl.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "--version": {
+          "stdout": "invalid parameter (-help for help): --version\n",
+          "stderr": "",
+          "returncode": 4
+        },
+        "-v": {
+          "stdout": "Macro Assembler 1.42 Beta [Bld 291]\n(i386-unknown-win32)\n(C) 1992,2025 Alfred Arnold\nMotorola MPC821 Additions (C) 2012 Marcin Cieslak\n68RS08-Generator (C) 2006 Andreas Bolsch\nMitsubishi M16C-Generator also (C) 1999 RMS\nXILINX KCPSM(Picoblaze)-Generator (C) 2003 Andreas Wassatsch\nTMS320C2x-Generator (C) 1994/96 Thomas Sailer\nTMS320C5x-Generator (C) 1995/96 Thomas Sailer\nPanafacom MN1610/1613-Generator (C) 2019 Haruo Asano\nMIL-STD 1750 Generator also (C) 2019 Oliver Kellogg\nGI CP-1600-Generator (C) 2021 Haruo Asano\nHP Nanoprocessor Generator (C) 2022 Haruo Asano\nIntersil IM6100 Generator (C) 2022 Haruo Asano\nRenesas RX Generator (C) 2023 Haruo Asano\n\n",
+          "stderr": "asl.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "invalid option (-help for help): -?\n",
+          "stderr": "",
+          "returncode": 4
+        },
+        "/?": {
+          "stdout": "invalid option (-help for help): /?\n",
+          "stderr": "",
+          "returncode": 4
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-h",
+        "--help",
+        "-h",
+        "-h",
+        "--version",
+        "-u",
+        "-w",
+        "-G",
+        "-G",
+        "-G",
+        "-G",
+        "-G",
+        "-G",
+        "-S",
+        "-G",
+        "-h",
+        "-h",
+        "-h"
+      ]
+    },
+    "alink": {
+      "tool_name": "alink",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/alink.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "",
+          "stderr": "alink.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "alink.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "alink.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "",
+          "stderr": "alink.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "alink.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "alink.exe: no input files (-help for help)\n",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-h",
+        "-h",
+        "-h",
+        "-h",
+        "-h",
+        "-h"
+      ]
+    },
+    "p2bin": {
+      "tool_name": "p2bin",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/p2bin.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "",
+          "stderr": "invalid parameter (-help for help): --help\nprogram terminated\n",
+          "returncode": 1
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "invalid option (-help for help): -h\nprogram terminated\n",
+          "returncode": 1
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "invalid parameter (-help for help): --version\nprogram terminated\n",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "P2BIN V1.42 Beta [Bld 291]\n(C) 1992,2025 Alfred Arnold\n",
+          "stderr": "p2bin.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "invalid option (-help for help): -?\nprogram terminated\n",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "invalid option (-help for help): /?\nprogram terminated\n",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-h",
+        "--help",
+        "-h",
+        "-h",
+        "-h",
+        "--version",
+        "-h",
+        "-h",
+        "-h"
+      ]
+    },
+    "p2hex": {
+      "tool_name": "p2hex",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/p2hex.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "",
+          "stderr": "invalid parameter (-help for help): --help\nprogram terminated\n",
+          "returncode": 1
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "invalid option (-help for help): -h\nprogram terminated\n",
+          "returncode": 1
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "invalid parameter (-help for help): --version\nprogram terminated\n",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "P2HEX V1.42 Beta [Bld 291]\n(C) 1992,2025 Alfred Arnold\n",
+          "stderr": "p2hex.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "invalid option (-help for help): -?\nprogram terminated\n",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "invalid option (-help for help): /?\nprogram terminated\n",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-h",
+        "--help",
+        "-h",
+        "-h",
+        "-h",
+        "--version",
+        "-h",
+        "-h",
+        "-h"
+      ]
+    },
+    "pbind": {
+      "tool_name": "pbind",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/pbind.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "",
+          "stderr": "pbind.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "pbind.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "--version": {
+          "stdout": "PBIND V1.42 Beta [Bld 291]\n(C) 1992,2025 Alfred Arnold\n",
+          "stderr": "pbind.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "PBIND V1.42 Beta [Bld 291]\n(C) 1992,2025 Alfred Arnold\n",
+          "stderr": "pbind.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "pbind.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "pbind.exe: no input files (-help for help)\n",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-h",
+        "-h",
+        "-h",
+        "-h",
+        "-h",
+        "-h"
+      ]
+    },
+    "plist": {
+      "tool_name": "plist",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/plist.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "",
+          "stderr": "plist.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-h": {
+          "stdout": "",
+          "stderr": "plist.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "--version": {
+          "stdout": "PLIST V1.42 Beta [Bld 291]\n(C) 1992,2025 Alfred Arnold\n\n",
+          "stderr": "plist.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "PLIST V1.42 Beta [Bld 291]\n(C) 1992,2025 Alfred Arnold\n\n",
+          "stderr": "plist.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "plist.exe: no input files (-help for help)\n",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "plist.exe: no input files (-help for help)\n",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-h",
+        "-h",
+        "-h",
+        "-h",
+        "-h",
+        "-h"
+      ]
+    },
+    "basedit": {
+      "tool_name": "basedit",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BasEdit.Net (1)/BasEdit.exe",
+      "category": "special",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "basicv2": {
+      "tool_name": "basicv2",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/basicv2-master (2)/basicv2-master/dist/basicv2.jar",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!\ncom.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-h": {
+          "stdout": "com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!\ncom.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "--version": {
+          "stdout": "com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!\ncom.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-v": {
+          "stdout": "com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!\ncom.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-?": {
+          "stdout": "com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!\ncom.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "/?": {
+          "stdout": "com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!\ncom.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!\n",
+          "stderr": "",
+          "returncode": 0
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "charpad": {
+      "tool_name": "charpad",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BitmapToCharpad/BitmapToCharpad.exe",
+      "category": "special",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "bmp2petlogo": {
+      "tool_name": "bmp2petlogo",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BMP2PETLOGO_1.0/BMP2PETLOGO.exe",
+      "category": "special",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "bmp2sprite": {
+      "tool_name": "bmp2sprite",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/bmp2sprite/bmp2sprite/bmp2sprite.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "bmp2sprite v1.0 [05.09.2011] *** by fieserWolF\nDescription: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <colour1> <colour2> <colour3> <colour4>\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-h": {
+          "stdout": "bmp2sprite v1.0 [05.09.2011] *** by fieserWolF\nDescription: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <colour1> <colour2> <colour3> <colour4>\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "--version": {
+          "stdout": "bmp2sprite v1.0 [05.09.2011] *** by fieserWolF\nDescription: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <colour1> <colour2> <colour3> <colour4>\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "bmp2sprite v1.0 [05.09.2011] *** by fieserWolF\nDescription: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <colour1> <colour2> <colour3> <colour4>\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "bmp2sprite v1.0 [05.09.2011] *** by fieserWolF\nDescription: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <colour1> <colour2> <colour3> <colour4>\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "bmp2sprite v1.0 [05.09.2011] *** by fieserWolF\nDescription: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <colour1> <colour2> <colour3> <colour4>\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite\\bmp2sprite\\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "c2": {
+      "tool_name": "c2",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c2_0.6.4_mingw_win64 (1)/c2_0.6.4/c2.exe",
+      "category": "assemblers",
+      "help_outputs": {
+        "--help": {
+          "stdout": "c2 cross assembler version: 0.6.4 (0.6.4)\nCopyright (C) 2022-2024  John Hammarberg (CRT)\nUsage: c2.exe [options] [file]\n",
+          "stderr": "-h, --help               Show this help\n    --version            Show version\n-L, --license            Show GPL3\n-r, --rebuild            Force a project rebuild\n    --clean              Delete project intermediate files\n-X, --no-execute         Do not execute anything after build\n-B, --no-build           Do not build\n-p, --project            <filename>: Explicitly load project file\n-d, --direct             <template> <source>: Direct assembly\n-c, --create-project     <template> <name> [path]: Creates a new project\n                         based on the specified template. If a path is\n                         given it will be created and used, otherwise the\n                         current directory is used\n-l, --list-templates     List available templates for project creation\n-D, --c2-library-dir     <path>: Add a c2 library path\n-C, --compiler           <path>: Explicitly set compiler\n-i, --include            <path>: Add an include search path for source\n                         and binaries\n-v, --verbose            Output more information. Can be stacked for even\n                         more: -vvv\n",
+          "returncode": 0
+        },
+        "-h": {
+          "stdout": "c2 cross assembler version: 0.6.4 (0.6.4)\nCopyright (C) 2022-2024  John Hammarberg (CRT)\nUsage: c2.exe [options] [file]\n",
+          "stderr": "-h, --help               Show this help\n    --version            Show version\n-L, --license            Show GPL3\n-r, --rebuild            Force a project rebuild\n    --clean              Delete project intermediate files\n-X, --no-execute         Do not execute anything after build\n-B, --no-build           Do not build\n-p, --project            <filename>: Explicitly load project file\n-d, --direct             <template> <source>: Direct assembly\n-c, --create-project     <template> <name> [path]: Creates a new project\n                         based on the specified template. If a path is\n                         given it will be created and used, otherwise the\n                         current directory is used\n-l, --list-templates     List available templates for project creation\n-D, --c2-library-dir     <path>: Add a c2 library path\n-C, --compiler           <path>: Explicitly set compiler\n-i, --include            <path>: Add an include search path for source\n                         and binaries\n-v, --verbose            Output more information. Can be stacked for even\n                         more: -vvv\n",
+          "returncode": 0
+        },
+        "--version": {
+          "stdout": "0.6.4 (0.6.4)\n",
+          "stderr": "",
+          "returncode": 0
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-h",
+        "--help",
+        "--version",
+        "-L",
+        "--license",
+        "-r",
+        "--rebuild",
+        "--clean",
+        "-X",
+        "--no-execute",
+        "-B",
+        "--no-build",
+        "-p",
+        "--project",
+        "-d",
+        "--direct",
+        "-c",
+        "--create-project",
+        "-l",
+        "--list-templates",
+        "-D",
+        "--c",
+        "-l",
+        "-d",
+        "-C",
+        "--compiler",
+        "-i",
+        "--include",
+        "-v",
+        "--verbose",
+        "-v",
+        "-h",
+        "--help",
+        "--version",
+        "-L",
+        "--license",
+        "-r",
+        "--rebuild",
+        "--clean",
+        "-X",
+        "--no-execute",
+        "-B",
+        "--no-build",
+        "-p",
+        "--project",
+        "-d",
+        "--direct",
+        "-c",
+        "--create-project",
+        "-l",
+        "--list-templates",
+        "-D",
+        "--c",
+        "-l",
+        "-d",
+        "-C",
+        "--compiler",
+        "-i",
+        "--include",
+        "-v",
+        "--verbose",
+        "-v"
+      ]
+    },
+    "c64debugger": {
+      "tool_name": "c64debugger",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64 Debugger v0.64.56 Win32/C64 Debugger/C64Debugger.exe",
+      "category": "emulators",
+      "help_outputs": {
+        "-?": {
+          "stdout": "\nAvailable command-line options:\n\n-logfile <Name>\n\tSpecify log file name\n-verbose\n\tEnable verbose log output.\n-silent\n\t(null)\n-help\n\tShow a list of the available options and exit normally\n-?\n\tShow a list of the available options and exit normally\n-h\n\tShow a list of the available options and exit normally\n-features\n\tShow a list of the available compile-time options and their configuration.\n-default\n\tRestore default settings\n-config <filename>\n\tSpecify config file\n-dumpconfig <filename>\n\tDump all resources to specified config file\n-chdir <Directory>\n\tChange current working directory.\n-limitcycles <value>\n\tSpecify number of cycles to run before quitting with an error.\n-console\n\tConsole mode (for music playback)\n-core\n\tAllow production of core dumps\n+core\n\tDo not produce core dumps\n-autostart <Name>\n\tAttach and autostart tape/disk image <name>\n-autoload <Name>\n\tAttach and autoload tape/disk image <name>\n-1 <Name>\n\tAttach <name> as a tape image\n-8 <Name>\n\tAttach <name> as a disk image in drive #8\n-9 <Name>\n\tAttach <name> as a disk image in drive #9\n-10 <Name>\n\tAttach <name> as a disk image in drive #10\n-11 <Name>\n\tAttach <name> as a disk image in drive #11\n-directory <Path>\n\tDefine search path to locate system files\n-romsetfile <File>\n\tload the given romset file\n-romsetarchive <File>\n\tload the given romset archive\n-romsetarchiveselect <Item number>\n\tselect the given item from the current romset archive\n-moncommands <Name>\n\tExecute monitor commands from file\n-monlog <Name>\n\tWrite monitor output also to file\n-initbreak <value>\n\tSet an initial breakpoint for the monitor\n-jamaction <Type>\n\tSet action on CPU JAM: (0: Ask, 1: continue, 2: Monitor, 3: Reset, 4: Hard Reset, 5: Quit Emulator)\n-exitscreenshot <Name>\n\tSet name of screenshot to save when emulator exits.\n-speed <percent>\n\tLimit emulation speed to specified value\n-refresh <value>\n\tUpdate every <value> frames (`0' for automatic)\n-warp\n\tEnable warp mode\n+warp\n\tDisable warp mode\n-sound\n\tEnable sound playback\n+sound\n\tDisable sound playback\n-soundrate <value>\n\tSet sound sample rate to <value> Hz\n-soundbufsize <value>\n\tSet sound buffer size to <value> msec\n-soundfragsize <value>\n\tSet sound fragment size (0: very small, 1: small, 2: medium, 3: large, 4: very large)\n-soundsync <sync>\n\tSet sound speed adjustment (0: flexible, 1: adjusting, 2: exact)\n-soundoutput <output mode>\n\tSound output mode: (0: system decides mono/stereo, 1: always mono, 2: always stereo)\n-soundsuspend <Seconds>\n\tSpecify the pause interval when audio underflows (clicks) happen. 0 means no pause is done.\n-soundvolume <Volume>\n\tSpecify the sound volume (0..100)\n-sounddev <Name>\n\tSpecify sound driver. (sdl/dummy)\n-soundarg <args>\n\tSpecify initialization parameters for sound driver\n-soundrecdev <Name>\n\tSpecify recording sound driver. (fs/dump/wav/voc/iff/aiff/soundmovie)\n-soundrecarg <args>\n\tSpecify initialization parameters for recording sound driver\n-keymap <number>\n\tSpecify index of keymap file (0=symbolic, 1=positional, 2=symbolic (user), 3=positional (user))\n-keyboardmapping <number>\n\tSpecify host keyboard layout\n-keyboardtype <number>\n\tSpecify emulated keyboard type\n-symkeymap <Name>\n\tSpecify name of symbolic keymap file\n-poskeymap <Name>\n\tSpecify name of positional keymap file\n-hwscalepossible\n\tEnable the possibility of hardware scaling\n+hwscalepossible\n\tDisable the possibility of hardware scaling\n-sdlbitdepth <bpp>\n\tSet bitdepth (0 = current, 8, 15, 16, 24, 32)\n-sdllimitmode <mode>\n\tSet resolution limiting mode (0 = off, 1 = max, 2 = fixed)\n-sdlcustomw <width>\n\tSet custom resolution width\n-sdlcustomh <height>\n\tSet custom resolution height\n-sdlaspectmode <mode>\n\tSet aspect ratio mode (0 = off, 1 = custom, 2 = true)\n-aspect <aspect ratio>\n\tSet custom aspect ratio (0.5 - 2.0)\n-sdlflipx\n\tEnable X flip\n+sdlflipx\n\tDisable X flip\n-sdlflipy\n\tEnable Y flip\n+sdlflipy\n\tDisable Y flip\n-virtualdev\n\tEnable general mechanisms for fast disk/tape emulation\n+virtualdev\n\tDisable general mechanisms for fast disk/tape emulation\n-pal\n\tUse PAL sync factor\n-ntsc\n\tUse NTSC sync factor\n-ntscold\n\tUse old NTSC sync factor\n-paln\n\tUse PAL-N sync factor\n-kernal <Name>\n\tSpecify name of Kernal ROM image\n-basic <Name>\n\tSpecify name of BASIC ROM image\n-chargen <Name>\n\tSpecify name of character generator ROM image\n-kernalrev <Revision>\n\tPatch the Kernal ROM to the specified <revision> (1: rev. 1, 2: rev. 2, 3: rev. 3, 67/sx: sx64, 100/4064: 4064)\n-ciamodel <Model>\n\tSet both CIA models (0 = old 6526, 1 = new 6526A)\n-cia1model <Model>\n\tSet CIA 1 model (0 = old 6526, 1 = new 6526A)\n-cia2model <Model>\n\tSet CIA 2 model (0 = old 6526, 1 = new 6526A)\n-model <Model>\n\tSet C64 model (c64/c64c/c64old, ntsc/newntsc/oldntsc, drean, jap, c64gs, pet64, ultimax)\n-burstmod <value>\n\tBurst modification (0 = None, 1 = CIA1, 2 = CIA2)\n-iecreset <value>\n\tComputer reset goes to IEC bus (0 = No, 1 = Yes)\n-memoryexphack <device>\n\t<iso language code>\n-plus60kimage <Name>\n\tSpecify name of PLUS60K image\n-plus60kbase <Base address>\n\tBase address of the PLUS60K expansion. (0xD040/0xD100)\n-plus256kimage <Name>\n\tSpecify name of PLUS256K image\n-256kimage <Name>\n\tSpecify name of 256K image\n-256kbase <Base address>\n\tBase address of the 256K expansion. (0xDE00/0xDE80/0xDF00/0xDF80)\n-VICIIvcache\n\tEnable the video cache\n+VICIIvcache\n\tDisable the video cache\n-VICIIdsize\n\tEnable double size\n+VICIIdsize\n\tDisable double size\n-VICIIdscan\n\tEnable double scan\n+VICIIdscan\n\tDisable double scan\n-VICIIaudioleak\n\tEnable audio leak emulation\n+VICIIaudioleak\n\tDisable audio leak emulation\n-VICIIfilter <Mode>\n\tSelect rendering filter: (0: none, 1: CRT emulation, 2: scale2x)\n-VICIIintpal\n\tUse an internal calculated palette\n-VICIIextpal\n\tUse an external palette (file)\n-VICIIpalette <Name>\n\tSpecify name of file of external palette\n-VICIIfull\n\tEnable fullscreen\n+VICIIfull\n\tDisable fullscreen\n-VICIIfulldevice <device>\n\tSelect fullscreen device\n-VICIISDLfullmode <Mode>\n\tSelect fullscreen mode\n-VICIIsaturation <0-2000>\n\tSet saturation of internal calculated palette\n-VICIIcontrast <0-2000>\n\tSet contrast of internal calculated palette\n-VICIIbrightness <0-2000>\n\tSet brightness of internal calculated palette\n-VICIIgamma <0-4000>\n\tSet gamma of internal calculated palette\n-VICIItint <0-2000>\n\tSet tint of internal calculated palette\n-VICIIcrtblur <0-1000>\n\tAmount of horizontal blur for the CRT emulation.\n-VICIIcrtscanlineshade <0-1000>\n\tAmount of scan line shading for the CRT emulation\n-VICIIoddlinesphase <0-2000>\n\tSet phase for color carrier in odd lines\n-VICIIoddlinesoffset <0-2000>\n\tSet phase offset for color carrier in odd lines\n-VICIIborders <Mode>\n\tSet border display mode (0: normal, 1: full, 2: debug)\n-VICIIchecksb\n\tEnable sprite-background collision registers\n+VICIIchecksb\n\tDisable sprite-background collision registers\n-VICIIcheckss\n\tEnable sprite-sprite collision registers\n+VICIIcheckss\n\tDisable sprite-sprite collision registers\n-VICIIvspbug\n\tEnable VSP bug emulation\n+VICIIvspbug\n\tEnable VSP bug emulation\n-VICIImodel <Model>\n\tSet VIC-II model (6569/6569r1/8565/6567/8562/6567r56a/6572)\n-sidenginemodel <engine and model>\n\tSpecify SID engine and model (0: FastSID 6581, 1: FastSID 8580, 256: ReSID 6581, 257: ReSID 8580, 258: ReSID 8580 + digiboost)\n-residsamp <method>\n\treSID sampling method (0: fast, 1: interpolating, 2: resampling, 3: fast resampling)\n-residpass <percent>\n\treSID resampling passband in percentage of total bandwidth (0 - 90)\n-residgain <percent>\n\treSID gain in percent (90 - 100)\n-residfilterbias <number>\n\treSID filter bias setting, which can be used to adjust DAC bias in millivolts.\n-sidstereo <amount>\n\tamount of extra SID chips. (0..2)\n-sidstereoaddress <Base address>\n\tSpecify base address for 2nd SID. (0xD420/0xD440/0xD460/0xD480/0xD4A0/0xD4C0/0xD4E0/0xD500/0xD520/0xD540/0xD560/0xD580/0xD5A0/0xD5C0/0xD5E0/0xD600/0xD620/0xD640/0xD660/0xD680/0xD6A0/0xD6C0/0xD6E0/0xD700/0xD720/0xD740/0xD760/0xD780/0xD7A0/0xD7C0/0xD7E0/0xDE00/0xDE20/0xDE40/0xDE60/0xDE80/0xDEA0/0xDEC0/0xDEE0/0xDF00/0xDF20/0xDF40/0xDF60/0xDF80/0xDFA0/0xDFC0/0xDFE0)\n-sidtripleaddress <Base address>\n\tSpecify base address for 3rd SID. (0xD420/0xD440/0xD460/0xD480/0xD4A0/0xD4C0/0xD4E0/0xD500/0xD520/0xD540/0xD560/0xD580/0xD5A0/0xD5C0/0xD5E0/0xD600/0xD620/0xD640/0xD660/0xD680/0xD6A0/0xD6C0/0xD6E0/0xD700/0xD720/0xD740/0xD760/0xD780/0xD7A0/0xD7C0/0xD7E0/0xDE00/0xDE20/0xDE40/0xDE60/0xDE80/0xDEA0/0xDEC0/0xDEE0/0xDF00/0xDF20/0xDF40/0xDF60/0xDF80/0xDFA0/0xDFC0/0xDFE0)\n-sidfilters\n\tEmulate SID filters\n+sidfilters\n\tDo not emulate SID filters\n-rsuser\n\tEnable RS232 userport emulation\n+rsuser\n\tDisable RS232 userport emulation\n-rsuserbaud <baud>\n\tSet the baud rate of the RS232 userport emulation.\n-rsuserdev <0-3>\n\tSpecify VICE RS232 device for userport\n-iecdevice4\n\tEnable IEC device emulation for device #4\n+iecdevice4\n\tDisable IEC device emulation for device #4\n-iecdevice5\n\tEnable IEC device emulation for device #5\n+iecdevice5\n\tDisable IEC device emulation for device #5\n-iecdevice6\n\tEnable IEC device emulation for device #5\n+iecdevice6\n\tDisable IEC device emulation for device #6\n-iecdevice7\n\tEnable IEC device emulation for device #7\n+iecdevice7\n\tDisable IEC device emulation for device #7\n-iecdevice8\n\tEnable IEC device emulation for device #8\n+iecdevice8\n\tDisable IEC device emulation for device #8\n-iecdevice9\n\tEnable IEC device emulation for device #9\n+iecdevice9\n\tDisable IEC device emulation for device #9\n-iecdevice10\n\tEnable IEC device emulation for device #10\n+iecdevice10\n\tDisable IEC device emulation for device #10\n-iecdevice11\n\tEnable IEC device emulation for device #11\n+iecdevice11\n\tDisable IEC device emulation for device #11\n-prusertxtdev <0-2>\n\tSpecify printer text output device for userport printer\n-prtxtdev1 <Name>\n\tSpecify name of printer text device or dump file\n-prtxtdev2 <Name>\n\tSpecify name of printer text device or dump file\n-prtxtdev3 <Name>\n\tSpecify name of printer text device or dump file\n-pr4txtdev <0-2>\n\tSpecify printer text output device for printer #4\n-pr5txtdev <0-2>\n\tSpecify printer text output device for printer #5\n-pr6txtdev <0-2>\n\tSpecify printer text output device for printer #6\n-pr4output <Name>\n\tSpecify name of output device for device #4. (graphics, text)\n-pr5output <Name>\n\tSpecify name of output device for device #5. (graphics, text)\n-pr6output <Name>\n\tSpecify name of output device for device #6. (graphics, text)\n-pr4drv <Name>\n\tSpecify name of printer driver for device #4. (ascii/mps803/nl10/raw)\n-pr5drv <Name>\n\tSpecify name of printer driver for device #5. (ascii/mps803/nl10/raw)\n-pr6drv <Name>\n\tSpecify name of printer driver for device #6. (1520/raw)\n-device4 <Type>\n\tSet device type for device #4 (0: None, 1: Filesystem, 2: Real)\n-device5 <Type>\n\tSet device type for device #5 (0: None, 1: Filesystem, 2: Real)\n-device6 <Type>\n\tSet device type for device #6 (0: None, 1: Filesystem, 2: Real)\n-device7 <Type>\n\tSet device type for device #7 (0: None, 2: Real)\n-pruser\n\tEnable the userport printer emulation\n+pruser\n\tDisable the userport printer emulation\n-pruserdrv <Name>\n\tSpecify name of printer driver for the userport printer. (ascii/nl10/raw)\n-pruseroutput <Name>\n\tSpecify name of output device for the userport printer. (graphics, text)\n-controlport1device device\n\tSet Control port 1 device (0: None, 1: Joystick, 2: Paddles, 3: Mouse (1351), 4: Mouse (NEOS), 5: Mouse (Amiga), 6: Mouse (CX-22), 7: Mouse (Atari ST), 8: Mouse (SmartMouse), 9: Mouse (Micromys), 10: KoalaPad, 17: Sampler (2bit), 18: Sampler (4bit), 19: BBRTC, 20: Paperclip64 dongle, 21: Coplin Keypad, 22: Cardco Cardkey 1 keypad, 23: Atari CX85 keypad, 24: RushWare Keypad, 25: Atari CX21 keypad, 26: Script 64 dongle, 27: VizaWrite 64 dongle)\n-controlport2device device\n\tSet Control port 2 device (0: None, 1: Joystick, 2: Paddles, 3: Mouse (1351), 4: Mouse (NEOS), 5: Mouse (Amiga), 6: Mouse (CX-22), 7: Mouse (Atari ST), 8: Mouse (SmartMouse), 9: Mouse (Micromys), 10: KoalaPad, 17: Sampler (2bit), 18: Sampler (4bit), 19: BBRTC, 20: Paperclip64 dongle, 21: Coplin Keypad, 22: Cardco Cardkey 1 keypad, 23: Atari CX85 keypad, 24: RushWare Keypad, 25: Atari CX21 keypad, 26: Script 64 dongle, 27: VizaWrite 64 dongle)\n-controlport3device device\n\tSet Userport joystick adapter port 1 device (0: None, 1: Joystick, 4: Mouse (NEOS), 5: Mouse (Amiga), 6: Mouse (CX-22), 7: Mouse (Atari ST), 17: Sampler (2bit), 18: Sampler (4bit), 19: BBRTC, 20: Paperclip64 dongle, 21: Coplin Keypad, 24: RushWare Keypad)\n-controlport4device device\n\tSet Userport joystick adapter port 2 device (0: None, 1: Joystick, 4: Mouse (NEOS), 5: Mouse (Amiga), 6: Mouse (CX-22), 7: Mouse (Atari ST), 17: Sampler (2bit), 18: Sampler (4bit), 19: BBRTC, 20: Paperclip64 dongle, 21: Coplin Keypad, 24: RushWare Keypad)\n-bbrtcsave\n\tDisable Userport joystick adapter\n+bbrtcsave\n\tSet Userport joystick adapter type (0: CGA/Protovision, 1: PET, 2: Hummer, 3: OEM, 4: DXS/HIT, 5: Kingsoft, 6: Starbyte)\n-joyopposite\n\tEnable opposite joystick directions\n+joyopposite\n\tDisable opposite joystick directions\n-keyset\n\tEnable keyset\n+keyset\n\tDisable keyset\n-userportcollision <method>\n\tSelect the way the Userport collisions should be handled, (0: error message and detach all involved devices, 1: error message and detach last attached involved device, 2: warning in log and 'AND' the valid return values\n-doodleoversize <method>\n\tSelect the way the oversized input should be handled, (0: scale down, 1: crop left top, 2: crop center top,  3: crop right top, 4: crop left center, 5: crop center, 6: crop right center, 7: crop left bottom, 8: crop center bottom, 9:  crop right bottom)\n-doodleundersize <method>\n\tSelect the way the undersized input should be handled, (0: scale up, 1: borderize)\n-doodlemc <method>\n\tSelect the way the multicolor to hires should be handled, (0: b&w, 1: 2 colors, 2: 4 colors, 3: gray scale,  4: best cell colors)\n-koalaoversize <method>\n\tSelect the way the oversized input should be handled, (0: scale down, 1: crop left top, 2: crop center top,  3: crop right top, 4: crop left center, 5: crop center, 6: crop right center, 7: crop left bottom, 8: crop center bottom, 9:  crop right bottom)\n-koalaundersize <method>\n\tSelect the way the undersized input should be handled, (0: scale up, 1: borderize)\n-samplename <Name>\n\tSpecify name of sample file\n-samplerdev device\n\tSpecify sampler device. (0: media file input)\n-samplergain <Sampler gain>\n\tSpecify sampler gain in percent (1%-200%)\n-flipname <Name>\n\tSpecify name of the flip list file image\n-device8 <Type>\n\tSet device type for device #8 (0: None, 1: Filesystem, 2: OpenCBM, 3: Block device)\n-device9 <Type>\n\tSet device type for device #9 (0: None, 1: Filesystem, 2: OpenCBM, 3: Block device)\n-device10 <Type>\n\tSet device type for device #10 (0: None, 1: Filesystem, 2: OpenCBM, 3: Block device)\n-device11 <Type>\n\tSet device type for device #11 (0: None, 1: Filesystem, 2: OpenCBM, 3: Block device)\n-attach8ro\n\tAttach disk image for drive #8 read only\n-attach8rw\n\tAttach disk image for drive #8 read write (if possible)\n-attach9ro\n\tAttach disk image for drive #9 read only\n-attach9rw\n\tAttach disk image for drive #9 read write (if possible)\n-attach10ro\n\tAttach disk image for drive #10 read only\n-attach10rw\n\tAttach disk image for drive #10 read write (if possible)\n-attach11ro\n\tAttach disk image for drive #11 read only\n-attach11rw\n\tAttach disk image for drive #11 read write (if possible)\n-fs8 <Name>\n\tUse <name> as directory for file system device #8\n-fs9 <Name>\n\tUse <name> as directory for file system device #9\n-fs10 <Name>\n\tUse <name> as directory for file system device #10\n-fs11 <Name>\n\tUse <name> as directory for file system device #11\n-fs8convertp00\n\tEnable on-read support for P00 files on drive 8\n+fs8convertp00\n\tEnable on-read support for P00 files on drive 8\n-fs9convertp00\n\tEnable on-read support for P00 files on drive 9\n+fs9convertp00\n\tEnable on-read support for P00 files on drive 9\n-fs10convertp00\n\tEnable on-read support for P00 files on drive 10\n+fs10convertp00\n\tEnable on-read support for P00 files on drive 10\n-fs11convertp00\n\tEnable on-read support for P00 files on drive 11\n+fs11convertp00\n\tEnable on-read support for P00 files on drive 11\n-fs8savep00\n\tEnable saving of P00 files on drive 8\n+fs8savep00\n\tEnable saving of P00 files on drive 8\n-fs9savep00\n\tEnable saving of P00 files on drive 9\n+fs9savep00\n\tEnable saving of P00 files on drive 9\n-fs10savep00\n\tEnable saving of P00 files on drive 10\n+fs10savep00\n\tEnable saving of P00 files on drive 10\n-fs11savep00\n\tEnable saving of P00 files on drive 11\n+fs11savep00\n\tEnable saving of P00 files on drive 11\n-fs8hidecbm\n\tHide CBM files (only show P00 files) for drive 8\n+fs8hidecbm\n\tDo not hide CBM files (show all files) for drive 8\n-fs9hidecbm\n\tHide CBM files (only show P00 files) for drive 9\n+fs9hidecbm\n\tDo not hide CBM files (show all files) for drive 9\n-fs10hidecbm\n\tHide CBM files (only show P00 files) for drive 10\n+fs10hidecbm\n\tDo not hide CBM files (show all files) for drive 10\n-fs11hidecbm\n\tHide CBM files (only show P00 files) for drive 11\n+fs11hidecbm\n\tDo not hide CBM files (show all files) for drive 11\n-rawdrive <Name>\n\tSet raw drive device name\n-playback\n\tPlayback recorded events\n-eventsnapshotdir <Name>\n\tSet event snapshot directory\n-eventstartsnapshot <Name>\n\tSet event start snapshot\n-eventendsnapshot <Name>\n\tSet event end snapshot\n-eventstartmode <Mode>\n\tSet event start mode (0: file save, 1: file load, 2: reset, 3: playback)\n-eventimageinc\n\tEnable including disk images\n+eventimageinc\n\tDisable including disk images\n-keybuf <string>\n\tPut the specified string into the keyboard buffer.\n-keybuf-delay <value>\n\tSet additional keyboard buffer delay (0: use default)\n-trace_maincpu\n\tTrace the main CPU\n+trace_maincpu\n\tDo not trace the main CPU\n-trace_drive0\n\tTrace the drive0 CPU\n+trace_drive0\n\tDo not trace the drive0 CPU\n-trace_drive1\n\tTrace the drive1 CPU\n+trace_drive1\n\tDo not trace the drive1 CPU\n-trace_drive2\n\tTrace the drive2 CPU\n+trace_drive2\n\tDo not trace the drive2 CPU\n-trace_drive3\n\tTrace the drive3 CPU\n+trace_drive3\n\tDo not trace the drive3 CPU\n-trace_mode <value>\n\tTrace mode (0=normal 1=small 2=history)\n-autoplaybackframes <frames>\n\tSet the amount of automatic playback frames\n-mouse\n\tAttach and autoload tape/disk image <name>\n+mouse\n\tAttach <name> as a tape image\n-smartmousertcsave\n\tAttach <name> as a disk image in drive #8\n+smartmousertcsave\n\tAttach <name> as a disk image in drive #9\n-drive8rtcsave\n\tEnable saving of FD2000/4000 RTC data when changed.\n+drive8rtcsave\n\tDisable saving of FD2000/4000 RTC data when changed.\n-drive8type <Type>\n\tSet drive type (0: no drive, 1540: CBM 1540, 1541: CBM 1541, 1542: CBM 1541-II, 1570: CBM 1570, 1571: CBM 1571, 1581: CBM 1581, 2000: CMD FD-2000, 4000: CMD FD-4000, 2031: CBM 2031, 2040: CBM 2040, 3040: CBM 3040, 4040: CBM 4040, 1001: CBM 1001, 8050: CBM 8050, 8250: CBM 8250)\n-drive8extend <method>\n\tSet drive 40 track extension policy (0: never, 1: ask, 2: on access)\n-drive8idle <method>\n\tSet drive idling method (0: no traps, 1: skip cycles, 2: trap idle)\n-drive8rpm <RPM>\n\tSet drive rpm (30000 = 300rpm)\n-drive8wobble <Wobble>\n\tSet drive wobble (100 = +/-0.5rpm)\n-drive9rtcsave\n\tEnable saving of FD2000/4000 RTC data when changed.\n+drive9rtcsave\n\tDisable saving of FD2000/4000 RTC data when changed.\n-drive9type <Type>\n\tSet drive type (0: no drive, 1540: CBM 1540, 1541: CBM 1541, 1542: CBM 1541-II, 1570: CBM 1570, 1571: CBM 1571, 1581: CBM 1581, 2000: CMD FD-2000, 4000: CMD FD-4000, 2031: CBM 2031, 2040: CBM 2040, 3040: CBM 3040, 4040: CBM 4040, 1001: CBM 1001, 8050: CBM 8050, 8250: CBM 8250)\n-drive9extend <method>\n\tSet drive 40 track extension policy (0: never, 1: ask, 2: on access)\n-drive9idle <method>\n\tSet drive idling method (0: no traps, 1: skip cycles, 2: trap idle)\n-drive9rpm <RPM>\n\tSet drive rpm (30000 = 300rpm)\n-drive9wobble <Wobble>\n\tSet drive wobble (100 = +/-0.5rpm)\n-drive10rtcsave\n\tEnable saving of FD2000/4000 RTC data when changed.\n+drive10rtcsave\n\tDisable saving of FD2000/4000 RTC data when changed.\n-drive10type <Type>\n\tSet drive type (0: no drive, 1540: CBM 1540, 1541: CBM 1541, 1542: CBM 1541-II, 1570: CBM 1570, 1571: CBM 1571, 1581: CBM 1581, 2000: CMD FD-2000, 4000: CMD FD-4000, 2031: CBM 2031, 2040: CBM 2040, 3040: CBM 3040, 4040: CBM 4040, 1001: CBM 1001, 8050: CBM 8050, 8250: CBM 8250)\n-drive10extend <method>\n\tSet drive 40 track extension policy (0: never, 1: ask, 2: on access)\n-drive10idle <method>\n\tSet drive idling method (0: no traps, 1: skip cycles, 2: trap idle)\n-drive10rpm <RPM>\n\tSet drive rpm (30000 = 300rpm)\n-drive10wobble <Wobble>\n\tSet drive wobble (100 = +/-0.5rpm)\n-drive11rtcsave\n\tEnable saving of FD2000/4000 RTC data when changed.\n+drive11rtcsave\n\tDisable saving of FD2000/4000 RTC data when changed.\n-drive11type <Type>\n\tSet drive type (0: no drive, 1540: CBM 1540, 1541: CBM 1541, 1542: CBM 1541-II, 1570: CBM 1570, 1571: CBM 1571, 1581: CBM 1581, 2000: CMD FD-2000, 4000: CMD FD-4000, 2031: CBM 2031, 2040: CBM 2040, 3040: CBM 3040, 4040: CBM 4040, 1001: CBM 1001, 8050: CBM 8050, 8250: CBM 8250)\n-drive11extend <method>\n\tSet drive 40 track extension policy (0: never, 1: ask, 2: on access)\n-drive11idle <method>\n\tSet drive idling method (0: no traps, 1: skip cycles, 2: trap idle)\n-drive11rpm <RPM>\n\tSet drive rpm (30000 = 300rpm)\n-drive11wobble <Wobble>\n\tSet drive wobble (100 = +/-0.5rpm)\n-truedrive\n\tEnable hardware-level emulation of disk drives\n+truedrive\n\tDisable hardware-level emulation of disk drives\n-drivesound\n\tEnable sound emulation of disk drives\n+drivesound\n\tDisable sound emulation of disk drives\n-drivesoundvolume <Volume>\n\tSet volume for disk drive sound emulation (0-4000)\n-drive8ram2000\n\tEnable 8KB RAM expansion at $2000-$3FFF\n+drive8ram2000\n\tDisable 8KB RAM expansion at $2000-$3FFF\n-drive8ram4000\n\tEnable 8KB RAM expansion at $4000-$5FFF\n+drive8ram4000\n\tDisable 8KB RAM expansion at $4000-$5FFF\n-drive8ram6000\n\tEnable 8KB RAM expansion at $6000-$7FFF\n+drive8ram6000\n\tDisable 8KB RAM expansion at $6000-$7FFF\n-drive8ram8000\n\tEnable 8KB RAM expansion at $8000-$9FFF\n+drive8ram8000\n\tDisable 8KB RAM expansion at $8000-$9FFF\n-drive8rama000\n\tEnable 8KB RAM expansion at $A000-$BFFF\n+drive8rama000\n\tDisable 8KB RAM expansion at $A000-$BFFF\n-drive9ram2000\n\tEnable 8KB RAM expansion at $2000-$3FFF\n+drive9ram2000\n\tDisable 8KB RAM expansion at $2000-$3FFF\n-drive9ram4000\n\tEnable 8KB RAM expansion at $4000-$5FFF\n+drive9ram4000\n\tDisable 8KB RAM expansion at $4000-$5FFF\n-drive9ram6000\n\tEnable 8KB RAM expansion at $6000-$7FFF\n+drive9ram6000\n\tDisable 8KB RAM expansion at $6000-$7FFF\n-drive9ram8000\n\tEnable 8KB RAM expansion at $8000-$9FFF\n+drive9ram8000\n\tDisable 8KB RAM expansion at $8000-$9FFF\n-drive9rama000\n\tEnable 8KB RAM expansion at $A000-$BFFF\n+drive9rama000\n\tDisable 8KB RAM expansion at $A000-$BFFF\n-drive10ram2000\n\tEnable 8KB RAM expansion at $2000-$3FFF\n+drive10ram2000\n\tDisable 8KB RAM expansion at $2000-$3FFF\n-drive10ram4000\n\tEnable 8KB RAM expansion at $4000-$5FFF\n+drive10ram4000\n\tDisable 8KB RAM expansion at $4000-$5FFF\n-drive10ram6000\n\tEnable 8KB RAM expansion at $6000-$7FFF\n+drive10ram6000\n\tDisable 8KB RAM expansion at $6000-$7FFF\n-drive10ram8000\n\tEnable 8KB RAM expansion at $8000-$9FFF\n+drive10ram8000\n\tDisable 8KB RAM expansion at $8000-$9FFF\n-drive10rama000\n\tEnable 8KB RAM expansion at $A000-$BFFF\n+drive10rama000\n\tDisable 8KB RAM expansion at $A000-$BFFF\n-drive11ram2000\n\tEnable 8KB RAM expansion at $2000-$3FFF\n+drive11ram2000\n\tDisable 8KB RAM expansion at $2000-$3FFF\n-drive11ram4000\n\tEnable 8KB RAM expansion at $4000-$5FFF\n+drive11ram4000\n\tDisable 8KB RAM expansion at $4000-$5FFF\n-drive11ram6000\n\tEnable 8KB RAM expansion at $6000-$7FFF\n+drive11ram6000\n\tDisable 8KB RAM expansion at $6000-$7FFF\n-drive11ram8000\n\tEnable 8KB RAM expansion at $8000-$9FFF\n+drive11ram8000\n\tDisable 8KB RAM expansion at $8000-$9FFF\n-drive11rama000\n\tEnable 8KB RAM expansion at $A000-$BFFF\n+drive11rama000\n\tDisable 8KB RAM expansion at $A000-$BFFF\n-dos1540 <Name>\n\tSpecify name of 1540 DOS ROM image\n-dos1541 <Name>\n\tSpecify name of 1541 DOS ROM image\n-dos1541II <Name>\n\tSpecify name of 1541-II DOS ROM image\n-dos1570 <Name>\n\tSpecify name of 1570 DOS ROM image\n-dos1571 <Name>\n\tSpecify name of 1571 DOS ROM image\n-dos1581 <Name>\n\tSpecify name of 1581 DOS ROM image\n-dos2000 <Name>\n\tSpecify name of 2000 DOS ROM image\n-dos4000 <Name>\n\tSpecify name of 4000 DOS ROM image\n-parallel8 <Type>\n\tSet parallel cable type (0: none, 1: standard, 2: Dolphin DOS 3, 3: Formel 64)\n-drive8profdos\n\tEnable Professional DOS\n+drive8profdos\n\tDisable Professional DOS\n-drive8supercard\n\tEnable SuperCard+\n+drive8supercard\n\tDisable SuperCard+\n-drive8stardos\n\tEnable StarDOS\n+drive8stardos\n\tDisable StarDOS\n-parallel9 <Type>\n\tSet parallel cable type (0: none, 1: standard, 2: Dolphin DOS 3, 3: Formel 64)\n-drive9profdos\n\tEnable Professional DOS\n+drive9profdos\n\tDisable Professional DOS\n-drive9supercard\n\tEnable SuperCard+\n+drive9supercard\n\tDisable SuperCard+\n-drive9stardos\n\tEnable StarDOS\n+drive9stardos\n\tDisable StarDOS\n-parallel10 <Type>\n\tSet parallel cable type (0: none, 1: standard, 2: Dolphin DOS 3, 3: Formel 64)\n-drive10profdos\n\tEnable Professional DOS\n+drive10profdos\n\tDisable Professional DOS\n-drive10supercard\n\tEnable SuperCard+\n+drive10supercard\n\tDisable SuperCard+\n-drive10stardos\n\tEnable StarDOS\n+drive10stardos\n\tDisable StarDOS\n-parallel11 <Type>\n\tSet parallel cable type (0: none, 1: standard, 2: Dolphin DOS 3, 3: Formel 64)\n-drive11profdos\n\tEnable Professional DOS\n+drive11profdos\n\tDisable Professional DOS\n-drive11supercard\n\tEnable SuperCard+\n+drive11supercard\n\tDisable SuperCard+\n-drive11stardos\n\tEnable StarDOS\n+drive11stardos\n\tDisable StarDOS\n-profdos1571 <Name>\n\tSpecify name of Professional DOS 1571 ROM image\n-supercard <Name>\n\tSpecify name of SuperCard+ ROM image\n-stardos <Name>\n\tSpecify name of StarDOS ROM image\n-dos2031 <Name>\n\tSpecify name of 2031 DOS ROM image\n-dos2040 <Name>\n\tSpecify name of 2040 DOS ROM image\n-dos3040 <Name>\n\tSpecify name of 3040 DOS ROM image\n-dos4040 <Name>\n\tSpecify name of 4040 DOS ROM image\n-dos1001 <Name>\n\tSpecify name of 1001/8050/8250 DOS ROM image\n-tapelog\n\tEnable the tape log device\n+tapelog\n\tDisable the tape log device\n-tapelogtofile\n\tEnable logging to a file\n-tapelogtolog\n\tEnable logging to the emulator log file\n-tapelogimage <Name>\n\tSpecify tape log file name\n-cpclockf83\n\tEnable CP Clock F83 (PCF8583 RTC)\n+cpclockf83\n\tDisable CP Clock F83 (PCF8583 RTC)\n-cpclockf83save\n\tEnable saving of the CP Clock F83 (PCF8583 RTC) data when changed.\n+cpclockf83save\n\tDisable saving of the CP Clock F83 (PCF8583 RTC) data when changed.\n-tapesensedongle\n\tEnable tape sense dongle\n+tapesensedongle\n\tDisable tape sense dongle\n-dtlbasicdongle\n\tEnable DTL Basic dongle\n+dtlbasicdongle\n\tEnable DTL Basic dongle\n-tapediag586220harness\n\tEnable the tape part of the 586220 diagnostics harness\n+tapediag586220harness\n\tDisable the tape part of the 586220 diagnostics harness\n-datasette\n\tEnable Datasette\n+datasette\n\tDisable Datasette\n-dsresetwithcpu\n\tEnable automatic Datasette-Reset\n+dsresetwithcpu\n\tDisable automatic Datasette-Reset\n-dszerogapdelay <value>\n\tSet delay in cycles for a zero in the tap\n-dsspeedtuning <value>\n\tSet number of cycles added to each gap in the tap\n-dstapewobble <value>\n\tSet maximum random number of cycles added to each gap in the tap\n-gluelogictype <Type>\n\tSet glue logic type (0 = discrete, 1 = 252535-01)\n-userportjoytype <Type>\n\tSet the 'memory expansion hack' device (0: None, 1: CSORY 256K, 2: HANNES 256K, 3: HANNES 1024K, 4: HANNES 4096K)\n-userportjoy\n\tBase address of the 256K expansion. (0xDE00/0xDE80/0xDF00/0xDF80)\n+userportjoy\n\tSet the 'memory expansion hack' device (0: None, 1: C64 256K, 2: +60K, 3: +256K)\n-userportdac\n\tEnable Userport DAC for sound output\n+userportdac\n\tDisable Userport DAC for sound output\n-userportdigimax\n\tEnable the userport DigiMAX device\n+userportdigimax\n\tDisable the userport DigiMAX device\n-userportrtc58321a\n\tEnable Userport RTC (58321a)\n+userportrtc58321a\n\tDisable Userport RTC (58321a)\n-userportrtc58321asave\n\tEnable saving of the Userport RTC (58321a) data when changed.\n+userportrtc58321asave\n\tDisable saving of the Userport RTC (58321a) data when changed.\n-userportrtcds1307\n\tEnable Userport RTC (DS1307)\n+userportrtcds1307\n\tDisable Userport RTC (DS1307)\n-userportrtcds1307save\n\tEnable saving of the Userport RTC (DS1307) data when changed.\n+userportrtcds1307save\n\tDisable saving of the Userport RTC (DS1307) data when changed.\n-userport4bitsampler\n\tEnable Userport RTC (58321a)\n+userport4bitsampler\n\tDisable Userport RTC (58321a)\n-userport8bss\n\tEnable saving of the Userport RTC (58321a) data when changed.\n+userport8bss\n\tDisable saving of the Userport RTC (58321a) data when changed.\n-userportdiag586220harness\n\tDisable Userport DAC for sound output\n+userportdiag586220harness\n\tEnable Userport joystick adapter\n-iocollision <method>\n\tSelect the way the I/O collisions should be handled, (0: error message and detach all involved carts, 1: error message and detach last attached involved carts, 2: warning in log and 'AND' the valid return values\n-mmc64\n\tEnable the MMC64 expansion\n+mmc64\n\tDisable the MMC64 expansion\n-mmc64bios <Name>\n\tSpecify name of MMC64 BIOS image\n-mmc64image <Name>\n\tSpecify name of MMC64 image\n-mmc64readonly\n\tSet the MMC64 card to read-only\n-mmc64readwrite\n\tSet the MMC64 card to read/write\n-mmc64bioswrite\n\tSave the MMC64 bios when changed\n-mmc64biosreadonly\n\tDo not save the MMC64 bios when changed\n-mmc64flash\n\tSet the MMC64 Flash Jumper\n+mmc64flash\n\tRemove the MMC64 Flash Jumper\n-mmc64rev <Revision>\n\tSpecify MMC64 revision (0: Rev A, 1: Rev B)\n-mmc64sdtype <Type>\n\tSpecify MMC64 SD type (0: auto, 1: MMC, 2: SD, 3: SDHC)\n-mmc64clockportdevice <device>\n\tClockport device. (0: None)\n-magicvoiceimage <Name>\n\tSpecify name of Magic Voice ROM image\n-magicvoice\n\tEnable the Magic Voice cartridge\n+magicvoice\n\tDisable the Magic Voice cartridge\n-ieee488\n\tEnable the IEEE488 interface emulation\n+ieee488\n\tDisable the IEEE488 interface emulation\n-ieee488image <Name>\n\tspecify IEEE488 interface image name\n-dqbb\n\tEnable Double Quick Brown Box\n+dqbb\n\tDisable Double Quick Brown Box\n-dqbbimage <Name>\n\tSpecify Double Quick Brown Box filename\n-dqbbimagerw\n\tAllow writing to DQBB image\n+dqbbimagerw\n\tDo not write to DQBB image\n-expert\n\tEnable the Expert Cartridge\n+expert\n\tDisable the Expert Cartridge\n-expertimagename <Name>\n\tSet Expert Cartridge image name\n-expertimagerw\n\tAllow writing to Expert Cartridge image\n+expertimagerw\n\tDo not write to Expert Cartridge image\n-expertmode <Mode>\n\tSet Expert Cartridge mode (0: Off, 1: Prg, 2: On)\n-isepic\n\tEnable the ISEPIC cartridge\n+isepic\n\tDisable the ISEPIC cartridge\n-isepicimagename <Name>\n\tSet ISEPIC image name\n-isepicimagerw\n\tAllow writing to ISEPIC image\n+isepicimagerw\n\tDo not write to ISEPIC image\n-isepicswitch\n\tEnable the ISEPIC switch\n+isepicswitch\n\tDisable the ISEPIC switch\n-ramcart\n\tEnable the RamCart expansion\n+ramcart\n\tDisable the RamCart expansion\n-ramcartsize <size in KB>\n\tSize of the RAMCART expansion. (64/128)\n-ramcartimage <Name>\n\tSpecify name of RAMCART image\n-ramcartimagerw\n\tAllow writing to RAMCart image\n+ramcartimagerw\n\tDo not write to RAMCart image\n-ramcartro\n\tSet the RAMCart switch to read-only\n-ramcartrw\n\tSet the RAMCart switch to read/write\n-miditype <0-4>\n\tEnable DTV blitter logs.\n-midi\n\tEnable MIDI emulation\n+midi\n\tDisable MIDI emulation\n-midiin <number>\n\tSpecify MIDI-In device\n-midiout <number>\n\tSpecify MIDI-Out device\n-digimax\n\tEnable the DigiMAX cartridge\n+digimax\n\tDisable the DigiMAX cartridge\n-digimaxbase <Base address>\n\tBase address of the DigiMAX cartridge. (0xDE00/0xDE20/0xDE40/0xDE60/0xDE80/0xDEA0/0xDEC0/0xDEE0/0xDF00/0xDF20/0xDF40/0xDF60/0xDF80/0xDFA0/0xDFC0/0xDFE0)\n-ds12c887rtc\n\tEnable the DS12C887 RTC cartridge\n+ds12c887rtc\n\tDisable the DS12C887 RTC cartridge\n-ds12c887rtchalted\n\tSet the RTC oscillator to 'halted'\n-ds12c887rtcrunning\n\tSet the RTC oscillator to 'running'\n-ds12c887rtcsave\n\tEnable saving of the DS12C887 RTC data when changed.\n+ds12c887rtcsave\n\tDisable saving of the DS12C887 RTC data when changed.\n-ds12c887rtcbase <Base address>\n\tBase address of the DS12C887 RTC cartridge. (0xD500/0xD600/0xD700/0xDE00/0xDF00)\n-georam\n\tEnable the GEO-RAM expansion unit\n+georam\n\tDisable the GEO-RAM expansion unit\n-georamsize <size in KB>\n\tSize of the GEORAM expansion unit\n-georamimage <Name>\n\tSpecify name of GEORAM image\n-georamimagerw\n\tAllow writing to GEORAM image\n+georamimagerw\n\tDo not write to GEORAM image\n-reu\n\tEnable the RAM Expansion Unit\n+reu\n\tDisable the RAM Expansion Unit\n-reusize <size in KB>\n\tSize of the RAM expansion unit. (128/256/512/1024/2048/4096/8192/16384)\n-reuimage <Name>\n\tSpecify name of REU image\n-reuimagerw\n\tAllow writing to REU image\n+reuimagerw\n\tDo not write to REU image\n-sfxse\n\tEnable the SFX Sound Expander cartridge\n+sfxse\n\tDisable the SFX Sound Expander cartridge\n-sfxsetype <Type>\n\tSet YM chip type (3526 / 3812)\n-sfxss\n\tEnable the SFX Sound Sampler cartridge\n+sfxss\n\tDisable the SFX Sound Sampler cartridge\n-easyflashjumper\n\tEnable EasyFlash jumper\n+easyflashjumper\n\tDisable EasyFlash jumper\n-easyflashcrtwrite\n\tEnable writing to EasyFlash .crt image\n+easyflashcrtwrite\n\tDisable writing to EasyFlash .crt image\n-easyflashcrtoptimize\n\tEnable EasyFlash .crt image optimize on write\n+easyflashcrtoptimize\n\tDisable writing to EasyFlash .crt image\n-gmod2eepromimage\n\tSpecify GMod2 EEPROM image filename\n-gmod2eepromrw\n\tEnable writes to GMod2 EEPROM image\n+gmod2eepromrw\n\tDisable writes to GMod2 EEPROM image\n-gmod2flashwrite\n\tEnable saving of the GMod2 ROM at exit\n+gmod2flashwrite\n\tDisable saving of the GMod2 ROM at exit\n-sbdigimax\n\tEnable the Short Bus DigiMAX expansion\n+sbdigimax\n\tDisable the Short Bus DigiMAX expansion\n-sbdigimaxbase <Base address>\n\tBase address of the Short Bus DigiMAX expansion. (0xDE40/0xDE48)\n-IDE64image1 <Name>\n\tSpecify name of IDE64 image file\n-IDE64image2 <Name>\n\tSpecify name of IDE64 image file\n-IDE64image3 <Name>\n\tSpecify name of IDE64 image file\n-IDE64image4 <Name>\n\tSpecify name of IDE64 image file\n-IDE64cyl1 <value>\n\tSet number of cylinders for the IDE64 emulation. (1..65535)\n-IDE64cyl2 <value>\n\tSet number of cylinders for the IDE64 emulation. (1..65535)\n-IDE64cyl3 <value>\n\tSet number of cylinders for the IDE64 emulation. (1..65535)\n-IDE64cyl4 <value>\n\tSet number of cylinders for the IDE64 emulation. (1..65535)\n-IDE64hds1 <value>\n\tSet number of heads for the IDE64 emulation. (1..16)\n-IDE64hds2 <value>\n\tSet number of heads for the IDE64 emulation. (1..16)\n-IDE64hds3 <value>\n\tSet number of heads for the IDE64 emulation. (1..16)\n-IDE64hds4 <value>\n\tSet number of heads for the IDE64 emulation. (1..16)\n-IDE64sec1 <value>\n\tSet number of sectors for the IDE64 emulation. (1..63)\n-IDE64sec2 <value>\n\tSet number of sectors for the IDE64 emulation. (1..63)\n-IDE64sec3 <value>\n\tSet number of sectors for the IDE64 emulation. (1..63)\n-IDE64sec4 <value>\n\tSet number of sectors for the IDE64 emulation. (1..63)\n-IDE64autosize1\n\tAutodetect image size\n+IDE64autosize1\n\tDo not autodetect geometry of formatted images\n-IDE64autosize2\n\tAutodetect image size\n+IDE64autosize2\n\tDo not autodetect geometry of formatted images\n-IDE64autosize3\n\tAutodetect image size\n+IDE64autosize3\n\tDo not autodetect geometry of formatted images\n-IDE64autosize4\n\tAutodetect image size\n+IDE64autosize4\n\tDo not autodetect geometry of formatted images\n-IDE64version <value>\n\tIDE64 cartridge version\n-IDE64rtcsave\n\tEnable saving of IDE64 RTC data when changed.\n+IDE64rtcsave\n\tDisable saving of IDE64 RTC data when changed.\n-ide64clockportdevice <device>\n\tClockport device. (0: None)\n-mmcrrescue\n\tEnable MMC Replay rescue mode\n+mmcrrescue\n\tDisable MMC Replay rescue mode\n-mmcrimagerw\n\tAllow writing to MMC Replay image\n+mmcrimagerw\n\tDo not write to MMC Replay image\n-mmcrcardimage <filename>\n\tSpecify MMC Replay card image filename\n-mmcrcardrw\n\tEnable writes to MMC Replay card image\n+mmcrcardrw\n\tDisable writes to MMC Replay card image\n-mmcreepromimage\n\tSpecify MMC Replay EEPROM image filename\n-mmcreepromrw\n\tEnable writes to MMC Replay EEPROM image\n+mmcreepromrw\n\tDisable writes to MMC Replay EEPROM image\n-mmcrsdtype <Type>\n\tSpecify MMC Replay SD type (0: auto, 1: MMC, 2: SD, 3: SDHC)\n-mmcrclockportdevice <device>\n\tClockport device. (0: None)\n-rrbioswrite\n\tEnable saving of the RR ROM at exit\n+rrbioswrite\n\tDisable saving of the RR ROM at exit\n-rrbankjumper\n\tSet RR Bank Jumper\n+rrbankjumper\n\tUnset RR Bank Jumper\n-rrflashjumper\n\tSet RR Flash Jumper\n+rrflashjumper\n\tUnset RR Bank Jumper\n-rrrev <Revision>\n\tSet RR Revision (0: Retro Replay, 1: Nordic Replay)\n-rrclockportdevice <device>\n\tClockport device. (0: None)\n-ssramexpansion\n\tEnable SS 32k RAM expansion\n+ssramexpansion\n\tDisable SS 32k RAM expansion\n-debugcart\n\tEnable Debug cartridge\n+debugcart\n\tDisable Debug cartridge\n-cpmcart\n\tEnable the CP/M cartridge\n+cpmcart\n\tDisable the CP/M cartridge\n-cart8 <Name>\n\tAttach raw 8KB cartridge image\n-cart16 <Name>\n\tAttach raw 16KB cartridge image\n-cartultimax <Name>\n\tAttach generic 16kB Ultimax cartridge image\n-cartcrt <Name>\n\tAttach CRT cartridge image\n-cartap <Name>\n\tAttach raw 32KB Atomic Power cartridge image\n-cartar2 <Name>\n\tAttach raw 16kB Action Replay MK2 cartridge image\n-cartar3 <Name>\n\tAttach raw 16KB Action Replay MK3 cartridge image\n-cartar4 <Name>\n\tAttach raw 32KB Action Replay MK4 cartridge image\n-cartar5 <Name>\n\tAttach raw 32KB Action Replay cartridge image\n-cartcap <Name>\n\tAttach raw 8kB Capture cartridge image\n-cartcomal <Name>\n\tAttach raw 64kB Comal 80 cartridge image\n-cartdep256 <Name>\n\tAttach raw Dela EP256 cartridge image\n-cartdep64 <Name>\n\tAttach raw Dela EP64 cartridge image\n-cartdep7x8 <Name>\n\tAttach raw Dela EP7x8 cartridge image\n-cartdin <Name>\n\tAttach raw 128kB Dinamic cartridge image\n-cartdsm <Name>\n\tAttach raw 8kB Diashow-Maker cartridge image\n-cartdqbb <Name>\n\tAttach raw 16kB Double Quick Brown Box cartridge image\n-carteasy <Name>\n\tAttach raw EasyFlash cartridge image\n-carteasycalc <Name>\n\tAttach raw 24kB Easy Calc Result cartridge image\n-cartepyx <Name>\n\tAttach raw 8KB Epyx FastLoad cartridge image\n-cartexos <Name>\n\tAttach raw 8kB EXOS cartridge image\n-cartexpert <Name>\n\tAttach raw 8kB Expert Cartridge image\n-cartf64 <Name>\n\tAttach raw 32kB Formel 64 image\n-cartfc1 <Name>\n\tAttach raw 16kB Final Cartridge image\n-cartfc3 <Name>\n\tAttach raw 64kB Final Cartridge III image\n-cartfcplus <Name>\n\tAttach raw 32kB Final Cartridge Plus image\n-cartff <Name>\n\tAttach raw 8kB Freeze Frame image\n-cartfm <Name>\n\tAttach raw 32kB Freeze Machine image\n-cartfp <Name>\n\tAttach raw 128kB Fun Play/Power Play cartridge image\n-cartgmod2 <Name>\n\tAttach raw 8KB Game Killer cartridge image\n-cartgk <Name>\n\tAttach raw 8KB Game Killer cartridge image\n-cartgeoram <Name>\n\tAttach raw GEO-RAM cartridge image\n-cartgs <Name>\n\tAttach raw 512kB Game System cartridge image\n-cartide64 <Name>\n\tAttach raw 64KB IDE64 cartridge image\n-cartieee <Name>\n\tAttach IEEE-488 Interface cartridge image\n-cartisepic <Name>\n\tAttach raw 2kB ISEPIC cartridge image\n-cartkcs <Name>\n\tAttach raw 16kB KCS Power cartridge image\n-cartks <Name>\n\tAttach raw 24kB Kingsoft cartridge image\n-cartmach5 <Name>\n\tAttach raw 8kB MACH 5 cartridge image\n-cartmd <Name>\n\tAttach raw 32/64/128kB Magic Desk cartridge image\n-cartmf <Name>\n\tAttach raw Magic Formel cartridge image\n-cartmikro <Name>\n\tAttach raw 8kB Mikro Assembler cartridge image\n-cartmmc64 <Name>\n\tAttach raw 8kB MMC64 cartridge image\n-cartmmcr <Name>\n\tAttach raw 512kB MMC Replay cartridge image\n-cartmv <Name>\n\tAttach raw 16kB Magic Voice cartridge image\n-cartocean <Name>\n\tAttach raw Ocean cartridge image\n-cartpf <Name>\n\tAttach raw 64KB Pagefox cartridge image\n-cartp64 <Name>\n\tAttach raw 256KB Prophet 64 cartridge image\n-cartramcart <Name>\n\tAttach raw RamCart cartridge image\n-cartreu <Name>\n\tAttach raw REU cartridge image\n-cartrep256 <Name>\n\tAttach raw REX EP256 cartridge image\n-cartrgcd <Name>\n\tAttach raw 64kB RGCD cartridge image\n-cartross <Name>\n\tAttach raw 16/32kB ROSS cartridge image\n-cartrr <Name>\n\tAttach raw 64KB Retro Replay cartridge image\n-cartru <Name>\n\tAttach raw 8kB REX Utility cartridge image\n-carts64 <Name>\n\tAttach raw 4kB Snapshot 64 cartridge image\n-cartsb <Name>\n\tAttach raw Structured Basic cartridge image\n-cartse5 <Name>\n\tAttach raw 16kB Super Explode V5 cartridge image\n-cartsg <Name>\n\tAttach raw 64kB Super Games cartridge image\n-cartsilver <Name>\n\tAttach raw Silverrock 128 cartridge image\n-cartsimon <Name>\n\tAttach raw 16kB Simons Basic cartridge image\n-cartss4 <Name>\n\tAttach raw 32KB Super Snapshot V4 cartridge image\n-cartss5 <Name>\n\tAttach raw 64KB Super Snapshot V5 cartridge image\n-cartstar <Name>\n\tAttach raw 16KB Stardos cartridge image\n-cartwl <Name>\n\tAttach raw 16KB Westermann Learning cartridge image\n-cartws <Name>\n\tAttach raw 8kB Warp Speed cartridge image\n-cartzaxxon <Name>\n\tAttach raw 16kB Zaxxon cartridge image\n-cartreset\n\tReset machine if a cartridge is attached or detached\n+cartreset\n\tDo not reset machine if a cartridge is attached or detached\n+cart\n\tDisable default cartridge\n-raminitstartvalue <value>\n\tSet the value for the very first RAM address after powerup\n-raminitvalueinvert <num of bytes>\n\tLength of memory block initialized with the same value\n-raminitpatterninvert <num of bytes>\n\tLength of memory block initialized with the same pattern\n\n",
+          "stderr": "",
+          "returncode": 0
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-l",
+        "-l",
+        "-v",
+        "-s",
+        "-h",
+        "-h",
+        "-f",
+        "-t",
+        "-d",
+        "-c",
+        "-d",
+        "-c",
+        "-l",
+        "-c",
+        "-c",
+        "-a",
+        "-a",
+        "-d",
+        "-r",
+        "-r",
+        "-r",
+        "-m",
+        "-m",
+        "-i",
+        "-j",
+        "-e",
+        "-s",
+        "-r",
+        "-w",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-k",
+        "-k",
+        "-k",
+        "-s",
+        "-p",
+        "-h",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-a",
+        "-s",
+        "-s",
+        "-v",
+        "-p",
+        "-n",
+        "-n",
+        "-p",
+        "-N",
+        "-k",
+        "-b",
+        "-c",
+        "-k",
+        "-c",
+        "-c",
+        "-c",
+        "-m",
+        "-b",
+        "-i",
+        "-m",
+        "-p",
+        "-p",
+        "-p",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-V",
+        "-b",
+        "-b",
+        "-V",
+        "-s",
+        "-s",
+        "-V",
+        "-V",
+        "-I",
+        "-s",
+        "-r",
+        "-r",
+        "-r",
+        "-r",
+        "-s",
+        "-s",
+        "-s",
+        "-s",
+        "-r",
+        "-r",
+        "-r",
+        "-i",
+        "-i",
+        "-i",
+        "-i",
+        "-i",
+        "-i",
+        "-i",
+        "-i",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-p",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-p",
+        "-p",
+        "-p",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-b",
+        "-j",
+        "-k",
+        "-u",
+        "-d",
+        "-d",
+        "-d",
+        "-k",
+        "-k",
+        "-s",
+        "-s",
+        "-s",
+        "-f",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-a",
+        "-a",
+        "-a",
+        "-a",
+        "-a",
+        "-a",
+        "-a",
+        "-a",
+        "-f",
+        "-f",
+        "-f",
+        "-f",
+        "-f",
+        "-r",
+        "-r",
+        "-f",
+        "-r",
+        "-r",
+        "-f",
+        "-r",
+        "-r",
+        "-f",
+        "-r",
+        "-r",
+        "-f",
+        "-f",
+        "-f",
+        "-f",
+        "-f",
+        "-f",
+        "-f",
+        "-f",
+        "-r",
+        "-p",
+        "-e",
+        "-e",
+        "-e",
+        "-e",
+        "-e",
+        "-k",
+        "-k",
+        "-d",
+        "-t",
+        "-t",
+        "-t",
+        "-t",
+        "-t",
+        "-t",
+        "-a",
+        "-m",
+        "-s",
+        "-d",
+        "-d",
+        "-I",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-I",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-I",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-I",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-t",
+        "-l",
+        "-l",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-I",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-p",
+        "-d",
+        "-d",
+        "-d",
+        "-p",
+        "-d",
+        "-d",
+        "-d",
+        "-p",
+        "-d",
+        "-d",
+        "-d",
+        "-p",
+        "-d",
+        "-d",
+        "-d",
+        "-p",
+        "-s",
+        "-s",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-t",
+        "-t",
+        "-t",
+        "-t",
+        "-c",
+        "-c",
+        "-t",
+        "-d",
+        "-t",
+        "-d",
+        "-d",
+        "-R",
+        "-R",
+        "-d",
+        "-d",
+        "-d",
+        "-g",
+        "-u",
+        "-u",
+        "-u",
+        "-u",
+        "-u",
+        "-u",
+        "-u",
+        "-u",
+        "-u",
+        "-u",
+        "-u",
+        "-i",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-o",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-i",
+        "-i",
+        "-d",
+        "-d",
+        "-d",
+        "-e",
+        "-e",
+        "-e",
+        "-e",
+        "-i",
+        "-i",
+        "-i",
+        "-i",
+        "-r",
+        "-r",
+        "-r",
+        "-r",
+        "-r",
+        "-o",
+        "-r",
+        "-m",
+        "-m",
+        "-m",
+        "-I",
+        "-m",
+        "-O",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-d",
+        "-g",
+        "-R",
+        "-R",
+        "-g",
+        "-g",
+        "-g",
+        "-r",
+        "-r",
+        "-r",
+        "-r",
+        "-s",
+        "-s",
+        "-s",
+        "-e",
+        "-e",
+        "-e",
+        "-g",
+        "-g",
+        "-g",
+        "-s",
+        "-s",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-I",
+        "-i",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-m",
+        "-r",
+        "-r",
+        "-r",
+        "-r",
+        "-r",
+        "-s",
+        "-d",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-M",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-R",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-c",
+        "-r",
+        "-r",
+        "-r",
+        "0xD040",
+        "0xD100",
+        "0xDE00",
+        "0xDE80",
+        "0xDF00",
+        "0xDF80",
+        "0xD420",
+        "0xD440",
+        "0xD460",
+        "0xD480",
+        "0xD4A0",
+        "0xD4C0",
+        "0xD4E0",
+        "0xD500",
+        "0xD520",
+        "0xD540",
+        "0xD560",
+        "0xD580",
+        "0xD5A0",
+        "0xD5C0",
+        "0xD5E0",
+        "0xD600",
+        "0xD620",
+        "0xD640",
+        "0xD660",
+        "0xD680",
+        "0xD6A0",
+        "0xD6C0",
+        "0xD6E0",
+        "0xD700",
+        "0xD720",
+        "0xD740",
+        "0xD760",
+        "0xD780",
+        "0xD7A0",
+        "0xD7C0",
+        "0xD7E0",
+        "0xDE00",
+        "0xDE20",
+        "0xDE40",
+        "0xDE60",
+        "0xDE80",
+        "0xDEA0",
+        "0xDEC0",
+        "0xDEE0",
+        "0xDF00",
+        "0xDF20",
+        "0xDF40",
+        "0xDF60",
+        "0xDF80",
+        "0xDFA0",
+        "0xDFC0",
+        "0xDFE0",
+        "0xD420",
+        "0xD440",
+        "0xD460",
+        "0xD480",
+        "0xD4A0",
+        "0xD4C0",
+        "0xD4E0",
+        "0xD500",
+        "0xD520",
+        "0xD540",
+        "0xD560",
+        "0xD580",
+        "0xD5A0",
+        "0xD5C0",
+        "0xD5E0",
+        "0xD600",
+        "0xD620",
+        "0xD640",
+        "0xD660",
+        "0xD680",
+        "0xD6A0",
+        "0xD6C0",
+        "0xD6E0",
+        "0xD700",
+        "0xD720",
+        "0xD740",
+        "0xD760",
+        "0xD780",
+        "0xD7A0",
+        "0xD7C0",
+        "0xD7E0",
+        "0xDE00",
+        "0xDE20",
+        "0xDE40",
+        "0xDE60",
+        "0xDE80",
+        "0xDEA0",
+        "0xDEC0",
+        "0xDEE0",
+        "0xDF00",
+        "0xDF20",
+        "0xDF40",
+        "0xDF60",
+        "0xDF80",
+        "0xDFA0",
+        "0xDFC0",
+        "0xDFE0",
+        "$2000",
+        "$3FFF",
+        "$2000",
+        "$3FFF",
+        "$4000",
+        "$5FFF",
+        "$4000",
+        "$5FFF",
+        "$6000",
+        "$7FFF",
+        "$6000",
+        "$7FFF",
+        "$8000",
+        "$9FFF",
+        "$8000",
+        "$9FFF",
+        "$A000",
+        "$BFFF",
+        "$A000",
+        "$BFFF",
+        "$2000",
+        "$3FFF",
+        "$2000",
+        "$3FFF",
+        "$4000",
+        "$5FFF",
+        "$4000",
+        "$5FFF",
+        "$6000",
+        "$7FFF",
+        "$6000",
+        "$7FFF",
+        "$8000",
+        "$9FFF",
+        "$8000",
+        "$9FFF",
+        "$A000",
+        "$BFFF",
+        "$A000",
+        "$BFFF",
+        "$2000",
+        "$3FFF",
+        "$2000",
+        "$3FFF",
+        "$4000",
+        "$5FFF",
+        "$4000",
+        "$5FFF",
+        "$6000",
+        "$7FFF",
+        "$6000",
+        "$7FFF",
+        "$8000",
+        "$9FFF",
+        "$8000",
+        "$9FFF",
+        "$A000",
+        "$BFFF",
+        "$A000",
+        "$BFFF",
+        "$2000",
+        "$3FFF",
+        "$2000",
+        "$3FFF",
+        "$4000",
+        "$5FFF",
+        "$4000",
+        "$5FFF",
+        "$6000",
+        "$7FFF",
+        "$6000",
+        "$7FFF",
+        "$8000",
+        "$9FFF",
+        "$8000",
+        "$9FFF",
+        "$A000",
+        "$BFFF",
+        "$A000",
+        "$BFFF",
+        "0xDE00",
+        "0xDE80",
+        "0xDF00",
+        "0xDF80",
+        "0xDE00",
+        "0xDE20",
+        "0xDE40",
+        "0xDE60",
+        "0xDE80",
+        "0xDEA0",
+        "0xDEC0",
+        "0xDEE0",
+        "0xDF00",
+        "0xDF20",
+        "0xDF40",
+        "0xDF60",
+        "0xDF80",
+        "0xDFA0",
+        "0xDFC0",
+        "0xDFE0",
+        "0xD500",
+        "0xD600",
+        "0xD700",
+        "0xDE00",
+        "0xDF00",
+        "0xDE40",
+        "0xDE48"
+      ]
+    },
+    "bmp2sprite2": {
+      "tool_name": "bmp2sprite2",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/bmp2sprite-1.4-win64/bmp2sprite-1.4-win64/bmp2sprite-1.4-win64.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "bmp2sprite v1.4 [06.06.2017] *** by fieserWolF\nDescription: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <add_zero_byte 1=on\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-h": {
+          "stdout": "bmp2sprite v1.4 [06.06.2017] *** by fieserWolF\nDescription: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <add_zero_byte 1=on\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "--version": {
+          "stdout": "bmp2sprite v1.4 [06.06.2017] *** by fieserWolF\nDescription: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <add_zero_byte 1=on\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "bmp2sprite v1.4 [06.06.2017] *** by fieserWolF\nDescription: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <add_zero_byte 1=on\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "bmp2sprite v1.4 [06.06.2017] *** by fieserWolF\nDescription: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <add_zero_byte 1=on\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "/?": {
+          "stdout": "bmp2sprite v1.4 [06.06.2017] *** by fieserWolF\nDescription: Reads a 16color (4bit/8bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.\nUsage: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, \"none\" for no address> <add_zero_byte 1=on\nExample: C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64\\bmp2sprite-1.4-win64.exe bob.bmp bob.prg 2000 0 0 1 2 3\n",
+          "stderr": "",
+          "returncode": 1
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w",
+        "-w"
+      ]
+    },
+    "chararset minion": {
+      "tool_name": "chararset minion",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64CharsetMinion/C64 Charset Minion.exe",
+      "category": "assemblers",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "charsetminion": {
+      "tool_name": "charsetminion",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64CharsetMinion/C64 Charset Minion.exe",
+      "category": "special",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "c64emu": {
+      "tool_name": "c64emu",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c64emu-beta3-install-package/EMU beta3 install package/C64EMU.exe",
+      "category": "emulators",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "c64list": {
+      "tool_name": "c64list",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64List3.03/C64List.exe",
+      "category": "special",
+      "help_outputs": {
+        "--help": {
+          "stdout": "-------------------------------------------------------------------------------\n                C64List (v3.03) Copyright 2012 by Jeff Hoag\n-------------------------------------------------------------------------------\n Loads Commodore 64 BASIC programs and converts them between various formats.\n Contact: c64List@gmail.com\n Automatically determines the format to load by the file extension.\n Loads these file types\n   prg  (prg C64 format: 2 address bytes followed by program data\n   p00  (same as prg, but contains filename data as well)\n   txt  (prg/p00 files detokenized and converted to text by C64List\n-------------------------------------------------------------------------------\nSyntax:\n\tc64list <input filename> [control parameters]\n\nwhere control parameters include:\n\t-ovr  \t\toverwrite an existing file\n\t-prg[:name]\tsave in .prg format\n\t-p00[:name]\tsave in .p00 format (Only p00 is supported--not 01-99)\n\t-hex[:name]\tsave in an ASCII hex dump format\n\t-asm[:name]\tsave in a memory-disassembled format\n\t-txt[:name]\tsave untokenized BASIC code in a text format\n\t-lbl[:name]\tsave, same as -txt, except convert to label format\n\n\t-verbose[:list]\toutput additional information during conversion\n\t-tokenizer:name\tload a tokenizer map file\n\t-b4\t\tload the BASIC 4.0 tokenizer map file\n\t-b7\t\tload the BASIC 7.0 tokenizer map file\n\t-alpha:<mode>\twhere <mode> can be normal|upper|lower|invert\n\t-range:n1-n2\tfor .hex/.asm, only output indicated range\n\t-con\t\tfor .hex/.asm, dump output to screen\n\t-sym\t\tdump the asm symbol table to screen\n\t-labels\t\tdump the list of labels to screen\n\nAdditionally, when converting to and from text files:\n\t-crunch\t(from text) removes unquoted space\n\t-crunch\t(to text) adds spacing for readability\n\t-crsr\t(to text) preserves binary cursor codes\n\t-rem\tremove all REM statements\n\nFor the output format parameters, if you specify\n  <nothing> the input name is used, but the proper extension is applied\n  :<name> the specified name is used\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "-h": {
+          "stdout": "-------------------------------------------------------------------------------\n                C64List (v3.03) Copyright 2012 by Jeff Hoag\n-------------------------------------------------------------------------------\n Loads Commodore 64 BASIC programs and converts them between various formats.\n Contact: c64List@gmail.com\n Automatically determines the format to load by the file extension.\n Loads these file types\n   prg  (prg C64 format: 2 address bytes followed by program data\n   p00  (same as prg, but contains filename data as well)\n   txt  (prg/p00 files detokenized and converted to text by C64List\n-------------------------------------------------------------------------------\nSyntax:\n\tc64list <input filename> [control parameters]\n\nwhere control parameters include:\n\t-ovr  \t\toverwrite an existing file\n\t-prg[:name]\tsave in .prg format\n\t-p00[:name]\tsave in .p00 format (Only p00 is supported--not 01-99)\n\t-hex[:name]\tsave in an ASCII hex dump format\n\t-asm[:name]\tsave in a memory-disassembled format\n\t-txt[:name]\tsave untokenized BASIC code in a text format\n\t-lbl[:name]\tsave, same as -txt, except convert to label format\n\n\t-verbose[:list]\toutput additional information during conversion\n\t-tokenizer:name\tload a tokenizer map file\n\t-b4\t\tload the BASIC 4.0 tokenizer map file\n\t-b7\t\tload the BASIC 7.0 tokenizer map file\n\t-alpha:<mode>\twhere <mode> can be normal|upper|lower|invert\n\t-range:n1-n2\tfor .hex/.asm, only output indicated range\n\t-con\t\tfor .hex/.asm, dump output to screen\n\t-sym\t\tdump the asm symbol table to screen\n\t-labels\t\tdump the list of labels to screen\n\nAdditionally, when converting to and from text files:\n\t-crunch\t(from text) removes unquoted space\n\t-crunch\t(to text) adds spacing for readability\n\t-crsr\t(to text) preserves binary cursor codes\n\t-rem\tremove all REM statements\n\nFor the output format parameters, if you specify\n  <nothing> the input name is used, but the proper extension is applied\n  :<name> the specified name is used\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "--version": {
+          "stdout": "-------------------------------------------------------------------------------\n                C64List (v3.03) Copyright 2012 by Jeff Hoag\n-------------------------------------------------------------------------------\nError: No input file is specified, or it is not the first parameter\nEncountered: 1 Errors; 0 Warnings\nC64List failed.\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "-------------------------------------------------------------------------------\n                C64List (v3.03) Copyright 2012 by Jeff Hoag\n-------------------------------------------------------------------------------\nError: No input file is specified, or it is not the first parameter\nEncountered: 1 Errors; 0 Warnings\nC64List failed.\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "-------------------------------------------------------------------------------\n                C64List (v3.03) Copyright 2012 by Jeff Hoag\n-------------------------------------------------------------------------------\n Loads Commodore 64 BASIC programs and converts them between various formats.\n Contact: c64List@gmail.com\n Automatically determines the format to load by the file extension.\n Loads these file types\n   prg  (prg C64 format: 2 address bytes followed by program data\n   p00  (same as prg, but contains filename data as well)\n   txt  (prg/p00 files detokenized and converted to text by C64List\n-------------------------------------------------------------------------------\nSyntax:\n\tc64list <input filename> [control parameters]\n\nwhere control parameters include:\n\t-ovr  \t\toverwrite an existing file\n\t-prg[:name]\tsave in .prg format\n\t-p00[:name]\tsave in .p00 format (Only p00 is supported--not 01-99)\n\t-hex[:name]\tsave in an ASCII hex dump format\n\t-asm[:name]\tsave in a memory-disassembled format\n\t-txt[:name]\tsave untokenized BASIC code in a text format\n\t-lbl[:name]\tsave, same as -txt, except convert to label format\n\n\t-verbose[:list]\toutput additional information during conversion\n\t-tokenizer:name\tload a tokenizer map file\n\t-b4\t\tload the BASIC 4.0 tokenizer map file\n\t-b7\t\tload the BASIC 7.0 tokenizer map file\n\t-alpha:<mode>\twhere <mode> can be normal|upper|lower|invert\n\t-range:n1-n2\tfor .hex/.asm, only output indicated range\n\t-con\t\tfor .hex/.asm, dump output to screen\n\t-sym\t\tdump the asm symbol table to screen\n\t-labels\t\tdump the list of labels to screen\n\nAdditionally, when converting to and from text files:\n\t-crunch\t(from text) removes unquoted space\n\t-crunch\t(to text) adds spacing for readability\n\t-crsr\t(to text) preserves binary cursor codes\n\t-rem\tremove all REM statements\n\nFor the output format parameters, if you specify\n  <nothing> the input name is used, but the proper extension is applied\n  :<name> the specified name is used\n",
+          "stderr": "",
+          "returncode": 0
+        },
+        "/?": {
+          "stdout": "-------------------------------------------------------------------------------\n                C64List (v3.03) Copyright 2012 by Jeff Hoag\n-------------------------------------------------------------------------------\n Loads Commodore 64 BASIC programs and converts them between various formats.\n Contact: c64List@gmail.com\n Automatically determines the format to load by the file extension.\n Loads these file types\n   prg  (prg C64 format: 2 address bytes followed by program data\n   p00  (same as prg, but contains filename data as well)\n   txt  (prg/p00 files detokenized and converted to text by C64List\n-------------------------------------------------------------------------------\nSyntax:\n\tc64list <input filename> [control parameters]\n\nwhere control parameters include:\n\t-ovr  \t\toverwrite an existing file\n\t-prg[:name]\tsave in .prg format\n\t-p00[:name]\tsave in .p00 format (Only p00 is supported--not 01-99)\n\t-hex[:name]\tsave in an ASCII hex dump format\n\t-asm[:name]\tsave in a memory-disassembled format\n\t-txt[:name]\tsave untokenized BASIC code in a text format\n\t-lbl[:name]\tsave, same as -txt, except convert to label format\n\n\t-verbose[:list]\toutput additional information during conversion\n\t-tokenizer:name\tload a tokenizer map file\n\t-b4\t\tload the BASIC 4.0 tokenizer map file\n\t-b7\t\tload the BASIC 7.0 tokenizer map file\n\t-alpha:<mode>\twhere <mode> can be normal|upper|lower|invert\n\t-range:n1-n2\tfor .hex/.asm, only output indicated range\n\t-con\t\tfor .hex/.asm, dump output to screen\n\t-sym\t\tdump the asm symbol table to screen\n\t-labels\t\tdump the list of labels to screen\n\nAdditionally, when converting to and from text files:\n\t-crunch\t(from text) removes unquoted space\n\t-crunch\t(to text) adds spacing for readability\n\t-crsr\t(to text) preserves binary cursor codes\n\t-rem\tremove all REM statements\n\nFor the output format parameters, if you specify\n  <nothing> the input name is used, but the proper extension is applied\n  :<name> the specified name is used\n",
+          "stderr": "",
+          "returncode": 0
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-o",
+        "-p",
+        "-p",
+        "--not",
+        "-h",
+        "-a",
+        "-d",
+        "-t",
+        "-l",
+        "-t",
+        "-v",
+        "-t",
+        "-b",
+        "-b",
+        "-a",
+        "-r",
+        "-n",
+        "-c",
+        "-s",
+        "-l",
+        "-c",
+        "-c",
+        "-c",
+        "-r",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-o",
+        "-p",
+        "-p",
+        "--not",
+        "-h",
+        "-a",
+        "-d",
+        "-t",
+        "-l",
+        "-t",
+        "-v",
+        "-t",
+        "-b",
+        "-b",
+        "-a",
+        "-r",
+        "-n",
+        "-c",
+        "-s",
+        "-l",
+        "-c",
+        "-c",
+        "-c",
+        "-r",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-o",
+        "-p",
+        "-p",
+        "--not",
+        "-h",
+        "-a",
+        "-d",
+        "-t",
+        "-l",
+        "-t",
+        "-v",
+        "-t",
+        "-b",
+        "-b",
+        "-a",
+        "-r",
+        "-n",
+        "-c",
+        "-s",
+        "-l",
+        "-c",
+        "-c",
+        "-c",
+        "-r",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-------------------------------------------------------------------------------",
+        "-o",
+        "-p",
+        "-p",
+        "--not",
+        "-h",
+        "-a",
+        "-d",
+        "-t",
+        "-l",
+        "-t",
+        "-v",
+        "-t",
+        "-b",
+        "-b",
+        "-a",
+        "-r",
+        "-n",
+        "-c",
+        "-s",
+        "-l",
+        "-c",
+        "-c",
+        "-c",
+        "-r"
+      ]
+    },
+    "picextender": {
+      "tool_name": "picextender",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/bin/c64-picextender.exe",
+      "category": "special",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "rastereditor": {
+      "tool_name": "rastereditor",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/c64-picextender-1.1.1-win32-gtk+2.24.31-portable/bin/c64-picextender.exe",
+      "category": "special",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "c64 studio": {
+      "tool_name": "c64 studio",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64StudioRelease3.5/C64StudioRelease/net3.5/C64Studio.exe",
+      "category": "ides",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    },
+    "64ass": {
+      "tool_name": "64ass",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64StudioRelease3.5/C64StudioRelease/net3.5/C64Ass/C64Ass.exe",
+      "category": "assemblers",
+      "help_outputs": {
+        "--help": {
+          "stdout": "Call with C64Ass [options] [file]\n\n-H, --HELP                     - Display this help\n-O, --OUTFILE [Filename]       - Determine output file name\n-L, --LABELDUMP [Filename]     - Write a label file\n-LIB, --LIBRARY [Library Path] - Add path(s) to library paths\n                                 Multiple paths are separated by comma\n-F, --FORMAT [PLAIN/CBM]       - Sets the output file format\n                                 PLAIN is a raw binary, CBM a .prg file\n--SETPC [Address]              - Overrides the source start address\n-AUTOTRUNCATELITERALS          - Clamps literal values to bytes/words without error\n-D, --DEFINE [Key=Value]       - Add Predefines\n-N, --NOWARNINGS               - Show no warnings\n-I, --IGNORE [WarningNo]       - Ignore specific Warnings\n                                 Multiple warnings separated by comma\n-V, --VERSION                  - Display version\n-A, --ASSEMBLER [Assembler]    - Use [Assembler]'s syntax\n                                 Valid values are\n                                 C64STUDIO (default)\n                                 ACME\n                                 C64ASM\n                                 CBMPRGSTUDIO\n                                 DASM\n                                 KICKASSEMBLER\n                                 PDS\n                                 TASM\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-h": {
+          "stdout": "Call with C64Ass [options] [file]\n\n-H, --HELP                     - Display this help\n-O, --OUTFILE [Filename]       - Determine output file name\n-L, --LABELDUMP [Filename]     - Write a label file\n-LIB, --LIBRARY [Library Path] - Add path(s) to library paths\n                                 Multiple paths are separated by comma\n-F, --FORMAT [PLAIN/CBM]       - Sets the output file format\n                                 PLAIN is a raw binary, CBM a .prg file\n--SETPC [Address]              - Overrides the source start address\n-AUTOTRUNCATELITERALS          - Clamps literal values to bytes/words without error\n-D, --DEFINE [Key=Value]       - Add Predefines\n-N, --NOWARNINGS               - Show no warnings\n-I, --IGNORE [WarningNo]       - Ignore specific Warnings\n                                 Multiple warnings separated by comma\n-V, --VERSION                  - Display version\n-A, --ASSEMBLER [Assembler]    - Use [Assembler]'s syntax\n                                 Valid values are\n                                 C64STUDIO (default)\n                                 ACME\n                                 C64ASM\n                                 CBMPRGSTUDIO\n                                 DASM\n                                 KICKASSEMBLER\n                                 PDS\n                                 TASM\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-v": {
+          "stdout": "C64Ass Assembler V8.1.205.0\n",
+          "stderr": "",
+          "returncode": 1
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "\n˜Ÿlenmeyen ™zel Durum: System.ArgumentException: Yolda ge‡ersiz karakterler var.\n   konum: System.Security.Permissions.FileIOPermission.HasIllegalCharacters(String[] str)\n   konum: System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)\n   konum: System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String[] pathList, Boolean checkForDuplicates, Boolean needFullPath)\n   konum: System.IO.Path.GetFullPath(String path)\n   konum: C64Ass.Program.Main(String[] args)\n",
+          "returncode": 3762507597
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "\n˜Ÿlenmeyen ™zel Durum: System.ArgumentException: Yolda ge‡ersiz karakterler var.\n   konum: System.Security.Permissions.FileIOPermission.HasIllegalCharacters(String[] str)\n   konum: System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)\n   konum: System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String[] pathList, Boolean checkForDuplicates, Boolean needFullPath)\n   konum: System.IO.Path.GetFullPath(String path)\n   konum: C64Ass.Program.Main(String[] args)\n",
+          "returncode": 3762507597
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "-H",
+        "--HELP",
+        "-O",
+        "--OUTFILE",
+        "-L",
+        "--LABELDUMP",
+        "-L",
+        "--LIBRARY",
+        "-F",
+        "--FORMAT",
+        "--SETPC",
+        "-A",
+        "-D",
+        "--DEFINE",
+        "-N",
+        "--NOWARNINGS",
+        "-I",
+        "--IGNORE",
+        "-V",
+        "--VERSION",
+        "-A",
+        "--ASSEMBLER",
+        "-H",
+        "--HELP",
+        "-O",
+        "--OUTFILE",
+        "-L",
+        "--LABELDUMP",
+        "-L",
+        "--LIBRARY",
+        "-F",
+        "--FORMAT",
+        "--SETPC",
+        "-A",
+        "-D",
+        "--DEFINE",
+        "-N",
+        "--NOWARNINGS",
+        "-I",
+        "--IGNORE",
+        "-V",
+        "--VERSION",
+        "-A",
+        "--ASSEMBLER"
+      ]
+    },
+    "c6510": {
+      "tool_name": "c6510",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c6510-1.0.0/c6510/bin/win_x64/c6510.exe",
+      "category": "assemblers",
+      "help_outputs": {
+        "--help": {
+          "stdout": "c6510 version 1.0.0 - a macro based cross-assembler for C64\n  Originally written by CRT a.k.a. John Hammarberg\n  Extended by Krikkit a.k.a. Robert Lundquist\nUsage: c6510 [OPTIONS...] FILES...\nExample: c6510 -s output.prg - + input.s\nOptions:\n  -h, --help                              This help text\n  -i, --input <file>                      Add source file to assemble\n  -p, --path <path>                       Add a search path for includes\n  -d, --declare <name>[=<value>]          Define constant 'name', with optional value, before any files are assembled\n  -s, --save <file> <start> <end>         Save a block of memory after assembly in PRG format. Labels can be used as addresses\n  -f, --freeze <src file> <dst file>      Update a VICE compatible freeze image with assembled content\n  -y, --sym <file>                        Dump a symbol file in VICE format\n  -wo, --warn-overwrite                   Only warn when overwriting already defined memory (default treat as error)\n  -b, --build-file <file>                 Save build file with include paths\n",
+          "stderr": "",
+          "returncode": 4294967295
+        },
+        "-h": {
+          "stdout": "c6510 version 1.0.0 - a macro based cross-assembler for C64\n  Originally written by CRT a.k.a. John Hammarberg\n  Extended by Krikkit a.k.a. Robert Lundquist\nUsage: c6510 [OPTIONS...] FILES...\nExample: c6510 -s output.prg - + input.s\nOptions:\n  -h, --help                              This help text\n  -i, --input <file>                      Add source file to assemble\n  -p, --path <path>                       Add a search path for includes\n  -d, --declare <name>[=<value>]          Define constant 'name', with optional value, before any files are assembled\n  -s, --save <file> <start> <end>         Save a block of memory after assembly in PRG format. Labels can be used as addresses\n  -f, --freeze <src file> <dst file>      Update a VICE compatible freeze image with assembled content\n  -y, --sym <file>                        Dump a symbol file in VICE format\n  -wo, --warn-overwrite                   Only warn when overwriting already defined memory (default treat as error)\n  -b, --build-file <file>                 Save build file with include paths\n",
+          "stderr": "",
+          "returncode": 4294967295
+        },
+        "--version": {
+          "stdout": "",
+          "stderr": "Error: File not found '--version'\n",
+          "returncode": 4294967295
+        },
+        "-v": {
+          "stdout": "",
+          "stderr": "Error: File not found '-v'\n",
+          "returncode": 4294967295
+        },
+        "-?": {
+          "stdout": "",
+          "stderr": "Error: File not found '-?'\n",
+          "returncode": 4294967295
+        },
+        "/?": {
+          "stdout": "",
+          "stderr": "Error: File not found '/?'\n",
+          "returncode": 4294967295
+        }
+      },
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": [
+        "input.s",
+        "output.prg",
+        "-a",
+        "-s",
+        "-h",
+        "--help",
+        "-i",
+        "--input",
+        "-p",
+        "--path",
+        "-d",
+        "--declare",
+        "-s",
+        "--save",
+        "-f",
+        "--freeze",
+        "-y",
+        "--sym",
+        "-w",
+        "--warn-overwrite",
+        "-b",
+        "--build-file",
+        "input.s",
+        "output.prg",
+        "-a",
+        "-s",
+        "-h",
+        "--help",
+        "-i",
+        "--input",
+        "-p",
+        "--path",
+        "-d",
+        "--declare",
+        "-s",
+        "--save",
+        "-f",
+        "--freeze",
+        "-y",
+        "--sym",
+        "-w",
+        "--warn-overwrite",
+        "-b",
+        "--build-file",
+        "--version",
+        "-v"
+      ]
+    },
+    "cbm file finder": {
+      "tool_name": "cbm file finder",
+      "tool_path": "C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/CBM_FileFinder.1.0/Release/CBM FileFinder.exe",
+      "category": "special",
+      "help_outputs": {},
+      "command_templates": [
+        "%TOOL_PATH% %DOSYAADI%",
+        "%TOOL_PATH% %DOSYAADI% %CIKTI%",
+        "%TOOL_PATH% --help"
+      ],
+      "variables_used": []
+    }
+  },
+  "variables": {
+    "%YOL%": "working_directory",
+    "%DOSYAADI%": "input_filename",
+    "%CIKTI%": "output_filename",
+    "%BASLANGIC%": "start_address",
+    "%FORMAT%": "output_format"
+  },
+  "detection_count": 12
+}
