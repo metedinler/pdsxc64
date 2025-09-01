@@ -1,0 +1,48 @@
+=== BMP2PETLOGO USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BMP2PETLOGO_1.0/BMP2PETLOGO.exe
+Category: special
+Learning Date: 2025-07-29 08:10:19.357254
+============================================================
+
+COMMAND: bmp2petlogo --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: bmp2petlogo -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: bmp2petlogo --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: bmp2petlogo -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: bmp2petlogo -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: bmp2petlogo /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
