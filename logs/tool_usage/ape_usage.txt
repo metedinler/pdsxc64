@@ -1,0 +1,48 @@
+=== APE USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/ape/ape.exe
+Category: emulators
+Learning Date: 2025-07-29 00:33:16.970509
+============================================================
+
+COMMAND: ape --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: ape -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: ape --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: ape -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: ape -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: ape /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
