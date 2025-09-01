@@ -1,0 +1,48 @@
+=== CBM FILE FINDER USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/CBM_FileFinder.1.0/Release/CBM FileFinder.exe
+Category: special
+Learning Date: 2025-07-29 16:46:36.492322
+============================================================
+
+COMMAND: cbm file finder --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: cbm file finder -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: cbm file finder --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: cbm file finder -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: cbm file finder -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: cbm file finder /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
