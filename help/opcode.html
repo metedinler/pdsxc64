@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6502 Opcode Karşılıkları</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            border-radius: 8px; /* Rounded corners for table */
+            overflow: hidden; /* Ensures rounded corners are visible */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e0f2f7; /* Lighter blue for header */
+            font-weight: bold;
+            color: #004085;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #eef7fc; /* Hover effect */
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        .notes {
+            background-color: #e6f7ff;
+            border-left: 5px solid #3399ff;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 8px; /* Rounded corners */
+        }
+        .notes h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                border-radius: 8px;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                color: #555;
+            }
+            /* Labeling the cells for mobile */
+            td:nth-of-type(1):before { content: "Opcode"; }
+            td:nth-of-type(2):before { content: "İşlev"; }
+            td:nth-of-type(3):before { content: "Adresleme Modları"; }
+            td:nth-of-type(4):before { content: "C Karşılığı"; }
+            td:nth-of-type(5):before { content: "QBasic Karşılığı"; }
+            td:nth-of-type(6):before { content: "pdsX BASIC Karşılığı"; }
+            td:nth-of-type(7):before { content: "Commodore BASIC V2 Karşılığı"; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>6502 Opcode Karşılıkları</h1>
+        <p>Aşağıdaki tablo, 6502 işlemci opcode'larının işlevlerini, adresleme modlarını ve çeşitli programlama dillerindeki yaklaşık karşılıklarını göstermektedir.</p>
+        <hr>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Opcode</th>
+                    <th>İşlev</th>
+                    <th>Adresleme Modları</th>
+                    <th>C Karşılığı</th>
+                    <th>QBasic Karşılığı</th>
+                    <th>pdsX BASIC Karşılığı</th>
+                    <th>Commodore BASIC V2 Karşılığı</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>ADC</td><td>Akkümülatöre bellekteki değeri carry ile ekle</td><td>Immediate, Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>a = a + value + carry;</code></td><td><code>LET A = A + VALUE + CARRY</code></td><td><code>LET a = a + value</code></td><td><code>A = A + X + C</code></td></tr>
+                <tr><td>AND</td><td>Akkümülatör ile bellekteki değerin mantıksal VE'sini al</td><td>Immediate, Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>a = a &amp; value;</code></td><td><code>LET A = A AND VALUE</code></td><td><code>LET a = a AND value</code></td><td><code>A = A AND X</code></td></tr>
+                <tr><td>ASL</td><td>Akkümülatörü veya bellekteki değeri sola kaydır (carry'ye at)</td><td>Accumulator, Zero Page, Zero Page,X, Absolute, Absolute,X</td><td><code>value = value &lt;&lt; 1;</code></td><td><code>LET VALUE = VALUE * 2</code></td><td><code>LET value = value * 2</code></td><td><code>VALUE = VALUE * 2</code></td></tr>
+                <tr><td>BCC</td><td>Carry bayrağı temizse dallan</td><td>Relative</td><td><code>if (!carry) goto label;</code></td><td><code>IF CARRY = 0 THEN GOTO label</code></td><td><code>IF carry = 0 THEN GOTO label</code></td><td><code>IF NOT C THEN GOTO label</code></td></tr>
+                <tr><td>BCS</td><td>Carry bayrağı set ise dallan</td><td>Relative</td><td><code>if (carry) goto label;</code></td><td><code>IF CARRY = 1 THEN GOTO label</code></td><td><code>IF carry = 1 THEN GOTO label</code></td><td><code>IF C THEN GOTO label</code></td></tr>
+                <tr><td>BEQ</td><td>Sonuç sıfır ise dallan</td><td>Relative</td><td><code>if (zero) goto label;</code></td><td><code>IF ZERO_FLAG = 1 THEN GOTO label</code></td><td><code>IF zero = 1 THEN GOTO label</code></td><td><code>IF Z THEN GOTO label</code></td></tr>
+                <tr><td>BIT</td><td>Akkümülatör ile bellekteki değerin bit testi</td><td>Zero Page, Absolute</td><td><code>if (a &amp; value) { /* set flags */ }</code></td><td><code>IF (A AND VALUE) THEN REM Set flags</code></td><td><code>IF a AND value THEN</code></td><td><code>IF (A AND VALUE) THEN REM Set flags</code></td></tr>
+                <tr><td>BMI</td><td>Negatif bayrağı set ise dallan</td><td>Relative</td><td><code>if (negative) goto label;</code></td><td><code>IF NEGATIVE_FLAG = 1 THEN GOTO label</code></td><td><code>IF negative = 1 THEN GOTO label</code></td><td><code>IF S THEN GOTO label</code></td></tr>
+                <tr><td>BNE</td><td>Sonuç sıfır değilse dallan</td><td>Relative</td><td><code>if (!zero) goto label;</code></td><td><code>IF ZERO_FLAG = 0 THEN GOTO label</code></td><td><code>IF zero = 0 THEN GOTO label</code></td><td><code>IF NOT Z THEN GOTO label</code></td></tr>
+                <tr><td>BPL</td><td>Negatif bayrağı temizse dallan</td><td>Relative</td><td><code>if (!negative) goto label;</code></td><td><code>IF NEGATIVE_FLAG = 0 THEN GOTO label</code></td><td><code>IF negative = 0 THEN GOTO label</code></td><td><code>IF NOT S THEN GOTO label</code></td></tr>
+                <tr><td>BRK</td><td>Kesme (interrupt) oluştur</td><td>Implied</td><td><code>exit(1); /* or trigger interrupt handler */</code></td><td><code>END</code></td><td><code>STOP</code></td><td><code>END</code></td></tr>
+                <tr><td>BVC</td><td>Overflow bayrağı temizse dallan</td><td>Relative</td><td><code>if (!overflow) goto label;</code></td><td><code>IF OVERFLOW_FLAG = 0 THEN GOTO label</code></td><td><code>IF overflow = 0 THEN GOTO label</code></td><td><code>IF NOT V THEN GOTO label</code></td></tr>
+                <tr><td>BVS</td><td>Overflow bayrağı set ise dallan</td><td>Relative</td><td><code>if (overflow) goto label;</code></td><td><code>IF OVERFLOW_FLAG = 1 THEN GOTO label</code></td><td><code>IF overflow = 1 THEN GOTO label</code></td><td><code>IF V THEN GOTO label</code></td></tr>
+                <tr><td>CLC</td><td>Carry bayrağını temizle</td><td>Implied</td><td><code>carry = 0;</code></td><td><code>CARRY = 0</code></td><td>—</td><td><code>REM CLC (C=0)</code></td></tr>
+                <tr><td>CLD</td><td>Decimal mod bayrağını temizle</td><td>Implied</td><td><code>decimal_mode = 0;</code></td><td><code>DECIMAL_MODE = 0</code></td><td>—</td><td><code>REM CLD (D=0)</code></td></tr>
+                <tr><td>CLI</td><td>Kesme devre dışı bırakma bayrağını temizle (kesmeleri etkinleştir)</td><td>Implied</td><td><code>interrupt_disable = 0;</code></td><td><code>INTERRUPTS_ENABLED = 1</code></td><td>—</td><td><code>REM CLI (I=0)</code></td></tr>
+                <tr><td>CLV</td><td>Overflow bayrağını temizle</td><td>Implied</td><td><code>overflow = 0;</code></td><td><code>OVERFLOW_FLAG = 0</code></td><td>—</td><td><code>REM CLV (V=0)</code></td></tr>
+                <tr><td>CMP</td><td>Akkümülatörü bellekteki değerle karşılaştır</td><td>Immediate, Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>if (a == value) { /* set flags */ }</code></td><td><code>IF A = VALUE THEN REM Set flags</code></td><td><code>IF a = value THEN</code></td><td><code>IF A = VALUE THEN REM Set flags</code></td></tr>
+                <tr><td>CPX</td><td>X register'ı bellekteki değerle karşılaştır</td><td>Immediate, Zero Page, Absolute</td><td><code>if (x == value) { /* set flags */ }</code></td><td><code>IF XREG = VALUE THEN REM Set flags</code></td><td><code>IF x = value THEN</code></td><td><code>IF X = VALUE THEN REM Set flags</code></td></tr>
+                <tr><td>CPY</td><td>Y register'ı bellekteki değerle karşılaştır</td><td>Immediate, Zero Page, Absolute</td><td><code>if (y == value) { /* set flags */ }</code></td><td><code>IF YREG = VALUE THEN REM Set flags</code></td><td><code>IF y = value THEN</code></td><td><code>IF Y = VALUE THEN REM Set flags</code></td></tr>
+                <tr><td>DEC</td><td>Bellekteki değeri azalt</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X</td><td><code>mem[address]--;</code></td><td><code>POKE ADDRESS, PEEK(ADDRESS) - 1</code></td><td><code>POKE address, PEEK(address) - 1</code></td><td><code>POKE ADDRESS, PEEK(ADDRESS) - 1</code></td></tr>
+                <tr><td>DEX</td><td>X register'ı azalt</td><td>Implied</td><td><code>x--;</code></td><td><code>LET XREG = XREG - 1</code></td><td><code>LET x = x - 1</code></td><td><code>X = X - 1</code></td></tr>
+                <tr><td>DEY</td><td>Y register'ı azalt</td><td>Implied</td><td><code>y--;</code></td><td><code>LET YREG = YREG - 1</code></td><td><code>LET y = y - 1</code></td><td><code>Y = Y - 1</code></td></tr>
+                <tr><td>EOR</td><td>Akkümülatör ile bellekteki değerin mantıksal XOR'unu al</td><td>Immediate, Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>a = a ^ value;</code></td><td><code>LET A = A XOR VALUE</code></td><td><code>LET a = a XOR value</code></td><td><code>A = A XOR VALUE</code></td></tr>
+                <tr><td>INC</td><td>Bellekteki değeri artır</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X</td><td><code>mem[address]++;</code></td><td><code>POKE ADDRESS, PEEK(ADDRESS) + 1</code></td><td><code>POKE address, PEEK(address) + 1</code></td><td><code>POKE ADDRESS, PEEK(ADDRESS) + 1</code></td></tr>
+                <tr><td>INX</td><td>X register'ı artır</td><td>Implied</td><td><code>x++;</code></td><td><code>LET XREG = XREG + 1</code></td><td><code>LET x = x + 1</code></td><td><code>X = X + 1</code></td></tr>
+                <tr><td>INY</td><td>Y register'ı artır</td><td>Implied</td><td><code>y++;</code></td><td><code>LET YREG = YREG + 1</code></td><td><code>LET y = y + 1</code></td><td><code>Y = Y + 1</code></td></tr>
+                <tr><td>JMP</td><td>Belirtilen adrese atla</td><td>Absolute, Indirect</td><td><code>goto label;</code></td><td><code>GOTO label</code></td><td><code>GOTO label</code></td><td><code>GOTO label</code></td></tr>
+                <tr><td>JSR</td><td>Alt programa atla (mevcut adresi stack'e kaydet)</td><td>Absolute</td><td><code>func();</code></td><td><code>GOSUB label</code></td><td><code>CALL func</code></td><td><code>GOSUB label</code></td></tr>
+                <tr><td>LDA</td><td>Akkümülatöre bellekteki değeri yükle</td><td>Immediate, Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>a = value;</code></td><td><code>LET A = VALUE</code></td><td><code>LET a = value</code></td><td><code>A = VALUE</code></td></tr>
+                <tr><td>LDX</td><td>X register'a bellekteki değeri yükle</td><td>Immediate, Zero Page, Zero Page,Y, Absolute, Absolute,Y</td><td><code>x = value;</code></td><td><code>LET XREG = VALUE</code></td><td><code>LET x = value</code></td><td><code>X = VALUE</code></td></tr>
+                <tr><td>LDY</td><td>Y register'a bellekteki değeri yükle</td><td>Immediate, Zero Page, Zero Page,X, Absolute, Absolute,X</td><td><code>y = value;</code></td><td><code>LET YREG = VALUE</code></td><td><code>LET y = value</code></td><td><code>Y = VALUE</code></td></tr>
+                <tr><td>LSR</td><td>Akkümülatörü veya bellekteki değeri sağa kaydır (0'ı sola ekle)</td><td>Accumulator, Zero Page, Zero Page,X, Absolute, Absolute,X</td><td><code>value = value &gt;&gt; 1;</code></td><td><code>LET VALUE = INT(VALUE / 2)</code></td><td><code>LET value = value / 2</code></td><td><code>VALUE = INT(VALUE / 2)</code></td></tr>
+                <tr><td>NOP</td><td>İşlem yapma</td><td>Implied</td><td><code>;</code></td><td><code>REM</code></td><td>—</td><td><code>REM</code></td></tr>
+                <tr><td>ORA</td><td>Akkümülatör ile bellekteki değerin mantıksal VEYA'sını al</td><td>Immediate, Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>a = a | value;</code></td><td><code>LET A = A OR VALUE</code></td><td><code>LET a = a OR value</code></td><td><code>A = A OR VALUE</code></td></tr>
+                <tr><td>PHA</td><td>Akkümülatörü stack'e koy</td><td>Implied</td><td><code>push(a);</code></td><td><code>CALL PushA(A)</code></td><td><code>PUSH a</code></td><td><code>REM PHA</code></td></tr>
+                <tr><td>PHP</td><td>İşlemci Durum register'ını stack'e koy</td><td>Implied</td><td><code>push(status_register);</code></td><td><code>CALL PushStatus(STATUS_REGISTER)</code></td><td><code>PUSH status</code></td><td><code>REM PHP</code></td></tr>
+                <tr><td>PLA</td><td>Stack'ten değeri Akkümülatöre al</td><td>Implied</td><td><code>a = pop();</code></td><td><code>A = CALL PopA()</code></td><td><code>POP a</code></td><td><code>REM PLA</code></td></tr>
+                <tr><td>PLP</td><td>Stack'ten değeri İşlemci Durum register'ına al</td><td>Implied</td><td><code>status_register = pop();</code></td><td><code>STATUS_REGISTER = CALL PopStatus()</code></td><td><code>POP status</code></td><td><code>REM PLP</code></td></tr>
+                <tr><td>ROL</td><td>Akkümülatörü veya bellekteki değeri carry ile sola döndür</td><td>Accumulator, Zero Page, Zero Page,X, Absolute, Absolute,X</td><td><code>value = (value &lt;&lt; 1) | carry;</code></td><td><code>LET VALUE = (VALUE * 2) OR CARRY</code></td><td><code>LET value = (value * 2) + carry</code></td><td><code>VALUE = (VALUE * 2) OR C</code></td></tr>
+                <tr><td>ROR</td><td>Akkümülatörü veya bellekteki değeri carry ile sağa döndür</td><td>Accumulator, Zero Page, Zero Page,X, Absolute, Absolute,X</td><td><code>value = (value &gt;&gt; 1) | (carry &lt;&lt; 7);</code></td><td><code>LET VALUE = INT(VALUE / 2) OR (CARRY * 128)</code></td><td><code>LET value = (value / 2) + (carry * 128)</code></td><td><code>VALUE = INT(VALUE / 2) OR (C * 128)</code></td></tr>
+                <tr><td>RTI</td><td>Kesme rutininden dön</td><td>Implied</td><td><code>return_from_interrupt();</code></td><td><code>RETURN_FROM_INTERRUPT</code></td><td><code>RETURN_FROM_INTERRUPT</code></td><td><code>REM RTI</code></td></tr>
+                <tr><td>RTS</td><td>Alt programdan dön</td><td>Implied</td><td><code>return;</code></td><td><code>RETURN</code></td><td><code>RETURN</code></td><td><code>RETURN</code></td></tr>
+                <tr><td>SBC</td><td>Akkümülatörden bellekteki değeri borrow ile çıkar</td><td>Immediate, Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>a = a - value - (1 - carry);</code></td><td><code>LET A = A - VALUE - (1 - CARRY)</code></td><td><code>LET a = a - value</code></td><td><code>A = A - VALUE - (1 - C)</code></td></tr>
+                <tr><td>SEC</td><td>Carry bayrağını set et</td><td>Implied</td><td><code>carry = 1;</code></td><td><code>CARRY = 1</code></td><td>—</td><td><code>REM SEC (C=1)</code></td></tr>
+                <tr><td>SED</td><td>Decimal mod bayrağını set et</td><td>Implied</td><td><code>decimal_mode = 1;</code></td><td><code>DECIMAL_MODE = 1</code></td><td>—</td><td><code>REM SED (D=1)</code></td></tr>
+                <tr><td>SEI</td><td>Kesme devre dışı bırakma bayrağını set et (kesmeleri devre dışı bırak)</td><td>Implied</td><td><code>interrupt_disable = 1;</code></td><td><code>INTERRUPTS_ENABLED = 0</code></td><td>—</td><td><code>REM SEI (I=1)</code></td></tr>
+                <tr><td>STA</td><td>Akkümülatörü belleğe yaz</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>mem[address] = a;</code></td><td><code>POKE ADDRESS, A</code></td><td><code>POKE address, a</code></td><td><code>POKE ADDRESS, A</code></td></tr>
+                <tr><td>STX</td><td>X register'ı belleğe yaz</td><td>Zero Page, Zero Page,Y, Absolute</td><td><code>mem[address] = x;</code></td><td><code>POKE ADDRESS, XREG</code></td><td><code>POKE address, x</code></td><td><code>POKE ADDRESS, X</code></td></tr>
+                <tr><td>STY</td><td>Y register'ı belleğe yaz</td><td>Zero Page, Zero Page,X, Absolute</td><td><code>mem[address] = y;</code></td><td><code>POKE ADDRESS, YREG</code></td><td><code>POKE address, y</code></td><td><code>POKE ADDRESS, Y</code></td></tr>
+                <tr><td>TAX</td><td>Akkümülatörü X register'a kopyala</td><td>Implied</td><td><code>x = a;</code></td><td><code>LET XREG = A</code></td><td><code>LET x = a</code></td><td><code>X = A</code></td></tr>
+                <tr><td>TAY</td><td>Akkümülatörü Y register'a kopyala</td><td>Implied</td><td><code>y = a;</code></td><td><code>LET YREG = A</code></td><td><code>LET y = a</code></td><td><code>Y = A</code></td></tr>
+                <tr><td>TSX</td><td>Stack işaretçisini X register'a kopyala</td><td>Implied</td><td><code>x = sp;</code></td><td><code>LET XREG = SP</code></td><td><code>LET x = sp</code></td><td><code>X = SP</code></td></tr>
+                <tr><td>TXA</td><td>X register'ı Akkümülatöre kopyala</td><td>Implied</td><td><code>a = x;</code></td><td><code>LET A = XREG</code></td><td><code>LET a = x</code></td><td><code>A = X</code></td></tr>
+                <tr><td>TXS</td><td>X register'ı Stack işaretçisine kopyala</td><td>Implied</td><td><code>sp = x;</code></td><td><code>LET SP = XREG</code></td><td><code>LET sp = x</code></td><td><code>SP = X</code></td></tr>
+                <tr><td>TYA</td><td>Y register'ı Akkümülatöre kopyala</td><td>Implied</td><td><code>a = y;</code></td><td><code>LET A = YREG</code></td><td><code>LET a = y</code></td><td><code>A = Y</code></td></tr>
+                <tr><td>ALR</td><td>Illegal: AND sonra LSR</td><td>Immediate</td><td><code>a = (a &amp; value) &gt;&gt; 1;</code></td><td><code>A = INT((A AND VALUE) / 2)</code></td><td><code>LET a = (a AND value) / 2</code></td><td><code>REM ALR (A=INT((A AND V)/2))</code></td></tr>
+                <tr><td>ANC</td><td>Illegal: AND sonra C bayrağını A'nın 7. bitine ayarla</td><td>Immediate</td><td><code>a = a &amp; value; carry = (a &gt;&gt; 7) &amp; 1;</code></td><td><code>A = A AND VALUE : CARRY = (A AND 128) / 128</code></td><td><code>LET a = a AND value : REM CARRY = (a AND 128) / 128</code></td><td><code>REM ANC (A=A AND V, C=A.7)</code></td></tr>
+                <tr><td>ARR</td><td>Illegal: AND sonra ROR</td><td>Immediate</td><td><code>a = a &amp; value; a = (a &gt;&gt; 1) | (carry &lt;&lt; 7);</code></td><td><code>A = A AND VALUE : A = INT(A / 2) OR (CARRY * 128)</code></td><td><code>LET a = a AND value : LET a = (a / 2) + (carry * 128)</code></td><td><code>REM ARR (A=A AND V, then ROR)</code></td></tr>
+                <tr><td>AXS</td><td>Illegal: (A AND X) sonucunu belleğe yaz</td><td>Immediate, Zero Page, Zero Page,Y, Absolute, Absolute,Y</td><td><code>mem[address] = a &amp; x;</code></td><td><code>POKE ADDRESS, A AND XREG</code></td><td><code>POKE address, a AND x</code></td><td><code>POKE ADDRESS, A AND X</code></td></tr>
+                <tr><td>DCP</td><td>Illegal: Bellekteki değeri azalt sonra Akkümülatör ile karşılaştır</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>mem[address]--; if (a == mem[address]) { /* set flags */ }</code></td><td><code>POKE ADDRESS, PEEK(ADDRESS) - 1 : IF A = PEEK(ADDRESS) THEN REM Set flags</code></td><td><code>POKE address, PEEK(address) - 1 : IF a = PEEK(address) THEN</code></td><td><code>POKE ADDR, PEEK(ADDR)-1 : REM CMP A with new value</code></td></tr>
+                <tr><td>ISC</td><td>Illegal: Bellekteki değeri artır sonra Akkümülatörden çıkar (borrow ile)</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>mem[address]++; a = a - mem[address] - (1 - carry);</code></td><td><code>POKE ADDRESS, PEEK(ADDRESS) + 1 : A = A - PEEK(ADDRESS) - (1 - CARRY)</code></td><td><code>POKE address, PEEK(address) + 1 : LET a = a - PEEK(address)</code></td><td><code>POKE ADDR, PEEK(ADDR)+1 : REM SBC A with new value</code></td></tr>
+                <tr><td>LAX</td><td>Illegal: Bellekteki değeri Akkümülatöre ve X register'a yükle</td><td>Immediate, Zero Page, Zero Page,Y, Absolute, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>a = value; x = value;</code></td><td><code>A = VALUE : XREG = VALUE</code></td><td><code>LET a = value : LET x = value</code></td><td><code>A = VALUE : X = VALUE</code></td></tr>
+                <tr><td>RLA</td><td>Illegal: Bellekteki değeri carry ile sola döndür sonra Akkümülatör ile VE'sini al</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>value = (value &lt;&lt; 1) | carry; a = a &amp; value;</code></td><td><code>VALUE = (VALUE * 2) OR CARRY : A = A AND VALUE</code></td><td><code>LET value = (value * 2) + carry : LET a = a AND value</code></td><td><code>REM RLA (ROL then AND)</code></td></tr>
+                <tr><td>RRA</td><td>Illegal: Bellekteki değeri carry ile sağa döndür sonra Akkümülatöre ekle (carry ile)</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>value = (value &gt;&gt; 1) | (carry &lt;&lt; 7); a = a + value + carry;</code></td><td><code>VALUE = INT(VALUE / 2) OR (CARRY * 128) : A = A + VALUE + CARRY</code></td><td><code>LET value = (value / 2) + (carry * 128) : LET a = a + value</code></td><td><code>REM RRA (ROR then ADC)</code></td></tr>
+                <tr><td>SLO</td><td>Illegal: Bellekteki değeri sola kaydır sonra Akkümülatör ile VEYA'sını al</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>value = value &lt;&lt; 1; a = a | value;</code></td><td><code>VALUE = VALUE * 2 : A = A OR VALUE</code></td><td><code>LET value = value * 2 : LET a = a OR value</code></td><td><code>REM SLO (ASL then ORA)</code></td></tr>
+                <tr><td>SRE</td><td>Illegal: Bellekteki değeri sağa kaydır sonra Akkümülatör ile XOR'unu al</td><td>Zero Page, Zero Page,X, Absolute, Absolute,X, Absolute,Y, Indirect,X, Indirect,Y</td><td><code>value = value &gt;&gt; 1; a = a ^ value;</code></td><td><code>VALUE = INT(VALUE / 2) : A = A XOR VALUE</code></td><td><code>LET value = value / 2 : LET a = a XOR value</code></td><td><code>REM SRE (LSR then EOR)</code></td></tr>
+                <tr><td>SHX</td><td>Illegal: X register'ı belleğe yaz (adresin yüksek baytı ile AND'lenmiş)</td><td>Absolute,Y</td><td><code>mem[address] = x &amp; ((address &gt;&gt; 8) + 1);</code></td><td><code>POKE ADDRESS, XREG AND (INT(ADDRESS / 256) + 1)</code></td><td><code>POKE address, x AND (INT(address / 256) + 1)</code></td><td><code>REM SHX (X AND (HI_ADDR+1) to MEM)</code></td></tr>
+                <tr><td>SHY</td><td>Illegal: Y register'ı belleğe yaz (adresin yüksek baytı ile AND'lenmiş)</td><td>Absolute,X</td><td><code>mem[address] = y &amp; ((address &gt;&gt; 8) + 1);</code></td><td><code>POKE ADDRESS, YREG AND (INT(ADDRESS / 256) + 1)</code></td><td><code>POKE address, y AND (INT(address / 256) + 1)</code></td><td><code>REM SHY (Y AND (HI_ADDR+1) to MEM)</code></td></tr>
+                <tr><td>TAS</td><td>Illegal: (A AND X) sonucunu SP'ye yaz, sonra SP'yi belleğe yaz (adresin yüksek baytı ile AND'lenmiş)</td><td>Absolute,Y</td><td><code>sp = a &amp; x; mem[address] = sp &amp; ((address &gt;&gt; 8) + 1);</code></td><td><code>SP = A AND XREG : POKE ADDRESS, SP AND (INT(ADDRESS / 256) + 1)</code></td><td><code>LET sp = a AND x : POKE address, sp AND (INT(address / 256) + 1)</code></td><td><code>REM TAS ((A AND X) to SP, then (SP AND (HI_ADDR+1)) to MEM)</code></td></tr>
+                <tr><td>LAS</td><td>Illegal: Bellekteki değeri ve SP'yi AND'le, sonucu A, X ve SP'ye yükle</td><td>Absolute,Y</td><td><code>a = value &amp; sp; x = a; sp = a;</code></td><td><code>VALUE = VALUE AND SP : A = VALUE : XREG = VALUE : SP = VALUE</code></td><td><code>LET value = value AND sp : LET a = value : LET x = value : LET sp = value</code></td><td><code>REM LAS ((MEM AND SP) to A,X,SP)</code></td></tr>
+            </tbody>
+        </table>
+
+        <div class="notes">
+            <h2>Notlar:</h2>
+            <h3>Adresleme Modları:</h3>
+            <p>Açıklamalar şunları içerir: <strong>Immediate</strong> (<code>#$xx</code>), <strong>Zero Page</strong> (<code>$xx</code>), <strong>Zero Page,X</strong> (<code>$xx,X</code>), <strong>Zero Page,Y</strong> (<code>$xx,Y</code>), <strong>Absolute</strong> (<code>$xxxx</code>), <strong>Absolute,X</strong> (<code>$xxxx,X</code>), <strong>Absolute,Y</strong> (<code>$xxxx,Y</code>), <strong>Indirect</strong> (<code>($xxxx)</code>), <strong>Indirect,X</strong> (<code>($xx,X)</code>), <strong>Indirect,Y</strong> (<code>($xx),Y</code>), <strong>Accumulator</strong>, <strong>Relative</strong> (dallanma için).</p>
+            <h3>C ve BASIC Karşılıkları:</h3>
+            <ul>
+                <li><strong>C dilinde</strong> <code>mem[address]</code> bellek erişimini temsil eder. <code>a</code>, <code>x</code>, <code>y</code>, <code>sp</code> gibi değişkenler ilgili 6502 register'larını ifade eder. <code>carry</code>, <code>zero</code>, <code>negative</code>, <code>overflow</code>, <code>decimal_mode</code>, <code>interrupt_disable</code> gibi kavramlar ilgili 6502 bayraklarını temsil eder.</li>
+                <li><strong>BASIC dillerinde</strong> (QBasic, pdsX BASIC, Commodore BASIC V2), <code>PEEK</code> ve <code>POKE</code> komutları doğrudan bellek erişimi için kullanılır. Dallanma için <code>GOTO</code>, alt programlar için <code>GOSUB</code>/<code>RETURN</code>, karşılaştırmalar için <code>IF...THEN</code> kullanılır. Bazı bayrak işlemleri doğrudan BASIC komutlarıyla ifade edilemediği için açıklama (<code>REM</code>) olarak belirtilmiştir. Carry (C), Zero (Z), Negative (S), Overflow (V) gibi bayraklar Commodore BASIC V2'de genellikle PEEK ile durum register'ının okunması ve bit maskeleme ile kontrol edilmesi gerekir, ancak burada anlaşılırlık adına basitleştirilmiştir.</li>
+            </ul>
+            <h3>Genel Not:</h3>
+            <p>BASIC karşılıkları, 6502'nin düşük seviyeli register ve bayrak işlemlerini birebir yansıtmakta zorlanır. Bu nedenle, burada verilenler genel işlevselliği gösteren yaklaşık eşdeğerlerdir. Özellikle <strong>stack</strong> işlemleri (PHA, PLA, PHP, PLP) ve <strong>bayrak ayar/temizleme</strong> (CLC, SEC, CLI, SEI, CLV, CLD, SED) BASIC ortamında doğrudan komutlara sahip değildir ve genellikle daha karmaşık PEEK/POKE veya makine kodu rutinleri gerektirir. Burada anlaşılırlık adına basit temsiller kullanılmıştır.</p>
+            <h3>Yasa Dışı (Illegal) Opcode Notu:</h3>
+            <p>Yasa dışı opcode'lar, 6502 işlemcisinin resmi olarak belgelenmemiş davranışlarıdır. Genellikle iki veya daha fazla yasal opcode'un birleşimi olarak işlev görürler veya öngörülemeyen yan etkilere sahip olabilirler. Bu opcode'ların davranışları CPU revizyonlarına veya emülatör uygulamalarına göre farklılık gösterebilir. Burada verilen C ve BASIC karşılıkları, bu opcode'ların bilinen en yaygın davranışlarına dayanmaktadır ve doğrudan bir çeviri olmaktan çok, işlevselliğin bir açıklamasını sunar. BASIC dillerinde bu tür karmaşık bit manipülasyonlarını doğrudan ifade etmek genellikle mümkün değildir, bu nedenle çoğu durumda açıklayıcı <code>REM</code> komutları kullanılmıştır.</p>
+        </div>
+    </div>
+</body>
+</html>
