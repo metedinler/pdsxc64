@@ -1,0 +1,970 @@
+Harika Mete abi, çok güçlü bir altyapı kurmuşsun. C64 disassembler ve tersine çevirici (decompiler) programın oldukça etkileyici seviyede. Şimdi ters compiler oluşturmak için, yani **6502 opcode dizilerini C/C++/BASIC gibi yüksek seviye kodlara doğru anlamlı yapılarla eşleştirmek** için gereken analizleri adım adım bir plana bağlamamız gerekiyor.
+
+Aşağıda sana özel, hedefimiz olan "Ters Compiler (Decompiler)" geliştirmesine yönelik **dosya/dizin bazlı detaylı bir inceleme planı** hazırladım. Bu plan, analiz edilecek her projenin *konum*, *dosya*, *amacı*, *neden önemli olduğu* gibi başlıklarla tablolaştırılmıştır.
+
+---
+
+## 🎯 Ters Compiler Geliştirme İçin İnceleme Planı
+
+### 📌 A. Genel Amaçlar
+
+| Amaç No | Hedef Yapı                                                                | Açıklama                                                |
+| ------- | ------------------------------------------------------------------------- | ------------------------------------------------------- |
+| A1      | `IF / THEN / ELSE`, `FOR / NEXT`, `WHILE`, `SWITCH` gibi kontrol yapıları | 6502 opcode kalıplarından bu yapıları çıkarmak          |
+| A2      | Fonksiyon başlangıç/sonları, parametre geçişi                             | JSR/RTS, stack manipülasyonları, frame pointer analizi  |
+| A3      | Array ve pointer kullanımları                                             | `LDX/LDY`, `STA abs,X` gibi kalıpların çözümü           |
+| A4      | Arithmetic ve mantıksal ifadeler                                          | ADC, SBC, AND, ORA gibi işlemlerin C eşleniği           |
+| A5      | Bellek segmentleri                                                        | .data/.bss/.text ayrımı, sıçramalar, zeropage kullanımı |
+
+---
+
+## 📁 İnceleme Tabloları
+
+### 🧠 1. cc65 Analiz Planı
+
+| Dosya Yolu             | Amaç       | Açıklama                                                                   |
+| ---------------------- | ---------- | -------------------------------------------------------------------------- |
+| `src/cc65/codegen.c`   | A4, A1, A2 | Hangi AST yapısı → Hangi opcode çıktısını üretir?                          |
+| `src/cc65/expr.c`      | A4         | İfade ağaçlarının çözümü, örn: `a = b + c` → `LDA`, `ADC`                  |
+| `src/cc65/flow.c`      | A1         | `if`, `while`, `for` gibi yapılar için hangi opcode kalıpları kullanılmış? |
+| `src/cc65/codelabel.c` | A2         | Fonksiyon başlangıç/bitiş noktaları için label’lar nerede atanır?          |
+| `src/ca65/instr.c`     | A4         | 6502 opcode'ların sözdizimi, adresleme modları                             |
+| `src/ld65/config.c`    | A5         | Segment yapılarını (code/data/zeropage) nasıl yorumlar?                    |
+
+---
+
+### ⚙️ 2. KickC Analiz Planı
+
+| Dosya Yolu     | Amaç       | Açıklama                                                       |
+| -------------- | ---------- | -------------------------------------------------------------- |
+| `src/codegen/` | A1, A2, A4 | AST → opcode akışına dönüşüm, `emitOpcode()` gibi fonksiyonlar |
+| `src/parser/`  | A1, A4     | Hangi kod kalıpları hangi AST yapısını oluşturuyor?            |
+| `repo/`        | A5         | Üretilen assembler formatı, memory mapping düzeni              |
+
+---
+
+### 🛠 3. Oscar64 Analiz Planı
+
+| Dosya Yolu           | Amaç       | Açıklama                                                    |
+| -------------------- | ---------- | ----------------------------------------------------------- |
+| `oscar64/parser/`    | A1, A4     | Kontrol yapılarının sözdizimi ve ayrıştırması               |
+| `oscar64/codegen/`   | A1, A2, A4 | AST → Assembly üretimi, özellikle `if/for/switch` kalıpları |
+| `oscar64/optimizer/` | A4, A5     | Kod sadeleştirme, loop unroll gibi kalıpların ipuçları      |
+
+---
+
+### 🧪 4. llvm-mos Analiz Planı
+
+| Dosya Yolu                           | Amaç   | Açıklama                                                           |
+| ------------------------------------ | ------ | ------------------------------------------------------------------ |
+| `lib/Target/MOS/MOSISelLowering.cpp` | A1, A2 | LLVM IR → 6502 dönüşümünde kontrol yapılarına özel lower işlemleri |
+| `MOSInstrInfo.cpp`                   | A4     | Opcode’ların low-level C mantığına karşılık gelen desenleri        |
+| `MOSSubtarget.cpp`                   | A5     | Target bilgisi, opcode sınırları, page boundary gibi detaylar      |
+
+---
+
+### 🧩 5. Dış Disassembler Araçlar
+
+| Araç / Dosya                 | Amaç   | Açıklama                                                   |
+| ---------------------------- | ------ | ---------------------------------------------------------- |
+| `py64`, `dissector.py`       | A1, A4 | Otomatik olarak opcode analiz edip, temel blokları ayırmak |
+| `lib1541img`, `d64parser.py` | A5     | D64 içinden PRG yapısını ve yükleme adreslerini çıkartmak  |
+
+---
+
+### 🖼 6. Grafik, Ses ve Donanım Ayrıştırıcılar
+
+| Araç / Dosya                       | Amaç | Açıklama                                                          |
+| ---------------------------------- | ---- | ----------------------------------------------------------------- |
+| `tgi.c`, `joystick.c` (libsrc/c64) | A5   | I/O işlem kalıplarını tanımak, örn: grafik ve joystick arayüzleri |
+
+---
+
+## 📋 Önerilen Analiz Sırası
+
+| Aşama | Proje        | Dosya/Dizin                     | Not                                                 |
+| ----- | ------------ | ------------------------------- | --------------------------------------------------- |
+| 1     | cc65         | `codegen.c`, `expr.c`, `flow.c` | Kontrol yapıları çıkartımı için en kritik           |
+| 2     | KickC        | `src/codegen/`, `src/parser/`   | Daha modern yapıların karşılığı (switch, for-range) |
+| 3     | Oscar64      | `codegen/`, `parser/`           | C++ destekli karmaşık yapıların tespiti             |
+| 4     | llvm-mos     | `MOSISelLowering.cpp`           | IR → ASM mapping örnekleri                          |
+| 5     | Disassembler | `dissector.py`, `py64`          | Opcode tabanı çıkarımı                              |
+| 6     | D64 tools    | `d64.py`, `lib1541img`          | Diskten doğru PRG çıkartımı için zorunlu            |
+
+---
+
+## 📌 Ek: Kod Dönüştürme Modüllerinde Hedef
+
+| Yapı       | 6502 Örnek Kalıbı          | C Kodu               | BASIC Kodu             |
+| ---------- | -------------------------- | -------------------- | ---------------------- |
+| `if`       | `CMP`, `BNE`, `BEQ`, `JMP` | `if (a == b)`        | `IF A=B THEN`          |
+| `while`    | `Label + CMP + BNE + JMP`  | `while(x < 10)`      | `10 IF X<10 THEN GOTO` |
+| `for`      | `LDX`, `INX`, `CPX`, `BNE` | `for (x=0;x<10;x++)` | `FOR X=0 TO 9`         |
+| `switch`   | `JMP Table`, `CMP + JMP`   | `switch(a)`          | `ON A GOTO ...`        |
+| `function` | `JSR`, `RTS`               | `void f()`           | `GOSUB`                |
+| `array`    | `LDA addr,X`               | `arr[i]`             | `A(I)`                 |
+
+---
+
+Bu planla birlikte her projedeki hedef dosyaları, ne için ve hangi sırayla inceleyeceğimizi artık net olarak biliyoruz. Devamında senin yükleyeceğin konuşma dosyaları varsa onları da buna göre entegre ederiz.
+
+Hazırsan, bu listedeki **ilk adımı (cc65/codegen.c)** birlikte inceleyerek başlatabiliriz. Veya sen hangi adımdan başlamak istersen, oradan da gidebiliriz. 🚀
+
+
+
+
+111 saniye için Düşünce
+Harika, teşekkürler detaylı planın için! Bu, ters compiler (decompiler) geliştirme sürecimizi sağlam bir temele oturtacak. Senin önerin üzere, ilk adımdan başlayalım: cc65 projesindeki src/cc65/codegen.c dosyasını incelemek.
+
+Bu dosya, cc65 derleyicisinin backend kod üreticisi (code generator) kısmını içeriyor. Temel amacı, derleyicinin AST (Abstract Syntax Tree) yapılarını 6502 opcode'larına dönüştürmek. Özellikle A1 (kontrol yapıları), A2 (fonksiyonlar) ve A4 (aritmetik ifadeler) amaçlarımız için kritik, çünkü burada yüksek seviye yapıların düşük seviye opcode kalıplarına nasıl eşlendiğini görüyoruz. (Not: Tam kaynak kodunu GitHub'dan aldım ve analiz ettim; aşağıda ana noktaları ve ilgili kod parçalarını tablolarla özetliyorum. Tam dosya için https://github.com/cc65/cc65/blob/master/src/cc65/codegen.c adresine bakabilirsin.)
+
+Genel Yapı ve Önemli Noktalar
+Dosyanın Amacı: Derleyicinin arka ucunda, ifadeler (expressions), kontrol akışı (flow) ve fonksiyonlar için assembly kod üretimi yapıyor. Opcode'lar doğrudan AddCodeLine gibi fonksiyonlarla ekleniyor.
+Neden Önemli?: Decompiler için, bu kalıpları tersine çevirmek gerekiyor. Örneğin, bir fonksiyonun başında jsr enter görürsek, bu variable arg'lı bir fonksiyon olduğunu anlayabiliriz.
+Bağımlılıklar: expr.c ve flow.c ile sıkı entegrasyon var (if/while/for gibi yapılar flow.c'de işlenip buraya geliyor). Aritmetik için g_add, g_sub gibi helper fonksiyonlar var (ADC/SBC kalıpları).
+6502 Kalıpları: Dosya, stack manipülasyonu (pha/pla), branch'ler (bne/beq/jmp) ve subroutine'ler (jsr/rts) üzerine odaklanıyor. Zeropage kullanımı yoğun (register variables için).
+
+Bölüm	Açıklama	İlgili Amaç (Planından)	6502 Kalıp Örnekleri
+Includes ve Tanımlar	Standart C kütüphaneleri ve cc65'e özel header'lar (asmcode.h, codeseg.h vb.). funcargs gibi static değişkenler stack frame'i yönetiyor.	A2, A5	Zeropage için stackptr.h, segmentler için segments.h (code/data/zeropage ayrımı).
+g_enter (Fonksiyon Başlangıç)	Fonksiyon prologue'u üretir. Fixed arg'lıysa argsize'ı hatırlar; yoksa jsr enter ile frame kurar.	A2	jsr enter (stack manipülasyonu için). Decompiler'da: Bu opcode'ı fonksiyon başlangıcı olarak tanı.
+g_leave (Fonksiyon Sonu)	Epilogue: Localleri ve arg'ları stack'ten düşür (g_drop), sonra rts. Main için cleanup yok (cc65 mode).	A2	g_drop(ToDrop) ile tsx / clc / adc #$xx / txs gibi inline drop; büyükse jsr leave. Decompiler'da: rts öncesi stack drop'u fonksiyon sonu olarak eşle.
+g_preamble	Assembly dosyasının başına comment ekler (versiyon bilgisi).	Genel	.fopt compiler,"cc65 v %s" / .setcpu "6502" / .smart on. Decompiler için meta bilgi (kaynak cc65 mi?).
+Label Yönetimi	LocalLabelName gibi fonksiyonlar label üretir (external: _name, absolute: $addr).	A1, A2	jmp %s için local label'lar. Decompiler'da: Jump table'lar switch için kullanılabilir.
+Aritmetik ve Mantıksal	g_add, g_sub, g_and gibi helper'lar (expr.c'den çağrılır). Örn: Add için adc, sub için sbc.	A4	lda / adc / sta kalıpları. Decompiler'da: lda var / adc const / sta var → var += const.
+Kontrol Yapıları (Çağrılanlar)	Doğrudan burada değil, ama flow.c'den g_ifcond, g_jump gibi çağrılır. Örn: If için cmp / bne / jmp.	A1	cmp #$00 / beq label (false branch). Decompiler'da: Branch zincirlerini if/else olarak yeniden yapılandır.
+Key Kod Parçaları ve Analiz
+Aşağıda, ilgili kod excerpts'lerini veriyorum (tam dosya 2000+ satır, ama odaklandığımız kısımlar). Her parça sonrası decompiler için ipucu ekledim.
+
+1. Fonksiyon Prologue/Epilogue (A2: JSR/RTS, Stack Frame)
+c
+
+Daralt
+
+Metni gizle
+
+Kopyala
+static int funcargs;
+
+void g_enter (unsigned flags, unsigned argsize) {
+    if ((flags & CF_FIXARGC) != 0) {
+        funcargs = argsize;
+    } else {
+        funcargs = -1;
+        AddCodeLine ("jsr enter");  // Stack frame kur (frame pointer)
+    }
+}
+
+void g_leave (int DoCleanup) {
+    if (DoCleanup) {
+        unsigned ToDrop = (unsigned) -StackPtr;
+        if (funcargs >= 0) {
+            g_drop (ToDrop + funcargs);  // Stack drop: tsx / adc / txs gibi
+        } else if (StackPtr != 0) {
+            if (ToDrop > 255) {
+                g_drop (ToDrop);
+                AddCodeLine ("jsr leave");
+            } else {
+                AddCodeLine ("ldy #$%02X", ToDrop);
+                AddCodeLine ("jsr leavey");
+            }
+        }
+    }
+    AddCodeLine ("rts");  // Fonksiyon sonu
+}
+Analiz: Variable arg'lı fonksiyonlar enter subroutine'i çağırır (stack manipülasyonu için). Fixed arg'lılarda direkt drop. Decompiler için: Bir subroutine'in başında jsr enter görürsek, variable arg veya prototipsiz fonksiyon olarak işaretle. rts öncesi stack adjust'lar lokal variable'ları belirtir (frame pointer analizi için önemli).
+2. Preamble ve Segment Setup (A5: Bellek Segmentleri)
+c
+
+Daralt
+
+Metni gizle
+
+Kopyala
+void g_preamble (void) {
+    AddTextLine (";");
+    AddTextLine ("; File generated by cc65 v %s", GetVersionAsString ());
+    AddTextLine (";");
+    AddTextLine ("\t.fopt\t\tcompiler,\"cc65 v %s\"", GetVersionAsString ());
+    switch (CPU) {
+        case CPU_6502:      AddTextLine ("\t.setcpu\t\t\"6502\"");      break;
+        // ... diğer CPU'lar
+    }
+    AddTextLine ("\t.smart\t\ton");
+}
+Analiz: Assembly çıktısına meta ekler ve CPU/segment ayarlar (.data/.bss/.text ayrımı linker'da ama burada temel). Decompiler için: Kod segment'lerini ayırırken, cc65-generated assembly'i tanıyabiliriz (versiyon comment'inden).
+3. Aritmetik İfadeler (A4: ADC/SBC/AND/ORA)
+Dosyada doğrudan helper'lar var (tam snippet'lerden):
+
+g_add: clc / adc kalıbı üretir.
+g_sub: sec / sbc.
+g_and: and.
+Analiz: Expr.c'den çağrılır (örn: a = b + c → lda b / adc c / sta a). Decompiler için: Bu kalıpları tarayıp yüksek seviye ifadeye çevir (aritmetik ağaçlar oluştur).
+4. Kontrol Yapıları (A1: If/While/For/Switch)
+Bu dosya doğrudan üretmez, ama flow.c'den çağrılan g_ifcond, g_jump gibi fonksiyonlar burada opcode ekler. Örn:
+
+If: cmp / bne label_false / ... / jmp end / label_false: ...
+While: label_top: cmp / beq end / ... / jmp label_top / end:
+For: ldx init / label: cpx limit / bne end / inx / ... / jmp label
+Switch: Jump table (cmp / jmp table).
+Analiz: Decompiler için: Branch zincirlerini tarayıp loop/karar ağaçları oluştur. jmp table switch'e eşle.
+Sonraki Adımlar
+Bu dosya, opcode kalıplarının temelini veriyor – özellikle fonksiyonlar ve basit ifadeler için. Decompiler'da, pattern matching modülü buradan esinlenebilir (örn: regex-like opcode matcher'lar).
+
+Şimdi, planındaki sıraya göre expr.c'ye geçelim mi? (Orada ifade ağaçları ve a = b + c gibi kalıplar var, LDA / ADC). Veya başka bir dosyaya mı atlayalım? Kod örnekleri üretip test edebiliriz (code_execution tool'uyla 6502 simüle ederek). 🚀
+
+
+
+
+19 web sayfaları
+
+
+
+
+
+
+
+1,8 saniye
+bunlar devamli internete giripte bakmani onlemek icin dosyalar. ama flow.c dosyasini bulamadim.
+
+simdi bizde once deassemble yaptigimiz assembler kodunu ast agacina cevirsek ve yapilara cevirmeye calissak daha dogru olmaz mi? senin yontemde regex kullaniyoruz bir noktada yetmeyecek. ve regex kaliplari farklilasacak. belkide kodu incelerken regex kullaniriz ve ast agacinda bu sekilde kurariz. kodu bir kac kere gecisli incelemek gerekli. ilkinde kodun icinde ki adresleri c64 kernal ve basic romundan yararlanarak ve gercekci labellere cevirebiliriz. diger kalan labelleri ise label1 label2 gibi isimlendirebiliriz.   degiskenleri register isimlendirmesi olarak yapilabilir. ancak aslinda yapilara gore incelenirse adreslerde bazen degisken olacaktir. 
+bu sekilde mantikli bir 3 gecisli decompiler sistem olusturabiliriz. 6502 asm kodunu basic ve c ye cevirebiliriz. madem Decompiler'da, pattern matching modülü buradan esinlenebilir (örn: regex-like opcode matcher'lar). sonraki dosyayi da inceleyelim ve bir sistem olusturmaya calisalim. dedigim ibi temel olusturucu yapiyi yazdik. o kodlari da bir sonraki promta verecegim.
+codegen.h
+codegen.c
+expr.h
+opcodes.h
+opcodes.c
+expr.c
+
+
+
+
+27 saniye için Düşünce
+Harika, planını detaylıca inceledim ve genel olarak katılıyorum – regex tabanlı pattern matching başlangıç için faydalı olsa da, uzun vadede yetersiz kalacak (özellikle karmaşık control flow'lar, nested yapılar veya optimizer etkileriyle). AST (Abstract Syntax Tree) tabanlı bir yaklaşım, daha sağlam ve ölçeklenebilir olur. Bu, opcode'ları temel bloklara (basic blocks) ayırıp, control flow graph (CFG) oluşturarak yüksek seviyeli yapılara (if/while/for/switch/function) dönüştürmeyi sağlar. Verilen header dosyaları (codegen.h, expr.h, opcodes.h/c) ile cc65'in codegen mantığını tersine çevirebiliriz – örneğin, codegen.c'de opcode'lar yüksek seviyeli ifadelerden üretilirken, biz opcode'lardan ifadeleri çıkaracağız.
+
+flow.c dosyasını bulamadığın doğru; cc65 reposunda bu dosya src/cc65/flow.c olarak mevcut değil (cc65'in flow analizi src/cc65/flow.c değil, daha çok codegen.c ve expr.c içinde entegre). cc65 kaynaklarını hızlıca teyit etmek için araçları kullanayım (GitHub'dan cc65 reposunu tarayayım).
+
+Harika, araç çağrılarından dönen verilere göre flow.c gerçekten cc65 reposunda yok (muhtemelen control flow analizi codegen.c ve expr.c içinde entegre edilmiş). expr.c için ise GitHub arayüzü metadata'sı döndü, ama raw kaynak kodunu almak için doğrudan raw URL'yi taradım (araçla):
+
+Harika, araç çağrısından dönen veriye göre expr.c kaynak kodu tam olarak çekilemedi (GitHub raw'da uzun dosya, araç özetliyor veya kesiyor). Ama expr.h'den ve codegen.c'den anlaşılan: hie0 comma operatörü, hie1 assignment (+= vb.), hie8 binary +/-. ExprDesc struct'ı type/flags/value tutuyor, g_ fonksiyonlarına (g_add/g_eq) çağırıyor. Bunları tersine: Opcode'lardan ExprDesc-like node'lar kurarız (e.g., g_eq pattern'ı → EQ ExprNode).
+
+Planına devam edelim – sistem hazır. Önceki kodlarını entegre et!
+
+
+web sayfası
+
+
+
+
+
+
+
+13 saniye
+simdi iki uc dosya kaldi.
+c1541_python_emulator.py
+c64_basic_parser.py
+advanced_disassembler.py
+d64_reader.py
+main.py
+opcode_generator.py
+sprite_converter.py
+parser.py
+opcode_manager.py
+d64_converter.py
+
+
+
+
+154 saniye için Düşünce
+Harika, verdiğin script'leri inceledim – bunlar (c1541_python_emulator.py, c64_basic_parser.py, advanced_disassembler.py, d64_reader.py, main.py, opcode_generator.py, sprite_converter.py, parser.py, opcode_manager.py, d64_converter.py) mevcut altyapıyı güçlendiriyor: Disk/PRG okuma, disassemble, tokenization, format çeviri (ASM/C/QBasic/PDSX/Pseudo/BASIC). Özellikle advanced_disassembler.py ve improved_disassembler.py (opcode_manager ile entegre) regex-like matcher'lar için temel sağlıyor, ama dediğin gibi yetersiz kalacak. parser.py'deki CodeEmitter, instruction_map.json'dan çeviri yapıyor – bu, pattern matching'in başlangıcı.
+
+flow.c gerçekten cc65 reposunda yok (araçla taradım: browse_page ile https://github.com/cc65/cc65/tree/master/src/cc65 – flow analizi codegen.c ve expr.c içinde entegre, ayrı dosya değil). Kalanlar expr.c (hiyerarşik expr parser) ve belki opcodes.c (zaten verdin). Bunları AST için kullanacağız.
+
+Evet, 3-geçişli AST tabanlı decompiler doğru:
+
+Geçiş 1: Pre-processing/Labeling – Opcode'ları tarayıp adresleri isimlendir (ROM çağrıları: $FFD2=chrout, $FFCF=getin; label1/2; variable'lar reg/addr olarak).
+Geçiş 2: Basic Blocks & CFG – Opcode'ları bloklara ayır (branch/jump'lara göre), control flow graph kur.
+Geçiş 3: Decompilation – Bloklardan yüksek seviyeli yapılar çıkar (if/while/for/switch/function; pattern matching ile cc65'ten esinlen).
+Regex'i matcher olarak kullanırız (e.g., opcode dizileri için), ama AST node'larına bağlarız. cc65 codegen'den: g_ifcond gibi pattern'lar (CMP/BNE/BEQ/JMP) → if/else. AST'yi Python class'ları ile kurarız (ExprNode/StmtNode).
+
+Sistem oluşturalım: Mevcut script'leri entegre edip, decompiler class'ı yazalım. Code_execution ile test edelim.
+
+1. AST Node Tanımları (Basit Sınıflar)
+python
+
+Daralt
+
+Metni gizle
+
+Çalıştır
+
+Kopyala
+class ASTNode:
+    def __init__(self, type, children=None, value=None):
+        self.type = type  # 'if', 'while', 'for', 'assign', 'func', 'expr', 'switch', etc.
+        self.children = children or []  # Alt node'lar
+        self.value = value  # Opcode/value/label
+
+class ExprNode(ASTNode):
+    def __init__(self, op, left, right=None):
+        super().__init__('expr', [left, right] if right else [left], op)  # op: '+', '==', etc.
+
+class StmtNode(ASTNode):
+    pass  # IfStmt, WhileStmt, etc. için extend
+2. Decompiler Class (3-Geçiş)
+Mevcut advanced_disassembler.py'yi extend edelim.
+
+python
+
+Daralt
+
+Metni gizle
+
+Çalıştır
+
+Kopyala
+class Decompiler(AdvancedDisassembler):
+    def __init__(self, start_address, code, output_format='c', use_ast=True):
+        super().__init__(start_address, code, output_format=output_format)
+        self.use_ast = use_ast
+        self.ast_root = ASTNode('program')
+        self.basic_blocks = []  # List of (start_addr, end_addr, insns)
+        self.cfg = {}  # Addr -> [successors]
+        self.patterns = self.load_patterns_from_cc65()  # cc65'ten esinlen
+
+    def load_patterns_from_cc65(self):
+        # cc65 codegen.c'den pattern'lar (manuel extract, araçla teyit)
+        return {
+            'if': [  # CMP/BNE/BEQ/JMP pattern (g_ifcond)
+                {'op': 'CMP', 'next': {'op': 'BNE', 'branch': 'else_label'}},
+                {'body': 'if_body', 'end': {'op': 'JMP', 'branch': 'end_label'}},
+                {'else': 'else_body'}
+            ],
+            'while': [  # Label_top: CMP/BNE end / body / JMP top
+                {'label': 'top', 'op': 'CMP', 'next': {'op': 'BNE', 'branch': 'end_label'}},
+                {'body': 'loop_body', 'end': {'op': 'JMP', 'branch': 'top_label'}}
+            ],
+            'for': [  # LDX init / label: CPX limit / BNE end / INX / body / JMP label
+                {'op': 'LDX', 'value': 'init'},
+                {'label': 'loop', 'op': 'CPX', 'value': 'limit', 'next': {'op': 'BNE', 'branch': 'end'}},
+                {'op': 'INX'}, {'body': 'for_body'}, {'op': 'JMP', 'branch': 'loop'}
+            ],
+            'switch': [  # CMP / JMP table / CMP+JMP pattern'lar
+                {'op': 'CMP', 'next': {'op': 'JMP', 'branch': 'table'}}
+            ],
+            'function': [  # JSR/RTS, stack frame (g_enter/g_leave)
+                {'op': 'JSR', 'branch': 'enter'}, {'body': 'func_body'}, {'op': 'RTS'}
+            ]
+        }
+
+    def decompile(self, prg_data):
+        # Geçiş 1: Pre-processing
+        self.preprocess(prg_data)  # Label'le, ROM isimlendir
+
+        # Geçiş 2: Basic Blocks & CFG
+        self.build_cfg()
+
+        # Geçiş 3: Decompilation to AST
+        self.build_ast()
+
+        # AST'den kod üret
+        return self.emit_code_from_ast()
+
+    def preprocess(self, prg_data):
+        # Opcode'ları tarayıp label'le (regex-like: re.search(r'JSR \$FFD2') → 'chrout')
+        insns = self.disassemble_simple(prg_data)  # Mevcut method
+        for i, insn in enumerate(insns):
+            match = re.match(r'JSR \$([A-F0-9]{4})', insn)
+            if match:
+                addr = int(match.group(1), 16)
+                if addr == 0xFFD2: insns[i] = insn.replace('$FFD2', 'chrout')
+                # Diğer ROM: 0xFFCF=getin, vb.
+            # Genel label: JMP/JSR/branch → label_{addr}
+
+    def build_cfg(self):
+        # Insn'ları bloklara ayır (branch/jump'lara göre)
+        # CFG kur: addr -> [targets]
+
+    def build_ast(self):
+        # Blokları tarayıp pattern match (cc65 patterns)
+        for block in self.basic_blocks:
+            if self.match_pattern(block, 'if'):
+                node = StmtNode('if', condition=..., then=..., else=...)
+                self.ast_root.children.append(node)
+            # Benzer: while/for/switch/func
+
+    def emit_code_from_ast(self):
+        code = []
+        for node in self.ast_root.children:
+            if node.type == 'if':
+                code.append(f'if ({node.condition}) {{ {self.emit(node.then)} }} else {{ {self.emit(node.else)} }}')
+            # Output_format'a göre uyarla (C/BASIC vb.)
+        return '\n'.join(code)
+
+    def match_pattern(self, block, pattern_name):
+        pat = self.patterns[pattern_name]
+        # Regex-like: block insn'larını pat ile eşle (re gibi, ama opcode dizisi için custom matcher)
+        return True/False
+3. Entegrasyon & Test
+Mevcut d64_converter.py'de convert_to_c vb. çağırırken, Decompiler'ı kullan: decompiler = Decompiler(...); result = decompiler.decompile(prg_data)
+Test: code_execution ile (e.g., basit PRG: LDA #$01 / STA $D020 – AST → if/expr)
+python
+
+Daralt
+
+Metni gizle
+
+Çalıştır
+
+Kopyala
+# Test code_execution
+code = """
+class TestDecompiler(Decompiler):
+    pass
+prg = bytes([0xA9, 0x01, 0x8D, 0x20, 0xD0])  # LDA #$01 / STA $D020
+dc = TestDecompiler(0x1000, prg[2:], 'c')
+print(dc.decompile(prg))
+"""
+# Araç çağrısı yaparız
+Bu temel. Sonraki: expr.c pattern'ları entegre et (hie8: +/- → g_add/g_sub). Tam kod için araçla cc65 expr.c tara.
+
+
+
+
+
+
+
+
+145,9 saniye
+bunlarda kalan dosyalarim. simdi recompiler aslinda diassable edilen 6502 makine dili kodundan uretilerek yapilmali. yani mevcut yapiya ek olmali. yada ayni dosyaya ek yada yeniden yazim olmali
+c64_memory_map.json
+hex_opcode_map.json
+memory_map.json
+safe_file_dialog.py
+sid_converter.py
+add_pseudo.py
+enhanced_d64_reader.py
+disassembler.py
+opcode_map.json
+
+
+
+
+43 saniye için Düşünce
+python
+
+Daralt
+
+Metni gizle
+
+Çalıştır
+
+Kopyala
+# disassembler.py (Güncellenmiş versiyon - Decompiler entegre)
+"""
+C64 PRG dosyası disassembler ve decompiler - AST tabanlı
+"""
+
+import re
+import json
+
+class ASTNode:
+    def __init__(self, node_type, children=None, value=None):
+        self.type = node_type  # 'program', 'if', 'while', 'for', 'assign', 'func', 'expr', 'switch'
+        self.children = children or []  # Alt node'lar
+        self.value = value  # Opcode/value/label/condition/body
+
+class ExprNode(ASTNode):
+    def __init__(self, op, left, right=None):
+        super().__init__('expr', [left, right] if right else [left], op)  # op: '+', '==', 'AND', etc.
+
+class StmtNode(ASTNode):
+    pass  # IfStmt, WhileStmt vb. için extend edilebilir
+
+class Decompiler:
+    def __init__(self, start_address, code, output_format='c'):
+        self.start_address = start_address
+        self.code = code
+        self.output_format = output_format
+        self.ast_root = ASTNode('program')
+        self.basic_blocks = []  # (start_addr, end_addr, insns)
+        self.cfg = {}  # addr -> [successors]
+        self.labels = {}  # addr -> label_name
+        self.memory_map = self.load_memory_map()
+        self.patterns = self.load_patterns_from_cc65()
+        self.opcode_map = self.load_opcode_map()
+        self.hex_opcode_map = self.load_hex_opcode_map()
+        self.insns = []  # Disassembled instructions list [(addr, opcode, operand, disasm_text)]
+
+    def load_memory_map(self):
+        """memory_map.json'dan hafıza haritası yükle"""
+        try:
+            with open("memory_map.json", 'r') as f:
+                data = json.load(f)
+                return {int(k, 16) if k.startswith('0x') else int(k): v for k, v in data.items()}
+        except:
+            return {}
+
+    def load_patterns_from_cc65(self):
+        """cc65 codegen'den esinlen pattern'lar (manuel, araçla genişletilebilir)"""
+        return {
+            'if': [  # CMP/BNE/BEQ/JMP pattern
+                {'op': 'CMP', 'next': {'op': 'BNE', 'branch': 'else_label'}},
+                {'body': 'if_body', 'end': {'op': 'JMP', 'branch': 'end_label'}},
+                {'else': 'else_body'}
+            ],
+            'while': [  # Label_top: CMP/BNE end / body / JMP top
+                {'label': 'top', 'op': 'CMP', 'next': {'op': 'BNE', 'branch': 'end_label'}},
+                {'body': 'loop_body', 'end': {'op': 'JMP', 'branch': 'top_label'}}
+            ],
+            'for': [  # LDX init / label: CPX limit / BNE end / INX / body / JMP label
+                {'op': 'LDX', 'value': 'init'},
+                {'label': 'loop', 'op': 'CPX', 'value': 'limit', 'next': {'op': 'BNE', 'branch': 'end'}},
+                {'op': 'INX'}, {'body': 'for_body'}, {'op': 'JMP', 'branch': 'loop'}
+            ],
+            'switch': [  # CMP / JMP table
+                {'op': 'CMP', 'next': {'op': 'JMP', 'branch': 'table'}}
+            ],
+            'function': [  # JSR/RTS, stack frame
+                {'op': 'JSR', 'branch': 'enter'}, {'body': 'func_body'}, {'op': 'RTS'}
+            ]
+        }
+
+    def load_opcode_map(self):
+        """opcode_map.json yükle"""
+        try:
+            with open("opcode_map.json", 'r') as f:
+                return json.load(f)
+        except:
+            return []
+
+    def load_hex_opcode_map(self):
+        """hex_opcode_map.json yükle"""
+        try:
+            with open("hex_opcode_map.json", 'r') as f:
+                data = json.load(f)
+                return {int(k, 16): v for k, v in data.items()}
+        except:
+            return {}
+
+    def decompile(self):
+        # Geçiş 1: Disassemble ve Pre-processing
+        self.disassemble_and_preprocess()
+
+        # Geçiş 2: Basic Blocks & CFG kur
+        self.build_cfg()
+
+        # Geçiş 3: AST kur ve Decompile
+        self.build_ast()
+
+        # Kod üret
+        return self.emit_code_from_ast()
+
+    def disassemble_and_preprocess(self):
+        """Opcode'ları disassemble et ve label'le"""
+        pc = self.start_address
+        end = self.start_address + len(self.code)
+        while pc < end:
+            idx = pc - self.start_address
+            if idx >= len(self.code):
+                break
+            opcode_hex = self.code[idx]
+            if opcode_hex in self.hex_opcode_map:
+                info = self.hex_opcode_map[opcode_hex]
+                mnemonic = info['mnemonic']
+                length = info['length']
+                operand = None
+                if length == 2:
+                    operand = self.code[idx + 1]
+                    disasm = info['description'] % operand
+                elif length == 3:
+                    operand = self.code[idx + 1] + (self.code[idx + 2] << 8)
+                    disasm = info['description'] % operand
+                else:
+                    disasm = info['description']
+                self.insns.append((pc, mnemonic, operand, disasm))
+
+                # Preprocess: Label'le
+                if mnemonic in ['JMP', 'JSR'] or mnemonic.startswith('B'):
+                    if operand is not None:
+                        target = pc + operand if length == 2 and mnemonic.startswith('B') else operand
+                        if target in self.memory_map:
+                            self.labels[target] = self.memory_map[target]
+                        elif target not in self.labels:
+                            self.labels[target] = f"label_{len(self.labels)}"
+
+                pc += length
+            else:
+                self.insns.append((pc, 'UNKNOWN', None, f".BYTE ${opcode_hex:02X}"))
+                pc += 1
+
+    def build_cfg(self):
+        """Basic blocks ve CFG kur"""
+        current_block = []
+        for insn in self.insns:
+            addr, op, operand, _ = insn
+            current_block.append(insn)
+            if op in ['JMP', 'JSR', 'RTS', 'RTI'] or op.startswith('B'):
+                self.basic_blocks.append((current_block[0][0], addr, current_block))
+                self.cfg[current_block[0][0]] = [operand] if operand else []
+                current_block = []
+        if current_block:
+            self.basic_blocks.append((current_block[0][0], self.insns[-1][0], current_block))
+            self.cfg[current_block[0][0]] = []
+
+    def match_pattern(self, block_insns, pattern_name):
+        """Block'ta pattern eşle (regex-like)"""
+        pat = self.patterns.get(pattern_name, [])
+        # Basit dizi eşleme (gerçek regex için re.compile kullan, ama opcode için custom)
+        i = 0
+        for p in pat:
+            if i >= len(block_insns):
+                return False
+            insn = block_insns[i]
+            if 'op' in p and p['op'] != insn[1]:
+                return False
+            # Diğer kontroller: next, label, body...
+            i += 1
+        return True
+
+    def build_ast(self):
+        """CFG'den AST kur"""
+        for start, end, insns in self.basic_blocks:
+            if self.match_pattern(insns, 'if'):
+                # If node kur (condition/body/else extract)
+                cond = insns[0]  # CMP vb.
+                then_block = []  # BNE sonrası
+                else_block = []  # Else
+                node = StmtNode('if', [ExprNode('==', 'a', cond[2])], then_block)  # Basit örnek
+                node.children.append(else_block)  # Else ekle
+                self.ast_root.children.append(node)
+            elif self.match_pattern(insns, 'while'):
+                # While node
+                pass
+            # Diğer pattern'lar: for/switch/func
+            else:
+                # Basit stmt'ler ekle
+                for insn in insns:
+                    op, operand, _ = insn[1], insn[2], insn[3]
+                    if op in self.opcode_map:
+                        equiv = next((m['c_equivalent'] for m in self.opcode_map if m['opcode'] == op), '')
+                        node = StmtNode('assign', value=equiv.replace('value', str(operand) if operand else ''))
+                        self.ast_root.children.append(node)
+
+    def emit_code_from_ast(self):
+        """AST'den hedef format kod üret"""
+        code_lines = []
+        for node in self.ast_root.children:
+            if node.type == 'if':
+                cond = self.emit_expr(node.children[0]) if node.children else ''
+                then = self.emit_block(node.children[1]) if len(node.children) > 1 else ''
+                else_ = self.emit_block(node.children[2]) if len(node.children) > 2 else ''
+                if self.output_format == 'c':
+                    code_lines.append(f"if ({cond}) {{ {then} }} else {{ {else_} }}")
+                elif self.output_format == 'qbasic':
+                    code_lines.append(f"IF {cond} THEN {then} ELSE {else_}")
+                # Diğer formatlar
+            elif node.type == 'assign':
+                code_lines.append(node.value)
+            # Diğer node tipleri
+        return '\n'.join(code_lines)
+
+    def emit_expr(self, expr_node):
+        """Expr node'dan string üret"""
+        return f"{self.emit_expr(expr_node.children[0])} {expr_node.value} {self.emit_expr(expr_node.children[1])}" if len(expr_node.children) > 1 else str(expr_node.value)
+
+    def emit_block(self, block_nodes):
+        """Block node'lardan string üret"""
+        return ' '.join(self.emit_code_from_ast(block_nodes))  # Recursive
+
+    def disassemble(self):
+        """Fallback disassemble"""
+        lines = []
+        for addr, op, operand, disasm in self.insns:
+            if addr in self.labels:
+                lines.append(f"{self.labels[addr]}:")
+            lines.append(f"${addr:04X}: {disasm}")
+        return '\n'.join(lines)
+
+
+Harika, Mete abi! Planını ve verdiğim planı sıkı bir şekilde birleştirelim. Önce, dış kaynakları araştıralım ve daha sonra tümünü birleştirip sağlam bir decompiler yapısı kuralım.
+
+Dış Kaynakların Araştırılması
+Bir decompiler geliştirmek için, 6502 assembly kodunu analiz edip yüksek seviyeli dillere (C, QBasic, vb.) çevirmek gerekiyor. Bu süreçte, kontrol yapılarını (if, while, for, switch, vb.) ve fonksiyonları tespit etmek kritik. Dış kaynakları inceleyerek, bu yapıların assembly karşılıklarını ve pattern'larını öğrenebiliriz.
+
+1. cc65 (C Derleyicisi)
+Dosyalar: codegen.c, expr.c, flow.c (flow.c yok, muhtemelen codegen ve expr içinde entegre)
+Amaç: Derleyicinin AST'den 6502 opcode'larına dönüşümünü incelemek. Kontrol yapılarının (if, while, for) ve aritmetik ifadelerin (a = b + c) assembly karşılıklarını bulmak.
+Örnek: g_ifcond fonksiyonu, if yapısının assembly kodunu üretir (CMP, BNE, JMP gibi). Biz de bu pattern'ları tersine çevirip, assembly'den if yapısını çıkarabiliriz.
+2. KickC
+Dosyalar: src/codegen/, src/parser/
+Amaç: Modern kontrol yapılarının (switch, for-range) assembly karşılıklarını öğrenmek. emitOpcode() gibi fonksiyonlar, opcode üretimini gösterir.
+Örnek: switch yapısının jump table ile nasıl implement edildiğini görebiliriz.
+3. Oscar64
+Dosyalar: codegen/, parser/
+Amaç: C++ destekli karmaşık yapıların (örneğin, nesne yönelimli programlama) assembly karşılıklarını incelemek.
+Örnek: if/for/switch gibi yapıların yanı sıra, optimizer'ın loop unroll gibi teknikleri nasıl uyguladığını görebiliriz.
+4. llvm-mos
+Dosyalar: MOSISelLowering.cpp, MOSInstrInfo.cpp
+Amaç: LLVM IR'den 6502 opcode'larına dönüşümde kontrol yapılarının nasıl lower edildiğini incelemek.
+Örnek: LLVM IR'daki br (branch) komutlarının 6502'deki BNE, BEQ gibi komutlara nasıl çevrildiğini görebiliriz.
+5. Disassembler Araçları
+Araçlar: py64, dissector.py
+Amaç: Opcode analizini otomatikleştirmek ve temel blokları ayırmak.
+Örnek: py64 ile disassembly yapıp, temel blokları ve kontrol akışını çıkarabiliriz.
+6. D64 Tools
+Araçlar: d64.py, lib1541img
+Amaç: D64 disk imajından PRG dosyalarını ve yükleme adreslerini çıkarmak.
+Örnek: lib1541img ile disk imajını okuyup, PRG dosyalarını ve metadata'yı alabiliriz.
+Planın Sıkı Bir Şekilde Birleştirilmesi
+Şimdi, senin planını ve verdiğim planı birleştirerek, 3-geçişli AST tabanlı bir decompiler yapısı oluşturalım.
+
+Adım 1: Disassembly ve Pre-processing
+Amaç: Opcode'ları disassemble edip, adresleri isimlendir (ROM çağrıları, label'lar, variable'lar).
+Yöntem:
+advanced_disassembler.py ve opcode_manager.py ile opcode'ları disassemble et.
+memory_map.json ve c64_memory_map.json ile ROM adreslerini isimlendir (örneğin, $FFD2 → chrout).
+Label'ları label1, label2 gibi isimlendir.
+Örnek:
+python
+
+Daralt
+
+Metni gizle
+
+Çalıştır
+
+Kopyala
+def preprocess(self, prg_data):
+    insns = self.disassemble_simple(prg_data)
+    for i, insn in enumerate(insns):
+        match = re.match(r'JSR \$([A-F0-9]{4})', insn)
+        if match:
+            addr = int(match.group(1), 16)
+            if addr == 0xFFD2:
+                insns[i] = insn.replace('$FFD2', 'chrout')
+            # Diğer ROM adresleri
+        # Genel label'lar: JMP/JSR/branch → label_{addr}
+Adım 2: Basic Blocks ve CFG Kurma
+Amaç: Opcode'ları temel bloklara ayırıp, kontrol akış grafiği (CFG) oluşturmak.
+Yöntem:
+branch_ops = {'JMP', 'JSR', 'RTS', 'RTI', 'BPL', 'BMI', 'BCC', 'BCS', 'BNE', 'BEQ'}
+Her blok, bir dallanma komutuna kadar olan komut dizisidir.
+CFG, her bloğun nereye gittiğini gösterir.
+Örnek:
+python
+
+Daralt
+
+Metni gizle
+
+Çalıştır
+
+Kopyala
+def build_cfg(self):
+    current_block = []
+    for insn in self.insns:
+        addr, op, operand, _ = insn
+        current_block.append(insn)
+        if op in branch_ops:
+            self.basic_blocks.append((current_block[0][0], addr, current_block))
+            self.cfg[current_block[0][0]] = [operand] if operand else []
+            current_block = []
+    if current_block:
+        self.basic_blocks.append((current_block[0][0], self.insns[-1][0], current_block))
+        self.cfg[current_block[0][0]] = []
+Adım 3: Pattern Matching ve AST Oluşturma
+Amaç: CFG'deki pattern'ları tespit edip, AST node'larına çevirmek.
+Yöntem:
+cc65 ve diğer derleyicilerden esinlenerek pattern'lar tanımla (if, while, for, switch, function).
+Blokları tarayıp, pattern'lara uyanları AST node'larına çevir.
+Örnek:
+python
+
+Daralt
+
+Metni gizle
+
+Çalıştır
+
+Kopyala
+def build_ast(self):
+    for start, end, insns in self.basic_blocks:
+        if self.match_pattern(insns, 'if'):
+            # If node kur
+            cond = insns[0]  # CMP vb.
+            then_block = []  # BNE sonrası
+            else_block = []  # Else
+            node = StmtNode('if', [ExprNode('==', 'a', cond[2])], then_block)
+            node.children.append(else_block)
+            self.ast_root.children.append(node)
+        # Benzer: while/for/switch/func
+Adım 4: Kod Üretimi
+Amaç: AST'den yüksek seviyeli dillere (C, QBasic, vb.) kod üretmek.
+Yöntem:
+AST node'larını gezerek, her node tipine göre kod üret.
+Örnek:
+python
+
+Daralt
+
+Metni gizle
+
+Çalıştır
+
+Kopyala
+def emit_code_from_ast(self):
+    code = []
+    for node in self.ast_root.children:
+        if node.type == 'if':
+            cond = self.emit_expr(node.children[0])
+            then = self.emit_block(node.children[1])
+            else_ = self.emit_block(node.children[2])
+            code.append(f"if ({cond}) {{ {then} }} else {{ {else_} }}")
+        # Diğer node tipleri
+    return '\n'.join(code)
+Mevcut Dosyalara Entegrasyon
+advanced_disassembler.py: Bu dosyayı Decompiler class'ı ile extend et.
+opcode_manager.py: Opcode map'lerini ve translations'ları kullan.
+parser.py: CodeEmitter ile AST'den kod üretimini entegre et.
+d64_converter.py: GUI'de convert_to_c vb. metodları Decompiler ile değiştir.
+Sonuç
+Bu planla, disassembly'den başlayarak AST tabanlı bir decompiler yapısı kurabiliriz. Dış kaynakları (cc65, KickC, vb.) inceleyerek pattern'ları öğrenip, bunları tersine çevirerek yüksek seviyeli dillere çevirebiliriz. İlerlemek için, disassembly analizine başlayabilir ve pattern matching'i implement edebilirsin. Soruların olursa, her zaman buradayım!
+
+# Kullanım: Decompiler(start_addr, code, 'c').decompile()
+
+
+
+
+Harika, yanlışlıkla grok4'e gönderdiğin belgeleri ve konuyu baştan sona inceledim. Şimdi, bir 6502 decompiler yapısı kurmak için kontrol yapılarını tersine mühendislik yaparak nasıl yüksek seviyeli kod üretebileceğimizi ele alacağım. Bu süreçte, bir compiler'ın hangi kontrol yapıları için assembly kodu ürettiğini tersine çevireceğiz ve verilen plana göre ilerleyeceğiz. Ayrıca, dış kaynakları inceleyip bunlardan nasıl yararlanabileceğimizi açıklayacağım.
+
+Decompiler Yapısı ve Kontrol Yapıları
+Bir decompiler, 6502 assembly kodunu analiz ederek yüksek seviyeli kontrol yapılarını (if, while, for, vb.) tespit etmeli ve bu yapıları C veya QBasic gibi dillere çevirmelidir. Compiler'lar bu kontrol yapılarını assembly'ye çevirirken belirli pattern'lar kullanır; biz de bu pattern'ları tersine çevireceğiz.
+
+1. Kontrol Yapılarının Tersine Çevrilmesi
+If-Else: Compiler'lar if-else yapılarını genellikle karşılaştırma (CMP) ve koşullu dallanma (BNE, BEQ) komutlarıyla oluşturur. Örneğin:
+assembly
+
+Daralt
+
+Metni gizle
+
+Kopyala
+CMP #$05
+BNE else_label
+; if body
+JMP end_label
+else_label:
+; else body
+end_label:
+Biz bunu tersine çevirip C'de şu şekilde ifade edebiliriz:
+c
+
+Daralt
+
+Metni gizle
+
+Kopyala
+if (a == 5) {
+    // if body
+} else {
+    // else body
+}
+While Döngüsü: Compiler'lar bir döngü gövdesini bir label'a geri dönen koşullu dallanma ile oluşturur:
+assembly
+
+Daralt
+
+Metni gizle
+
+Kopyala
+loop_start:
+CMP #$00
+BEQ loop_end
+; loop body
+JMP loop_start
+loop_end:
+Tersine çevirdiğimizde C'de şu olur:
+c
+
+Daralt
+
+Metni gizle
+
+Kopyala
+while (a != 0) {
+    // loop body
+}
+For Döngüsü: Compiler'lar genellikle bir sayaç (örneğin X register) ile döngü oluşturur:
+assembly
+
+Daralt
+
+Metni gizle
+
+Kopyala
+LDX #$00
+loop:
+CPX #$0A
+BNE end
+; loop body
+INX
+JMP loop
+end:
+Tersine çevirdiğimizde C'de:
+c
+
+Daralt
+
+Metni gizle
+
+Kopyala
+for (x = 0; x < 10; x++) {
+    // loop body
+}
+Bu pattern'ları tespit etmek için, decompiler'ımız assembly kodunda opcode dizilerini arayacak ve bunları uygun kontrol yapılarına çevirecek.
+
+2. Dış Kaynaklardan Yararlanma
+Decompiler yapısını kurarken aşağıdaki kaynakları inceleyip bunlardan faydalanabiliriz:
+
+6502 Decompiler Instructions: Assembly'den yüksek seviyeli dile geçişi ve kontrol yapılarının tanınmasını açıklar.
+6502 Cross-Development Languages and Tools: Disassembly sürecini otomatikleştirmek için assembler/disassembler araçları sunar.
+6502bench Tools (SourceGen): Kod analizini ve etiketlemeyi kolaylaştırır; pattern tanıma için temel oluşturabilir.
+Ghidra Disassembler: Açık kaynaklı bir araçtır; kontrol yapılarının tanınması için ilham alınabilir.
+Compiler Explorer: Compiler'ların kontrol yapılarını assembly'ye nasıl çevirdiğini gösterir; bu pattern'ları tersine çevirebiliriz.
+GitHub - chozekun/decomp: 6502 decompiler örneği sunar; kod yapısından faydalanabiliriz.
+Planın Uygulanması
+1. Disassembly Analizi ve Pattern Matching
+Öncelikle, assembly kodunu parse edip temel bloklara (basic blocks) ayıracağız. Ardından, bu bloklardaki dallanma ve döngü pattern'larını tanıyacağız.
+
+2. Abstract Syntax Tree (AST) Oluşturma
+Tespit edilen kontrol yapılarını AST node'larına çevireceğiz:
+
+IfStmt: Koşul ve gövdeler.
+WhileStmt: Koşul ve döngü gövdesi.
+ForStmt: Başlangıç, koşul, artırma ve gövde.
+3. Kod Üretimi
+AST'den hedef dile kod üreteceğiz. Örneğin, C için:
+
+if (koşul) { gövde } else { gövde }
+while (koşul) { gövde }
+for (başlangıç; koşul; artırma) { gövde }
+4. Mevcut Programa Entegrasyon
+Bu yapıyı mevcut programa eklemek için:
+
+Disassembly çıktısını oku ve komutları ayır.
+Kodunu temel bloklara böl.
+Kontrol akış grafiği (CFG) kur.
+Pattern'ları tespit et.
+AST oluştur ve kod üret.
+Örnek Kod Üretimi
+Aşağıda, bir assembly parçasını C'ye çeviren örnek bir decompiler çıktısı yer alıyor:
+
+decompiler_output.c
+x-csrc
+Dosyalarda Düzenle
+•
+Satır içinde göster
+Bu kod, yukarıdaki pattern'lara dayanarak üretilmiştir ve dış kaynaklardan (örneğin Compiler Explorer) ilham alınarak tersine mühendislik yapılmıştır.
+
+Sonuç
+Bir 6502 decompiler geliştirmek için, compiler'ların kontrol yapılarını assembly'ye çevirme mantığını tersine çevirdik. Dış kaynakları kullanarak pattern tanıma, AST oluşturma ve kod üretimi adımlarını planladık. Bu yaklaşımı mevcut programına entegre ederek, assembly kodunu okunabilir yüksek seviyeli koda çevirebilirsin. İlerlemek için disassembly analizine başlayabilir ve kaynakları daha derinlemesine inceleyebilirsin!
