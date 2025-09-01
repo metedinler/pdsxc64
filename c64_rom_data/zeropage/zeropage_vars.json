@@ -1,0 +1,260 @@
+{
+  "$0000": {
+    "name": "PROC_PORT_DDR",
+    "size": 1,
+    "description": "İşlemci portu veri yönü kaydı. Bellek banklarını ($A000-$BFFF, $D000-$DFFF, $E000-$FFFF) kontrol eder. Bit 0: LORAM yönü (0=entrada, 1=çıkış, BASIC ROM), Bit 1: HIRAM yönü (KERNAL ROM), Bit 2: CHAREN yönü (I/O veya karakter ROM), Bit 3-5: kaset kontrolü, Bit 6-7: kullanılmıyor. Decompiler'da 'PROC_PORT_DDR' olarak işaretlenir, örneğin LDA $00 -> proc_port_ddr = A.",
+    "usage": "KERNAL, bellek bankı yapılandırması"
+  },
+  "$0001": {
+    "name": "PROC_PORT",
+    "size": 1,
+    "description": "İşlemci portu, bellek banklarını seçer. Bit 0: LORAM (0=RAM, 1=BASIC ROM $A000-$BFFF), Bit 1: HIRAM (0=RAM, 1=KERNAL ROM $E000-$FFFF), Bit 2: CHAREN (0=karakter ROM, 1=I/O $D000-$DFFF), Bit 3: kaset yazma, Bit 4: kaset tuşu, Bit 5: kaset motoru, Bit 6-7: kullanılmıyor. Varsayılan $37 (55). Decompiler'da 'PROC_PORT' olarak işaretlenir, örneğin LDA $01 -> proc_port = A.",
+    "usage": "KERNAL, bellek bankı seçimi"
+  },
+  "$0002": {
+    "name": "user_var1",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var1' olarak işaretlenir, örneğin LDA $02 -> user_var1 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0003": {
+    "name": "user_var2",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var2' olarak işaretlenir, örneğin LDA $03 -> user_var2 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0004": {
+    "name": "user_var3",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var3' olarak işaretlenir, örneğin LDA $04 -> user_var3 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0005-$008F": {
+    "name": "user_vars",
+    "size": 139,
+    "description": "Kullanıcıya açık sıfır sayfası değişkenleri, genel amaçlı kullanım için serbest. BASIC veya KERNAL tarafından kullanılmaz, kullanıcı programları için güvenli. Decompiler'da 'user_vars[adres]' olarak işaretlenir, örneğin LDA $05 -> user_vars[5] = A.",
+    "usage": "Kullanıcı, serbest değişkenler"
+  },
+  "$0090": {
+    "name": "STATUS",
+    "size": 1,
+    "description": "KERNAL I/O durum baytı, seri veri yolu ve kaset/disk işlemlerinin durumunu tutar. Örneğin, bit 0: zaman aşımı, bit 1: doğrulama hatası. Decompiler'da 'status' olarak işaretlenir, örneğin LDA $90 -> status = A.",
+    "usage": "KERNAL, I/O durumu"
+  },
+  "$0091": {
+    "name": "STKEY",
+    "size": 1,
+    "description": "STOP tuşu durumu, $FF değilse STOP tuşu basılıdır. STOP ($FFE1) tarafından kontrol edilir. Decompiler'da 'stkey' olarak işaretlenir, örneğin LDA $91 -> stkey = A.",
+    "usage": "KERNAL, STOP tuşu kontrolü"
+  },
+  "$0092-$0093": {
+    "name": "CASSETTE_PTR",
+    "size": 2,
+    "description": "Kaset tampon işaretçisi, kasetten veri okuma/yazma için kullanılır ($033C-$03FB). $92 düşük bayt, $93 yüksek bayt. Decompiler'da 'cassette_ptr' olarak işaretlenir, örneğin LDA $92 -> cassette_ptr_lo = A.",
+    "usage": "KERNAL, kaset I/O"
+  },
+  "$0094-$0095": {
+    "name": "MEMSIZ",
+    "size": 2,
+    "description": "BASIC bellek üst sınırı işaretçisi. $94 düşük bayt, $95 yüksek bayt. FRE ($B9D9) tarafından kullanılır. Decompiler'da 'memsiz' olarak işaretlenir, örneğin LDA $94 -> memsiz_lo = A.",
+    "usage": "BASIC, bellek yönetimi"
+  },
+  "$0096": {
+    "name": "TIMEOUT",
+    "size": 1,
+    "description": "Seri veri yolu zaman aşımı bayrağı, SETTMO ($FFA2) tarafından ayarlanır. Decompiler'da 'timeout' olarak işaretlenir, örneğin LDA $96 -> timeout = A.",
+    "usage": "KERNAL, seri veri yolu"
+  },
+  "$0097-$0098": {
+    "name": "TEMP_PTR",
+    "size": 2,
+    "description": "Geçici işaretçi, BASIC ve KERNAL tarafından geçici veri saklama için kullanılır. $97 düşük bayt, $98 yüksek bayt. Decompiler'da 'temp_ptr' olarak işaretlenir, örneğin LDA $97 -> temp_ptr_lo = A.",
+    "usage": "BASIC/KERNAL, geçici işaretçi"
+  },
+  "$0099-$009A": {
+    "name": "LOAD_PTR",
+    "size": 2,
+    "description": "Yükleme adresi işaretçisi, LOAD ($FFD5) tarafından kullanılır. $99 düşük bayt, $9A yüksek bayt. Decompiler'da 'load_ptr' olarak işaretlenir, örneğin LDA $99 -> load_ptr_lo = A.",
+    "usage": "KERNAL, dosya yükleme"
+  },
+  "$009B-$009C": {
+    "name": "SAVE_PTR",
+    "size": 2,
+    "description": "Kaydetme adresi işaretçisi, SAVE ($FFD8) tarafından kullanılır. $9B düşük bayt, $9C yüksek bayt. Decompiler'da 'save_ptr' olarak işaretlenir, örneğin LDA $9B -> save_ptr_lo = A.",
+    "usage": "KERNAL, dosya kaydetme"
+  },
+  "$009D": {
+    "name": "TAPE_STATUS",
+    "size": 1,
+    "description": "Kaset durumu baytı, kaset I/O işlemleri için kullanılır (örneğin, TAPELOAD $F20E). Decompiler'da 'tape_status' olarak işaretlenir, örneğin LDA $9D -> tape_status = A.",
+    "usage": "KERNAL, kaset I/O"
+  },
+  "$009E": {
+    "name": "CHAROUT",
+    "size": 1,
+    "description": "Çıkış karakteri tamponu, CHROUT ($FFD2) tarafından kullanılır. Decompiler'da 'charout' olarak işaretlenir, örneğin LDA $9E -> charout = A.",
+    "usage": "KERNAL, karakter çıktısı"
+  },
+  "$009F-$00A2": {
+    "name": "JIFFY_CLOCK",
+    "size": 4,
+    "description": "Sistem saati (jiffy clock), 1/60 saniye artar. $9F-$A1 zaman baytları, $A2 kontrol. SETTIM ($FFDB) ve RDTIM ($FFDE) tarafından kullanılır. Decompiler'da 'jiffy_clock' olarak işaretlenir, örneğin LDA $A0 -> jiffy_clock[0] = A.",
+    "usage": "KERNAL, sistem zamanlayıcısı"
+  },
+  "$00A3-$00A8": {
+    "name": "FLOAT_ACC",
+    "size": 6,
+    "description": "Floating-point akümülatörü, BASIC matematiksel işlemlerinde kullanılır (örneğin, ADD $B79B). $A3-$A7 sayı, $A8 işaret. Decompiler'da 'float_acc' olarak işaretlenir, örneğin LDA $A3 -> float_acc[0] = A.",
+    "usage": "BASIC, matematiksel işlemler"
+  },
+  "$00A9-$00AE": {
+    "name": "FLOAT_ACC2",
+    "size": 6,
+    "description": "İkinci floating-point akümülatörü, matematiksel işlemler için (örneğin, MULTIPLY $BA28). $A9-$AD sayı, $AE işaret. Decompiler'da 'float_acc2' olarak işaretlenir, örneğin LDA $A9 -> float_acc2[0] = A.",
+    "usage": "BASIC, matematiksel işlemler"
+  },
+  "$00AF-$00B0": {
+    "name": "BASIC_TEMP",
+    "size": 2,
+    "description": "BASIC geçici işaretçi, string ve değişken işlemleri için kullanılır (örneğin, LEN $A871). $AF düşük bayt, $B0 yüksek bayt. Decompiler'da 'basic_temp' olarak işaretlenir, örneğin LDA $AF -> basic_temp_lo = A.",
+    "usage": "BASIC, geçici işaretçi"
+  },
+  "$00B1": {
+    "name": "INDEX",
+    "size": 1,
+    "description": "Genel amaçlı indeks, BASIC döngü ve dizi işlemlerinde kullanılır (örneğin, FOR $AD8A). Decompiler'da 'index' olarak işaretlenir, örneğin LDA $B1 -> index = A.",
+    "usage": "BASIC, döngü/dizi işlemleri"
+  },
+  "$00B2-$00B3": {
+    "name": "TAPE_BUFFER_PTR",
+    "size": 2,
+    "description": "Kaset tampon işaretçisi, kaset I/O için kullanılır (örneğin, TAPEWRITE $F157). $B2 düşük bayt, $B3 yüksek bayt. Decompiler'da 'tape_buffer_ptr' olarak işaretlenir, örneğin LDA $B2 -> tape_buffer_ptr_lo = A.",
+    "usage": "KERNAL, kaset I/O"
+  },
+  "$00B4-$00B6": {
+    "name": "DISK_PARAMS",
+    "size": 3,
+    "description": "Disk I/O parametreleri, dosya işlemleri için kullanılır. $B4 mantıksal dosya numarası, $B5 cihaz numarası, $B6 ikincil adres. SETLFS ($FFBA) tarafından ayarlanır. Decompiler'da 'disk_params' olarak işaretlenir, örneğin LDA $B4 -> disk_params[0] = A.",
+    "usage": "KERNAL, disk I/O"
+  },
+  "$00B7": {
+    "name": "FNAME_LEN",
+    "size": 1,
+    "description": "Dosya adı uzunluğu, SETNAM ($FFBD) tarafından kullanılır. Decompiler'da 'fname_len' olarak işaretlenir, örneğin LDA $B7 -> fname_len = A.",
+    "usage": "KERNAL, dosya işlemleri"
+  },
+  "$00B8-$00B9": {
+    "name": "FNAME_PTR",
+    "size": 2,
+    "description": "Dosya adı işaretçisi, SETNAM ($FFBD) tarafından kullanılır. $B8 düşük bayt, $B9 yüksek bayt. Decompiler'da 'fname_ptr' olarak işaretlenir, örneğin LDA $B8 -> fname_ptr_lo = A.",
+    "usage": "KERNAL, dosya işlemleri"
+  },
+  "$00BA": {
+    "name": "DEVICE_NUM",
+    "size": 1,
+    "description": "Geçerli cihaz numarası, SETLFS ($FFBA) tarafından ayarlanır. Örneğin, 8 = disk, 1 = kaset. Decompiler'da 'device_num' olarak işaretlenir, örneğin LDA $BA -> device_num = A.",
+    "usage": "KERNAL, cihaz seçimi"
+  },
+  "$00BB-$00BC": {
+    "name": "FILE_PTR",
+    "size": 2,
+    "description": "Dosya işaretçisi, dosya işlemlerinde kullanılır. $BB düşük bayt, $BC yüksek bayt. Decompiler'da 'file_ptr' olarak işaretlenir, örneğin LDA $BB -> file_ptr_lo = A.",
+    "usage": "KERNAL, dosya işlemleri"
+  },
+  "$00BD-$00C0": {
+    "name": "TEMP_STORAGE",
+    "size": 4,
+    "description": "Geçici depolama, KERNAL ve BASIC tarafından çeşitli işlemler için kullanılır. Decompiler'da 'temp_storage[adres]' olarak işaretlenir, örneğin LDA $BD -> temp_storage[0] = A.",
+    "usage": "KERNAL/BASIC, geçici veri"
+  },
+  "$00C1-$00C2": {
+    "name": "LOAD_SAVE_PTR",
+    "size": 2,
+    "description": "Yükleme/kaydetme adresi işaretçisi, LOAD ($FFD5) ve SAVE ($FFD8) tarafından kullanılır. $C1 düşük bayt, $C2 yüksek bayt. Decompiler'da 'load_save_ptr' olarak işaretlenir, örneğin LDA $C1 -> load_save_ptr_lo = A.",
+    "usage": "KERNAL, dosya I/O"
+  },
+  "$00C3-$00C4": {
+    "name": "SCREEN_PTR",
+    "size": 2,
+    "description": "Ekran belleği işaretçisi, ekran RAM ($0400-$07E7) için kullanılır. $C3 düşük bayt, $C4 yüksek bayt. Decompiler'da 'screen_ptr' olarak işaretlenir, örneğin LDA $C3 -> screen_ptr_lo = A.",
+    "usage": "KERNAL/BASIC, ekran işlemleri"
+  },
+  "$00C5": {
+    "name": "CURSOR_POS",
+    "size": 1,
+    "description": "İmleç pozisyonu, ekran sütun numarasını tutar. PLOT ($FFF0) tarafından kullanılır. Decompiler'da 'cursor_pos' olarak işaretlenir, örneğin LDA $C5 -> cursor_pos = A.",
+    "usage": "KERNAL, ekran imleci"
+  },
+  "$00C6": {
+    "name": "KEYBUF_LEN",
+    "size": 1,
+    "description": "Klavye kuyruğu uzunluğu, $0277-$0280 kuyruğundaki karakter sayısını tutar. GETIN ($FFE4) tarafından kullanılır. Decompiler'da 'keybuf_len' olarak işaretlenir, örneğin LDA $C6 -> keybuf_len = A.",
+    "usage": "KERNAL, klavye girişi"
+  },
+  "$00C7-$00CA": {
+    "name": "BASIC_WORK",
+    "size": 4,
+    "description": "BASIC çalışma alanı, çeşitli işlemler için geçici veri saklar (örneğin, LEN $A871). Decompiler'da 'basic_work[adres]' olarak işaretlenir, örneğin LDA $C7 -> basic_work[0] = A.",
+    "usage": "BASIC, geçici veri"
+  },
+  "$00CB": {
+    "name": "KEY_MATRIX",
+    "size": 1,
+    "description": "Klavye matris indeksi, klavye tarama için kullanılır (JSCNKEY $E0B4). Decompiler'da 'key_matrix' olarak işaretlenir, örneğin LDA $CB -> key_matrix = A.",
+    "usage": "KERNAL, klavye tarama"
+  },
+  "$00CC-$00CF": {
+    "name": "SCREEN_WORK",
+    "size": 4,
+    "description": "Ekran işlemleri için çalışma alanı, imleç ve ekran yönetimi için kullanılır (örneğin, CURSOR $E12A). Decompiler'da 'screen_work[adres]' olarak işaretlenir, örneğin LDA $CC -> screen_work[0] = A.",
+    "usage": "KERNAL, ekran işlemleri"
+  },
+  "$00D0-$00D8": {
+    "name": "VIDEO_STATE",
+    "size": 9,
+    "description": "Video durumu değişkenleri, VIC-II ve ekran yönetimi için kullanılır. Örneğin, $D0 klavye tarama durumu, $D3 imleç X, $D6 imleç Y. SCINIT ($FF81) tarafından kullanılır. Decompiler'da 'video_state[adres]' olarak işaretlenir, örneğin LDA $D3 -> video_state[3] = A.",
+    "usage": "KERNAL, ekran yönetimi"
+  },
+  "$00D9-$00DA": {
+    "name": "CURSOR_BLINK",
+    "size": 2,
+    "description": "İmleç yanıp sönme durumu, ekran imleci için kullanılır. $D9 durum, $DA sayaç. Decompiler'da 'cursor_blink[adres]' olarak işaretlenir, örneğin LDA $D9 -> cursor_blink[0] = A.",
+    "usage": "KERNAL, ekran imleci"
+  },
+  "$00DB-$00E0": {
+    "name": "SCREEN_TEMP",
+    "size": 6,
+    "description": "Ekran işlemleri için geçici alan, KERNAL ekran rutinleri tarafından kullanılır (örneğin, SCROLL $E1C7). Decompiler'da 'screen_temp[adres]' olarak işaretlenir, örneğin LDA $DB -> screen_temp[0] = A.",
+    "usage": "KERNAL, ekran işlemleri"
+  },
+  "$00E1-$00E2": {
+    "name": "IRQ_TEMP",
+    "size": 2,
+    "description": "Kesme işlemleri için geçici işaretçi, IRQ ($EA31) tarafından kullanılır. $E1 düşük bayt, $E2 yüksek bayt. Decompiler'da 'irq_temp' olarak işaretlenir, örneğin LDA $E1 -> irq_temp_lo = A.",
+    "usage": "KERNAL, kesme işlemleri"
+  },
+  "$00E3-$00F6": {
+    "name": "BASIC_WORK2",
+    "size": 20,
+    "description": "BASIC çalışma alanı, çeşitli işlemler için geçici veri saklar (örneğin, string işlemleri, LEN $A871). Decompiler'da 'basic_work2[adres]' olarak işaretlenir, örneğin LDA $E3 -> basic_work2[0] = A.",
+    "usage": "BASIC, geçici veri"
+  },
+  "$00F7-$00FA": {
+    "name": "FLOAT_TEMP",
+    "size": 4,
+    "description": "Floating-point geçici alanı, matematiksel işlemler için kullanılır (örneğin, ADD $B79B). Decompiler'da 'float_temp[adres]' olarak işaretlenir, örneğin LDA $F7 -> float_temp[0] = A.",
+    "usage": "BASIC, matematiksel işlemler"
+  },
+  "$00FB-$00FE": {
+    "name": "FREE_PTR",
+    "size": 4,
+    "description": "Serbest işaretçi, kullanıcı ve KERNAL/BASIC tarafından geçici işaretçi olarak kullanılır. $FB-$FC ve $FD-$FE çiftleri. Decompiler'da 'free_ptr[adres]' olarak işaretlenir, örneğin LDA $FB -> free_ptr[0] = A.",
+    "usage": "Kullanıcı/KERNAL/BASIC, serbest işaretçi"
+  },
+  "$00FF": {
+    "name": "BASIC_TEMP2",
+    "size": 1,
+    "description": "BASIC geçici değişkeni, çeşitli işlemler için kullanılır. Decompiler'da 'basic_temp2' olarak işaretlenir, örneğin LDA $FF -> basic_temp2 = A.",
+    "usage": "BASIC, geçici veri"
+  }
+}
