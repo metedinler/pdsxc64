@@ -1,0 +1,92 @@
+{
+  "$0000": {
+    "end_addr": "$00FF",
+    "name": "Zero Page",
+    "type": "RAM",
+    "description": "Sıfır sayfası, sistem değişkenleri ve işaretçiler için kullanılan 256 baytlık RAM. BASIC ve KERNAL tarafından yoğun şekilde kullanılır. Örneğin, $7A-$7B BASIC program işaretçisi, $5F-$60 değişken işaretçisi, $0311-$0312 USR vektörü, $FB-$FE serbest işaretçiler. Kullanıcı programları için sadece $FB-$FE güvenli. $0000-$0001 işlemci portları (LORAM, HIRAM, CHAREN kontrolü). Okuma/yazma serbest, decompiler'da 'ZP[adres]' olarak işaretlenir."
+  },
+  "$0100": {
+    "end_addr": "$01FF",
+    "name": "Stack",
+    "type": "RAM",
+    "description": "Yığın (stack) alanı, 256 baytlık RAM. Kesmeler (IRQ), alt rutin çağrıları (JSR/RTS) ve geçici veri saklama için kullanılır. Yığın işaretçisi (SP) $01FF'den aşağıya çalışır. Örneğin, GOSUB ($AE8D) dönüş adresini buraya kaydeder. Okuma/yazma serbest, decompiler'da 'STACK[adres]' olarak işaretlenir."
+  },
+  "$0200": {
+    "end_addr": "$03FF",
+    "name": "System Work RAM",
+    "type": "RAM",
+    "description": "Sistem çalışma RAM'i, 512 bayt. BASIC ve KERNAL için geçici veri saklama. Örneğin, $033C-$03FB kaset tamponu, $0277-$0280 klavye kuyruğu. Kullanıcı programları dikkatli kullanmalı, çünkü KERNAL (örneğin, $FFD2 CHROUT) burayı etkileyebilir. Okuma/yazma serbest, decompiler'da 'SYSRAM[adres]' olarak işaretlenir."
+  },
+  "$0400": {
+    "end_addr": "$07E7",
+    "name": "Screen RAM",
+    "type": "RAM",
+    "description": "Ekran RAM'i, varsayılan olarak 40x25 karakterlik ekran matrisini tutar (1000 bayt). Her bayt bir ekran kodunu temsil eder ('SCREEN[position]'). Örneğin, POKE 1024,1 sol üst köşeye 'A' yazar. VIC-II ($D018) ile adres değiştirilebilir (örneğin, $4400). Okuma/yazma serbest, decompiler'da 'SCREEN[position]' olarak işaretlenir, örneğin SCREEN[0] = $0400."
+  },
+  "$07E8": {
+    "end_addr": "$07FF",
+    "name": "Unused RAM",
+    "type": "RAM",
+    "description": "Kullanılmayan RAM, ekran RAM'i sonrası 24 baytlık küçük bir alan. Kullanıcı programları için serbest, genellikle tampon olarak kullanılır. Okuma/yazma serbest, decompiler'da 'RAM[adres]' olarak işaretlenir."
+  },
+  "$0800": {
+    "end_addr": "$9FFF",
+    "name": "BASIC Program RAM",
+    "type": "RAM",
+    "description": "BASIC programlarının ve değişkenlerinin saklandığı ana RAM alanı (38 KB). Varsayılan olarak $0800-$9FFF kullanılır. $0800-$0801 yükleme adresi, $0802 sonrası BASIC programı (token'lar, örneğin $C3 LEN). $0001 (LORAM=0) ile BASIC ROM ($A000-$BFFF) yerine bu alanın bir kısmı kullanılabilir. Okuma/yazma serbest, decompiler'da 'BASRAM[adres]' olarak işaretlenir."
+  },
+  "$A000": {
+    "end_addr": "$BFFF",
+    "name": "BASIC ROM",
+    "type": "ROM",
+    "description": "BASIC V2 ROM, BASIC interpreter kodunu içerir (8 KB). Örneğin, $A871 LEN ($C3 token), $AB1E PRINT ($99 token), $B3B3 USR ($B7 token). $0001 (LORAM=0) ile RAM'e geçilir, ROM'a yazma alttaki RAM'e yazılır. Decompiler'da 'BASIC[adres]' olarak işaretlenir, örneğin BASIC[$A871] = LEN."
+  },
+  "$C000": {
+    "end_addr": "$CFFF",
+    "name": "Free RAM",
+    "type": "RAM",
+    "description": "Serbest RAM alanı, kullanıcı programları veya ek veri için kullanılır (4 KB). BASIC veya KERNAL tarafından kullanılmaz, güvenli bir alandır. Örneğin, makine kodu rutinleri ($C000) veya veri tamponları için ideal. Okuma/yazma serbest, decompiler'da 'FREERAM[adres]' olarak işaretlenir."
+  },
+  "$D000": {
+    "end_addr": "$D3FF",
+    "name": "VIC-II",
+    "type": "IO",
+    "description": "VIC-II grafik yongası register'ları (64 bayt, $D000-$D02F), ekran, sprite ve renk ayarlarını kontrol eder. Örneğin, $D000-$D001 sprite 0 koordinatları, $D011 ekran kontrolü, $D018 bellek seçimi. $0001 (CHAREN=0) ile karakter ROM ($D000-$DFFF) görünür, yazma alttaki RAM'e gider. Decompiler'da 'VIC[register]' olarak işaretlenir, örneğin VIC[$D000] = SPR0_X."
+  },
+  "$D400": {
+    "end_addr": "$D7FF",
+    "name": "SID",
+    "type": "IO",
+    "description": "SID ses yongası register'ları (32 bayt, $D400-$D41C), ses frekansı, dalga formu ve filtre ayarlarını kontrol eder. Örneğin, $D400-$D401 ses 1 frekansı, $D418 ses seviyesi. $0001 (CHAREN=0) ile karakter ROM altında kalır, yazma alttaki RAM'e gider. Decompiler'da 'SID[register]' olarak işaretlenir, örneğin SID[$D400] = VOICE1_FREQ_LO."
+  },
+  "$D800": {
+    "end_addr": "$DBE7",
+    "name": "Color RAM",
+    "type": "RAM",
+    "description": "Renk RAM'i, ekran karakterlerinin renklerini tutar (1000 bayt). Sadece düşük 4 bit (0-3) kullanılır, 0-15 PETSCII renk kodu. Örneğin, POKE 55296,1 sol üst köşeyi beyaza boyar ('COLOR[position]'). $0001 (CHAREN=0) ile karakter ROM altında kalır. Decompiler'da 'COLOR[position]' olarak işaretlenir, örneğin COLOR[0] = $D800."
+  },
+  "$DBE8": {
+    "end_addr": "$DFFF",
+    "name": "Unused IO",
+    "type": "IO",
+    "description": "Kullanılmayan I/O alanı (536 bayt), yazılabilir ancak işlevsiz. Genişletme kartuşları için ayrılmış. $0001 (CHAREN=0) ile karakter ROM altında kalır, yazma alttaki RAM'e gider. Decompiler'da 'IO[adres]' olarak işaretlenir."
+  },
+  "$DE00": {
+    "end_addr": "$DEFF",
+    "name": "Expansion IO1",
+    "type": "IO",
+    "description": "Genişletme portu I/O alanı 1 (512 bayt), kartuşlar veya harici cihazlar için kullanılır. Standart C64'te genellikle boştur, yazma alttaki RAM'e gider. Decompiler'da 'EXP_IO1[adres]' olarak işaretlenir."
+  },
+  "$DF00": {
+    "end_addr": "$DFFF",
+    "name": "Expansion IO2",
+    "type": "IO",
+    "description": "Genişletme portu I/O alanı 2 (256 bayt), kartuşlar veya harici cihazlar için kullanılır. Standart C64'te genellikle boştur, yazma alttaki RAM'e gider. Decompiler'da 'EXP_IO2[adres]' olarak işaretlenir."
+  },
+  "$E000": {
+    "end_addr": "$FFFF",
+    "name": "KERNAL ROM",
+    "type": "ROM",
+    "description": "KERNAL ROM, sistem yönetimi ve I/O işlemleri için kod içerir (8 KB). Örneğin, $FFD2 CHROUT, $FFD5 LOAD, $E4C4 PRIMM. $0001 (HIRAM=0) ile RAM'e geçilir, ROM'a yazma alttaki RAM'e yazılır. Decompiler'da 'KERNAL[adres]' olarak işaretlenir, örneğin KERNAL[$FFD2] = CHROUT."
+  }
+}
