@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-07-30T19:56:46.699673",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python_version": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "working_directory": "C:\\Users\\dell\\Documents\\projeler\\D64Gelıstırme",
+  "python_executable": "C:\\Program Files\\Python313\\python.exe",
+  "d64_converter_version": "5.0 - SUPER UNIFIED",
+  "project_status": "SUPER UNIFIED (MAIN + ULTIMATE)",
+  "available_modules": [
+    "✅ unified_decompiler",
+    "✅ code_analyzer",
+    "✅ enhanced_c64_memory_manager",
+    "✅ gui_manager",
+    "✅ improved_disassembler",
+    "✅ advanced_disassembler",
+    "❌ clean_gui_selector",
+    "✅ d64_converterX1"
+  ]
+}
