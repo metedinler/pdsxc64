@@ -1,0 +1,155 @@
+=== A64 USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/a64_0.1.1_windows_386/a64_0.1.1_windows_386/a64.exe
+Category: assemblers
+Learning Date: 2025-07-28 23:16:29.325944
+============================================================
+
+COMMAND: a64 --help
+----------------------------------------
+STDOUT:
+a64: An Assembly64 CLI application supporting cross-platform CI/CD tooling
+
+Usage:
+  a64 [flags]
+  a64 [command]
+
+Available Commands:
+  create      Create local machine resources (download)
+  help        Help about any command
+  read        Query information from Assembly 64 (details, files, models)
+  run         Activate runner on Assembly 64 (filter)
+  version     Print version information (api, cli)
+
+Flags:
+  -c, --config string   config file (default is $HOME/.a64.yaml)
+  -h, --help            help for a64
+  -s, --silent          silence standard output
+
+Use "a64 [command] --help" for more information about a command.
+
+Return Code: 0
+
+============================================================
+
+COMMAND: a64 -h
+----------------------------------------
+STDOUT:
+a64: An Assembly64 CLI application supporting cross-platform CI/CD tooling
+
+Usage:
+  a64 [flags]
+  a64 [command]
+
+Available Commands:
+  create      Create local machine resources (download)
+  help        Help about any command
+  read        Query information from Assembly 64 (details, files, models)
+  run         Activate runner on Assembly 64 (filter)
+  version     Print version information (api, cli)
+
+Flags:
+  -c, --config string   config file (default is $HOME/.a64.yaml)
+  -h, --help            help for a64
+  -s, --silent          silence standard output
+
+Use "a64 [command] --help" for more information about a command.
+
+Return Code: 0
+
+============================================================
+
+COMMAND: a64 --version
+----------------------------------------
+STDERR:
+Error: unknown flag: --version
+Usage:
+  a64 [flags]
+  a64 [command]
+
+Available Commands:
+  create      Create local machine resources (download)
+  help        Help about any command
+  read        Query information from Assembly 64 (details, files, models)
+  run         Activate runner on Assembly 64 (filter)
+  version     Print version information (api, cli)
+
+Flags:
+  -c, --config string   config file (default is $HOME/.a64.yaml)
+  -h, --help            help for a64
+  -s, --silent          silence standard output
+
+Use "a64 [command] --help" for more information about a command.
+
+unknown flag: --version
+
+Return Code: 1
+
+============================================================
+
+COMMAND: a64 -v
+----------------------------------------
+STDERR:
+Error: unknown shorthand flag: 'v' in -v
+Usage:
+  a64 [flags]
+  a64 [command]
+
+Available Commands:
+  create      Create local machine resources (download)
+  help        Help about any command
+  read        Query information from Assembly 64 (details, files, models)
+  run         Activate runner on Assembly 64 (filter)
+  version     Print version information (api, cli)
+
+Flags:
+  -c, --config string   config file (default is $HOME/.a64.yaml)
+  -h, --help            help for a64
+  -s, --silent          silence standard output
+
+Use "a64 [command] --help" for more information about a command.
+
+unknown shorthand flag: 'v' in -v
+
+Return Code: 1
+
+============================================================
+
+COMMAND: a64 -?
+----------------------------------------
+STDERR:
+Error: unknown shorthand flag: '?' in -?
+Usage:
+  a64 [flags]
+  a64 [command]
+
+Available Commands:
+  create      Create local machine resources (download)
+  help        Help about any command
+  read        Query information from Assembly 64 (details, files, models)
+  run         Activate runner on Assembly 64 (filter)
+  version     Print version information (api, cli)
+
+Flags:
+  -c, --config string   config file (default is $HOME/.a64.yaml)
+  -h, --help            help for a64
+  -s, --silent          silence standard output
+
+Use "a64 [command] --help" for more information about a command.
+
+unknown shorthand flag: '?' in -?
+
+Return Code: 1
+
+============================================================
+
+COMMAND: a64 /?
+----------------------------------------
+STDERR:
+Error: unknown command "/?" for "a64"
+Run 'a64 --help' for usage.
+unknown command "/?" for "a64"
+
+Return Code: 1
+
+============================================================
+
