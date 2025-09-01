@@ -1,0 +1,48 @@
+=== ALBERT2 USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/ALBERT-2.4.1-windows-x86_64-portable/ALBERT-2.4.1/bin/albert.exe
+Category: emulators
+Learning Date: 2025-07-29 00:34:45.128503
+============================================================
+
+COMMAND: albert2 --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: albert2 -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: albert2 --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: albert2 -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: albert2 -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: albert2 /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
