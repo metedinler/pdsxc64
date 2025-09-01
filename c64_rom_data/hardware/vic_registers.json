@@ -1,0 +1,250 @@
+{
+  "$D000": {
+    "name": "VIC_SP0_X",
+    "size": 1,
+    "description": "Sprite 0 X koordinatı (düşük 8 bit). Sprite 0'ın yatay pozisyonunu kontrol eder.",
+    "usage": "VIC-II, sprite kontrolü",
+    "detailed_info": "Sprite 0'ın X pozisyonu (0-255). 9. bit için $D010 registerındaki ilgili bit kullanılır. X=0 ekranın solunda, X=255+ ekranın sağında.",
+    "bit_info": {
+      "7-0": "Sprite 0 X koordinatı (bit 0-7)"
+    },
+    "example": "LDA #$50 : STA $D000 ; Sprite 0'ı X=80'e koy"
+  },
+  "$D001": {
+    "name": "VIC_SP0_Y", 
+    "size": 1,
+    "description": "Sprite 0 Y koordinatı. Sprite 0'ın dikey pozisyonunu kontrol eder.",
+    "usage": "VIC-II, sprite kontrolü",
+    "detailed_info": "Sprite 0'ın Y pozisyonu (0-255). Y=0 ekranın üstünde, Y=255 ekranın altında. PAL sistemde görünür alan yaklaşık Y=50-250.",
+    "bit_info": {
+      "7-0": "Sprite 0 Y koordinatı"
+    },
+    "example": "LDA #$64 : STA $D001 ; Sprite 0'ı Y=100'e koy"
+  },
+  "$D002": {
+    "name": "VIC_SP1_X",
+    "size": 1, 
+    "description": "Sprite 1 X koordinatı (düşük 8 bit). Sprite 1'in yatay pozisyonunu kontrol eder.",
+    "usage": "VIC-II, sprite kontrolü",
+    "detailed_info": "Sprite 1'in X pozisyonu (0-255). 9. bit için $D010 registerındaki bit 1 kullanılır.",
+    "bit_info": {
+      "7-0": "Sprite 1 X koordinatı (bit 0-7)"
+    },
+    "example": "LDA #$A0 : STA $D002 ; Sprite 1'i X=160'a koy"
+  },
+  "$D003": {
+    "name": "VIC_SP1_Y",
+    "size": 1,
+    "description": "Sprite 1 Y koordinatı. Sprite 1'in dikey pozisyonunu kontrol eder.",
+    "usage": "VIC-II, sprite kontrolü", 
+    "detailed_info": "Sprite 1'in Y pozisyonu (0-255).",
+    "bit_info": {
+      "7-0": "Sprite 1 Y koordinatı"
+    },
+    "example": "LDA #$C8 : STA $D003 ; Sprite 1'i Y=200'e koy"
+  },
+  "$D010": {
+    "name": "VIC_SP_HI_X",
+    "size": 1,
+    "description": "Sprite X koordinatları MSB (9. bit). Tüm sprite'ların X koordinatlarının 9. bitini kontrol eder.",
+    "usage": "VIC-II, sprite kontrolü",
+    "detailed_info": "Her bit bir sprite'ın X koordinatının 9. bitidir. Bu sayede sprite'lar 0-511 X aralığında konumlandırılabilir.",
+    "bit_info": {
+      "0": "Sprite 0 X koordinatı bit 8",
+      "1": "Sprite 1 X koordinatı bit 8", 
+      "2": "Sprite 2 X koordinatı bit 8",
+      "3": "Sprite 3 X koordinatı bit 8",
+      "4": "Sprite 4 X koordinatı bit 8",
+      "5": "Sprite 5 X koordinatı bit 8",
+      "6": "Sprite 6 X koordinatı bit 8",
+      "7": "Sprite 7 X koordinatı bit 8"
+    },
+    "example": "LDA #$01 : STA $D010 ; Sprite 0'ın X'ini 256+ yap"
+  },
+  "$D011": {
+    "name": "VIC_CTRL1",
+    "size": 1,
+    "description": "VIC-II kontrol register 1. Ekran modunu, scroll'u ve raster kesmeyi kontrol eder.",
+    "usage": "VIC-II, ekran kontrolü",
+    "detailed_info": "Ana VIC-II kontrol register'ı. Ekran yüksekliği, scroll, raster kesmesi ve ekran açık/kapalı durumunu kontrol eder.",
+    "bit_info": {
+      "0": "Raster karşılaştırma bit 8 (YSCROLL ile birlikte)",
+      "1": "YSCROLL bit 1",
+      "2": "YSCROLL bit 2", 
+      "3": "RSEL - 0=24 satır, 1=25 satır",
+      "4": "DEN - 0=ekran kapalı, 1=ekran açık",
+      "5": "BMM - 0=text/multicolor, 1=bitmap mod",
+      "6": "ECM - 1=extended color mode",
+      "7": "RST8 - Raster karşılaştırma bit 8"
+    },
+    "example": "LDA #$1B : STA $D011 ; Normal text mode, ekran açık"
+  },
+  "$D012": {
+    "name": "VIC_RASTER",
+    "size": 1,
+    "description": "Raster line register. Mevcut raster line'ını okur veya kesme için raster line ayarlar.",
+    "usage": "VIC-II, raster kontrolü",
+    "detailed_info": "Okuma: Mevcut raster line (0-312 PAL, 0-262 NTSC). Yazma: Raster kesmesi için hedef line. 9. bit $D011'de.",
+    "bit_info": {
+      "7-0": "Raster line (bit 0-7)"
+    },
+    "example": "LDA #$80 : STA $D012 ; Raster kesmesini line 128'e ayarla"
+  },
+  "$D015": {
+    "name": "VIC_SP_EN", 
+    "size": 1,
+    "description": "Sprite enable register. Hangi sprite'ların görünür olduğunu kontrol eder.",
+    "usage": "VIC-II, sprite kontrolü",
+    "detailed_info": "Her bit bir sprite'ın açık/kapalı durumunu kontrol eder. 1=sprite görünür, 0=sprite gizli.",
+    "bit_info": {
+      "0": "Sprite 0 enable",
+      "1": "Sprite 1 enable",
+      "2": "Sprite 2 enable", 
+      "3": "Sprite 3 enable",
+      "4": "Sprite 4 enable",
+      "5": "Sprite 5 enable",
+      "6": "Sprite 6 enable",
+      "7": "Sprite 7 enable"
+    },
+    "example": "LDA #$03 : STA $D015 ; Sprite 0 ve 1'i aç"
+  },
+  "$D016": {
+    "name": "VIC_CTRL2",
+    "size": 1, 
+    "description": "VIC-II kontrol register 2. Yatay scroll ve multicolor modunu kontrol eder.",
+    "usage": "VIC-II, ekran kontrolü",
+    "detailed_info": "Yatay scroll, ekran genişliği ve multicolor text modunu kontrol eder.",
+    "bit_info": {
+      "0": "XSCROLL bit 0",
+      "1": "XSCROLL bit 1",
+      "2": "XSCROLL bit 2",
+      "3": "CSEL - 0=38 sütun, 1=40 sütun",
+      "4": "MCM - 1=multicolor text mode",
+      "5": "RES - Reset (genellikle 0)",
+      "6-7": "Kullanılmıyor"
+    },
+    "example": "LDA #$C8 : STA $D016 ; 40 sütun, scroll=0"
+  },
+  "$D017": {
+    "name": "VIC_SP_EXP_Y",
+    "size": 1,
+    "description": "Sprite Y genişletme register. Sprite'ların dikey olarak 2x genişletilmesini kontrol eder.",
+    "usage": "VIC-II, sprite kontrolü",
+    "detailed_info": "Her bit bir sprite'ın Y ekseninde 2x genişletilmesini kontrol eder. 1=genişletilmiş, 0=normal.",
+    "bit_info": {
+      "0": "Sprite 0 Y expand",
+      "1": "Sprite 1 Y expand",
+      "2": "Sprite 2 Y expand",
+      "3": "Sprite 3 Y expand", 
+      "4": "Sprite 4 Y expand",
+      "5": "Sprite 5 Y expand",
+      "6": "Sprite 6 Y expand",
+      "7": "Sprite 7 Y expand"
+    },
+    "example": "LDA #$01 : STA $D017 ; Sprite 0'ı Y'de genişlet"
+  },
+  "$D018": {
+    "name": "VIC_MEM_PTR",
+    "size": 1,
+    "description": "Memory pointer register. Ekran memory ve karakter set konumlarını belirler.",
+    "usage": "VIC-II, bellek haritası",
+    "detailed_info": "VIC-II'nin hangi bellek alanlarını kullanacağını belirler. Screen memory ve character ROM/RAM konumları.",
+    "bit_info": {
+      "0": "Kullanılmıyor",
+      "1-3": "Character memory base (CB) * $800",
+      "4-7": "Screen memory base (VM) * $400"
+    },
+    "example": "LDA #$15 : STA $D018 ; Screen=$0400, Char=$1000"
+  },
+  "$D019": {
+    "name": "VIC_IRQ_FLAG",
+    "size": 1,
+    "description": "IRQ flag register. VIC-II kesme durumlarını gösterir.",
+    "usage": "VIC-II, kesme kontrolü",
+    "detailed_info": "VIC-II'den gelen kesme nedenlerini gösterir. Okuma: mevcut durum, Yazma: flag temizleme.",
+    "bit_info": {
+      "0": "Raster IRQ flag",
+      "1": "Sprite-background collision IRQ flag",
+      "2": "Sprite-sprite collision IRQ flag", 
+      "3": "Light pen IRQ flag",
+      "4-6": "Kullanılmıyor",
+      "7": "Herhangi bir IRQ flag (read-only)"
+    },
+    "example": "LDA $D019 : STA $D019 ; IRQ flag'leri temizle"
+  },
+  "$D01A": {
+    "name": "VIC_IRQ_MASK",
+    "size": 1,
+    "description": "IRQ mask register. Hangi VIC-II kesmelerinin aktif olduğunu kontrol eder.",
+    "usage": "VIC-II, kesme kontrolü",
+    "detailed_info": "VIC-II kesmelerini enable/disable eder. 1=kesme aktif, 0=kesme pasif.",
+    "bit_info": {
+      "0": "Raster IRQ enable",
+      "1": "Sprite-background collision IRQ enable",
+      "2": "Sprite-sprite collision IRQ enable",
+      "3": "Light pen IRQ enable", 
+      "4-7": "Kullanılmıyor"
+    },
+    "example": "LDA #$01 : STA $D01A ; Sadece raster IRQ'yu aç"
+  },
+  "$D020": {
+    "name": "VIC_BORDER_COL",
+    "size": 1,
+    "description": "Border color register. Ekran kenar rengini belirler.",
+    "usage": "VIC-II, renk kontrolü",
+    "detailed_info": "Ekranın kenar (border) alanının rengini belirler. Alt 4 bit renk kodu (0-15).",
+    "bit_info": {
+      "0-3": "Border color (0-15)",
+      "4-7": "Kullanılmıyor"
+    },
+    "example": "LDA #$00 : STA $D020 ; Border rengini siyah yap"
+  },
+  "$D021": {
+    "name": "VIC_BG_COL0",
+    "size": 1,
+    "description": "Background color 0 register. Ana arka plan rengini belirler.",
+    "usage": "VIC-II, renk kontrolü",
+    "detailed_info": "Text mode ve bitmap mode'da ana arka plan rengi. Multicolor mode'da background color 0.",
+    "bit_info": {
+      "0-3": "Background color 0 (0-15)",
+      "4-7": "Kullanılmıyor"
+    },
+    "example": "LDA #$06 : STA $D021 ; Arka planı mavi yap"
+  },
+  "$D025": {
+    "name": "VIC_SP_MC0",
+    "size": 1,
+    "description": "Sprite multicolor 0 register. Multicolor sprite'lar için ortak renk 0.",
+    "usage": "VIC-II, sprite renk kontrolü",
+    "detailed_info": "Multicolor sprite'larda kullanılan ortak renk 0. Tüm multicolor sprite'lar bu rengi paylaşır.",
+    "bit_info": {
+      "0-3": "Sprite multicolor 0 (0-15)",
+      "4-7": "Kullanılmıyor"
+    },
+    "example": "LDA #$01 : STA $D025 ; Sprite MC0'ı beyaz yap"
+  },
+  "$D026": {
+    "name": "VIC_SP_MC1",
+    "size": 1,
+    "description": "Sprite multicolor 1 register. Multicolor sprite'lar için ortak renk 1.",
+    "usage": "VIC-II, sprite renk kontrolü",
+    "detailed_info": "Multicolor sprite'larda kullanılan ortak renk 1. Tüm multicolor sprite'lar bu rengi paylaşır.",
+    "bit_info": {
+      "0-3": "Sprite multicolor 1 (0-15)",
+      "4-7": "Kullanılmıyor"
+    },
+    "example": "LDA #$03 : STA $D026 ; Sprite MC1'i cyan yap"
+  },
+  "$D027": {
+    "name": "VIC_SP0_COL",
+    "size": 1,
+    "description": "Sprite 0 color register. Sprite 0'ın individual rengini belirler.",
+    "usage": "VIC-II, sprite renk kontrolü",
+    "detailed_info": "Normal mode'da sprite 0'ın rengi. Multicolor mode'da sprite 0'ın individual rengi (sprite color).",
+    "bit_info": {
+      "0-3": "Sprite 0 color (0-15)",
+      "4-7": "Kullanılmıyor"
+    },
+    "example": "LDA #$02 : STA $D027 ; Sprite 0'ı kırmızı yap"
+  }
+}
