@@ -1,0 +1,69 @@
+=== P2BIN USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/p2bin.exe
+Category: special
+Learning Date: 2025-07-29 07:35:26.653001
+============================================================
+
+COMMAND: p2bin --help
+----------------------------------------
+STDERR:
+invalid parameter (-help for help): --help
+program terminated
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2bin -h
+----------------------------------------
+STDERR:
+invalid option (-help for help): -h
+program terminated
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2bin --version
+----------------------------------------
+STDERR:
+invalid parameter (-help for help): --version
+program terminated
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2bin -v
+----------------------------------------
+STDOUT:
+P2BIN V1.42 Beta [Bld 291]
+(C) 1992,2025 Alfred Arnold
+
+STDERR:
+p2bin.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2bin -?
+----------------------------------------
+STDERR:
+invalid option (-help for help): -?
+program terminated
+
+Return Code: 1
+
+============================================================
+
+COMMAND: p2bin /?
+----------------------------------------
+STDERR:
+invalid option (-help for help): /?
+program terminated
+
+Return Code: 1
+
+============================================================
+
