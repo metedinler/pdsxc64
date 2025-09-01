@@ -1,0 +1,294 @@
+{
+  "c64_basic_functions": {
+    "description": "C64 BASIC V2 fonksiyonları ve komutları",
+    "rom_version": "901226-01",
+    "address_range": "0xA000-0xBFFF",
+    "commands": {
+      "PRINT": {
+        "token": 153,
+        "hex": "0x99",
+        "description": "Ekrana metin yazdırır",
+        "syntax": "PRINT [expression][;|,]",
+        "examples": ["PRINT \"HELLO\"", "PRINT A", "PRINT A;B"],
+        "category": "output",
+        "transpile_c": "printf",
+        "transpile_qbasic": "PRINT",
+        "transpile_python": "print"
+      },
+      "INPUT": {
+        "token": 132,
+        "hex": "0x84", 
+        "description": "Kullanıcıdan veri girişi alır",
+        "syntax": "INPUT [\"prompt\";] variable",
+        "examples": ["INPUT A", "INPUT \"NAME\";N$"],
+        "category": "input",
+        "transpile_c": "scanf",
+        "transpile_qbasic": "INPUT",
+        "transpile_python": "input"
+      },
+      "FOR": {
+        "token": 129,
+        "hex": "0x81",
+        "description": "Döngü başlatır",
+        "syntax": "FOR variable = start TO end [STEP increment]",
+        "examples": ["FOR I=1 TO 10", "FOR J=10 TO 1 STEP -1"],
+        "category": "control",
+        "transpile_c": "for",
+        "transpile_qbasic": "FOR",
+        "transpile_python": "for"
+      },
+      "NEXT": {
+        "token": 130,
+        "hex": "0x82",
+        "description": "Döngü sonunu belirtir",
+        "syntax": "NEXT [variable]",
+        "examples": ["NEXT", "NEXT I"],
+        "category": "control", 
+        "transpile_c": "}",
+        "transpile_qbasic": "NEXT",
+        "transpile_python": "# end for"
+      },
+      "IF": {
+        "token": 139,
+        "hex": "0x8B",
+        "description": "Koşullu ifade",
+        "syntax": "IF condition THEN statement [ELSE statement]",
+        "examples": ["IF A=5 THEN PRINT \"YES\"", "IF X>10 THEN A=1 ELSE A=0"],
+        "category": "control",
+        "transpile_c": "if",
+        "transpile_qbasic": "IF",
+        "transpile_python": "if"
+      },
+      "THEN": {
+        "token": 167,
+        "hex": "0xA7",
+        "description": "IF komutu ile birlikte kullanılır",
+        "syntax": "Tek başına kullanılmaz",
+        "examples": [],
+        "category": "control",
+        "transpile_c": "{",
+        "transpile_qbasic": "THEN",
+        "transpile_python": ":"
+      },
+      "ELSE": {
+        "token": 164,
+        "hex": "0xA4",
+        "description": "IF komutu alternativ dalı",
+        "syntax": "IF condition THEN statement ELSE statement",
+        "examples": ["IF A=1 ELSE B=2"],
+        "category": "control",
+        "transpile_c": "else",
+        "transpile_qbasic": "ELSE", 
+        "transpile_python": "else"
+      },
+      "GOTO": {
+        "token": 137,
+        "hex": "0x89",
+        "description": "Belirtilen satıra atlar",
+        "syntax": "GOTO line_number",
+        "examples": ["GOTO 100", "GOTO 10"],
+        "category": "control",
+        "transpile_c": "goto",
+        "transpile_qbasic": "GOTO",
+        "transpile_python": "# goto not recommended"
+      },
+      "GOSUB": {
+        "token": 141,
+        "hex": "0x8D",
+        "description": "Alt rutine atlar",
+        "syntax": "GOSUB line_number",
+        "examples": ["GOSUB 1000"],
+        "category": "control",
+        "transpile_c": "function_call",
+        "transpile_qbasic": "GOSUB",
+        "transpile_python": "function_call"
+      },
+      "RETURN": {
+        "token": 142,
+        "hex": "0x8E",
+        "description": "Alt rutinden geri döner",
+        "syntax": "RETURN",
+        "examples": ["RETURN"],
+        "category": "control",
+        "transpile_c": "return",
+        "transpile_qbasic": "RETURN",
+        "transpile_python": "return"
+      },
+      "LET": {
+        "token": 136,
+        "hex": "0x88",
+        "description": "Değişken ataması (opsiyonel)",
+        "syntax": "[LET] variable = expression",
+        "examples": ["LET A=5", "A=5"],
+        "category": "assignment",
+        "transpile_c": "=",
+        "transpile_qbasic": "LET",
+        "transpile_python": "="
+      },
+      "DIM": {
+        "token": 134,
+        "hex": "0x86",
+        "description": "Dizi tanımlar",
+        "syntax": "DIM variable(size1[,size2])",
+        "examples": ["DIM A(10)", "DIM B(5,5)"],
+        "category": "declaration",
+        "transpile_c": "array_declaration",
+        "transpile_qbasic": "DIM",
+        "transpile_python": "list_creation"
+      },
+      "REM": {
+        "token": 143,
+        "hex": "0x8F",
+        "description": "Yorum satırı",
+        "syntax": "REM comment_text",
+        "examples": ["REM THIS IS A COMMENT"],
+        "category": "documentation",
+        "transpile_c": "//",
+        "transpile_qbasic": "REM",
+        "transpile_python": "#"
+      },
+      "POKE": {
+        "token": 151,
+        "hex": "0x97",
+        "description": "Bellek adresine değer yazar",
+        "syntax": "POKE address, value",
+        "examples": ["POKE 53280,0", "POKE 1024,65"],
+        "category": "memory",
+        "transpile_c": "memory_write",
+        "transpile_qbasic": "POKE",
+        "transpile_python": "memory_write"
+      },
+      "PEEK": {
+        "token": 194,
+        "hex": "0xC2",
+        "description": "Bellek adresinden değer okur",
+        "syntax": "variable = PEEK(address)",
+        "examples": ["A=PEEK(53280)", "B=PEEK(1024)"],
+        "category": "memory",
+        "transpile_c": "memory_read",
+        "transpile_qbasic": "PEEK",
+        "transpile_python": "memory_read"
+      },
+      "SYS": {
+        "token": 158,
+        "hex": "0x9E",
+        "description": "Makine dili rutini çalıştırır",
+        "syntax": "SYS address",
+        "examples": ["SYS 49152", "SYS 64738"],
+        "category": "system",
+        "transpile_c": "asm_call",
+        "transpile_qbasic": "CALL",
+        "transpile_python": "asm_call"
+      }
+    },
+    "functions": {
+      "ABS": {
+        "token": 182,
+        "hex": "0xB6",
+        "description": "Mutlak değer",
+        "syntax": "ABS(number)",
+        "examples": ["ABS(-5)", "ABS(X)"],
+        "category": "math",
+        "transpile_c": "abs",
+        "transpile_qbasic": "ABS",
+        "transpile_python": "abs"
+      },
+      "SQR": {
+        "token": 186,
+        "hex": "0xBA", 
+        "description": "Karekök",
+        "syntax": "SQR(number)",
+        "examples": ["SQR(16)", "SQR(A)"],
+        "category": "math",
+        "transpile_c": "sqrt",
+        "transpile_qbasic": "SQR",
+        "transpile_python": "math.sqrt"
+      },
+      "INT": {
+        "token": 181,
+        "hex": "0xB5",
+        "description": "Tam sayı kısmı",
+        "syntax": "INT(number)",
+        "examples": ["INT(3.7)", "INT(X)"],
+        "category": "math",
+        "transpile_c": "floor",
+        "transpile_qbasic": "INT",
+        "transpile_python": "int"
+      },
+      "RND": {
+        "token": 187,
+        "hex": "0xBB",
+        "description": "Rastgele sayı (0-1 arası)",
+        "syntax": "RND(x)",
+        "examples": ["RND(1)", "INT(RND(1)*6)+1"],
+        "category": "math",
+        "transpile_c": "rand",
+        "transpile_qbasic": "RND",
+        "transpile_python": "random.random"
+      },
+      "LEN": {
+        "token": 195,
+        "hex": "0xC3",
+        "description": "String uzunluğu",
+        "syntax": "LEN(string)",
+        "examples": ["LEN(\"HELLO\")", "LEN(A$)"],
+        "category": "string",
+        "transpile_c": "strlen",
+        "transpile_qbasic": "LEN",
+        "transpile_python": "len"
+      },
+      "LEFT$": {
+        "token": 200,
+        "hex": "0xC8",
+        "description": "Stringin sol kısmı",
+        "syntax": "LEFT$(string, count)",
+        "examples": ["LEFT$(\"HELLO\",3)", "LEFT$(A$,2)"],
+        "category": "string",
+        "transpile_c": "substring",
+        "transpile_qbasic": "LEFT$",
+        "transpile_python": "[:count]"
+      },
+      "RIGHT$": {
+        "token": 201,
+        "hex": "0xC9",
+        "description": "Stringin sağ kısmı",
+        "syntax": "RIGHT$(string, count)",
+        "examples": ["RIGHT$(\"HELLO\",2)", "RIGHT$(A$,3)"],
+        "category": "string",
+        "transpile_c": "substring",
+        "transpile_qbasic": "RIGHT$",
+        "transpile_python": "[-count:]"
+      },
+      "MID$": {
+        "token": 202,
+        "hex": "0xCA",
+        "description": "Stringin ortası",
+        "syntax": "MID$(string, start[, count])",
+        "examples": ["MID$(\"HELLO\",2,3)", "MID$(A$,3)"],
+        "category": "string",
+        "transpile_c": "substring",
+        "transpile_qbasic": "MID$",
+        "transpile_python": "[start:start+count]"
+      }
+    },
+    "categories": {
+      "output": "Çıktı komutları",
+      "input": "Girdi komutları",
+      "control": "Kontrol yapıları",
+      "assignment": "Atama komutları",
+      "declaration": "Tanımlama komutları",
+      "documentation": "Dokümantasyon",
+      "memory": "Bellek işlemleri",
+      "system": "Sistem komutları",
+      "math": "Matematik fonksiyonları",
+      "string": "String fonksiyonları"
+    },
+    "annotation_levels": {
+      "minimal": "Sadece komut adı",
+      "basic": "Komut adı + basit açıklama",
+      "detailed": "Komut adı + açıklama + syntax",
+      "comprehensive": "Komut adı + açıklama + syntax + örnek + transpile bilgisi",
+      "educational": "Comprehensive + pedagogik açıklamalar + C64 özel bilgiler"
+    }
+  }
+}
