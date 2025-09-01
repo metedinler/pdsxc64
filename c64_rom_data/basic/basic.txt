@@ -1,0 +1,473 @@
+; C64 BASIC ROM Disassembly
+; BASIC başlangıç rutini
+	.org $A000
+START:
+    JSR INIT        ; Sistem başlatma
+    JMP MAIN_LOOP   ; BASIC komut satırı döngüsüne git
+
+; Sistem başlatma
+INIT:
+    LDA #$00        ; Sıfır sayfası işaretçisi ($7A-$7B)
+    STA $7A
+    LDA #$08
+    STA $7B
+    JSR SUB_A65E    ; Bellek sınırlarını ayarla
+    RTS
+
+; Bellek sınırlarını ayarla
+SUB_A65E:
+    LDA #$00        ; Geçici işaretçi ($5F-$60)
+    STA $5F
+    LDA #$08
+    STA $60
+    RTS
+
+; BASIC komut satırı döngüsü
+MAIN_LOOP:
+    JSR CHRGET      ; Karakter oku ($A96B)
+    BEQ MAIN_LOOP   ; Boşsa döngüye devam
+    JSR SUB_A7E4    ; Komut çözümleme
+    JMP MAIN_LOOP   ; Döngüye geri dön
+
+; Karakter okuma (CHRGET)
+CHRGET:
+    INC $7A         ; Program işaretçisi ($7A-$7B)
+    BNE CHRGET_CONT
+    INC $7B
+CHRGET_CONT:
+    LDA ($7A),Y     ; Programdan karakter oku
+    CMP #$20        ; Boşluk mu?
+    BEQ CHRGET      ; Evetse atla
+    CMP #$3A        ; İki nokta mı?
+    BCS CHRGET_END  ; Evetse çık
+    RTS
+CHRGET_END:
+    RTS
+
+; Komut çözümleme
+SUB_A7E4:
+    JSR SUB_A8F8    ; Token çözümleme
+    BCS EXECUTE     ; Komutsa yürüt
+    RTS
+EXECUTE:
+    JSR SUB_A7ED    ; Komut yürütme
+    RTS
+
+; Komut yürütme
+SUB_A7ED:
+    LDA ($7A),Y     ; Komut token'ı
+    ASL             ; Token tablosu indeksi
+    TAX
+    LDA $A000,X     ; Komut adresi düşük bayt
+    STA $5F
+    LDA $A001,X     ; Komut adresi yüksek bayt
+    STA $60
+    JMP ($5F)       ; Komut adresine atla
+
+; Token çözümleme
+SUB_A8F8:
+    LDA ($7A),Y     ; Karakter oku
+    CMP #$80        ; Token mi?
+    BCS TOKEN_FOUND
+    RTS
+TOKEN_FOUND:
+    JSR SUB_A82C    ; Token tablosu arama
+    RTS
+
+; Token tablosu arama
+SUB_A82C:
+    LDA #$00        ; Token işaretçisi ($5F-$60)
+    STA $5F
+    LDA #$A0
+    STA $60
+    RTS
+
+; STRING LENGTH rutini ($A871)
+LEN:
+    JSR SUB_B7F7    ; String işaretçisini al ($5F-$60)
+    LDA $5F         ; String uzunluğu
+    RTS             ; Türkçe: LEN(string) fonksiyonunu hesaplar, string uzunluğunu A register'ına döndürür
+
+; String işaretçisi alma
+SUB_B7F7:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $5F         ; String adresi düşük bayt ($5F)
+    INY
+    LDA ($7A),Y
+    STA $60         ; String adresi yüksek bayt ($60)
+    RTS
+
+; PRINT komut yürütme
+STROUT:
+    JSR CHRGET      ; CHRGET ile karakter oku ($A96B)
+    JSR SUB_AB1E    ; String çıktı (PRINT)
+    RTS             ; Türkçe: PRINT komutunu yürütür, string'i ekrana basar
+
+; String çıktı
+SUB_AB1E:
+    LDA ($5F),Y     ; String işaretçisi ($5F-$60)
+    BEQ SUB_AB24
+    JSR $FFD2       ; CHROUT ile yaz ($FFD2)
+    INY
+    JMP SUB_AB1E
+SUB_AB24:
+    RTS
+
+; Sayı çözümleme
+SUB_B526:
+    LDA #$00        ; Sayı tamponu ($5F-$60)
+    STA $5F
+    STA $60
+    JSR SUB_B7B5    ; Sayı dönüştürme
+    RTS
+
+; Sayı dönüştürme
+SUB_B7B5:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    CMP #$30        ; Rakam mı?
+    BCC SUB_B7C0
+    CMP #$3A
+    BCS SUB_B7C0
+    SBC #$30        ; ASCII'den sayıya
+    STA $5F
+SUB_B7C0:
+    RTS
+
+; Matematiksel işlem: TOPLAMA
+ADD:
+    JSR SUB_B8A7    ; İlk sayıyı al
+    JSR SUB_B86A    ; İkinci sayıyı al
+    CLC
+    ADC $5F         ; Toplama
+    STA $5F         ; Sonuç ($5F)
+    RTS
+
+; İlk sayıyı alma
+SUB_B8A7:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $5F         ; Sayı tamponu ($5F)
+    INY
+    RTS
+
+; İkinci sayıyı alma
+SUB_B86A:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $60         ; Sayı tamponu ($60)
+    INY
+    RTS
+
+; Matematiksel işlem: ÇIKARMA
+SUBTRACT:
+    JSR SUB_B8A7    ; İlk sayıyı al
+    JSR SUB_B86A    ; İkinci sayıyı al
+    SEC
+    SBC $60         ; Çıkarma
+    STA $5F         ; Sonuç ($5F)
+    RTS
+
+; Matematiksel işlem: ÇARPMA
+MULTIPLY:
+    JSR SUB_B8A7    ; İlk sayıyı al
+    JSR SUB_B86A    ; İkinci sayıyı al
+    LDA $5F         ; İlk sayı
+    LDX $60         ; İkinci sayı
+    JSR SUB_BA28    ; Çarpma rutini
+    RTS
+
+; Çarpma alt rutini
+SUB_BA28:
+    STA $61         ; Geçici sonuç ($61)
+    LDA #$00
+    STA $62         ; Sonuç yüksek bayt ($62)
+    LDY #$08        ; 8 bit döngüsü
+MULT_LOOP:
+    ASL $61         ; Sonucu sola kaydır
+    ROL $62
+    BCC NO_ADD
+    CLC
+    ADC $60         ; Çarpan ekle
+    BCC NO_ADD
+    INC $62
+NO_ADD:
+    DEY
+    BNE MULT_LOOP
+    RTS
+
+; Matematiksel işlem: BÖLME
+DIVIDE:
+    JSR SUB_B8A7    ; İlk sayıyı al
+    JSR SUB_B86A    ; İkinci sayıyı al
+    LDA $5F         ; Bölünen
+    LDX $60         ; Bölen
+    JSR SUB_BB0F    ; Bölme rutini
+    RTS
+
+; Bölme alt rutini
+SUB_BB0F:
+    STA $61         ; Geçici sonuç ($61)
+    LDA #$00
+    STA $62         ; Kalan ($62)
+    LDY #$08        ; 8 bit döngüsü
+DIV_LOOP:
+    ASL $61         ; Bölüneni sola kaydır
+    ROL $62
+    CMP $60         ; Bölenle karşılaştır
+    BCC NO_SUB
+    SBC $60         ; Böleni çıkar
+    INC $61         ; Bölüm artır
+NO_SUB:
+    DEY
+    BNE DIV_LOOP
+    RTS
+
+; GOTO komut yürütme
+GOTO:
+    JSR SUB_B526    ; Sayı çözümleme
+    JMP ($5F)       ; Hedef adrese git ($5F-$60)
+    RTS             ; Türkçe: GOTO komutunu yürütür, belirtilen satıra atlar
+
+; FOR döngüsü başlatma
+FOR:
+    JSR CHRGET      ; CHRGET ile değişken oku ($A96B)
+    JSR SUB_AD8A    ; Döngü değişkeni ayarla
+    RTS             ; Türkçe: FOR döngüsünü başlatır, döngü değişkenini ayarlar
+
+; Döngü değişkeni ayarlama
+SUB_AD8A:
+    LDA #$00        ; Değişken işaretçisi ($5F-$60)
+    STA $5F
+    LDA #$00
+    STA $60
+    JSR $B391       ; Değişken ayarlama
+    RTS
+
+; NEXT komut yürütme
+NEXT:
+    JSR CHRGET      ; CHRGET ile değişken oku ($A96B)
+    JSR SUB_AE83    ; Döngü kontrolü
+    RTS             ; Türkçe: NEXT komutunu yürütür, FOR döngüsünü ilerletir
+
+; Döngü kontrolü
+SUB_AE83:
+    LDA $5F         ; Döngü değişkeni ($5F-$60)
+    CLC
+    ADC #$01
+    STA $5F
+    JSR SUB_B526    ; Son sınır kontrolü
+    CMP $60         ; Sınır değeri
+    BCC NEXT_CONT
+    JMP MAIN_LOOP   ; Döngü bitti, ana döngüye dön
+NEXT_CONT:
+    RTS
+
+; INPUT komut yürütme
+INPUT:
+    JSR CHRGET      ; CHRGET ile giriş oku ($A96B)
+    JSR SUB_B7F7    ; String işaretçisi al
+    JSR $FFD2       ; CHROUT ile istem yaz ($FFD2)
+    JSR $FFE4       ; GETIN ile giriş al ($FFE4)
+    STA $5F         ; Girişi kaydet ($5F)
+    RTS             ; Türkçe: INPUT komutunu yürütür, kullanıcıdan giriş alır
+
+; Değişken ayarlama
+SUB_B391:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $5F         ; Değişken işaretçisi ($5F-$60)
+    INY
+    LDA ($7A),Y
+    STA $60
+    RTS
+
+; Hata mesajı yazdırma
+ERROR:
+    LDA #$00        ; Hata kodu
+    JSR CHRGET      ; CHRGET ile mesaj oku ($A96B)
+    JSR SUB_AB1E    ; String çıktı
+    RTS             ; Türkçe: Hata mesajını ekrana basar
+
+; BASIC program sonlandırma
+END:
+    JSR CHRGET      ; CHRGET ile kontrol ($A96B)
+    JMP MAIN_LOOP   ; Komut satırı döngüsüne dön
+    RTS             ; Türkçe: END komutunu yürütür, programı sonlandırır
+
+; String birleştirme (CONCAT)
+CONCAT:
+    JSR SUB_B7F7    ; İlk string işaretçisi ($5F-$60)
+    JSR SUB_B487    ; İkinci string işaretçisi ($61-$62)
+    JSR SUB_B6A3    ; String birleştirme
+    RTS             ; Türkçe: İki string'i birleştirir
+
+; İkinci string işaretçisi
+SUB_B487:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $61         ; İkinci string adresi ($61-$62)
+    INY
+    LDA ($7A),Y
+    STA $62
+    RTS
+
+; String birleştirme alt rutini
+SUB_B6A3:
+    LDA ($5F),Y     ; İlk string ($5F-$60)
+    STA ($61),Y     ; İkinci string'e kopyala ($61-$62)
+    INY
+    CMP #$00        ; String sonu mu?
+    BNE SUB_B6A3
+    RTS
+
+; String karşılaştırma (STRCMP)
+STRCMP:
+    JSR SUB_B7F7    ; İlk string işaretçisi ($5F-$60)
+    JSR SUB_B487    ; İkinci string işaretçisi ($61-$62)
+    JSR SUB_B475    ; Karşılaştırma rutini
+    RTS             ; Türkçe: İki string'i karşılaştırır
+
+; String karşılaştırma alt rutini
+SUB_B475:
+    LDA ($5F),Y     ; İlk string ($5F-$60)
+    CMP ($61),Y     ; İkinci string ($61-$62)
+    BNE STRCMP_END
+    INY
+    CMP #$00        ; String sonu mu?
+    BNE SUB_B475
+STRCMP_END:
+    RTS
+
+; SYS komut yürütme
+SYS:
+    JSR SUB_B526    ; Adres çözümleme
+    JMP ($5F)       ; Adrese atla ($5F-$60)
+    RTS             ; Türkçe: SYS komutunu yürütür, belirtilen adrese atlar
+
+; PEEK fonksiyonu
+PEEK:
+    JSR SUB_B526    ; Adres çözümleme
+    LDA ($5F),Y     ; Bellekten oku ($5F-$60)
+    STA $5F         ; Sonucu kaydet
+    RTS             ; Türkçe: PEEK fonksiyonu, belirtilen adresteki baytı okur
+
+; POKE komut yürütme
+POKE:
+    JSR SUB_B526    ; Adres çözümleme
+    JSR SUB_B8A7    ; Değer alma
+    LDA $5F         ; Değer
+    STA ($60),Y     ; Belleğe yaz ($60-$61)
+    RTS             ; Türkçe: POKE komutunu yürütür, belirtilen adrese bayt yazar
+
+; CHR$ fonksiyonu
+CHR:
+    JSR SUB_B8A7    ; Sayıyı al
+    LDA $5F         ; Karakter kodu
+    JSR $FFD2       ; CHROUT ile yaz ($FFD2)
+    RTS             ; Türkçe: CHR$ fonksiyonu, sayısal kodu karaktere çevirir ve basar
+
+; ASC fonksiyonu
+ASC:
+    JSR SUB_B7F7    ; String işaretçisi al
+    LDA ($5F),Y     ; İlk karakter
+    STA $5F         ; ASCII kodu ($5F)
+    RTS             ; Türkçe: ASC fonksiyonu, string'in ilk karakterinin ASCII kodunu döndürür
+
+; LEFT$ fonksiyonu
+LEFT:
+    JSR SUB_B7F7    ; String işaretçisi al
+    JSR SUB_B8A7    ; Uzunluk al
+    LDX $5F         ; Uzunluk
+    JSR SUB_B67D    ; Sol string kopyalama
+    RTS             ; Türkçe: LEFT$ fonksiyonu, string'in solundan belirtilen uzunlukta parça alır
+
+; Sol string kopyalama
+SUB_B67D:
+    LDA ($5F),Y     ; String işaretçisi ($5F-$60)
+    STA ($61),Y     ; Hedef string ($61-$62)
+    INY
+    DEX
+    BNE SUB_B67D
+    RTS
+
+; RIGHT$ fonksiyonu
+RIGHT:
+    JSR SUB_B7F7    ; String işaretçisi al
+    JSR SUB_B8A7    ; Uzunluk al
+    LDX $5F         ; Uzunluk
+    JSR SUB_B700    ; Sağ string kopyalama
+    RTS             ; Türkçe: RIGHT$ fonksiyonu, string'in sağından belirtilen uzunlukta parça alır
+
+; Sağ string kopyalama
+SUB_B700:
+    LDA ($5F),Y     ; String işaretçisi ($5F-$60)
+    STA ($61),Y     ; Hedef string ($61-$62)
+    INY
+    DEX
+    BNE SUB_B700
+    RTS
+
+; MID$ fonksiyonu
+MID:
+    JSR SUB_B7F7    ; String işaretçisi al
+    JSR SUB_B8A7    ; Başlangıç konumu al
+    JSR SUB_B8A7    ; Uzunluk al
+    LDX $5F         ; Başlangıç
+    LDY $60         ; Uzunluk
+    JSR SUB_B737    ; Orta string kopyalama
+    RTS             ; Türkçe: MID$ fonksiyonu, string'in belirtilen konumdan uzunlukta parça alır
+
+; Orta string kopyalama
+SUB_B737:
+    LDA ($5F),Y     ; String işaretçisi ($5F-$60)
+    STA ($61),Y     ; Hedef string ($61-$62)
+    INY
+    DEX
+    BNE SUB_B737
+    RTS
+
+; IF komut yürütme
+IF:
+    JSR SUB_B526    ; Koşul çözümleme
+    CMP #$00        ; Koşul doğru mu?
+    BEQ IF_FALSE
+    JSR SUB_A7E4    ; Komut yürütme
+IF_FALSE:
+    JSR CHRGET      ; Sonraki token oku
+    RTS             ; Türkçe: IF komutunu yürütür, koşula göre komut çalıştırır
+
+; GOSUB komut yürütme
+GOSUB:
+    JSR SUB_B526    ; Adres çözümleme
+    JSR SUB_AE8D    ; Yığına adres kaydet
+    JMP ($5F)       ; Hedef adrese git ($5F-$60)
+    RTS             ; Türkçe: GOSUB komutunu yürütür, alt rutine atlar ve dönüş adresini kaydeder
+
+; Yığına adres kaydetme
+SUB_AE8D:
+    LDA $7A         ; Program işaretçisi ($7A-$7B)
+    PHA             ; Yığına kaydet
+    LDA $7B
+    PHA
+    RTS
+
+; RETURN komut yürütme
+RETURN:
+    PLA             ; Yığından adres al
+    STA $7B
+    PLA
+    STA $7A
+    JSR CHRGET      ; Sonraki token oku
+    RTS             ; Türkçe: RETURN komutunu yürütür, GOSUB'dan döner
+
+; ON komut yürütme
+ON:
+    JSR SUB_B526    ; Sayı çözümleme
+    CMP #$00        ; Değer sıfır mı?
+    BEQ ON_END
+    JSR SUB_A7E4    ; Komut yürütme
+ON_END:
+    RTS             ; Türkçe: ON komutunu yürütür, sayıya göre komut seçer
+
+; REM komut yürütme
+REM:
+    JSR CHRGET      ; Sonraki token oku
+    CMP #$00        ; Satır sonu mu?
+    BNE REM
+    RTS             ; Türkçe: REM komutunu yürütür, yorum satırını atlar
