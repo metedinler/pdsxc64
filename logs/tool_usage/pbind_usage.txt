@@ -1,0 +1,68 @@
+=== PBIND USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/pbind.exe
+Category: special
+Learning Date: 2025-07-29 07:39:16.122586
+============================================================
+
+COMMAND: pbind --help
+----------------------------------------
+STDERR:
+pbind.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: pbind -h
+----------------------------------------
+STDERR:
+pbind.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: pbind --version
+----------------------------------------
+STDOUT:
+PBIND V1.42 Beta [Bld 291]
+(C) 1992,2025 Alfred Arnold
+
+STDERR:
+pbind.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: pbind -v
+----------------------------------------
+STDOUT:
+PBIND V1.42 Beta [Bld 291]
+(C) 1992,2025 Alfred Arnold
+
+STDERR:
+pbind.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: pbind -?
+----------------------------------------
+STDERR:
+pbind.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: pbind /?
+----------------------------------------
+STDERR:
+pbind.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
