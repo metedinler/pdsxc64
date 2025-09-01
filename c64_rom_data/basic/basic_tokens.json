@@ -1,0 +1,78 @@
+{
+  "$80": "END",      // Türkçe: Programı sonlandırır
+  "$81": "FOR",      // Türkçe: Döngü başlatır
+  "$82": "NEXT",     // Türkçe: Döngüyü ilerletir
+  "$83": "DATA",     // Türkçe: Veri tanımlar
+  "$84": "INPUT#",   // Türkçe: Dosyadan giriş alır
+  "$85": "INPUT",    // Türkçe: Kullanıcıdan giriş alır
+  "$86": "DIM",      // Türkçe: Dizi tanımlar
+  "$87": "READ",     // Türkçe: DATA'dan veri okur
+  "$88": "LET",      // Türkçe: Değişkene değer atar
+  "$89": "GOTO",     // Türkçe: Belirtilen satıra atlar
+  "$8A": "RUN",      // Türkçe: Programı çalıştırır
+  "$8B": "IF",       // Türkçe: Koşullu komut yürütür
+  "$8C": "RESTORE",  // Türkçe: DATA işaretçisini sıfırlar
+  "$8D": "GOSUB",    // Türkçe: Alt rutine atlar
+  "$8E": "RETURN",   // Türkçe: Alt rutinden döner
+  "$8F": "REM",      // Türkçe: Yorum satırı
+  "$90": "STOP",     // Türkçe: Programı durdurur
+  "$91": "ON",       // Türkçe: Sayıya göre komut seçer
+  "$92": "WAIT",     // Türkçe: Bellek adresinde değer bekler
+  "$93": "LOAD",     // Türkçe: Dosyayı belleğe yükler
+  "$94": "SAVE",     // Türkçe: Dosyayı diske kaydeder
+  "$95": "VERIFY",   // Türkçe: Dosyayı doğrular
+  "$96": "DEF",      // Türkçe: Fonksiyon tanımlar
+  "$97": "POKE",     // Türkçe: Belleğe bayt yazar
+  "$98": "PRINT#",   // Türkçe: Dosyaya çıktı yazar
+  "$99": "PRINT",    // Türkçe: Ekrana çıktı yazar
+  "$9A": "CONT",     // Türkçe: Durdurulan programı sürdürür
+  "$9B": "LIST",     // Türkçe: Programı listeler
+  "$9C": "CLR",      // Türkçe: Değişkenleri ve yığını temizler
+  "$9D": "CMD",      // Türkçe: Çıkış cihazını değiştirir
+  "$9E": "SYS",      // Türkçe: Belirtilen adrese atlar
+  "$9F": "OPEN",     // Türkçe: Dosya veya cihaz açar
+  "$A0": "CLOSE",    // Türkçe: Dosya veya cihazı kapatır
+  "$A1": "GET",      // Türkçe: Tek karakter başlangıç alır
+  "$A2": "NEW",      // Türkçe: Programı ve değişkenleri sıfırlar
+  "$A3": "TAB(",     // Türkçe: İmleci sütuna taşır
+  "$A4": "TO",       // Türkçe: FOR döngüsü sınırı
+  "$A5": "FN",       // Türkçe: Kullanıcı tanımlı fonksiyon çağırır
+  "$A6": "SPC(",     // Türkçe: Boşluk yazar
+  "$A7": "THEN",     // Türkçe: IF koşulunda komut belirtir
+  "$A8": "NOT",      // Türkçe: Mantıksal DEĞİL operatörü
+  "$A9": "STEP",     // Türkçe: FOR döngüsü adımı
+  "$AA": "+",        // Türkçe: Toplama operatörü
+  "$AB": "-",        // Türkçe: Çıkarma operatörü
+  "$AC": "*",        // Türkçe: Çarpma operatörü
+  "$AD": "/",        // Türkçe: Bölme operatörü
+  "$AE": "^",        // Türkçe: Üs alma operatörü
+  "$AF": "AND",      // Türkçe: Mantıksal VE operatörü
+  "$B0": "OR",       // Türkçe: Mantıksal VEYA operatörü
+  "$B1": ">",        // Türkçe: Büyük operatörü
+  "$B2": "=",        // Türkçe: Eşitlik operatörü
+  "$B3": "<",        // Türkçe: Küçük operatörü
+  "$B4": "SGN",      // Türkçe: Sayının işaretini döndürür
+  "$B5": "INT",      // Türkçe: Sayının tamsayı kısmını alır
+  "$B6": "ABS",      // Türkçe: Sayının mutlak değerini alır
+  "$B7": "USR",      // Türkçe: Kullanıcı tanımlı makine kodu rutinini çağırır ($0311-$0312 adresinden)
+  "$B8": "FRE",      // Türkçe: Boş bellek miktarını döndürür
+  "$B9": "POS",      // Türkçe: İmlecin sütun pozisyonunu döndürür
+  "$BA": "SQR",      // Türkçe: Sayının karekökünü alır
+  "$BB": "RND",      // Türkçe: Rastgele sayı üretir
+  "$BC": "LOG",      // Türkçe: Sayının doğal logaritmasını alır
+  "$BD": "EXP",      // Türkçe: e^x hesaplar
+  "$BE": "COS",      // Türkçe: Kosinüs hesaplar
+  "$BF": "SIN",      // Türkçe: Sinüs hesaplar
+  "$C0": "TAN",      // Türkçe: Tanjant hesaplar
+  "$C1": "ATN",      // Türkçe: Arktanjant hesaplar
+  "$C2": "PEEK",     // Türkçe: Belirtilen adresteki baytı okur
+  "$C3": "LEN",      // Türkçe: String uzunluğunu döndürür
+  "$C4": "STR$",     // Türkçe: Sayıyı string'e çevirir
+  "$C5": "VAL",      // Türkçe: String'i sayıya çevirir
+  "$C6": "ASC",      // Türkçe: String'in ilk karakterinin ASCII kodunu döndürür
+  "$C7": "CHR$",     // Türkçe: Sayısal kodu karaktere çevirir
+  "$C8": "LEFT$",    // Türkçe: String'in solundan parça alır
+  "$C9": "RIGHT$",   // Türkçe: String'in sağından parça alır
+  "$CA": "MID$",     // Türkçe: String'in ortasından parça alır
+  "$CB": "GO"        // Türkçe: GO komutu, genellikle GOTO ile kullanılır
+}
