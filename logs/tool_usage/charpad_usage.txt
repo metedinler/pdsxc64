@@ -1,0 +1,48 @@
+=== CHARPAD USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/BitmapToCharpad/BitmapToCharpad.exe
+Category: special
+Learning Date: 2025-07-29 08:06:42.370728
+============================================================
+
+COMMAND: charpad --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charpad -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charpad --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charpad -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charpad -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charpad /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
