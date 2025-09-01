@@ -1,0 +1,48 @@
+=== C64DMON32 USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/64Dmon32_100beta/C64Dmon32.exe
+Category: assemblers
+Learning Date: 2025-07-28 23:02:09.390361
+============================================================
+
+COMMAND: c64dmon32 --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64dmon32 -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64dmon32 --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64dmon32 -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64dmon32 -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64dmon32 /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
