@@ -1,0 +1,48 @@
+=== C64EMU USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/c64emu-beta3-install-package/EMU beta3 install package/C64EMU.exe
+Category: emulators
+Learning Date: 2025-07-29 12:23:14.287929
+============================================================
+
+COMMAND: c64emu --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64emu -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64emu --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64emu -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64emu -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: c64emu /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
