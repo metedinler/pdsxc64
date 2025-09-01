@@ -1,0 +1,279 @@
+{
+  "c64_vic_ii_registers": {
+    "description": "VIC-II Video Interface Chip kayıtları",
+    "chip": "MOS 6569 (PAL) / 6567 (NTSC)",
+    "address_range": "0xD000-0xD02E",
+    "registers": {
+      "0xD000": {
+        "name": "SP0X",
+        "description": "Sprite 0 X koordinatı",
+        "type": "write",
+        "bits": 8,
+        "range": "0-255",
+        "usage": "Sprite konumlandırma",
+        "assembly_comment": "; Sprite 0 yatay pozisyon",
+        "c_equivalent": "vic_sprite_x[0]",
+        "category": "sprite_position"
+      },
+      "0xD001": {
+        "name": "SP0Y", 
+        "description": "Sprite 0 Y koordinatı",
+        "type": "write",
+        "bits": 8,
+        "range": "0-255",
+        "usage": "Sprite konumlandırma",
+        "assembly_comment": "; Sprite 0 dikey pozisyon",
+        "c_equivalent": "vic_sprite_y[0]",
+        "category": "sprite_position"
+      },
+      "0xD010": {
+        "name": "MSIGX",
+        "description": "Sprite X koordinat genişletme bitleri",
+        "type": "write",
+        "bits": 8,
+        "bit_meaning": {
+          "0": "Sprite 0 X > 255",
+          "1": "Sprite 1 X > 255",
+          "2": "Sprite 2 X > 255",
+          "3": "Sprite 3 X > 255",
+          "4": "Sprite 4 X > 255",
+          "5": "Sprite 5 X > 255",
+          "6": "Sprite 6 X > 255",
+          "7": "Sprite 7 X > 255"
+        },
+        "usage": "Sprite'ları ekranın sağında konumlandırma",
+        "assembly_comment": "; Sprite X genişletme (X>255 için)",
+        "c_equivalent": "vic_sprite_x_msb",
+        "category": "sprite_position"
+      },
+      "0xD011": {
+        "name": "SCROLY",
+        "description": "Ekran kontrol kayıtı Y",
+        "type": "read/write",
+        "bits": 8,
+        "bit_meaning": {
+          "0-2": "YSCROLL - Dikey smooth scroll (0-7)",
+          "3": "RSEL - Satır seçimi (0=24 satır, 1=25 satır)",
+          "4": "DEN - Ekran gösterim (0=kapalı, 1=açık)", 
+          "5": "BMM - Bitmap mode (0=text, 1=bitmap)",
+          "6": "ECM - Extended color mode",
+          "7": "RST8 - Tarama satırı bit 8"
+        },
+        "usage": "Ekran modu ve scroll kontrolü",
+        "assembly_comment": "; Ekran Y kontrol - scroll/mode",
+        "c_equivalent": "vic_control_y",
+        "category": "screen_control"
+      },
+      "0xD012": {
+        "name": "RASTER",
+        "description": "Raster satır sayacı",
+        "type": "read/write",
+        "bits": 8,
+        "range": "0-255 (bit 8 D011'de)",
+        "usage": "Raster interrupt ve timing",
+        "assembly_comment": "; Mevcut raster satırı",
+        "c_equivalent": "vic_raster_line",
+        "category": "raster"
+      },
+      "0xD013": {
+        "name": "LPX",
+        "description": "Light pen X koordinatı",
+        "type": "read",
+        "bits": 8,
+        "usage": "Light pen konumu okuma",
+        "assembly_comment": "; Light pen X pozisyonu",
+        "c_equivalent": "vic_lightpen_x",
+        "category": "lightpen"
+      },
+      "0xD014": {
+        "name": "LPY",
+        "description": "Light pen Y koordinatı", 
+        "type": "read",
+        "bits": 8,
+        "usage": "Light pen konumu okuma",
+        "assembly_comment": "; Light pen Y pozisyonu",
+        "c_equivalent": "vic_lightpen_y",
+        "category": "lightpen"
+      },
+      "0xD015": {
+        "name": "SPENA",
+        "description": "Sprite enable kayıtı",
+        "type": "write",
+        "bits": 8,
+        "bit_meaning": {
+          "0": "Sprite 0 aktif",
+          "1": "Sprite 1 aktif",
+          "2": "Sprite 2 aktif", 
+          "3": "Sprite 3 aktif",
+          "4": "Sprite 4 aktif",
+          "5": "Sprite 5 aktif",
+          "6": "Sprite 6 aktif",
+          "7": "Sprite 7 aktif"
+        },
+        "usage": "Sprite'ları açma/kapatma",
+        "assembly_comment": "; Sprite gösterim kontrol",
+        "c_equivalent": "vic_sprite_enable",
+        "category": "sprite_control"
+      },
+      "0xD016": {
+        "name": "SCROLX",
+        "description": "Ekran kontrol kayıtı X",
+        "type": "write",
+        "bits": 8,
+        "bit_meaning": {
+          "0-2": "XSCROLL - Yatay smooth scroll (0-7)",
+          "3": "CSEL - Sütun seçimi (0=38 sütun, 1=40 sütun)",
+          "4": "MCM - Multicolor mode",
+          "5-7": "Kullanılmaz"
+        },
+        "usage": "Yatay scroll ve multicolor kontrolü",
+        "assembly_comment": "; Ekran X kontrol - scroll/multicolor",
+        "c_equivalent": "vic_control_x",
+        "category": "screen_control"
+      },
+      "0xD017": {
+        "name": "YXPAND",
+        "description": "Sprite Y genişletme",
+        "type": "write",
+        "bits": 8,
+        "bit_meaning": {
+          "0": "Sprite 0 Y genişletme",
+          "1": "Sprite 1 Y genişletme",
+          "2": "Sprite 2 Y genişletme",
+          "3": "Sprite 3 Y genişletme", 
+          "4": "Sprite 4 Y genişletme",
+          "5": "Sprite 5 Y genişletme",
+          "6": "Sprite 6 Y genişletme",
+          "7": "Sprite 7 Y genişletme"
+        },
+        "usage": "Sprite'ları Y ekseninde 2x büyütme",
+        "assembly_comment": "; Sprite Y genişletme (2x boy)",
+        "c_equivalent": "vic_sprite_y_expand",
+        "category": "sprite_control"
+      },
+      "0xD018": {
+        "name": "VMCSB",
+        "description": "Bellek kontrol kayıtı",
+        "type": "write",
+        "bits": 8,
+        "bit_meaning": {
+          "0": "Kullanılmaz",
+          "1-3": "CB - Karakter veri tabanı (CB*2048+VM*1024)",
+          "4-7": "VM - Video matris tabanı (VM*1024)"
+        },
+        "usage": "Ekran ve karakter bellek konumu",
+        "assembly_comment": "; Video bellek pointer",
+        "c_equivalent": "vic_memory_control",
+        "category": "memory_control"
+      },
+      "0xD019": {
+        "name": "VICIRQ",
+        "description": "Interrupt durumu kayıtı",
+        "type": "read/write",
+        "bits": 8,
+        "bit_meaning": {
+          "0": "Raster interrupt",
+          "1": "Sprite-background çarpışma",
+          "2": "Sprite-sprite çarpışma",
+          "3": "Light pen interrupt",
+          "4-6": "Kullanılmaz",
+          "7": "IRQ ana durumu"
+        },
+        "usage": "Interrupt durumu okuma/temizleme",
+        "assembly_comment": "; VIC interrupt durum",
+        "c_equivalent": "vic_interrupt_status",
+        "category": "interrupt"
+      },
+      "0xD01A": {
+        "name": "IRQMSK",
+        "description": "Interrupt maske kayıtı",
+        "type": "write",
+        "bits": 8,
+        "bit_meaning": {
+          "0": "Raster interrupt aktif",
+          "1": "Sprite-background çarpışma aktif",
+          "2": "Sprite-sprite çarpışma aktif", 
+          "3": "Light pen interrupt aktif",
+          "4-7": "Kullanılmaz"
+        },
+        "usage": "Hangi interrupt'ların aktif olacağını belirler",
+        "assembly_comment": "; VIC interrupt maske",
+        "c_equivalent": "vic_interrupt_mask",
+        "category": "interrupt"
+      },
+      "0xD020": {
+        "name": "EXTCOL",
+        "description": "Kenarlık rengi",
+        "type": "write",
+        "bits": 4,
+        "range": "0-15",
+        "usage": "Ekran kenarı renk ayarı",
+        "assembly_comment": "; Kenarlık rengi (0-15)",
+        "c_equivalent": "vic_border_color",
+        "category": "color"
+      },
+      "0xD021": {
+        "name": "BGCOL0",
+        "description": "Arkaplan rengi 0",
+        "type": "write", 
+        "bits": 4,
+        "range": "0-15",
+        "usage": "Ana arkaplan rengi",
+        "assembly_comment": "; Arkaplan rengi 0",
+        "c_equivalent": "vic_background_color[0]",
+        "category": "color"
+      },
+      "0xD022": {
+        "name": "BGCOL1",
+        "description": "Arkaplan rengi 1",
+        "type": "write",
+        "bits": 4,
+        "range": "0-15", 
+        "usage": "Multicolor modda ek arkaplan rengi",
+        "assembly_comment": "; Arkaplan rengi 1 (multicolor)",
+        "c_equivalent": "vic_background_color[1]",
+        "category": "color"
+      },
+      "0xD023": {
+        "name": "BGCOL2",
+        "description": "Arkaplan rengi 2",
+        "type": "write",
+        "bits": 4,
+        "range": "0-15",
+        "usage": "Multicolor modda ek arkaplan rengi",
+        "assembly_comment": "; Arkaplan rengi 2 (multicolor)",
+        "c_equivalent": "vic_background_color[2]",
+        "category": "color"
+      },
+      "0xD024": {
+        "name": "BGCOL3",
+        "description": "Arkaplan rengi 3",
+        "type": "write",
+        "bits": 4,
+        "range": "0-15",
+        "usage": "Multicolor modda ek arkaplan rengi",
+        "assembly_comment": "; Arkaplan rengi 3 (multicolor)",
+        "c_equivalent": "vic_background_color[3]",
+        "category": "color"
+      }
+    },
+    "categories": {
+      "sprite_position": "Sprite konum kontrolleri",
+      "sprite_control": "Sprite görünüm kontrolleri", 
+      "screen_control": "Ekran modu kontrolleri",
+      "raster": "Raster tarama kontrolleri",
+      "lightpen": "Light pen kontrolleri",
+      "memory_control": "Bellek adres kontrolleri",
+      "interrupt": "Interrupt kontrolleri",
+      "color": "Renk kontrolleri"
+    },
+    "annotation_levels": {
+      "register_only": "Sadece kayıt adı ($D000)",
+      "name_only": "Kayıt adı (SP0X)",
+      "basic": "Kayıt adı + basit açıklama", 
+      "detailed": "Kayıt adı + açıklama + bit anlamları",
+      "comprehensive": "Tüm bilgiler + assembly yorum + C equivalent",
+      "educational": "Comprehensive + kullanım örnekleri + timing bilgisi"
+    }
+  }
+}
