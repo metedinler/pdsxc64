@@ -1,0 +1,1 @@
+pdsx_venv\Scripts\python.exe pdsX\pdsxv12X.py pdsX\test_for.pdsx
