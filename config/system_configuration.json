@@ -1,0 +1,753 @@
+{
+  "assemblers": {
+    "64tass": {
+      "path": "C:\\Users\\dell\\Documents\\64tass-os-x\\64tass-os-x\\64tass",
+      "version": "",
+      "enabled": true,
+      "verified": true
+    },
+    "acme": {
+      "path": "C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\acme0.97mac\\acme",
+      "version": "",
+      "enabled": true,
+      "verified": true
+    },
+    "dasm": {
+      "path": "C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\dasm.exe",
+      "version": "Warning: Unable to open '--version'\n\nComplete. (0)",
+      "enabled": true,
+      "verified": true
+    },
+    "kickass": {
+      "path": "C:\\Users\\dell\\Documents\\projeler\\disaridan kullanilacak ornek programlar\\KickAssembler\\KickAss.jar",
+      "version": "",
+      "enabled": true,
+      "verified": true,
+      "patterns": [
+        "Kickass IDE.exe"
+      ],
+      "description": "kick assembler",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V"
+      ],
+      "source": "manual"
+    },
+    "ca65": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false,
+      "patterns": [
+        "cc65.exe"
+      ],
+      "description": "ca65",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    },
+    "xa": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "tmpx": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "crass": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "dreamass": {
+      "patterns": [
+        "dreamass.exe"
+      ],
+      "description": "DreamAss",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    },
+    "c64dmon32": {
+      "patterns": [
+        "C64Dmon32.exe"
+      ],
+      "description": "C64 Disk Monitor",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "6502bench": {
+      "patterns": [
+        "SourceGen.exe"
+      ],
+      "description": "6502 SourceGen",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    },
+    "a64": {
+      "patterns": [
+        "a64.exe"
+      ],
+      "description": "Assembler 64",
+      "priority": 2,
+      "verification": [
+        "-V",
+        "-h"
+      ],
+      "source": "manual"
+    },
+    "c2": {
+      "patterns": [
+        "c2.exe"
+      ],
+      "description": "c2 cross assembler",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "chararset minion": {
+      "patterns": [
+        "C64 Charset Minion.exe"
+      ],
+      "description": "chararset minion Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "64ass": {
+      "patterns": [
+        "C64Ass.exe"
+      ],
+      "description": "64Ass Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "c6510": {
+      "patterns": [
+        "c6510.exe"
+      ],
+      "description": "macro cross asembler",
+      "priority": 2,
+      "verification": [
+        "--help",
+        "-h"
+      ],
+      "source": "manual"
+    }
+  },
+  "compilers": {
+    "cc65": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false,
+      "patterns": [
+        "ca65.exe"
+      ],
+      "description": "cc65",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "oscar64": {
+      "path": "C:\\Program Files\\oscar64\\bin\\oscar64.exe",
+      "version": "",
+      "enabled": true,
+      "verified": true,
+      "patterns": [
+        "oscar64.exe"
+      ],
+      "description": "c compilers for c64",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    },
+    "llvm-mos": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    }
+  },
+  "interpreters": {
+    "python": {
+      "path": "C:\\Program Files\\Python313\\python.exe",
+      "version": "Python 3.13.5",
+      "enabled": true,
+      "verified": true
+    },
+    "qbasic": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false,
+      "patterns": [
+        "qb64.exe"
+      ],
+      "description": "qbasic64",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    },
+    "freebasic": {
+      "patterns": [
+        "fbc64.exe"
+      ],
+      "description": "freebasic",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    }
+  },
+  "ides": {
+    "vscode": {
+      "path": "C:\\Users\\dell\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code",
+      "version": "",
+      "enabled": true,
+      "verified": true
+    },
+    "crossviper": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "relaunch64": {
+      "patterns": [
+        "Relaunch64.exe"
+      ],
+      "description": "relaunch64 Tool",
+      "priority": 1,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    },
+    "ide64": {
+      "patterns": [
+        "IDE65xx.exe"
+      ],
+      "description": "commodore 64 icin ide",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    },
+    "c64 studio": {
+      "patterns": [
+        "C64Studio.exe"
+      ],
+      "description": "c64 Studio Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    }
+  },
+  "emulators": {
+    "vice": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false,
+      "patterns": [
+        "x64sc.exe"
+      ],
+      "description": "Win vice emulator",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "ccs64": {
+      "path": "C:\\Users\\dell\\Documents\\CCS64 V3.9.3\\Release\\CCS64.exe",
+      "version": "",
+      "enabled": true,
+      "verified": true
+    },
+    "hoxs64": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "6502 simulator": {
+      "patterns": [
+        "6502.exe"
+      ],
+      "description": "6502 Simulator",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "albert": {
+      "patterns": [
+        "albert.exe"
+      ],
+      "description": "Pixel art c64 ekran tasarim araci",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "ape": {
+      "patterns": [
+        "ape.exe"
+      ],
+      "description": "Another petscii editor",
+      "priority": 2,
+      "verification": [
+        "--version"
+      ],
+      "source": "manual"
+    },
+    "albert2": {
+      "patterns": [
+        "albert.exe"
+      ],
+      "description": "ekran editoru",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "c64debugger": {
+      "patterns": [
+        "C64Debugger.exe"
+      ],
+      "description": "c64 debugger simulator",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "c64emu": {
+      "patterns": [
+        "C64EMU.exe"
+      ],
+      "description": "c64emu Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    }
+  },
+  "preferences": {
+    "default_assembler": "kickass",
+    "default_language": "qbasic",
+    "output_format": "native",
+    "auto_detect": false,
+    "theme": "light",
+    "use_basic_tools": true,
+    "use_extended_tools": false
+  },
+  "disassembly": {
+    "ida_pro": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "ghidra": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "radare2": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    }
+  },
+  "special": {
+    "hex_editor": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "file_converter": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "disk_analyzer": {
+      "path": "",
+      "version": "",
+      "enabled": false,
+      "verified": false
+    },
+    "asl compiler": {
+      "patterns": [
+        "asl.exe"
+      ],
+      "description": "as.programo obje ve prg dosyasini olusturur",
+      "priority": 2,
+      "verification": [
+        "--help",
+        "-h"
+      ],
+      "source": "manual"
+    },
+    "alink": {
+      "patterns": [
+        "alink.exe"
+      ],
+      "description": ".o obje dosyalarini birbirine baglar .prg olusturur",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "p2bin": {
+      "patterns": [
+        "p2bin.exe"
+      ],
+      "description": "prg dosyayi disk imaji dosasi olmaktan cikarir",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "p2hex": {
+      "patterns": [
+        "p2hex.exe"
+      ],
+      "description": "PRG to HEX (PRG’yi Intel HEX Formatına Çevirici) eprom icin",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "pbind": {
+      "patterns": [
+        "pbind.exe"
+      ],
+      "description": "PRG to BIND (PRG’yi Daha Küçük Hâle Getirici)",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "plist": {
+      "patterns": [
+        "plist.exe"
+      ],
+      "description": "PRG Listeleme (Disassembly Görünümü)",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "basedit": {
+      "patterns": [
+        "BasEdit.exe"
+      ],
+      "description": "basiclisti ortaya cikartir",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "basicv2": {
+      "patterns": [
+        "basicv2.jar"
+      ],
+      "description": "A Commodore BASIC V2 interpreter/compiler",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "charpad": {
+      "patterns": [
+        "BitmapToCharpad.exe"
+      ],
+      "description": "bitmap to char pad",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "bmp2petlogo": {
+      "patterns": [
+        "BMP2PETLOGO.exe"
+      ],
+      "description": "bmp, Jpeg, gif dosya c64 formatina donustiruluyor",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "bmp2petscii-win64": {
+      "patterns": [
+        "bmp2petscii-win64.exe"
+      ],
+      "description": "bmp2petscii-win64 Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "bmp2sprite": {
+      "patterns": [
+        "bmp2sprite.exe"
+      ],
+      "description": "bmp dosyalarsan sprite uretmek",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "bmp2sprite2": {
+      "patterns": [
+        "bmp2sprite-1.4-win64.exe"
+      ],
+      "description": "bmp2sprite2 Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "charsetminion": {
+      "patterns": [
+        "C64 Charset Minion.exe"
+      ],
+      "description": "charsetMinion Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "c64list": {
+      "patterns": [
+        "C64List.exe"
+      ],
+      "description": "c64List Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "picextender": {
+      "patterns": [
+        "c64-picextender.exe"
+      ],
+      "description": "picextender Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "rastereditor": {
+      "patterns": [
+        "c64-picextender.exe"
+      ],
+      "description": "rastereditor Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help"
+      ],
+      "source": "manual"
+    },
+    "cbm file finder": {
+      "patterns": [
+        "CBM FileFinder.exe"
+      ],
+      "description": "cbm dosyalarini ilgisayarda arar",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    },
+    "cmbage": {
+      "patterns": [
+        "cbmage.exe"
+      ],
+      "description": "cmbage Tool",
+      "priority": 2,
+      "verification": [
+        "--version",
+        "--help",
+        "-V",
+        "-h",
+        "/?"
+      ],
+      "source": "manual"
+    }
+  }
+}
