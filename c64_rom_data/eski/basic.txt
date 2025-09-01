@@ -1,0 +1,210 @@
+; C64 BASIC ROM Disassembly
+; BASIC başlangıç rutini
+	.org $A000
+START:
+    JSR $A644       ; Sistem başlatma (INIT)
+    JMP $A7AE       ; BASIC komut satırı döngüsüne git
+
+; Sistem başlatma
+INIT:
+    LDA #$00        ; Sıfır sayfası işaretçisi ($7A-$7B)
+    STA $7A
+    LDA #$08
+    STA $7B
+    JSR $A65E       ; Bellek sınırlarını ayarla
+    RTS
+
+; Bellek sınırlarını ayarla
+SUB_A65E:
+    LDA #$00        ; Geçici işaretçi ($5F-$60)
+    STA $5F
+    LDA #$08
+    STA $60
+    RTS
+
+; BASIC komut satırı döngüsü
+MAIN_LOOP:
+    JSR $A96B       ; Karakter oku (CHRGET)
+    BEQ MAIN_LOOP   ; Boşsa döngüye devam
+    JSR $A7E4       ; Komut çözümleme
+    JMP MAIN_LOOP   ; Döngüye geri dön
+
+; Karakter okuma (CHRGET)
+CHRGET:
+    INC $7A         ; Program işaretçisi ($7A-$7B)
+    BNE CHRGET_CONT
+    INC $7B
+CHRGET_CONT:
+    LDA ($7A),Y     ; Programdan karakter oku
+    CMP #$20        ; Boşluk mu?
+    BEQ CHRGET      ; Evetse atla
+    CMP #$3A        ; İki nokta mı?
+    BCS CHRGET_END  ; Evetse çık
+    RTS
+CHRGET_END:
+    RTS
+
+; Komut çözümleme
+SUB_A7E4:
+    JSR $A8F8       ; Token çözümleme
+    BCS EXECUTE     ; Komutsa yürüt
+    RTS
+EXECUTE:
+    JSR $A7ED       ; Komut yürütme
+    RTS
+
+; Token çözümleme
+SUB_A8F8:
+    LDA ($7A),Y     ; Karakter oku
+    CMP #$80        ; Token mi?
+    BCS TOKEN_FOUND
+    RTS
+TOKEN_FOUND:
+    JSR $A82C       ; Token tablosu arama
+    RTS
+
+; Token tablosu arama
+SUB_A82C:
+    LDA #$00        ; Token işaretçisi ($5F-$60)
+    STA $5F
+    LDA #$A0
+    STA $60
+    RTS
+
+; STRING LENGTH rutini ($A871)
+LEN:
+    JSR $B7F7       ; String işaretçisini al ($5F-$60)
+    LDA $5F         ; String uzunluğu
+    RTS             ; Türkçe: LEN(string) fonksiyonunu hesaplar, string uzunluğunu A register'ına döndürür
+
+; String işaretçisi alma
+SUB_B7F7:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $5F         ; String adresi düşük bayt ($5F)
+    INY
+    LDA ($7A),Y
+    STA $60         ; String adresi yüksek bayt ($60)
+    RTS
+
+; PRINT komut yürütme
+STROUT:
+    JSR $A96B       ; CHRGET ile karakter oku
+    JSR $AB1E       ; String çıktı (PRINT)
+    RTS             ; Türkçe: PRINT komutunu yürütür, string'i ekrana basar
+
+; String çıktı
+SUB_AB1E:
+    LDA ($5F),Y     ; String işaretçisi ($5F-$60)
+    BEQ SUB_AB24
+    JSR $FFD2       ; CHROUT ile yaz ($FFD2)
+    INY
+    JMP SUB_AB1E
+SUB_AB24:
+    RTS
+
+; Sayı çözümleme
+SUB_B526:
+    LDA #$00        ; Sayı tamponu ($5F-$60)
+    STA $5F
+    STA $60
+    JSR $B7B5       ; Sayı dönüştürme
+    RTS
+
+; Sayı dönüştürme
+SUB_B7B5:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    CMP #$30        ; Rakam mı?
+    BCC SUB_B7C0
+    CMP #$3A
+    BCS SUB_B7C0
+    SBC #$30        ; ASCII'den sayıya
+    STA $5F
+SUB_B7C0:
+    RTS
+
+; Matematiksel işlem: TOPLAMA
+ADD:
+    JSR $B8A7       ; İlk sayıyı al
+    JSR $B86A       ; İkinci sayıyı al
+    CLC
+    ADC $5F         ; Toplama
+    STA $5F         ; Sonuç ($5F)
+    RTS
+
+; İlk sayıyı alma
+SUB_B8A7:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $5F         ; Sayı tamponu ($5F)
+    INY
+    RTS
+
+; İkinci sayıyı alma
+SUB_B86A:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $60         ; Sayı tamponu ($60)
+    INY
+    RTS
+
+; GOTO komut yürütme
+GOTO:
+    JSR $B526       ; Sayı çözümleme
+    JMP ($5F)       ; Hedef adrese git ($5F-$60)
+    RTS             ; Türkçe: GOTO komutunu yürütür, belirtilen satıra atlar
+
+; FOR döngüsü başlatma
+FOR:
+    JSR $A96B       ; CHRGET ile değişken oku
+    JSR $AD8A       ; Döngü değişkeni ayarla
+    RTS             ; Türkçe: FOR döngüsünü başlatır, döngü değişkenini ayarlar
+
+; Döngü değişkeni ayarlama
+SUB_AD8A:
+    LDA #$00        ; Değişken işaretçisi ($5F-$60)
+    STA $5F
+    LDA #$00
+    STA $60
+    RTS
+
+; NEXT komut yürütme
+NEXT:
+    JSR $A96B       ; CHRGET ile değişken oku
+    JSR $AE83       ; Döngü kontrolü
+    RTS             ; Türkçe: NEXT komutunu yürütür, FOR döngüsünü ilerletir
+
+; Döngü kontrolü
+SUB_AE83:
+    LDA $5F         ; Döngü değişkeni ($5F-$60)
+    CLC
+    ADC #$01
+    STA $5F
+    RTS
+
+; INPUT komut yürütme
+INPUT:
+    JSR $A96B       ; CHRGET ile giriş oku
+    JSR $B7F7       ; String işaretçisi al
+    JSR $FFD2       ; CHROUT ile istem yaz ($FFD2)
+    JSR $FFE4       ; GETIN ile giriş al ($FFE4)
+    RTS             ; Türkçe: INPUT komutunu yürütür, kullanıcıdan giriş alır
+
+; Değişken ayarlama
+SUB_B391:
+    LDA ($7A),Y     ; Program işaretçisi ($7A-$7B)
+    STA $5F         ; Değişken işaretçisi ($5F-$60)
+    INY
+    LDA ($7A),Y
+    STA $60
+    RTS
+
+; Hata mesajı yazdırma
+ERROR:
+    LDA #$00        ; Hata kodu
+    JSR $A96B       ; CHRGET ile mesaj oku
+    JSR $AB1E       ; String çıktı
+    RTS             ; Türkçe: Hata mesajını ekrana basar
+
+; BASIC program sonlandırma
+END:
+    JSR $A96B       ; CHRGET ile kontrol
+    JMP $A7AE       ; Komut satırı döngüsüne dön
+    RTS             ; Türkçe: END komutunu yürütür, programı sonlandırır
