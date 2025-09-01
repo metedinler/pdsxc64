@@ -1,0 +1,102 @@
+{
+  "assemblers": {
+    "64tass": {
+      "patterns": ["64tass", "64tass.exe", "tass", "tass.exe"],
+      "description": "Turbo Assembler for 6502/65816",
+      "priority": 1,
+      "verification": ["--version", "-V", "--help"]
+    },
+    "acme": {
+      "patterns": ["acme", "acme.exe", "ACME", "ACME.exe"],
+      "description": "ACME Cross-Assembler",
+      "priority": 1,
+      "verification": ["--version", "-V", "--help"]
+    },
+    "dasm": {
+      "patterns": ["dasm", "dasm.exe", "DASM", "DASM.exe"],
+      "description": "DASM 6502 Assembler",
+      "priority": 2,
+      "verification": ["--version", "-V", "--help"]
+    },
+    "kickass": {
+      "patterns": ["KickAss.jar", "kickass.jar", "kick.jar", "KickAssembler.jar"],
+      "description": "Kick Assembler",
+      "priority": 2,
+      "verification": ["java", "-jar", "%path%", "--version"]
+    },
+    "ca65": {
+      "patterns": ["ca65", "ca65.exe", "CA65", "CA65.exe"],
+      "description": "CC65 Assembler",
+      "priority": 2,
+      "verification": ["--version", "-V"]
+    },
+    "xa": {
+      "patterns": ["xa", "xa.exe", "XA", "XA.exe"],
+      "description": "XA Cross Assembler",
+      "priority": 3,
+      "verification": ["--version", "-V"]
+    },
+    "yeniassembler": {
+      "patterns": ["yeniasm.exe", "yeniasm", "YeniAssembler.exe"],
+      "description": "Yeni Assembler",
+      "priority": 2,
+      "verification": ["--version", "--help"]
+    }
+  },
+  "compilers": {
+    "cc65": {
+      "patterns": ["cc65", "cc65.exe", "cl65", "cl65.exe"],
+      "description": "CC65 C Compiler",
+      "priority": 1,
+      "verification": ["--version", "-V"]
+    },
+    "oscar64": {
+      "patterns": ["oscar64", "oscar64.exe", "Oscar64", "Oscar64.exe"],
+      "description": "Oscar64 C Compiler for C64",
+      "priority": 1,
+      "verification": ["--version", "-V", "--help"]
+    }
+  },
+  "interpreters": {
+    "python": {
+      "patterns": ["python", "python.exe", "python3", "python3.exe", "py", "py.exe"],
+      "description": "Python Interpreter",
+      "priority": 1,
+      "verification": ["--version"]
+    },
+    "qbasic": {
+      "patterns": ["qbasic.exe", "qb.exe", "QBasic.exe", "QB.exe"],
+      "description": "QBasic Interpreter",
+      "priority": 3,
+      "verification": ["/?"]
+    }
+  },
+  "ides": {
+    "vscode": {
+      "patterns": ["code", "code.exe", "Code.exe", "VSCode.exe"],
+      "description": "Visual Studio Code",
+      "priority": 1,
+      "verification": ["--version"]
+    },
+    "crossviper": {
+      "patterns": ["CrossViper.exe", "crossviper", "CrossViper"],
+      "description": "CrossViper IDE",
+      "priority": 2,
+      "verification": ["--version", "--help"]
+    }
+  },
+  "emulators": {
+    "vice": {
+      "patterns": ["x64", "x64.exe", "x64sc", "x64sc.exe", "xvic", "xvic.exe"],
+      "description": "VICE C64 Emulator",
+      "priority": 1,
+      "verification": ["--version", "-h"]
+    },
+    "ccs64": {
+      "patterns": ["CCS64.exe", "ccs64.exe", "CCS64"],
+      "description": "CCS64 Emulator",
+      "priority": 2,
+      "verification": ["/?"]
+    }
+  }
+}
