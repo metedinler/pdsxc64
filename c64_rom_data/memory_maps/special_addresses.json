@@ -1,0 +1,72 @@
+{
+  "$0000": {
+    "name": "PROC_PORT_DDR",
+    "description": "İşlemci portu veri yönü kaydı, bellek banklarını ($A000-$BFFF, $D000-$DFFF, $E000-$FFFF) kontrol eder. Bit 0-2 (LORAM, HIRAM, CHAREN) yönü belirler. Örneğin, bit 0=1 LORAM çıkış, bit 2=1 I/O etkin. Decompiler'da 'PROC_PORT_DDR' olarak işaretlenir.",
+    "type": "RAM"
+  },
+  "$0001": {
+    "name": "PROC_PORT",
+    "description": "İşlemci portu, bellek banklarını seçer. Bit 0 (LORAM)=1 BASIC ROM ($A000-$BFFF), bit 1 (HIRAM)=1 KERNAL ROM ($E000-$FFFF), bit 2 (CHAREN)=1 I/O ($D000-$DFFF). Bit 3-5 kaset kontrolü. Decompiler'da 'PROC_PORT' olarak işaretlenir.",
+    "type": "RAM"
+  },
+  "$007A-$007B": {
+    "name": "BAS_PRG_PTR",
+    "description": "BASIC program işaretçisi, geçerli program satırını işaret eder ($7A düşük bayt, $7B yüksek bayt). Örneğin, CHRGET ($A96B) tarafından kullanılır. Decompiler'da 'BAS_PRG_PTR' olarak işaretlenir.",
+    "type": "RAM"
+  },
+  "$005F-$0060": {
+    "name": "VAR_PTR",
+    "description": "Değişken veya string işaretçisi, BASIC işlemlerinde kullanılır (örneğin, LEN $A871, $5F-$60 string adresi). Decompiler'da 'VAR_PTR' olarak işaretlenir.",
+    "type": "RAM"
+  },
+  "$0277-$0280": {
+    "name": "KEYBOARD_BUFFER",
+    "description": "Klavye kuyruğu, kullanıcı girişlerini tutar (10 bayt). $C6 kuyruk uzunluğunu gösterir. Örneğin, GETIN ($FFE4) buradan okur. Decompiler'da 'KEYBOARD_BUFFER[n]' olarak işaretlenir.",
+    "type": "RAM"
+  },
+  "$0311-$0312": {
+    "name": "USR_VECTOR",
+    "description": "USR fonksiyonu vektörü, kullanıcı tanımlı makine kodu adresini tutar ($B3B3, $B7 token). Örneğin, POKE 785,0:POKE 786,192 ile $C000 atanır. Decompiler'da 'USR_VECTOR' olarak işaretlenir.",
+    "type": "RAM"
+  },
+  "$033C-$03FB": {
+    "name": "CASSETTE_BUFFER",
+    "description": "Kaset tamponu, kasetten veri okuma/yazma için kullanılır (192 bayt). Örneğin, LOAD ($FFD5) burayı kullanır. Decompiler'da 'CASSETTE_BUFFER[n]' olarak işaretlenir.",
+    "type": "RAM"
+  },
+  "$0400-$07E7": {
+    "name": "SCREEN",
+    "description": "Ekran RAM'i, 40x25 karakterlik ekran matrisini tutar (1000 bayt). Her bayt ekran kodudur. Örneğin, POKE 1024,1 sol üst köşeye 'A' yazar. VIC-II ($D018) ile adres değişebilir. Decompiler'da 'SCREEN[position]' olarak işaretlenir, örneğin SCREEN[0] = $0400.",
+    "type": "RAM"
+  },
+  "$07F8-$07FF": {
+    "name": "SPRITE_PTR",
+    "description": "Sprite işaretçileri, 8 sprite için veri blok adreslerini tutar (8 bayt). Örneğin, $07F8 sprite 0 işaretçisi, $0400/$2000 bankında adres gösterir. Decompiler'da 'SPRITE_PTR[n]' olarak işaretlenir, örneğin SPRITE_PTR[0] = $07F8.",
+    "type": "RAM"
+  },
+  "$D000-$D02E": {
+    "name": "VIC_REGISTERS",
+    "description": "VIC-II grafik yongası register'ları, ekran ve sprite ayarlarını kontrol eder (47 bayt). Örneğin, $D000-$D001 sprite 0 koordinatları, $D011 ekran kontrolü. $0001 (CHAREN=1) ile görünür. Decompiler'da 'VIC[register]' olarak işaretlenir, örneğin VIC[$D000] = SPR0_X.",
+    "type": "IO"
+  },
+  "$D400-$D41C": {
+    "name": "SID_REGISTERS",
+    "description": "SID ses yongası register'ları, ses frekansı ve dalga formlarını kontrol eder (29 bayt). Örneğin, $D400-$D401 ses 1 frekansı, $D418 ses seviyesi. Decompiler'da 'SID[register]' olarak işaretlenir, örneğin SID[$D400] = VOICE1_FREQ_LO.",
+    "type": "IO"
+  },
+  "$D800-$DBE7": {
+    "name": "COLOR",
+    "description": "Renk RAM'i, ekran karakterlerinin renklerini tutar (1000 bayt). Sadece düşük 4 bit (0-15 PETSCII renk kodu) kullanılır. Örneğin, POKE 55296,1 sol üst köşeyi beyaza boyar. Decompiler'da 'COLOR[position]' olarak işaretlenir, örneğin COLOR[0] = $D800.",
+    "type": "RAM"
+  },
+  "$DC00-$DC0F": {
+    "name": "CIA1_REGISTERS",
+    "description": "CIA#1 register'ları, klavye, joystick ve zamanlayıcıları kontrol eder (16 bayt). Örneğin, $DC00 klavye satır seçimi, $DC0D kesme kontrolü. Decompiler'da 'CIA1[register]' olarak işaretlenir, örneğin CIA1[$DC00] = PORT_A.",
+    "type": "IO"
+  },
+  "$DD00-$DD0F": {
+    "name": "CIA2_REGISTERS",
+    "description": "CIA#2 register'ları, seri veri yolu, kullanıcı portu ve zamanlayıcıları kontrol eder (16 bayt). Örneğin, $DD00 seri veri yolu, $DD0D kesme kontrolü. Decompiler'da 'CIA2[register]' olarak işaretlenir, örneğin CIA2[$DD00] = PORT_A.",
+    "type": "IO"
+  }
+}
