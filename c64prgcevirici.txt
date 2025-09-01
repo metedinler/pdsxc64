@@ -1,0 +1,66 @@
+d64_converter/
+├── d64_reader.py        # .d64, .d81, .tap, .t64, .p00 okuma ve .prg çıkarma
+├── disassembler.py      # PRG’den .asm’ye çevirme
+├── parser.py            # .asm’den pseudo, pdsX, QBasic64, C’ye çevirme
+├── c64_basic_parser.py  # C64 BASIC’ten pdsX, QBasic64, C’ye çevirme
+├── sprite_converter.py  # Sprite ve karakter setlerini PNG’ye çevirme
+├── sid_converter.py     # SID müziklerini .sid’e çevirme
+├── d64_converter.py     # Ana uygulama (GUI)
+├── opcode_map.json      # Tüm opcode’lar
+├── memory_map.json      # C64 hafıza haritası
+├── prg_files/           # Çıkarılan .prg dosyaları
+├── asm_files/           # .asm dosyaları
+├── pseudo_files/        # Pseudo-kod dosyaları
+├── pdsx_files/          # pdsX dosyaları
+├── qbasic_files/        # QBasic64 dosyaları
+├── c_files/             # C dosyaları
+├── png_files/           # Sprite/karakter PNG’leri
+├── sid_files/           # .sid dosyaları
+├── logs/                # Hata logları
+
+
+PS C:\Users\dell\Documents\projeler\d64_converter> python main.py --help
+usage: main.py [-h] [--gui] [--test] [--no-gui] [--file FILE] [--input INPUT] [--input-dir INPUT_DIR] [--format {asm,c,qbasic,pdsx,pseudo,commodorebasicv2}] [--output-dir OUTPUT_DIR]
+               [--disassembler {basic,advanced,improved,py65_professional}] [--py65] [--illegal-opcodes] [--decompiler {basic,c,cpp,qbasic}] [--petcat] [--dlist] [--debug] [--log-level {DEBUG,INFO,WARNING,ERROR}] [--log-file LOG_FILE]       
+               [--list-formats] [--list-disassemblers] [--version]
+
+D64 Converter - 6502 Assembly Reverse Compiler
+
+options:
+  -h, --help            show this help message and exit
+  --gui                 GUI modunda çalıştır (varsayılan)
+  --test                Test modu - tüm formatları üret
+  --no-gui              GUI olmadan çalıştır
+  --file, -f FILE       İşlenecek dosya (D64, PRG, T64, vb.)
+  --input, -i INPUT     Giriş dosyası veya dizini
+  --input-dir INPUT_DIR
+                        Giriş dizini (toplu işlem için)
+  --format, -o {asm,c,qbasic,pdsx,pseudo,commodorebasicv2}
+                        Çıktı formatı
+  --output-dir OUTPUT_DIR
+                        Çıktı dizini (varsayılan: format_files/)
+  --disassembler, -d {basic,advanced,improved,py65_professional}
+                        Disassembler seçimi
+  --py65                py65 library kullan (professional mode)
+  --illegal-opcodes     Illegal/undocumented opcodes destekle
+  --decompiler {basic,c,cpp,qbasic}
+                        Decompiler seçimi
+  --dlist               DLIST directory lister kullan
+  --debug               Debug modu - detaylı logging
+  --log-level {DEBUG,INFO,WARNING,ERROR}
+                        Log seviyesi
+  --log-file LOG_FILE   Log dosyası (varsayılan: logs/timestamp.log)
+  --list-formats        Desteklenen formatları listele
+  --list-disassemblers  Mevcut disassembler'ları listele
+  --version             show program's version number and exit
+
+Örnekler:
+  main.py --gui                              # GUI modunda çalıştır
+  main.py --file game.prg --format c         # PRG dosyasını C'ye çevir
+  main.py --input prg_files/test.prg --disassembler advanced --py65  # Gelişmiş test
+  main.py --test --file game.prg             # Test modu - tüm formatları üret
+  main.py --list-formats                     # Desteklenen formatları listele
+  main.py --disassembler improved --format c --illegal-opcodes       # İllegal opcodes ile
+  main.py --decompiler c --petcat --dlist    # Tüm decompiler'lar
+  main.py --debug --file game.prg            # Debug modu ile çalıştır
+  main.py --output-dir custom/ --format asm  # Özel çıktı dizini
