@@ -1,0 +1,78 @@
+=== BMP2SPRITE USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/bmp2sprite/bmp2sprite/bmp2sprite.exe
+Category: special
+Learning Date: 2025-07-29 11:38:46.123025
+============================================================
+
+COMMAND: bmp2sprite --help
+----------------------------------------
+STDOUT:
+bmp2sprite v1.0 [05.09.2011] *** by fieserWolF
+Description: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <colour1> <colour2> <colour3> <colour4>
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite -h
+----------------------------------------
+STDOUT:
+bmp2sprite v1.0 [05.09.2011] *** by fieserWolF
+Description: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <colour1> <colour2> <colour3> <colour4>
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite --version
+----------------------------------------
+STDOUT:
+bmp2sprite v1.0 [05.09.2011] *** by fieserWolF
+Description: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <colour1> <colour2> <colour3> <colour4>
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite -v
+----------------------------------------
+STDOUT:
+bmp2sprite v1.0 [05.09.2011] *** by fieserWolF
+Description: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <colour1> <colour2> <colour3> <colour4>
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite -?
+----------------------------------------
+STDOUT:
+bmp2sprite v1.0 [05.09.2011] *** by fieserWolF
+Description: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <colour1> <colour2> <colour3> <colour4>
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
+COMMAND: bmp2sprite /?
+----------------------------------------
+STDOUT:
+bmp2sprite v1.0 [05.09.2011] *** by fieserWolF
+Description: Reads a 16color (4bit) or black/white (1bit) 24x21 pixel bmp and writes a binary for c64.
+Usage: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe <inname.bmp> <outname.prg> <startaddress in hex of output binary, "none" for no address> <colour1> <colour2> <colour3> <colour4>
+Example: C:\Users\dell\Documents\projeler\disaridan kullanilacak ornek programlar\bmp2sprite\bmp2sprite\bmp2sprite.exe bob.bmp bob.prg 2000 0 1 2 3
+
+Return Code: 1
+
+============================================================
+
