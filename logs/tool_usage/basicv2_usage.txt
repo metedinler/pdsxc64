@@ -1,0 +1,66 @@
+=== BASICV2 USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/basicv2-master (2)/basicv2-master/dist/basicv2.jar
+Category: special
+Learning Date: 2025-07-29 08:00:34.582044
+============================================================
+
+COMMAND: basicv2 --help
+----------------------------------------
+STDOUT:
+com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!
+com.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!
+
+Return Code: 0
+
+============================================================
+
+COMMAND: basicv2 -h
+----------------------------------------
+STDOUT:
+com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!
+com.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!
+
+Return Code: 0
+
+============================================================
+
+COMMAND: basicv2 --version
+----------------------------------------
+STDOUT:
+com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!
+com.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!
+
+Return Code: 0
+
+============================================================
+
+COMMAND: basicv2 -v
+----------------------------------------
+STDOUT:
+com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!
+com.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!
+
+Return Code: 0
+
+============================================================
+
+COMMAND: basicv2 -?
+----------------------------------------
+STDOUT:
+com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!
+com.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!
+
+Return Code: 0
+
+============================================================
+
+COMMAND: basicv2 /?
+----------------------------------------
+STDOUT:
+com.sixtyfour.extensions.textmode.ConsoleSupport registered as a BASIC extension!
+com.sixtyfour.extensions.graphics.GraphicsBasic registered as a BASIC extension!
+
+Return Code: 0
+
+============================================================
+
