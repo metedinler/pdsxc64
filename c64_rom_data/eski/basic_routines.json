@@ -1,0 +1,274 @@
+{
+  "$A000": {
+    "name": "START",
+    "description": "BASIC başlangıç rutini, sistemi başlatır ve komut satırı döngüsüne geçer."
+  },
+  "$A644": {
+    "name": "INIT",
+    "description": "BASIC sistemini başlatır, sıfır sayfası işaretçilerini ($7A-$7B) ve bellek sınırlarını ayarlar."
+  },
+  "$A65E": {
+    "name": "SUB_A65E",
+    "description": "Bellek sınırlarını ayarlar, geçici işaretçi ($5F-$60) ile çalışır."
+  },
+  "$A7AE": {
+    "name": "MAIN_LOOP",
+    "description": "BASIC komut satırı döngüsü, kullanıcı girişini alır ve komutları yürütür."
+  },
+  "$A96B": {
+    "name": "CHRGET",
+    "description": "Programdan karakter okur ($7A-$7B işaretçisi), boşlukları ve iki noktayı işler."
+  },
+  "$A7E4": {
+    "name": "SUB_A7E4",
+    "description": "Komut çözümleme, token'ları tanır ve yürütme için hazırlar."
+  },
+  "$A7ED": {
+    "name": "SUB_A7ED",
+    "description": "Komut yürütme, token tablosundan adres alarak komutları çalıştırır."
+  },
+  "$A8F8": {
+    "name": "SUB_A8F8",
+    "description": "Token çözümleme, programdaki token'ları ($80-$CB) tanır."
+  },
+  "$A82C": {
+    "name": "SUB_A82C",
+    "description": "Token tablosu arama, token işaretçisini ($5F-$60) ayarlar."
+  },
+  "$A871": {
+    "name": "LEN",
+    "description": "LEN(string) fonksiyonunu hesaplar, string uzunluğunu A register'ına döndürür ($C3 token)."
+  },
+  "$AB1E": {
+    "name": "STROUT",
+    "description": "PRINT komutunu yürütür, string'i ($5F-$60) ekrana basar ($99 token)."
+  },
+  "$B526": {
+    "name": "SUB_B526",
+    "description": "Sayı çözümleme, programdan sayısal değerleri ($7A-$7B) okur ve tampona ($5F-$60) kaydeder."
+  },
+  "$B7F7": {
+    "name": "SUB_B7F7",
+    "description": "String işaretçisini alır, programdan ($7A-$7B) string adresini ($5F-$60) ayarlar."
+  },
+  "$B7B5": {
+    "name": "SUB_B7B5",
+    "description": "Sayı dönüştürme, ASCII rakamları sayıya çevirir ($7A-$7B, $5F)."
+  },
+  "$B8A7": {
+    "name": "SUB_B8A7",
+    "description": "İlk sayıyı alır, programdan ($7A-$7B) sayıyı ($5F) kaydeder."
+  },
+  "$B86A": {
+    "name": "SUB_B86A",
+    "description": "İkinci sayıyı alır, programdan ($7A-$7B) sayıyı ($60) kaydeder."
+  },
+  "$B79B": {
+    "name": "ADD",
+    "description": "Toplama operatörü (+), iki sayıyı ($5F, $60) toplar ve sonucu ($5F) kaydeder ($AA token)."
+  },
+  "$B9EA": {
+    "name": "SUBTRACT",
+    "description": "Çıkarma operatörü (-), ikinci sayı ($60) birinci sayıdan ($5F) çıkar ve sonucu ($5F) kaydeder ($AB token)."
+  },
+  "$BA28": {
+    "name": "MULTIPLY",
+    "description": "Çarpma operatörü (*), iki sayıyı ($5F, $60) çarpar ve sonucu ($61-$62) kaydeder ($AC token)."
+  },
+  "$BB0F": {
+    "name": "DIVIDE",
+    "description": "Bölme operatörü (/), bölüneni ($5F) bölene ($60) böler ve sonucu ($61) kaydeder ($AD token)."
+  },
+  "$A9FF": {
+    "name": "GOTO",
+    "description": "GOTO komutunu yürütür, belirtilen satıra ($5F-$60) atlar ($89 token)."
+  },
+  "$AD8A": {
+    "name": "FOR",
+    "description": "FOR döngüsünü başlatır, döngü değişkenini ($5F-$60) ayarlar ($81 token)."
+  },
+  "$AE83": {
+    "name": "NEXT",
+    "description": "NEXT komutunu yürütür, FOR döngüsünü ilerletir ve sınır kontrolü yapar ($82 token)."
+  },
+  "$B391": {
+    "name": "INPUT",
+    "description": "INPUT komutunu yürütür, kullanıcıdan giriş alır ve değişkene ($5F-$60) kaydeder ($85 token)."
+  },
+  "$AABC": {
+    "name": "ERROR",
+    "description": "Hata mesajını ekrana basar, hata kodunu ($7A-$7B) okur."
+  },
+  "$A7AE": {
+    "name": "END",
+    "description": "END komutunu yürütür, programı sonlandırır ve komut satırı döngüsüne döner ($80 token)."
+  },
+  "$B67D": {
+    "name": "CONCAT",
+    "description": "İki string'i birleştirir, string'leri ($5F-$60, $61-$62) birleştirir."
+  },
+  "$B475": {
+    "name": "STRCMP",
+    "description": "İki string'i karşılaştırır, string'leri ($5F-$60, $61-$62) karşılaştırır."
+  },
+  "$B3B3": {
+    "name": "USR",
+    "description": "Kullanıcı tanımlı makine kodu rutinini çağırır, $0311-$0312 adresinden JSR yapar ($B7 token)."
+  },
+  "$B82D": {
+    "name": "PEEK",
+    "description": "PEEK fonksiyonu, belirtilen adresteki ($5F-$60) baytı okur ve A register'ına döndürür ($C2 token)."
+  },
+  "$B824": {
+    "name": "POKE",
+    "description": "POKE komutunu yürütür, belirtilen adrese ($60-$61) bayt yazar ($97 token)."
+  },
+  "$B77B": {
+    "name": "CHR",
+    "description": "CHR$ fonksiyonu, sayısal kodu ($5F) karaktere çevirir ve ekrana basar ($C7 token)."
+  },
+  "$B6EC": {
+    "name": "ASC",
+    "description": "ASC fonksiyonu, string'in ($5F-$60) ilk karakterinin ASCII kodunu A register'ına döndürür ($C6 token)."
+  },
+  "$B737": {
+    "name": "LEFT",
+    "description": "LEFT$ fonksiyonu, string'in ($5F-$60) solundan belirtilen uzunlukta parça alır ($C8 token)."
+  },
+  "$B700": {
+    "name": "RIGHT",
+    "description": "RIGHT$ fonksiyonu, string'in ($5F-$60) sağından belirtilen uzunlukta parça alır ($C9 token)."
+  },
+  "$B72C": {
+    "name": "MID",
+    "description": "MID$ fonksiyonu, string'in ($5F-$60) belirtilen konumdan uzunlukta parça alır ($CA token)."
+  },
+  "$AD9E": {
+    "name": "IF",
+    "description": "IF komutunu yürütür, koşula göre ($5F-$60) komut çalıştırır ($8B token)."
+  },
+  "$AE8D": {
+    "name": "GOSUB",
+    "description": "GOSUB komutunu yürütür, alt rutine ($5F-$60) atlar ve dönüş adresini yığına kaydeder ($8D token)."
+  },
+  "$AEF1": {
+    "name": "RETURN",
+    "description": "RETURN komutunu yürütür, GOSUB'dan yığından adres alarak döner ($8E token)."
+  },
+  "$A93A": {
+    "name": "ON",
+    "description": "ON komutunu yürütür, sayıya ($5F) göre komut seçer ($91 token)."
+  },
+  "$A8A0": {
+    "name": "REM",
+    "description": "REM komutunu yürütür, yorum satırını ($7A-$7B) atlar ($8F token)."
+  },
+  "$A9A5": {
+    "name": "DATA",
+    "description": "DATA komutunu yürütür, veri satırını ($7A-$7B) tanımlar ($83 token)."
+  },
+  "$A81D": {
+    "name": "READ",
+    "description": "READ komutunu yürütür, DATA satırından ($7A-$7B) veri okur ($87 token)."
+  },
+  "$A857": {
+    "name": "RESTORE",
+    "description": "RESTORE komutunu yürütür, DATA işaretçisini ($7A-$7B) sıfırlar ($8C token)."
+  },
+  "$B0BA": {
+    "name": "SGN",
+    "description": "SGN fonksiyonu, sayının ($5F) işaretini döndürür (0, 1, -1) ($B4 token)."
+  },
+  "$BCCC": {
+    "name": "INT",
+    "description": "INT fonksiyonu, sayının ($5F-$60) tamsayı kısmını döndürür ($B5 token)."
+  },
+  "$B37D": {
+    "name": "ABS",
+    "description": "ABS fonksiyonu, sayının ($5F-$60) mutlak değerini döndürür ($B6 token)."
+  },
+  "$B9D9": {
+    "name": "FRE",
+    "description": "FRE fonksiyonu, boş bellek miktarını ($5F-$60) döndürür ($B8 token)."
+  },
+  "$B9BC": {
+    "name": "POS",
+    "description": "POS fonksiyonu, imlecin sütun pozisyonunu ($D3) döndürür ($B9 token)."
+  },
+  "$BC9B": {
+    "name": "SQR",
+    "description": "SQR fonksiyonu, sayının ($5F-$60) karekökünü hesaplar ($BA token)."
+  },
+  "$B8F3": {
+    "name": "RND",
+    "description": "RND fonksiyonu, rastgele sayı üretir ve ($5F-$60) döndürür ($BB token)."
+  },
+  "$BBA2": {
+    "name": "LOG",
+    "description": "LOG fonksiyonu, sayının ($5F-$60) doğal logaritmasını hesaplar ($BC token)."
+  },
+  "$BF71": {
+    "name": "EXP",
+    "description": "EXP fonksiyonu, e^x hesaplar ($5F-$60) ve sonucu döndürür ($BD token)."
+  },
+  "$BFED": {
+    "name": "COS",
+    "description": "COS fonksiyonu, kosinüs hesaplar ($5F-$60) ve sonucu döndürür ($BE token)."
+  },
+  "$BFB4": {
+    "name": "SIN",
+    "description": "SIN fonksiyonu, sinüs hesaplar ($5F-$60) ve sonucu döndürür ($BF token)."
+  },
+  "$BFE6": {
+    "name": "TAN",
+    "description": "TAN fonksiyonu, tanjant hesaplar ($5F-$60) ve sonucu döndürür ($C0 token)."
+  },
+  "$B947": {
+    "name": "ATN",
+    "description": "ATN fonksiyonu, arktanjant hesaplar ($5F-$60) ve sonucu döndürür ($C1 token)."
+  },
+  "$A9DA": {
+    "name": "RUN",
+    "description": "RUN komutunu yürütür, programı ($7A-$7B) başlatır ($8A token)."
+  },
+  "$A8D2": {
+    "name": "STOP",
+    "description": "STOP komutunu yürütür, programı durdurur ($90 token)."
+  },
+  "$A831": {
+    "name": "CONT",
+    "description": "CONT komutunu yürütür, durdurulan programı sürdürür ($9A token)."
+  },
+  "$A8B8": {
+    "name": "LIST",
+    "description": "LIST komutunu yürütür, programı ($7A-$7B) listeler ($9B token)."
+  },
+  "$A613": {
+    "name": "CLR",
+    "description": "CLR komutunu yürütür, değişkenleri ve yığını temizler ($9C token)."
+  },
+  "$A9C4": {
+    "name": "CMD",
+    "description": "CMD komutunu yürütür, çıkış cihazını değiştirir ($9D token)."
+  },
+  "$A9E3": {
+    "name": "SYS",
+    "description": "SYS komutunu yürütür, belirtilen adrese ($5F-$60) atlar ($9E token)."
+  },
+  "$A98B": {
+    "name": "OPEN",
+    "description": "OPEN komutunu yürütür, dosya veya cihaz açar ($9F token)."
+  },
+  "$A9A2": {
+    "name": "CLOSE",
+    "description": "CLOSE komutunu yürütür, dosya veya cihazı kapatır ($A0 token)."
+  },
+  "$B79B": {
+    "name": "GET",
+    "description": "GET komutunu yürütür, tek karakter giriş alır ($A1 token)."
+  },
+  "$A533": {
+    "name": "NEW",
+    "description": "NEW komutunu yürütür, programı ve değişkenleri sıfırlar ($A2 token)."
+  }
+}
