@@ -1,0 +1,48 @@
+=== CHARSETMINION USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64CharsetMinion/C64 Charset Minion.exe
+Category: special
+Learning Date: 2025-07-29 12:18:00.844209
+============================================================
+
+COMMAND: charsetminion --help
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charsetminion -h
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charsetminion --version
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charsetminion -v
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charsetminion -?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
+COMMAND: charsetminion /?
+----------------------------------------
+No output received
+Return Code: 0
+
+============================================================
+
