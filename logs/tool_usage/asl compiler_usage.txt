@@ -1,0 +1,78 @@
+=== ASL COMPILER USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/asl.exe
+Category: special
+Learning Date: 2025-07-29 07:30:51.603434
+============================================================
+
+COMMAND: asl compiler --help
+----------------------------------------
+STDOUT:
+invalid option (-help for help): --help
+
+Return Code: 4
+
+============================================================
+
+COMMAND: asl compiler -h
+----------------------------------------
+STDERR:
+asl.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: asl compiler --version
+----------------------------------------
+STDOUT:
+invalid parameter (-help for help): --version
+
+Return Code: 4
+
+============================================================
+
+COMMAND: asl compiler -v
+----------------------------------------
+STDOUT:
+Macro Assembler 1.42 Beta [Bld 291]
+(i386-unknown-win32)
+(C) 1992,2025 Alfred Arnold
+Motorola MPC821 Additions (C) 2012 Marcin Cieslak
+68RS08-Generator (C) 2006 Andreas Bolsch
+Mitsubishi M16C-Generator also (C) 1999 RMS
+XILINX KCPSM(Picoblaze)-Generator (C) 2003 Andreas Wassatsch
+TMS320C2x-Generator (C) 1994/96 Thomas Sailer
+TMS320C5x-Generator (C) 1995/96 Thomas Sailer
+Panafacom MN1610/1613-Generator (C) 2019 Haruo Asano
+MIL-STD 1750 Generator also (C) 2019 Oliver Kellogg
+GI CP-1600-Generator (C) 2021 Haruo Asano
+HP Nanoprocessor Generator (C) 2022 Haruo Asano
+Intersil IM6100 Generator (C) 2022 Haruo Asano
+Renesas RX Generator (C) 2023 Haruo Asano
+
+
+STDERR:
+asl.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: asl compiler -?
+----------------------------------------
+STDOUT:
+invalid option (-help for help): -?
+
+Return Code: 4
+
+============================================================
+
+COMMAND: asl compiler /?
+----------------------------------------
+STDOUT:
+invalid option (-help for help): /?
+
+Return Code: 4
+
+============================================================
+
