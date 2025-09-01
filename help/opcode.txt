@@ -1,0 +1,111 @@
+   Mnemonic Addressing Mode   Syntax                           Behavior
+1       ADC       Immediate     #$nn                      A = A + M + C
+2       ADC       Zero Page      $nn                      A = A + M + C
+3       ADC     Zero Page,X    $nn,X                      A = A + M + C
+4       ADC        Absolute    $nnnn                      A = A + M + C
+5       ADC      Absolute,X  $nnnn,X                      A = A + M + C
+6       ADC      Absolute,Y  $nnnn,Y                      A = A + M + C
+7       ADC      Indirect,X  ($nn,X)                      A = A + M + C
+8       ADC      Indirect,Y  ($nn),Y                      A = A + M + C
+9       AND       Immediate     #$nn                          A = A & M
+10      AND       Zero Page      $nn                          A = A & M
+11      AND     Zero Page,X    $nn,X                          A = A & M
+12      AND        Absolute    $nnnn                          A = A & M
+13      AND      Absolute,X  $nnnn,X                          A = A & M
+14      AND      Absolute,Y  $nnnn,Y                          A = A & M
+15      AND      Indirect,X  ($nn,X)                          A = A & M
+16      AND      Indirect,Y  ($nn),Y                          A = A & M
+17      ASL     Accumulator                                  A = A << 1
+18      ASL       Zero Page      $nn                         M = M << 1
+19      ASL     Zero Page,X    $nn,X                         M = M << 1
+20      ASL        Absolute    $nnnn                         M = M << 1
+21      ASL      Absolute,X  $nnnn,X                         M = M << 1
+22      BCC        Relative      $nn           if C == 0 then PC += rel
+23      BCS        Relative      $nn           if C == 1 then PC += rel
+24      BEQ        Relative      $nn           if Z == 1 then PC += rel
+25      BIT       Zero Page      $nn  Set Z = A & M, Set N and V from M
+26      BIT        Absolute    $nnnn  Set Z = A & M, Set N and V from M
+27      BMI        Relative      $nn           if N == 1 then PC += rel
+28      BNE        Relative      $nn           if Z == 0 then PC += rel
+29      BPL        Relative      $nn           if N == 0 then PC += rel
+30      BRK         Implied            Break, push PC+2, push SR, set I
+31      BVC        Relative      $nn           if V == 0 then PC += rel
+32      BVS        Relative      $nn           if V == 1 then PC += rel
+33      CLC         Implied                                Clear C flag
+34      CLD         Implied                                Clear D flag
+35      CLI         Implied                                Clear I flag
+36      CLV         Implied                                Clear V flag
+37      CMP       Immediate     #$nn                      Compare A - M
+38      CMP       Zero Page      $nn                      Compare A - M
+39      CMP     Zero Page,X    $nn,X                      Compare A - M
+40      CMP        Absolute    $nnnn                      Compare A - M
+41      CMP      Absolute,X  $nnnn,X                      Compare A - M
+42      CMP      Absolute,Y  $nnnn,Y                      Compare A - M
+43      CMP      Indirect,X  ($nn,X)                      Compare A - M
+44      CMP      Indirect,Y  ($nn),Y                      Compare A - M
+45      CPX       Immediate     #$nn                      Compare X - M
+46      CPX       Zero Page      $nn                      Compare X - M
+47      CPX        Absolute    $nnnn                      Compare X - M
+48      CPY       Immediate     #$nn                      Compare Y - M
+49      CPY       Zero Page      $nn                      Compare Y - M
+50      CPY        Absolute    $nnnn                      Compare Y - M
+62      EOR      Absolute,Y  $nnnn,Y              A = A ^ M
+63      EOR      Indirect,X  ($nn,X)              A = A ^ M
+64      EOR      Indirect,Y  ($nn),Y              A = A ^ M
+65      INC       Zero Page      $nn              M = M + 1
+66      INC     Zero Page,X    $nn,X              M = M + 1
+67      INC        Absolute    $nnnn              M = M + 1
+68      INC      Absolute,X  $nnnn,X              M = M + 1
+69      INX         Implied                       X = X + 1
+70      INY         Implied                       Y = Y + 1
+71      JMP        Absolute    $nnnn             PC = $nnnn
+72      JMP        Indirect  ($nnnn)           PC = ($nnnn)
+73      JSR        Absolute    $nnnn  Push PC-1, PC = $nnnn
+74      LDA       Immediate     #$nn                  A = M
+75      LDA       Zero Page      $nn                  A = M
+76      LDA     Zero Page,X    $nn,X                  A = M
+77      LDA        Absolute    $nnnn                  A = M
+78      LDA      Absolute,X  $nnnn,X                  A = M
+79      LDA      Absolute,Y  $nnnn,Y                  A = M
+80      LDA      Indirect,X  ($nn,X)                  A = M
+81      LDA      Indirect,Y  ($nn),Y                  A = M
+82      LDX       Immediate     #$nn                  X = M
+83      LDX       Zero Page      $nn                  X = M
+84      LDX     Zero Page,Y    $nn,Y                  X = M
+85      LDX        Absolute    $nnnn                  X = M
+86      LDX      Absolute,Y  $nnnn,Y                  X = M
+87      LDY       Immediate     #$nn                  Y = M
+88      LDY       Zero Page      $nn                  Y = M
+89      LDY     Zero Page,X    $nn,X                  Y = M
+90      LDY        Absolute    $nnnn                  Y = M
+91      LDY      Absolute,X  $nnnn,X                  Y = M
+113      ROR        Absolute    $nnnn  M = (C << 7) + (M >> 1)
+114      ROR      Absolute,X  $nnnn,X  M = (C << 7) + (M >> 1)
+115      RTS         Implied              Pull PC, PC = PC + 1
+116      SBC       Immediate     #$nn      A = A - M - (1 - C)
+117      SBC       Zero Page      $nn      A = A - M - (1 - C)
+118      SBC     Zero Page,X    $nn,X      A = A - M - (1 - C)
+119      SBC        Absolute    $nnnn      A = A - M - (1 - C)
+120      SBC      Absolute,X  $nnnn,X      A = A - M - (1 - C)
+121      SBC      Absolute,Y  $nnnn,Y      A = A - M - (1 - C)
+122      SBC      Indirect,X  ($nn,X)      A = A - M - (1 - C)
+123      SBC      Indirect,Y  ($nn),Y      A = A - M - (1 - C)
+124      STA       Zero Page      $nn                    M = A
+125      STA     Zero Page,X    $nn,X                    M = A
+126      STA        Absolute    $nnnn                    M = A
+127      STA      Absolute,X  $nnnn,X                    M = A
+128      STA      Absolute,Y  $nnnn,Y                    M = A
+129      STA      Indirect,X  ($nn,X)                    M = A
+130      STA      Indirect,Y  ($nn),Y                    M = A
+131      STX       Zero Page      $nn                    M = X
+132      STX     Zero Page,Y    $nn,Y                    M = X
+133      STX        Absolute    $nnnn                    M = X
+134      STY       Zero Page      $nn                    M = Y
+135      STY     Zero Page,X    $nn,X                    M = Y
+136      STY        Absolute    $nnnn                    M = Y
+137      TAX         Implied                             X = A
+138      TAY         Implied                             Y = A
+139      TSX         Implied                             X = S
+140      TXA         Implied                             A = X
+141      TXS         Implied                             S = X
+142      TYA         Implied                             A = Y
