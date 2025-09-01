@@ -1,0 +1,889 @@
+{
+  "$0000": {
+    "name": "PROC_PORT_DDR",
+    "bits": {
+      "0": "LORAM yönü (0 = giriş, 1 = çıkış, $A000-$BFFF BASIC ROM/RAM seçimi)",
+      "1": "HIRAM yönü (0 = giriş, 1 = çıkış, $E000-$FFFF KERNAL ROM/RAM seçimi)",
+      "2": "CHAREN yönü (0 = giriş, 1 = çıkış, $D000-$DFFF I/O/Karakter ROM seçimi)",
+      "3": "Kaset yazma hattı yönü (0 = giriş, 1 = çıkış)",
+      "4": "Kaset tuşu algılama yönü (0 = giriş, 1 = çıkış, PLAY tuşu kontrolü)",
+      "5": "Kaset motor kontrolü yönü (0 = giriş, 1 = çıkış)",
+      "6": "Kullanılmıyor (C128: ASCII/DIN anahtarı)",
+      "7": "Kullanılmıyor (Flash 8: CPU hızı)"
+    }
+  },
+  "$0001": {
+    "name": "PROC_PORT",
+    "bits": {
+      "0": "LORAM (0 = BASIC ROM kapalı, RAM açık; 1 = BASIC ROM açık, $A000-$BFFF)",
+      "1": "HIRAM (0 = KERNAL ROM kapalı, RAM açık; 1 = KERNAL ROM açık, $E000-$FFFF)",
+      "2": "CHAREN (0 = Karakter ROM açık, I/O kapalı; 1 = I/O açık, $D000-$DFFF)",
+      "3": "Kaset yazma hattı (0/1 veri yazma)",
+      "4": "Kaset tuşu algılama (0 = PLAY tuşu basılı, 1 = basılı değil)",
+      "5": "Kaset motor kontrolü (0 = motor açık, 1 = motor kapalı)",
+      "6": "Kullanılmıyor (C128: ASCII/DIN anahtarı)",
+      "7": "Kullanılmıyor (Flash 8: CPU hızı)"
+    }
+  },
+  "$D000": {
+    "name": "SPR0_X",
+    "bits": {
+      "0-7": "Sprite 0 X koordinatı (düşük 8 bit, 0-255)"
+    }
+  },
+  "$D001": {
+    "name": "SPR0_Y",
+    "bits": {
+      "0-7": "Sprite 0 Y koordinatı (0-255)"
+    }
+  },
+  "$D002": {
+    "name": "SPR1_X",
+    "bits": {
+      "0-7": "Sprite 1 X koordinatı (düşük 8 bit, 0-255)"
+    }
+  },
+  "$D003": {
+    "name": "SPR1_Y",
+    "bits": {
+      "0-7": "Sprite 1 Y koordinatı (0-255)"
+    }
+  },
+  "$D004": {
+    "name": "SPR2_X",
+    "bits": {
+      "0-7": "Sprite 2 X koordinatı (düşük 8 bit, 0-255)"
+    }
+  },
+  "$D005": {
+    "name": "SPR2_Y",
+    "bits": {
+      "0-7": "Sprite 2 Y koordinatı (0-255)"
+    }
+  },
+  "$D006": {
+    "name": "SPR3_X",
+    "bits": {
+      "0-7": "Sprite 3 X koordinatı (düşük 8 bit, 0-255)"
+    }
+  },
+  "$D007": {
+    "name": "SPR3_Y",
+    "bits": {
+      "0-7": "Sprite 3 Y koordinatı (0-255)"
+    }
+  },
+  "$D008": {
+    "name": "SPR4_X",
+    "bits": {
+      "0-7": "Sprite 4 X koordinatı (düşük 8 bit, 0-255)"
+    }
+  },
+  "$D009": {
+    "name": "SPR4_Y",
+    "bits": {
+      "0-7": "Sprite 4 Y koordinatı (0-255)"
+    }
+  },
+  "$D00A": {
+    "name": "SPR5_X",
+    "bits": {
+      "0-7": "Sprite 5 X koordinatı (düşük 8 bit, 0-255)"
+    }
+  },
+  "$D00B": {
+    "name": "SPR5_Y",
+    "bits": {
+      "0-7": "Sprite 5 Y koordinatı (0-255)"
+    }
+  },
+  "$D00C": {
+    "name": "SPR6_X",
+    "bits": {
+      "0-7": "Sprite 6 X koordinatı (düşük 8 bit, 0-255)"
+    }
+  },
+  "$D00D": {
+    "name": "SPR6_Y",
+    "bits": {
+      "0-7": "Sprite 6 Y koordinatı (0-255)"
+    }
+  },
+  "$D00E": {
+    "name": "SPR7_X",
+    "bits": {
+      "0-7": "Sprite 7 X koordinatı (düşük 8 bit, 0-255)"
+    }
+  },
+  "$D00F": {
+    "name": "SPR7_Y",
+    "bits": {
+      "0-7": "Sprite 7 Y koordinatı (0-255)"
+    }
+  },
+  "$D010": {
+    "name": "SPR_MSBS",
+    "bits": {
+      "0": "Sprite 0 X koordinatı yüksek bit (9. bit)",
+      "1": "Sprite 1 X koordinatı yüksek bit (9. bit)",
+      "2": "Sprite 2 X koordinatı yüksek bit (9. bit)",
+      "3": "Sprite 3 X koordinatı yüksek bit (9. bit)",
+      "4": "Sprite 4 X koordinatı yüksek bit (9. bit)",
+      "5": "Sprite 5 X koordinatı yüksek bit (9. bit)",
+      "6": "Sprite 6 X koordinatı yüksek bit (9. bit)",
+      "7": "Sprite 7 X koordinatı yüksek bit (9. bit)"
+    }
+  },
+  "$D011": {
+    "name": "VIC_CONTROL",
+    "bits": {
+      "0-2": "Raster tarama hattı (yüksek 3 bit, $D012 ile birlikte 9 bit)",
+      "3": "Ekran açık/kapalı (0 = kapalı, 1 = açık)",
+      "4": "Satır sayısı (0 = 24 satır, 1 = 25 satır)",
+      "5": "Dikey kaydırma (0-7 piksel)",
+      "6": "Bitmap modu (0 = kapalı, 1 = açık)",
+      "7": "Raster kesmesi etkinleştirme (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$D012": {
+    "name": "RASTER",
+    "bits": {
+      "0-7": "Raster tarama hattı (düşük 8 bit, $D011 ile birlikte 9 bit)"
+    }
+  },
+  "$D013": {
+    "name": "LIGHTPEN_X",
+    "bits": {
+      "0-7": "Işık kalemi X koordinatı"
+    }
+  },
+  "$D014": {
+    "name": "LIGHTPEN_Y",
+    "bits": {
+      "0-7": "Işık kalemi Y koordinatı"
+    }
+  },
+  "$D015": {
+    "name": "SPR_ENABLE",
+    "bits": {
+      "0": "Sprite 0 etkinleştirme (0 = kapalı, 1 = açık)",
+      "1": "Sprite 1 etkinleştirme (0 = kapalı, 1 = açık)",
+      "2": "Sprite 2 etkinleştirme (0 = kapalı, 1 = açık)",
+      "3": "Sprite 3 etkinleştirme (0 = kapalı, 1 = açık)",
+      "4": "Sprite 4 etkinleştirme (0 = kapalı, 1 = açık)",
+      "5": "Sprite 5 etkinleştirme (0 = kapalı, 1 = açık)",
+      "6": "Sprite 6 etkinleştirme (0 = kapalı, 1 = açık)",
+      "7": "Sprite 7 etkinleştirme (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$D016": {
+    "name": "VIC_CONTROL2",
+    "bits": {
+      "0-2": "Yatay kaydırma (0-7 piksel)",
+      "3": "Sütun sayısı (0 = 38 sütun, 1 = 40 sütun)",
+      "4": "Çok renkli mod (0 = kapalı, 1 = açık)",
+      "5-7": "Kullanılmıyor"
+    }
+  },
+  "$D017": {
+    "name": "SPR_EXPAND_Y",
+    "bits": {
+      "0": "Sprite 0 Y ekseninde genişletme (0 = normal, 1 = 2x)",
+      "1": "Sprite 1 Y ekseninde genişletme (0 = normal, 1 = 2x)",
+      "2": "Sprite 2 Y ekseninde genişletme (0 = normal, 1 = 2x)",
+      "3": "Sprite 3 Y ekseninde genişletme (0 = normal, 1 = 2x)",
+      "4": "Sprite 4 Y ekseninde genişletme (0 = normal, 1 = 2x)",
+      "5": "Sprite 5 Y ekseninde genişletme (0 = normal, 1 = 2x)",
+      "6": "Sprite 6 Y ekseninde genişletme (0 = normal, 1 = 2x)",
+      "7": "Sprite 7 Y ekseninde genişletme (0 = normal, 1 = 2x)"
+    }
+  },
+  "$D018": {
+    "name": "VIC_MEMORY",
+    "bits": {
+      "0": "Kullanılmıyor",
+      "1-3": "Karakter bellek adresi (VIC bank içinde, 2K adımlarla)",
+      "4-7": "Ekran bellek adresi (VIC bank içinde, 1K adımlarla)"
+    }
+  },
+  "$D019": {
+    "name": "VIC_IRQ",
+    "bits": {
+      "0": "Raster kesme bayrağı (1 = kesme oluştu)",
+      "1": "Sprite-arka plan çarpışma bayrağı (1 = çarpışma)",
+      "2": "Sprite-sprite çarpışma bayrağı (1 = çarpışma)",
+      "3": "Işık kalemi kesme bayrağı (1 = kesme oluştu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D01A": {
+    "name": "VIC_IRQ_MASK",
+    "bits": {
+      "0": "Raster kesme maskesi (1 = etkin)",
+      "1": "Sprite-arka plan çarpışma maskesi (1 = etkin)",
+      "2": "Sprite-sprite çarpışma maskesi (1 = etkin)",
+      "3": "Işık kalemi kesme maskesi (1 = etkin)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D01B": {
+    "name": "SPR_PRIORITY",
+    "bits": {
+      "0": "Sprite 0 önceliği (0 = arka planda, 1 = önde)",
+      "1": "Sprite 1 önceliği (0 = arka planda, 1 = önde)",
+      "2": "Sprite 2 önceliği (0 = arka planda, 1 = önde)",
+      "3": "Sprite 3 önceliği (0 = arka planda, 1 = önde)",
+      "4": "Sprite 4 önceliği (0 = arka planda, 1 = önde)",
+      "5": "Sprite 5 önceliği (0 = arka planda, 1 = önde)",
+      "6": "Sprite 6 önceliği (0 = arka planda, 1 = önde)",
+      "7": "Sprite 7 önceliği (0 = arka planda, 1 = önde)"
+    }
+  },
+  "$D01C": {
+    "name": "SPR_MULTICOLOR",
+    "bits": {
+      "0": "Sprite 0 çok renkli mod (0 = tek renk, 1 = çok renkli)",
+      "1": "Sprite 1 çok renkli mod (0 = tek renk, 1 = çok renkli)",
+      "2": "Sprite 2 çok renkli mod (0 = tek renk, 1 = çok renkli)",
+      "3": "Sprite 3 çok renkli mod (0 = tek renk, 1 = çok renkli)",
+      "4": "Sprite 4 çok renkli mod (0 = tek renk, 1 = çok renkli)",
+      "5": "Sprite 5 çok renkli mod (0 = tek renk, 1 = çok renkli)",
+      "6": "Sprite 6 çok renkli mod (0 = tek renk, 1 = çok renkli)",
+      "7": "Sprite 7 çok renkli mod (0 = tek renk, 1 = çok renkli)"
+    }
+  },
+  "$D01D": {
+    "name": "SPR_EXPAND_X",
+    "bits": {
+      "0": "Sprite 0 X ekseninde genişletme (0 = normal, 1 = 2x)",
+      "1": "Sprite 1 X ekseninde genişletme (0 = normal, 1 = 2x)",
+      "2": "Sprite 2 X ekseninde genişletme (0 = normal, 1 = 2x)",
+      "3": "Sprite 3 X ekseninde genişletme (0 = normal, 1 = 2x)",
+      "4": "Sprite 4 X ekseninde genişletme (0 = normal, 1 = 2x)",
+      "5": "Sprite 5 X ekseninde genişletme (0 = normal, 1 = 2x)",
+      "6": "Sprite 6 X ekseninde genişletme (0 = normal, 1 = 2x)",
+      "7": "Sprite 7 X ekseninde genişletme (0 = normal, 1 = 2x)"
+    }
+  },
+  "$D01E": {
+    "name": "SPR_SPR_COLL",
+    "bits": {
+      "0": "Sprite 0 sprite çarpışması (1 = çarpışma)",
+      "1": "Sprite 1 sprite çarpışması (1 = çarpışma)",
+      "2": "Sprite 2 sprite çarpışması (1 = çarpışma)",
+      "3": "Sprite 3 sprite çarpışması (1 = çarpışma)",
+      "4": "Sprite 4 sprite çarpışması (1 = çarpışma)",
+      "5": "Sprite 5 sprite çarpışması (1 = çarpışma)",
+      "6": "Sprite 6 sprite çarpışması (1 = çarpışma)",
+      "7": "Sprite 7 sprite çarpışması (1 = çarpışma)"
+    }
+  },
+  "$D01F": {
+    "name": "SPR_BKG_COLL",
+    "bits": {
+      "0": "Sprite 0 arka plan çarpışması (1 = çarpışma)",
+      "1": "Sprite 1 arka plan çarpışması (1 = çarpışma)",
+      "2": "Sprite 2 arka plan çarpışması (1 = çarpışma)",
+      "3": "Sprite 3 arka plan çarpışması (1 = çarpışma)",
+      "4": "Sprite 4 arka plan çarpışması (1 = çarpışma)",
+      "5": "Sprite 5 arka plan çarpışması (1 = çarpışma)",
+      "6": "Sprite 6 arka plan çarpışması (1 = çarpışma)",
+      "7": "Sprite 7 arka plan çarpışması (1 = çarpışma)"
+    }
+  },
+  "$D020": {
+    "name": "BORDER_COLOR",
+    "bits": {
+      "0-3": "Kenarlık rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D021": {
+    "name": "BKG_COLOR0",
+    "bits": {
+      "0-3": "Arka plan rengi 0 (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D022": {
+    "name": "BKG_COLOR1",
+    "bits": {
+      "0-3": "Arka plan rengi 1 (çok renkli mod, 0-15)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D023": {
+    "name": "BKG_COLOR2",
+    "bits": {
+      "0-3": "Arka plan rengi 2 (çok renkli mod, 0-15)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D024": {
+    "name": "BKG_COLOR3",
+    "bits": {
+      "0-3": "Arka plan rengi 3 (genişletilmiş mod, 0-15)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D025": {
+    "name": "SPR_MULTICOLOR0",
+    "bits": {
+      "0-3": "Sprite çok renkli 0 (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D026": {
+    "name": "SPR_MULTICOLOR1",
+    "bits": {
+      "0-3": "Sprite çok renkli 1 (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D027": {
+    "name": "SPR0_COLOR",
+    "bits": {
+      "0-3": "Sprite 0 rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D028": {
+    "name": "SPR1_COLOR",
+    "bits": {
+      "0-3": "Sprite 1 rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D029": {
+    "name": "SPR2_COLOR",
+    "bits": {
+      "0-3": "Sprite 2 rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D02A": {
+    "name": "SPR3_COLOR",
+    "bits": {
+      "0-3": "Sprite 3 rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D02B": {
+    "name": "SPR4_COLOR",
+    "bits": {
+      "0-3": "Sprite 4 rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D02C": {
+    "name": "SPR5_COLOR",
+    "bits": {
+      "0-3": "Sprite 5 rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D02D": {
+    "name": "SPR6_COLOR",
+    "bits": {
+      "0-3": "Sprite 6 rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D02E": {
+    "name": "SPR7_COLOR",
+    "bits": {
+      "0-3": "Sprite 7 rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D400": {
+    "name": "VOICE1_FREQ_LO",
+    "bits": {
+      "0-7": "Ses 1 frekansı (düşük 8 bit)"
+    }
+  },
+  "$D401": {
+    "name": "VOICE1_FREQ_HI",
+    "bits": {
+      "0-7": "Ses 1 frekansı (yüksek 8 bit)"
+    }
+  },
+  "$D402": {
+    "name": "VOICE1_PULSE_WIDTH_LO",
+    "bits": {
+      "0-7": "Ses 1 dalga genişliği (düşük 8 bit)"
+    }
+  },
+  "$D403": {
+    "name": "VOICE1_PULSE_WIDTH_HI",
+    "bits": {
+      "0-3": "Ses 1 dalga genişliği (yüksek 4 bit)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D404": {
+    "name": "VOICE1_CONTROL",
+    "bits": {
+      "0": "Kapı (gate) biti (0 = kapalı, 1 = açık)",
+      "1": "Senkronizasyon (0 = kapalı, 1 = açık)",
+      "2": "Ring modülasyonu (0 = kapalı, 1 = açık)",
+      "3": "Test biti (0 = normal, 1 = test modu)",
+      "4": "Üçgen dalga (0 = kapalı, 1 = açık)",
+      "5": "Testere dişi dalga (0 = kapalı, 1 = açık)",
+      "6": "Kare dalga (0 = kapalı, 1 = açık)",
+      "7": "Gürültü dalga (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$D405": {
+    "name": "VOICE1_ATTACK_DECAY",
+    "bits": {
+      "0-3": "Decay süresi (0-15)",
+      "4-7": "Attack süresi (0-15)"
+    }
+  },
+  "$D406": {
+    "name": "VOICE1_SUSTAIN_RELEASE",
+    "bits": {
+      "0-3": "Release süresi (0-15)",
+      "4-7": "Sustain seviyesi (0-15)"
+    }
+  },
+  "$D407": {
+    "name": "VOICE2_FREQ_LO",
+    "bits": {
+      "0-7": "Ses 2 frekansı (düşük 8 bit)"
+    }
+  },
+  "$D408": {
+    "name": "VOICE2_FREQ_HI",
+    "bits": {
+      "0-7": "Ses 2 frekansı (yüksek 8 bit)"
+    }
+  },
+  "$D409": {
+    "name": "VOICE2_PULSE_WIDTH_LO",
+    "bits": {
+      "0-7": "Ses 2 dalga genişliği (düşük 8 bit)"
+    }
+  },
+  "$D40A": {
+    "name": "VOICE2_PULSE_WIDTH_HI",
+    "bits": {
+      "0-3": "Ses 2 dalga genişliği (yüksek 4 bit)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D40B": {
+    "name": "VOICE2_CONTROL",
+    "bits": {
+      "0": "Kapı (gate) biti (0 = kapalı, 1 = açık)",
+      "1": "Senkronizasyon (0 = kapalı, 1 = açık)",
+      "2": "Ring modülasyonu (0 = kapalı, 1 = açık)",
+      "3": "Test biti (0 = normal, 1 = test modu)",
+      "4": "Üçgen dalga (0 = kapalı, 1 = açık)",
+      "5": "Testere dişi dalga (0 = kapalı, 1 = açık)",
+      "6": "Kare dalga (0 = kapalı, 1 = açık)",
+      "7": "Gürültü dalga (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$D40C": {
+    "name": "VOICE2_ATTACK_DECAY",
+    "bits": {
+      "0-3": "Decay süresi (0-15)",
+      "4-7": "Attack süresi (0-15)"
+    }
+  },
+  "$D40D": {
+    "name": "VOICE2_SUSTAIN_RELEASE",
+    "bits": {
+      "0-3": "Release süresi (0-15)",
+      "4-7": "Sustain seviyesi (0-15)"
+    }
+  },
+  "$D40E": {
+    "name": "VOICE3_FREQ_LO",
+    "bits": {
+      "0-7": "Ses 3 frekansı (düşük 8 bit)"
+    }
+  },
+  "$D40F": {
+    "name": "VOICE3_FREQ_HI",
+    "bits": {
+      "0-7": "Ses 3 frekansı (yüksek 8 bit)"
+    }
+  },
+  "$D410": {
+    "name": "VOICE3_PULSE_WIDTH_LO",
+    "bits": {
+      "0-7": "Ses 3 dalga genişliği (düşük 8 bit)"
+    }
+  },
+  "$D411": {
+    "name": "VOICE3_PULSE_WIDTH_HI",
+    "bits": {
+      "0-3": "Ses 3 dalga genişliği (yüksek 4 bit)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$D412": {
+    "name": "VOICE3_CONTROL",
+    "bits": {
+      "0": "Kapı (gate) biti (0 = kapalı, 1 = açık)",
+      "1": "Senkronizasyon (0 = kapalı, 1 = açık)",
+      "2": "Ring modülasyonu (0 = kapalı, 1 = açık)",
+      "3": "Test biti (0 = normal, 1 = test modu)",
+      "4": "Üçgen dalga (0 = kapalı, 1 = açık)",
+      "5": "Testere dişi dalga (0 = kapalı, 1 = açık)",
+      "6": "Kare dalga (0 = kapalı, 1 = açık)",
+      "7": "Gürültü dalga (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$D413": {
+    "name": "VOICE3_ATTACK_DECAY",
+    "bits": {
+      "0-3": "Decay süresi (0-15)",
+      "4-7": "Attack süresi (0-15)"
+    }
+  },
+  "$D414": {
+    "name": "VOICE3_SUSTAIN_RELEASE",
+    "bits": {
+      "0-3": "Release süresi (0-15)",
+      "4-7": "Sustain seviyesi (0-15)"
+    }
+  },
+  "$D415": {
+    "name": "FILTER_CUTOFF_LO",
+    "bits": {
+      "0-2": "Filtre kesim frekansı (düşük 3 bit)",
+      "3-7": "Kullanılmıyor"
+    }
+  },
+  "$D416": {
+    "name": "FILTER_CUTOFF_HI",
+    "bits": {
+      "0-7": "Filtre kesim frekansı (yüksek 8 bit)"
+    }
+  },
+  "$D417": {
+    "name": "FILTER_RESONANCE",
+    "bits": {
+      "0-3": "Filtre rezonansı (0-15)",
+      "4": "Ses 1 filtreleme (0 = kapalı, 1 = açık)",
+      "5": "Ses 2 filtreleme (0 = kapalı, 1 = açık)",
+      "6": "Ses 3 filtreleme (0 = kapalı, 1 = açık)",
+      "7": "Harici giriş filtreleme (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$D418": {
+    "name": "VOLUME_MODE",
+    "bits": {
+      "0-3": "Genel ses seviyesi (0-15)",
+      "4": "Düşük geçiren filtre (0 = kapalı, 1 = açık)",
+      "5": "Bant geçiren filtre (0 = kapalı, 1 = açık)",
+      "6": "Yüksek geçiren filtre (0 = kapalı, 1 = açık)",
+      "7": "Ses 3 çıkışı kapatma (0 = açık, 1 = kapalı)"
+    }
+  },
+  "$D419": {
+    "name": "PADDLE_X",
+    "bits": {
+      "0-7": "Paddle X analog değeri (0-255)"
+    }
+  },
+  "$D41A": {
+    "name": "PADDLE_Y",
+    "bits": {
+      "0-7": "Paddle Y analog değeri (0-255)"
+    }
+  },
+  "$D41B": {
+    "name": "OSC3_RANDOM",
+    "bits": {
+      "0-7": "Ses 3 osilatör çıktısı (rastgele sayı)"
+    }
+  },
+  "$D41C": {
+    "name": "ENV3_OUT",
+    "bits": {
+      "0-7": "Ses 3 zarf jeneratörü çıktısı"
+    }
+  },
+  "$DC00": {
+    "name": "CIA1_PORT_A",
+    "bits": {
+      "0-7": "Klavye satır seçimi veya joystick 2 yönleri (0 = basılı, 1 = serbest)"
+    }
+  },
+  "$DC01": {
+    "name": "CIA1_PORT_B",
+    "bits": {
+      "0-7": "Klavye sütun okuma veya joystick 2 ateşleme (0 = basılı, 1 = serbest)"
+    }
+  },
+  "$DC02": {
+    "name": "CIA1_DDRA",
+    "bits": {
+      "0-7": "Port A veri yönü (0 = giriş, 1 = çıkış)"
+    }
+  },
+  "$DC03": {
+    "name": "CIA1_DDRB",
+    "bits": {
+      "0-7": "Port B veri yönü (0 = giriş, 1 = çıkış)"
+    }
+  },
+  "$DC04": {
+    "name": "CIA1_TIMER_A_LO",
+    "bits": {
+      "0-7": "Zamanlayıcı A düşük bayt"
+    }
+  },
+  "$DC05": {
+    "name": "CIA1_TIMER_A_HI",
+    "bits": {
+      "0-7": "Zamanlayıcı A yüksek bayt"
+    }
+  },
+  "$DC06": {
+    "name": "CIA1_TIMER_B_LO",
+    "bits": {
+      "0-7": "Zamanlayıcı B düşük bayt"
+    }
+  },
+  "$DC07": {
+    "name": "CIA1_TIMER_B_HI",
+    "bits": {
+      "0-7": "Zamanlayıcı B yüksek bayt"
+    }
+  },
+  "$DC08": {
+    "name": "CIA1_TOD_10THS",
+    "bits": {
+      "0-3": "Zaman dilimi 1/10 saniye (0-9)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$DC09": {
+    "name": "CIA1_TOD_SEC",
+    "bits": {
+      "0-3": "Zaman dilimi saniye birler (0-9)",
+      "4-6": "Zaman dilimi saniye onlar (0-5)",
+      "7": "Kullanılmıyor"
+    }
+  },
+  "$DC0A": {
+    "name": "CIA1_TOD_MIN",
+    "bits": {
+      "0-3": "Zaman dilimi dakika birler (0-9)",
+      "4-6": "Zaman dilimi dakika onlar (0-5)",
+      "7": "Kullanılmıyor"
+    }
+  },
+  "$DC0B": {
+    "name": "CIA1_TOD_HR",
+    "bits": {
+      "0-3": "Zaman dilimi saat birler (0-9)",
+      "4-5": "Zaman dilimi saat onlar (0-2)",
+      "6": "Kullanılmıyor",
+      "7": "AM/PM bayrağı (0 = AM, 1 = PM)"
+    }
+  },
+  "$DC0C": {
+    "name": "CIA1_SDR",
+    "bits": {
+      "0-7": "Seri veri kaydı (seri port verisi)"
+    }
+  },
+  "$DC0D": {
+    "name": "CIA1_ICR",
+    "bits": {
+      "0": "Zamanlayıcı A kesmesi (1 = kesme oluştu)",
+      "1": "Zamanlayıcı B kesmesi (1 = kesme oluştu)",
+      "2": "Zaman dilimi kesmesi (1 = kesme oluştu)",
+      "3": "Seri port kesmesi (1 = kesme oluştu)",
+      "4": "Bayrak kesmesi (1 = kesme oluştu)",
+      "5-6": "Kullanılmıyor",
+      "7": "Kesme bayrağı (1 = herhangi bir kesme oluştu)"
+    }
+  },
+  "$DC0E": {
+    "name": "CIA1_CRA",
+    "bits": {
+      "0": "Zamanlayıcı A başlat/durdur (0 = durdur, 1 = başlat)",
+      "1": "Zamanlayıcı A çıkış modu (0 = düşük, 1 = yüksek)",
+      "2": "Zamanlayıcı A mod (0 = sürekli, 1 = tek atım)",
+      "3": "Zamanlayıcı A saat kaynağı (0 = sistem saati, 1 = CNT pini)",
+      "4": "Seri port modu (0 = giriş, 1 = çıkış)",
+      "5": "Zaman dilimi saat frekansı (0 = 60 Hz, 1 = 50 Hz)",
+      "6": "Kullanılmıyor",
+      "7": "Zamanlayıcı A kesme maskesi (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$DC0F": {
+    "name": "CIA1_CRB",
+    "bits": {
+      "0": "Zamanlayıcı B başlat/durdur (0 = durdur, 1 = başlat)",
+      "1": "Zamanlayıcı B çıkış modu (0 = düşük, 1 = yüksek)",
+      "2": "Zamanlayıcı B mod (0 = sürekli, 1 = tek atım)",
+      "3": "Zamanlayıcı B saat kaynağı (0 = sistem saati, 1 = CNT pini)",
+      "4": "Zaman dilimi alarm modu (0 = saat, 1 = alarm)",
+      "5": "Kullanılmıyor",
+      "6": "Kullanılmıyor",
+      "7": "Zamanlayıcı B kesme maskesi (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$DD00": {
+    "name": "CIA2_PORT_A",
+    "bits": {
+      "0-1": "Seri veri yolu veri hattı (0-3, VIC bank seçimi ile paylaşılır)",
+      "2": "Seri veri yolu saat hattı",
+      "3": "Seri veri yolu ATN hattı",
+      "4-5": "RS-232 çıkış pinleri",
+      "6-7": "Kullanılmıyor"
+    }
+  },
+  "$DD01": {
+    "name": "CIA2_PORT_B",
+    "bits": {
+      "0-7": "Kullanıcı portu veri pinleri (genişletme için)"
+    }
+  },
+  "$DD02": {
+    "name": "CIA2_DDRA",
+    "bits": {
+      "0-7": "Port A veri yönü (0 = giriş, 1 = çıkış)"
+    }
+  },
+  "$DD03": {
+    "name": "CIA2_DDRB",
+    "bits": {
+      "0-7": "Port B veri yönü (0 = giriş, 1 = çıkış)"
+    }
+  },
+  "$DD04": {
+    "name": "CIA2_TIMER_A_LO",
+    "bits": {
+      "0-7": "Zamanlayıcı A düşük bayt"
+    }
+  },
+  "$DD05": {
+    "name": "CIA2_TIMER_A_HI",
+    "bits": {
+      "0-7": "Zamanlayıcı A yüksek bayt"
+    }
+  },
+  "$DD06": {
+    "name": "CIA2_TIMER_B_LO",
+    "bits": {
+      "0-7": "Zamanlayıcı B düşük bayt"
+    }
+  },
+  "$DD07": {
+    "name": "CIA2_TIMER_B_HI",
+    "bits": {
+      "0-7": "Zamanlayıcı B yüksek bayt"
+    }
+  },
+  "$DD08": {
+    "name": "CIA2_TOD_10THS",
+    "bits": {
+      "0-3": "Zaman dilimi 1/10 saniye (0-9)",
+      "4-7": "Kullanılmıyor"
+    }
+  },
+  "$DD09": {
+    "name": "CIA2_TOD_SEC",
+    "bits": {
+      "0-3": "Zaman dilimi saniye birler (0-9)",
+      "4-6": "Zaman dilimi saniye onlar (0-5)",
+      "7": "Kullanılmıyor"
+    }
+  },
+  "$DD0A": {
+    "name": "CIA2_TOD_MIN",
+    "bits": {
+      "0-3": "Zaman dilimi dakika birler (0-9)",
+      "4-6": "Zaman dilimi dakika onlar (0-5)",
+      "7": "Kullanılmıyor"
+    }
+  },
+  "$DD0B": {
+    "name": "CIA2_TOD_HR",
+    "bits": {
+      "0-3": "Zaman dilimi saat birler (0-9)",
+      "4-5": "Zaman dilimi saat onlar (0-2)",
+      "6": "Kullanılmıyor",
+      "7": "AM/PM bayrağı (0 = AM, 1 = PM)"
+    }
+  },
+  "$DD0C": {
+    "name": "CIA2_SDR",
+    "bits": {
+      "0-7": "Seri veri kaydı (seri port verisi)"
+    }
+  },
+  "$DD0D": {
+    "name": "CIA2_ICR",
+    "bits": {
+      "0": "Zamanlayıcı A kesmesi (1 = kesme oluştu)",
+      "1": "Zamanlayıcı B kesmesi (1 = kesme oluştu)",
+      "2": "Zaman dilimi kesmesi (1 = kesme oluştu)",
+      "3": "Seri port kesmesi (1 = kesme oluştu)",
+      "4": "Bayrak kesmesi (1 = kesme oluştu)",
+      "5-6": "Kullanılmıyor",
+      "7": "Kesme bayrağı (1 = herhangi bir kesme oluştu)"
+    }
+  },
+  "$DD0E": {
+    "name": "CIA2_CRA",
+    "bits": {
+      "0": "Zamanlayıcı A başlat/durdur (0 = durdur, 1 = başlat)",
+      "1": "Zamanlayıcı A çıkış modu (0 = düşük, 1 = yüksek)",
+      "2": "Zamanlayıcı A mod (0 = sürekli, 1 = tek atım)",
+      "3": "Zamanlayıcı A saat kaynağı (0 = sistem saati, 1 = CNT pini)",
+      "4": "Seri port modu (0 = giriş, 1 = çıkış)",
+      "5": "Zaman dilimi saat frekansı (0 = 60 Hz, 1 = 50 Hz)",
+      "6": "Kullanılmıyor",
+      "7": "Zamanlayıcı A kesme maskesi (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$DD0F": {
+    "name": "CIA2_CRB",
+    "bits": {
+      "0": "Zamanlayıcı B başlat/durdur (0 = durdur, 1 = başlat)",
+      "1": "Zamanlayıcı B çıkış modu (0 = düşük, 1 = yüksek)",
+      "2": "Zamanlayıcı B mod (0 = sürekli, 1 = tek atım)",
+      "3": "Zamanlayıcı B saat kaynağı (0 = sistem saati, 1 = CNT pini)",
+      "4": "Zaman dilimi alarm modu (0 = saat, 1 = alarm)",
+      "5": "Kullanılmıyor",
+      "6": "Kullanılmıyor",
+      "7": "Zamanlayıcı B kesme maskesi (0 = kapalı, 1 = açık)"
+    }
+  },
+  "$D800-$DBE7": {
+    "name": "COLOR_RAM",
+    "bits": {
+      "0-3": "Ekran karakter rengi (0-15, PETSCII renk kodu)",
+      "4-7": "Tanımsız (yazılabilir, ancak kullanılmaz)"
+    }
+  },
+  "$DBE8-$DBFF": {
+    "name": "UNUSED_IO",
+    "bits": {
+      "0-7": "Kullanılmıyor (yazılabilir, ancak işlevsiz)"
+    }
+  },
+  "$DE00-$DEFF": {
+    "name": "EXPANSION_IO1",
+    "bits": {
+      "0-7": "Genişletme portu I/O 1 (kartuş veya harici cihazlar için)"
+    }
+  },
+  "$DF00-$DFFF": {
+    "name": "EXPANSION_IO2",
+    "bits": {
+      "0-7": "Genişletme portu I/O 2 (kartuş veya harici cihazlar için)"
+    }
+  }
+}
