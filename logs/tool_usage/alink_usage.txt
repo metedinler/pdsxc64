@@ -1,0 +1,60 @@
+=== ALINK USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/as/aswcurr/bin/alink.exe
+Category: special
+Learning Date: 2025-07-29 07:33:16.872384
+============================================================
+
+COMMAND: alink --help
+----------------------------------------
+STDERR:
+alink.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: alink -h
+----------------------------------------
+STDERR:
+alink.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: alink --version
+----------------------------------------
+STDERR:
+alink.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: alink -v
+----------------------------------------
+STDERR:
+alink.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: alink -?
+----------------------------------------
+STDERR:
+alink.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
+COMMAND: alink /?
+----------------------------------------
+STDERR:
+alink.exe: no input files (-help for help)
+
+Return Code: 1
+
+============================================================
+
