@@ -1,0 +1,318 @@
+{
+    "commands": [
+        {
+            "name": "PRINT",
+            "usage": "PRINT [ifade1] [ifade2] ...",
+            "purpose": "Belirtilen ifadeleri ekrana yazdırır.",
+            "example": "PRINT \"Merhaba\"; 42"
+        },
+        {
+            "name": "INPUT",
+            "usage": "INPUT \"mesaj\", değişken",
+            "purpose": "Kullanıcıdan giriş alır ve değişkene atar.",
+            "example": "INPUT \"Adınızı girin: \", ad$"
+        },
+        {
+            "name": "LET",
+            "usage": "LET değişken = ifade",
+            "purpose": "Değişkene bir değer atar.",
+            "example": "LET x = 10"
+        },
+        {
+            "name": "IF",
+            "usage": "IF koşul THEN komut",
+            "purpose": "Koşula bağlı olarak komut yürütür.",
+            "example": "IF x > 0 THEN PRINT \"Pozitif\""
+        },
+        {
+            "name": "FOR",
+            "usage": "FOR değişken = başlangıç TO bitiş [STEP adım]",
+            "purpose": "Belirli bir aralıkta döngü oluşturur.",
+            "example": "FOR i = 1 TO 10 PRINT i NEXT"
+        },
+        {
+            "name": "WHILE",
+            "usage": "WHILE koşul",
+            "purpose": "Koşul doğru olduğu sürece döngü yürütür.",
+            "example": "WHILE x < 10 PRINT x x = x + 1 WEND"
+        },
+        {
+            "name": "DO",
+            "usage": "DO [WHILE | UNTIL koşul]",
+            "purpose": "Esnek bir döngü başlatır.",
+            "example": "DO PRINT x x = x + 1 LOOP UNTIL x = 10"
+        },
+        {
+            "name": "GOTO",
+            "usage": "GOTO etiket",
+            "purpose": "Belirtilen etikete atlar.",
+            "example": "GOTO baslangic"
+        },
+        {
+            "name": "GOSUB",
+            "usage": "GOSUB etiket",
+            "purpose": "Alt programa atlar ve döner.",
+            "example": "GOSUB alt_program"
+        },
+        {
+            "name": "RETURN",
+            "usage": "RETURN",
+            "purpose": "Alt programdan döner.",
+            "example": "RETURN"
+        },
+        {
+            "name": "ON ERROR GOTO",
+            "usage": "ON ERROR GOTO etiket",
+            "purpose": "Hata durumunda etikete atlar.",
+            "example": "ON ERROR GOTO hata_yonetimi"
+        },
+        {
+            "name": "ON ERROR RESUME",
+            "usage": "ON ERROR RESUME",
+            "purpose": "Hata sonrası yürütmeye devam eder.",
+            "example": "ON ERROR RESUME"
+        },
+        {
+            "name": "RESUME",
+            "usage": "RESUME",
+            "purpose": "Hata işleyicisinden döner.",
+            "example": "RESUME"
+        },
+        {
+            "name": "RESUME NEXT",
+            "usage": "RESUME NEXT",
+            "purpose": "Hata sonrası bir sonraki satıra geçer.",
+            "example": "RESUME NEXT"
+        },
+        {
+            "name": "RESUME LABEL",
+            "usage": "RESUME LABEL etiket",
+            "purpose": "Hata sonrası belirtilen etikete atlar.",
+            "example": "RESUME LABEL hata_sonrasi"
+        },
+        {
+            "name": "TRY",
+            "usage": "TRY komut CATCH değişken AS tip DO komut [FINALLY komut]",
+            "purpose": "Hata yakalama bloğu oluşturur.",
+            "example": "TRY x = 1/0 CATCH e AS ValueError DO PRINT \"Hata!\" FINALLY PRINT \"Tamamlandı\""
+        },
+        {
+            "name": "DEBUG ON",
+            "usage": "DEBUG ON",
+            "purpose": "Hata ayıklama modunu açar.",
+            "example": "DEBUG ON"
+        },
+        {
+            "name": "DEBUG OFF",
+            "usage": "DEBUG OFF",
+            "purpose": "Hata ayıklama modunu kapatır.",
+            "example": "DEBUG OFF"
+        },
+        {
+            "name": "TRACE ON",
+            "usage": "TRACE ON",
+            "purpose": "İzleme modunu açar.",
+            "example": "TRACE ON"
+        },
+        {
+            "name": "TRACE OFF",
+            "usage": "TRACE OFF",
+            "purpose": "İzleme modunu kapatır.",
+            "example": "TRACE OFF"
+        },
+        {
+            "name": "STEP DEBUG",
+            "usage": "STEP DEBUG",
+            "purpose": "Adım adım hata ayıklama yapar.",
+            "example": "STEP DEBUG"
+        },
+        {
+            "name": "PERFORMANCE",
+            "usage": "PERFORMANCE",
+            "purpose": "Sistem performansını gösterir (bellek, CPU, süre).",
+            "example": "PERFORMANCE"
+        },
+        {
+            "name": "SET LANGUAGE",
+            "usage": "SET LANGUAGE dil",
+            "purpose": "Arayüz dilini değiştirir.",
+            "example": "SET LANGUAGE tr"
+        },
+        {
+            "name": "CALL API::",
+            "usage": "CALL API::metod url",
+            "purpose": "Web API’sine GET veya POST isteği gönderir.",
+            "example": "CALL API::GET \"https://api.example.com/data\""
+        },
+        {
+            "name": "CALL DLL::",
+            "usage": "CALL DLL::dll_adı::fonksiyon_adı(argümanlar)",
+            "purpose": "Belirtilen DLL’deki fonksiyonu çağırır.",
+            "example": "CALL DLL::mylib::myfunc(1, 2)"
+        },
+        {
+            "name": "IMPORT",
+            "usage": "IMPORT dosya [AS modül_adı]",
+            "purpose": "Harici modül veya dosyayı yükler.",
+            "example": "IMPORT \"mymodule.basx\" AS mymod"
+        },
+        {
+            "name": "COMPILE",
+            "usage": "COMPILE",
+            "purpose": "Programı bytecode’a derler.",
+            "example": "COMPILE"
+        },
+        {
+            "name": "SAVE BYTECODE",
+            "usage": "SAVE BYTECODE \"dosya_adı\"",
+            "purpose": "Derlenmiş bytecode’u dosyaya kaydeder.",
+            "example": "SAVE BYTECODE \"program.bcx\""
+        },
+        {
+            "name": "LOAD BYTECODE",
+            "usage": "LOAD BYTECODE \"dosya_adı\"",
+            "purpose": "Derlenmiş bytecode’u yükler.",
+            "example": "LOAD BYTECODE \"program.bcx\""
+        },
+        {
+            "name": "LOAD",
+            "usage": "LOAD \"dosya_adı\"",
+            "purpose": "Belirtilen dosyayı yükler (.basx, .libx, .hx, .hz, .bcx, .bcd, .lx, .mx, .py).",
+            "example": "LOAD \"mymodule.basx\""
+        },
+        {
+            "name": "SAVE",
+            "usage": "SAVE \"dosya_adı\"",
+            "purpose": "Programı belirtilen dosyaya kaydeder.",
+            "example": "SAVE \"myprogram.basx\""
+        }
+    ],
+    "functions": [
+        {
+            "name": "MID$",
+            "usage": "MID$(dize, başlangıç, uzunluk)",
+            "purpose": "Dizeden belirtilen alt dizeyi alır.",
+            "example": "PRINT MID$(\"Merhaba\", 2, 3) ' Çıktı: erb"
+        },
+        {
+            "name": "LEN",
+            "usage": "LEN(değer)",
+            "purpose": "Dize veya koleksiyonun uzunluğunu döndürür.",
+            "example": "PRINT LEN(\"Merhaba\") ' Çıktı: 7"
+        },
+        {
+            "name": "RND",
+            "usage": "RND",
+            "purpose": "0 ile 1 arasında rastgele bir sayı döndürür.",
+            "example": "PRINT RND ' Çıktı: 0.123456"
+        },
+        {
+            "name": "SQR",
+            "usage": "SQR(sayı)",
+            "purpose": "Sayının karekökünü hesaplar.",
+            "example": "PRINT SQR(16) ' Çıktı: 4"
+        },
+        {
+            "name": "SIN",
+            "usage": "SIN(açı)",
+            "purpose": "Radyan cinsinden açının sinüsünü hesaplar.",
+            "example": "PRINT SIN(3.14159/2) ' Çıktı: 1"
+        },
+        {
+            "name": "COS",
+            "usage": "COS(açı)",
+            "purpose": "Radyan cinsinden açının kosinüsünü hesaplar.",
+            "example": "PRINT COS(0) ' Çıktı: 1"
+        },
+        {
+            "name": "TAN",
+            "usage": "TAN(açı)",
+            "purpose": "Radyan cinsinden açının tanjantını hesaplar.",
+            "example": "PRINT TAN(3.14159/4) ' Çıktı: 1"
+        },
+        {
+            "name": "MEAN",
+            "usage": "MEAN(dizi)",
+            "purpose": "Dizinin ortalamasını hesaplar.",
+            "example": "PRINT MEAN([1, 2, 3, 4]) ' Çıktı: 2.5"
+        },
+        {
+            "name": "MEDIAN",
+            "usage": "MEDIAN(dizi)",
+            "purpose": "Dizinin medyanını hesaplar.",
+            "example": "PRINT MEDIAN([1, 2, 3, 4, 5]) ' Çıktı: 3"
+        },
+        {
+            "name": "PDF_READ_TEXT",
+            "usage": "PDF_READ_TEXT(dosya_yolu)",
+            "purpose": "PDF dosyasından metni çıkarır.",
+            "example": "PRINT PDF_READ_TEXT(\"belge.pdf\")"
+        },
+        {
+            "name": "PDF_EXTRACT_TABLES",
+            "usage": "PDF_EXTRACT_TABLES(dosya_yolu)",
+            "purpose": "PDF dosyasından tabloları çıkarır.",
+            "example": "PRINT PDF_EXTRACT_TABLES(\"belge.pdf\")"
+        },
+        {
+            "name": "WEB_GET",
+            "usage": "WEB_GET(url)",
+            "purpose": "Belirtilen URL’den veri çeker.",
+            "example": "PRINT WEB_GET(\"https://example.com\")"
+        },
+        {
+            "name": "WEB_DOWNLOAD",
+            "usage": "WEB_DOWNLOAD(url, çıktı_yolu)",
+            "purpose": "Belirtilen URL’den dosyayı indirir ve kaydeder.",
+            "example": "WEB_DOWNLOAD \"https://example.com/file.pdf\", \"local_file.pdf\""
+        },
+        {
+            "name": "SET_SCALAR",
+            "usage": "SET_SCALAR değişken, değer",
+            "purpose": "Skaler veri yapısına değer atar.",
+            "example": "SET_SCALAR x, 3.14159"
+        },
+        {
+            "name": "GET_SCALAR",
+            "usage": "GET_SCALAR(değişken)",
+            "purpose": "Skaler veri yapısının değerini döndürür.",
+            "example": "PRINT GET_SCALAR(x)"
+        },
+        {
+            "name": "SET_VECTOR",
+            "usage": "SET_VECTOR değişken, değerler",
+            "purpose": "Vektör veri yapısına değerler atar.",
+            "example": "SET_VECTOR v, [1.0, 2.0, 3.0]"
+        },
+        {
+            "name": "GET_VECTOR",
+            "usage": "GET_VECTOR(değişken)",
+            "purpose": "Vektör veri yapısının değerlerini döndürür.",
+            "example": "PRINT GET_VECTOR(v)"
+        },
+        {
+            "name": "SET_MATRIX",
+            "usage": "SET_MATRIX değişken, değerler",
+            "purpose": "Matris veri yapısına değerler atar.",
+            "example": "SET_MATRIX m, [[1.0, 2.0], [3.0, 4.0]]"
+        },
+        {
+            "name": "GET_MATRIX",
+            "usage": "GET_MATRIX(değişken)",
+            "purpose": "Matris veri yapısının değerlerini döndürür.",
+            "example": "PRINT GET_MATRIX(m)"
+        },
+        {
+            "name": "SET_TENSOR",
+            "usage": "SET_TENSOR değişken, değerler",
+            "purpose": "Tensor veri yapısına değerler atar.",
+            "example": "SET_TENSOR t, [[[1.0, 2.0], [3.0, 4.0]], [[5.0, 6.0], [7.0, 8.0]]]"
+        },
+        {
+            "name": "GET_TENSOR",
+            "usage": "GET_TENSOR(değişken)",
+            "purpose": "Tensor veri yapısının değerlerini döndürür.",
+            "example": "PRINT GET_TENSOR(t)"
+        }
+    ]
+}
