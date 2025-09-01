@@ -1,0 +1,174 @@
+=== ALBERT USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/ALBERT-1.0.47-win64-portable/ALBERT-1.0.47-win64-portable/bin/albert.exe
+Category: emulators
+Learning Date: 2025-07-29 00:24:23.046435
+============================================================
+
+COMMAND: albert --help
+----------------------------------------
+STDERR:
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.259: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.259: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.260: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.260: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.264: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.265: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.273: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.274: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.274: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:12656): Gtk-WARNING **: 00:24:23.274: Unable to locate theme engine in module_path: "murrine",
+
+Return Code: 0
+
+============================================================
+
+COMMAND: albert -h
+----------------------------------------
+STDERR:
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.315: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.315: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.315: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.316: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.320: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.320: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.328: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.328: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.329: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:13120): Gtk-WARNING **: 00:24:26.329: Unable to locate theme engine in module_path: "murrine",
+
+Return Code: 0
+
+============================================================
+
+COMMAND: albert --version
+----------------------------------------
+STDERR:
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.647: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.648: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.648: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.648: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.653: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.654: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.661: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.662: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.662: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:3552): Gtk-WARNING **: 00:24:28.663: Unable to locate theme engine in module_path: "murrine",
+
+Return Code: 0
+
+============================================================
+
+COMMAND: albert -v
+----------------------------------------
+STDERR:
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.082: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.083: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.083: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.083: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.088: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.089: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.096: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.096: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.097: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:1236): Gtk-WARNING **: 00:24:31.097: Unable to locate theme engine in module_path: "murrine",
+
+Return Code: 0
+
+============================================================
+
+COMMAND: albert -?
+----------------------------------------
+STDERR:
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.703: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.703: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.703: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.704: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.709: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.710: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.717: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.718: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.718: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6324): Gtk-WARNING **: 00:24:36.719: Unable to locate theme engine in module_path: "murrine",
+
+Return Code: 0
+
+============================================================
+
+COMMAND: albert /?
+----------------------------------------
+STDERR:
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.184: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.185: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.185: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.185: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.191: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.192: Unable to locate theme engine in module_path: "adwaita",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.199: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.200: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.200: Unable to locate theme engine in module_path: "murrine",
+
+(albert.exe:6580): Gtk-WARNING **: 00:24:40.201: Unable to locate theme engine in module_path: "murrine",
+
+Return Code: 0
+
+============================================================
+
