@@ -1,0 +1,274 @@
+{
+  "$FF81": {
+    "name": "SCINIT",
+    "description": "VIC yongasını başlatır, varsayılan giriş/çıkış cihazlarını klavye ve ekrana ayarlar, ekranı temizler, PAL/NTSC anahtarını ve kesme zamanlayıcısını ayarlar.",
+    "parameters": []
+  },
+  "$FF84": {
+    "name": "IOINIT",
+    "description": "Giriş/çıkış cihazlarını başlatır, CIA yongalarını yapılandırır ve seri portları ayarlar.",
+    "parameters": []
+  },
+  "$FF87": {
+    "name": "RAMTAS",
+    "description": "RAM testi yapar, sıfır sayfası ve diğer bellek alanlarını başlatır, BASIC için bellek sınırlarını ayarlar.",
+    "parameters": []
+  },
+  "$FF8A": {
+    "name": "RESTOR",
+    "description": "KERNAL vektörlerini varsayılan değerlerine geri yükler.",
+    "parameters": []
+  },
+  "$FF8D": {
+    "name": "VECTOR",
+    "description": "KERNAL vektörlerini okur veya ayarlar, kullanıcı tarafından belirtilen vektör tablosunu günceller.",
+    "parameters": [
+      {"register": "X", "description": "Vektör tablosunun düşük baytı"},
+      {"register": "Y", "description": "Vektör tablosunun yüksek baytı"}
+    ]
+  },
+  "$FF90": {
+    "name": "SETMSG",
+    "description": "Hata mesajlarının görüntülenmesini kontrol eder.",
+    "parameters": [
+      {"register": "A", "description": "Mesaj kontrol bayrağı (bit 7: hata mesajları, bit 6: kontrol mesajları)"}
+    ]
+  },
+  "$FF93": {
+    "name": "SECOND",
+    "description": "Seri veri yolunda ikincil adresi gönderir.",
+    "parameters": [
+      {"register": "A", "description": "İkincil adres"}
+    ]
+  },
+  "$FF96": {
+    "name": "TKSA",
+    "description": "Seri veri yolunda konuşma/ikincil adresi gönderir.",
+    "parameters": [
+      {"register": "A", "description": "İkincil adres"}
+    ]
+  },
+  "$FF99": {
+    "name": "MEMTOP",
+    "description": "BASIC belleğinin üst sınırını okur veya ayarlar.",
+    "parameters": [
+      {"register": "C", "description": "0 = oku, 1 = ayarla"},
+      {"register": "X", "description": "Üst sınırın düşük baytı (ayarlama için)"},
+      {"register": "Y", "description": "Üst sınırın yüksek baytı (ayarlama için)"}
+    ]
+  },
+  "$FF9C": {
+    "name": "MEMBOT",
+    "description": "BASIC belleğinin alt sınırını okur veya ayarlar.",
+    "parameters": [
+      {"register": "C", "description": "0 = oku, 1 = ayarla"},
+      {"register": "X", "description": "Alt sınırın düşük baytı (ayarlama için)"},
+      {"register": "Y", "description": "Alt sınırın yüksek baytı (ayarlama için)"}
+    ]
+  },
+  "$FF9F": {
+    "name": "SCNKEY",
+    "description": "Klavye tarar ve klavye arabelleğine karakter koyar.",
+    "parameters": []
+  },
+  "$FFA2": {
+    "name": "SETTMO",
+    "description": "Seri veri yolu için zaman aşımı süresini ayarlar.",
+    "parameters": [
+      {"register": "A", "description": "Zaman aşımı değeri"}
+    ]
+  },
+  "$FFA5": {
+    "name": "IECIN",
+    "description": "Seri veri yolundan bir bayt okur.",
+    "parameters": [
+      {"register": "A", "description": "Okunan bayt (dönüş)"}
+    ]
+  },
+  "$FFA8": {
+    "name": "IECOUT",
+    "description": "Seri veri yoluna bir bayt yazar.",
+    "parameters": [
+      {"register": "A", "description": "Yazılacak bayt"}
+    ]
+  },
+  "$FFAB": {
+    "name": "UNTALK",
+    "description": "Seri veri yolundaki tüm cihazlara konuşmayı durdurma komutu gönderir.",
+    "parameters": []
+  },
+  "$FFAE": {
+    "name": "UNLSN",
+    "description": "Seri veri yolundaki tüm cihazlara dinlemeyi durdurma komutu gönderir.",
+    "parameters": []
+  },
+  "$FFB1": {
+    "name": "LISTEN",
+    "description": "Seri veri yolunda belirtilen cihaza dinleme komutu gönderir.",
+    "parameters": [
+      {"register": "A", "description": "Cihaz numarası"}
+    ]
+  },
+  "$FFB4": {
+    "name": "TALK",
+    "description": "Seri veri yolunda belirtilen cihaza konuşma komutu gönderir.",
+    "parameters": [
+      {"register": "A", "description": "Cihaz numarası"}
+    ]
+  },
+  "$FFB7": {
+    "name": "READST",
+    "description": "I/O durum baytını okur.",
+    "parameters": [
+      {"register": "A", "description": "Durum baytı (dönüş)"}
+    ]
+  },
+  "$FFBA": {
+    "name": "SETLFS",
+    "description": "Mantıksal dosya numarası, cihaz numarası ve ikincil adresi ayarlar.",
+    "parameters": [
+      {"register": "A", "description": "Mantıksal dosya numarası"},
+      {"register": "X", "description": "Cihaz numarası"},
+      {"register": "Y", "description": "İkincil adres"}
+    ]
+  },
+  "$FFBD": {
+    "name": "SETNAM",
+    "description": "Dosya adı uzunluğunu ve adresini ayarlar.",
+    "parameters": [
+      {"register": "A", "description": "Dosya adı uzunluğu"},
+      {"register": "X", "description": "Dosya adı adresinin düşük baytı"},
+      {"register": "Y", "description": "Dosya adı adresinin yüksek baytı"}
+    ]
+  },
+  "$FFC0": {
+    "name": "OPEN",
+    "description": "SETLFS ve SETNAM ile ayarlanan parametrelerle bir dosya açar.",
+    "parameters": []
+  },
+  "$FFC3": {
+    "name": "CLOSE",
+    "description": "Belirtilen mantıksal dosya numarasındaki dosyayı kapatır.",
+    "parameters": [
+      {"register": "A", "description": "Mantıksal dosya numarası"}
+    ]
+  },
+  "$FFC6": {
+    "name": "CHKIN",
+    "description": "Giriş için bir dosyayı açar ve giriş cihazı olarak ayarlar.",
+    "parameters": [
+      {"register": "X", "description": "Mantıksal dosya numarası"}
+    ]
+  },
+  "$FFC9": {
+    "name": "CHKOUT",
+    "description": "Çıkış için bir dosyayı açar ve çıkış cihazı olarak ayarlar.",
+    "parameters": [
+      {"register": "X", "description": "Mantıksal dosya numarası"}
+    ]
+  },
+  "$FFCC": {
+    "name": "CLRCHN",
+    "description": "Tüm giriş/çıkış kanallarını temizler ve varsayılan cihazları geri yükler.",
+    "parameters": []
+  },
+  "$FFCF": {
+    "name": "CHRIN",
+    "description": "Geçerli giriş cihazından bir karakter okur.",
+    "parameters": [
+      {"register": "A", "description": "Okunan karakter (dönüş)"}
+    ]
+  },
+  "$FFD2": {
+    "name": "CHROUT",
+    "description": "Geçerli çıkış cihazına bir karakter yazar.",
+    "parameters": [
+      {"register": "A", "description": "Yazılacak karakter"}
+    ]
+  },
+  "$FFD5": {
+    "name": "LOAD",
+    "description": "SETLFS ve SETNAM ile ayarlanan dosyayı belleğe yükler.",
+    "parameters": [
+      {"register": "A", "description": "0 = yükle, 1 = doğrula"},
+      {"register": "X", "description": "Yükleme adresinin düşük baytı"},
+      {"register": "Y", "description": "Yükleme adresinin yüksek baytı"}
+    ]
+  },
+  "$FFD8": {
+    "name": "SAVE",
+    "description": "SETLFS ve SETNAM ile ayarlanan dosyayı bellekten diske kaydeder.",
+    "parameters": [
+      {"register": "A", "description": "Başlangıç adresinin sıfır sayfası işaretçisi"},
+      {"register": "X", "description": "Bitiş adresinin düşük baytı"},
+      {"register": "Y", "description": "Bitiş adresinin yüksek baytı"}
+    ]
+  },
+  "$FFDB": {
+    "name": "SETTIM",
+    "description": "Sistem saatini ayarlar.",
+    "parameters": [
+      {"register": "A", "description": "Zamanın düşük baytı"},
+      {"register": "X", "description": "Zamanın orta baytı"},
+      {"register": "Y", "description": "Zamanın yüksek baytı"}
+    ]
+  },
+  "$FFDE": {
+    "name": "RDTIM",
+    "description": "Sistem saatini okur.",
+    "parameters": [
+      {"register": "A", "description": "Zamanın düşük baytı (dönüş)"},
+      {"register": "X", "description": "Zamanın orta baytı (dönüş)"},
+      {"register": "Y", "description": "Zamanın yüksek baytı (dönüş)"}
+    ]
+  },
+  "$FFE1": {
+    "name": "STOP",
+    "description": "STOP tuşunun basılı olup olmadığını kontrol eder.",
+    "parameters": [
+      {"register": "Z", "description": "0 = STOP tuşu basılı, 1 = basılı değil (dönüş)"}
+    ]
+  },
+  "$FFE4": {
+    "name": "GETIN",
+    "description": "Geçerli giriş cihazından bir karakter okur (klavye için kuyruktan).",
+    "parameters": [
+      {"register": "A", "description": "Okunan karakter (dönüş)"}
+    ]
+  },
+  "$FFE7": {
+    "name": "CLALL",
+    "description": "Tüm açık dosyaları kapatır ve giriş/çıkış kanallarını temizler.",
+    "parameters": []
+  },
+  "$FFEA": {
+    "name": "UDTIM",
+    "description": "Sistem saatini günceller ve STOP tuşunu kontrol eder.",
+    "parameters": []
+  },
+  "$FFED": {
+    "name": "SCREEN",
+    "description": "Ekran boyutunu (satır ve sütun sayısını) döndürür.",
+    "parameters": [
+      {"register": "X", "description": "Sütun sayısı (dönüş)"},
+      {"register": "Y", "description": "Satır sayısı (dönüş)"}
+    ]
+  },
+  "$FFF0": {
+    "name": "PLOT",
+    "description": "İmlecin pozisyonunu ayarlar veya okur.",
+    "parameters": [
+      {"register": "C", "description": "0 = oku, 1 = ayarla"},
+      {"register": "X", "description": "Sütun numarası"},
+      {"register": "Y", "description": "Satır numarası"}
+    ]
+  },
+  "$FFF3": {
+    "name": "IOBASE",
+    "description": "Giriş/çıkış alanının başlangıç adresini döndürür.",
+    "parameters": [
+      {"register": "X", "description": "I/O adresinin düşük baytı (dönüş)"},
+      {"register": "Y", "description": "I/O adresinin yüksek baytı (dönüş)"}
+    ]
+  }
+}
