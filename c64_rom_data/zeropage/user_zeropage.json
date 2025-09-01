@@ -1,0 +1,836 @@
+{
+  "$0002": {
+    "name": "user_var1",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var1' olarak işaretlenir, örneğin LDA $02 -> user_var1 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0003": {
+    "name": "user_var2",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var2' olarak işaretlenir, örneğin LDA $03 -> user_var2 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0005": {
+    "name": "user_var3",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var3' olarak işaretlenir, örneğin LDA $05 -> user_var3 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0006": {
+    "name": "user_var4",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var4' olarak işaretlenir, örneğin LDA $06 -> user_var4 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0007": {
+    "name": "user_var5",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var5' olarak işaretlenir, örneğin LDA $07 -> user_var5 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0008": {
+    "name": "user_var6",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var6' olarak işaretlenir, örneğin LDA $08 -> user_var6 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0009": {
+    "name": "user_var7",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var7' olarak işaretlenir, örneğin LDA $09 -> user_var7 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$000A": {
+    "name": "user_var8",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var8' olarak işaretlenir, örneğin LDA $0A -> user_var8 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$000B": {
+    "name": "user_var9",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var9' olarak işaretlenir, örneğin LDA $0B -> user_var9 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$000C": {
+    "name": "user_var10",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var10' olarak işaretlenir, örneğin LDA $0C -> user_var10 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$000D": {
+    "name": "user_var11",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var11' olarak işaretlenir, örneğin LDA $0D -> user_var11 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$000E": {
+    "name": "user_var12",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var12' olarak işaretlenir, örneğin LDA $0E -> user_var12 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$000F": {
+    "name": "user_var13",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var13' olarak işaretlenir, örneğin LDA $0F -> user_var13 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0010": {
+    "name": "user_var14",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var14' olarak işaretlenir, örneğin LDA $10 -> user_var14 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0011": {
+    "name": "user_var15",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var15' olarak işaretlenir, örneğin LDA $11 -> user_var15 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0012": {
+    "name": "user_var16",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var16' olarak işaretlenir, örneğin LDA $12 -> user_var16 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0013": {
+    "name": "user_var17",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var17' olarak işaretlenir, örneğin LDA $13 -> user_var17 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0014": {
+    "name": "user_var18",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var18' olarak işaretlenir, örneğin LDA $14 -> user_var18 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0015": {
+    "name": "user_var19",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var19' olarak işaretlenir, örneğin LDA $15 -> user_var19 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0016": {
+    "name": "user_var20",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var20' olarak işaretlenir, örneğin LDA $16 -> user_var20 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0017": {
+    "name": "user_var21",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var21' olarak işaretlenir, örneğin LDA $17 -> user_var21 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0018": {
+    "name": "user_var22",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var22' olarak işaretlenir, örneğin LDA $18 -> user_var22 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0019": {
+    "name": "user_var23",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var23' olarak işaretlenir, örneğin LDA $19 -> user_var23 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$001A": {
+    "name": "user_var24",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var24' olarak işaretlenir, örneğin LDA $1A -> user_var24 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$001B": {
+    "name": "user_var25",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var25' olarak işaretlenir, örneğin LDA $1B -> user_var25 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$001C": {
+    "name": "user_var26",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var26' olarak işaretlenir, örneğin LDA $1C -> user_var26 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$001D": {
+    "name": "user_var27",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var27' olarak işaretlenir, örneğin LDA $1D -> user_var27 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$001E": {
+    "name": "user_var28",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var28' olarak işaretlenir, örneğin LDA $1E -> user_var28 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$001F": {
+    "name": "user_var29",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var29' olarak işaretlenir, örneğin LDA $1F -> user_var29 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0020": {
+    "name": "user_var30",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var30' olarak işaretlenir, örneğin LDA $20 -> user_var30 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0021": {
+    "name": "user_var31",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var31' olarak işaretlenir, örneğin LDA $21 -> user_var31 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0022": {
+    "name": "user_var32",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var32' olarak işaretlenir, örneğin LDA $22 -> user_var32 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0023": {
+    "name": "user_var33",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var33' olarak işaretlenir, örneğin LDA $23 -> user_var33 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0024": {
+    "name": "user_var34",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var34' olarak işaretlenir, örneğin LDA $24 -> user_var34 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0025": {
+    "name": "user_var35",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var35' olarak işaretlenir, örneğin LDA $25 -> user_var35 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0026": {
+    "name": "user_var36",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var36' olarak işaretlenir, örneğin LDA $26 -> user_var36 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0027": {
+    "name": "user_var37",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var37' olarak işaretlenir, örneğin LDA $27 -> user_var37 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0028": {
+    "name": "user_var38",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var38' olarak işaretlenir, örneğin LDA $28 -> user_var38 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0029": {
+    "name": "user_var39",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var39' olarak işaretlenir, örneğin LDA $29 -> user_var39 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$002A": {
+    "name": "user_var40",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var40' olarak işaretlenir, örneğin LDA $2A -> user_var40 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$002B": {
+    "name": "user_var41",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var41' olarak işaretlenir, örneğin LDA $2B -> user_var41 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$002C": {
+    "name": "user_var42",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var42' olarak işaretlenir, örneğin LDA $2C -> user_var42 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$002D": {
+    "name": "user_var43",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var43' olarak işaretlenir, örneğin LDA $2D -> user_var43 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$002E": {
+    "name": "user_var44",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var44' olarak işaretlenir, örneğin LDA $2E -> user_var44 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$002F": {
+    "name": "user_var45",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var45' olarak işaretlenir, örneğin LDA $2F -> user_var45 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0030": {
+    "name": "user_var46",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var46' olarak işaretlenir, örneğin LDA $30 -> user_var46 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0031": {
+    "name": "user_var47",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var47' olarak işaretlenir, örneğin LDA $31 -> user_var47 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0032": {
+    "name": "user_var48",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var48' olarak işaretlenir, örneğin LDA $32 -> user_var48 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0033": {
+    "name": "user_var49",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var49' olarak işaretlenir, örneğin LDA $33 -> user_var49 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0034": {
+    "name": "user_var50",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var50' olarak işaretlenir, örneğin LDA $34 -> user_var50 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0035": {
+    "name": "user_var51",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var51' olarak işaretlenir, örneğin LDA $35 -> user_var51 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0036": {
+    "name": "user_var52",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var52' olarak işaretlenir, örneğin LDA $36 -> user_var52 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0037": {
+    "name": "user_var53",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var53' olarak işaretlenir, örneğin LDA $37 -> user_var53 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0038": {
+    "name": "user_var54",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var54' olarak işaretlenir, örneğin LDA $38 -> user_var54 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0039": {
+    "name": "user_var55",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var55' olarak işaretlenir, örneğin LDA $39 -> user_var55 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$003A": {
+    "name": "user_var56",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var56' olarak işaretlenir, örneğin LDA $3A -> user_var56 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$003B": {
+    "name": "user_var57",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var57' olarak işaretlenir, örneğin LDA $3B -> user_var57 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$003C": {
+    "name": "user_var58",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var58' olarak işaretlenir, örneğin LDA $3C -> user_var58 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$003D": {
+    "name": "user_var59",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var59' olarak işaretlenir, örneğin LDA $3D -> user_var59 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$003E": {
+    "name": "user_var60",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var60' olarak işaretlenir, örneğin LDA $3E -> user_var60 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$003F": {
+    "name": "user_var61",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var61' olarak işaretlenir, örneğin LDA $3F -> user_var61 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0040": {
+    "name": "user_var62",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var62' olarak işaretlenir, örneğin LDA $40 -> user_var62 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0041": {
+    "name": "user_var63",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var63' olarak işaretlenir, örneğin LDA $41 -> user_var63 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0042": {
+    "name": "user_var64",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var64' olarak işaretlenir, örneğin LDA $42 -> user_var64 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0043": {
+    "name": "user_var65",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var65' olarak işaretlenir, örneğin LDA $43 -> user_var65 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0044": {
+    "name": "user_var66",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var66' olarak işaretlenir, örneğin LDA $44 -> user_var66 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0045": {
+    "name": "user_var67",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var67' olarak işaretlenir, örneğin LDA $45 -> user_var67 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0046": {
+    "name": "user_var68",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var68' olarak işaretlenir, örneğin LDA $46 -> user_var68 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0047": {
+    "name": "user_var69",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var69' olarak işaretlenir, örneğin LDA $47 -> user_var69 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0048": {
+    "name": "user_var70",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var70' olarak işaretlenir, örneğin LDA $48 -> user_var70 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0049": {
+    "name": "user_var71",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var71' olarak işaretlenir, örneğin LDA $49 -> user_var71 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$004A": {
+    "name": "user_var72",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var72' olarak işaretlenir, örneğin LDA $4A -> user_var72 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$004B": {
+    "name": "user_var73",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var73' olarak işaretlenir, örneğin LDA $4B -> user_var73 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$004C": {
+    "name": "user_var74",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var74' olarak işaretlenir, örneğin LDA $4C -> user_var74 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$004D": {
+    "name": "user_var75",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var75' olarak işaretlenir, örneğin LDA $4D -> user_var75 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$004E": {
+    "name": "user_var76",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var76' olarak işaretlenir, örneğin LDA $4E -> user_var76 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$004F": {
+    "name": "user_var77",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var77' olarak işaretlenir, örneğin LDA $4F -> user_var77 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0050": {
+    "name": "user_var78",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var78' olarak işaretlenir, örneğin LDA $50 -> user_var78 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0051": {
+    "name": "user_var79",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var79' olarak işaretlenir, örneğin LDA $51 -> user_var79 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0052": {
+    "name": "user_var80",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var80' olarak işaretlenir, örneğin LDA $52 -> user_var80 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0053": {
+    "name": "user_var81",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var81' olarak işaretlenir, örneğin LDA $53 -> user_var81 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0054": {
+    "name": "user_var82",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var82' olarak işaretlenir, örneğin LDA $54 -> user_var82 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0055": {
+    "name": "user_var83",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var83' olarak işaretlenir, örneğin LDA $55 -> user_var83 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0056": {
+    "name": "user_var84",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var84' olarak işaretlenir, örneğin LDA $56 -> user_var84 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0057": {
+    "name": "user_var85",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var85' olarak işaretlenir, örneğin LDA $57 -> user_var85 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0058": {
+    "name": "user_var86",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var86' olarak işaretlenir, örneğin LDA $58 -> user_var86 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0059": {
+    "name": "user_var87",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var87' olarak işaretlenir, örneğin LDA $59 -> user_var87 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$005A": {
+    "name": "user_var88",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var88' olarak işaretlenir, örneğin LDA $5A -> user_var88 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$005B": {
+    "name": "user_var89",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var89' olarak işaretlenir, örneğin LDA $5B -> user_var89 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$005C": {
+    "name": "user_var90",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var90' olarak işaretlenir, örneğin LDA $5C -> user_var90 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$005D": {
+    "name": "user_var91",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var91' olarak işaretlenir, örneğin LDA $5D -> user_var91 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$005E": {
+    "name": "user_var92",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var92' olarak işaretlenir, örneğin LDA $5E -> user_var92 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$005F": {
+    "name": "user_var93",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var93' olarak işaretlenir, örneğin LDA $5F -> user_var93 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0060": {
+    "name": "user_var94",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var94' olarak işaretlenir, örneğin LDA $60 -> user_var94 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0061": {
+    "name": "user_var95",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var95' olarak işaretlenir, örneğin LDA $61 -> user_var95 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0062": {
+    "name": "user_var96",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var96' olarak işaretlenir, örneğin LDA $62 -> user_var96 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0063": {
+    "name": "user_var97",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var97' olarak işaretlenir, örneğin LDA $63 -> user_var97 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0064": {
+    "name": "user_var98",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var98' olarak işaretlenir, örneğin LDA $64 -> user_var98 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0065": {
+    "name": "user_var99",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var99' olarak işaretlenir, örneğin LDA $65 -> user_var99 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0066": {
+    "name": "user_var100",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var100' olarak işaretlenir, örneğin LDA $66 -> user_var100 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0067": {
+    "name": "user_var101",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var101' olarak işaretlenir, örneğin LDA $67 -> user_var101 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0068": {
+    "name": "user_var102",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var102' olarak işaretlenir, örneğin LDA $68 -> user_var102 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0069": {
+    "name": "user_var103",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var103' olarak işaretlenir, örneğin LDA $69 -> user_var103 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$006A": {
+    "name": "user_var104",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var104' olarak işaretlenir, örneğin LDA $6A -> user_var104 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$006B": {
+    "name": "user_var105",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var105' olarak işaretlenir, örneğin LDA $6B -> user_var105 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$006C": {
+    "name": "user_var106",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var106' olarak işaretlenir, örneğin LDA $6C -> user_var106 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$006D": {
+    "name": "user_var107",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var107' olarak işaretlenir, örneğin LDA $6D -> user_var107 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$006E": {
+    "name": "user_var108",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var108' olarak işaretlenir, örneğin LDA $6E -> user_var108 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$006F": {
+    "name": "user_var109",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var109' olarak işaretlenir, örneğin LDA $6F -> user_var109 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0070": {
+    "name": "user_var110",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var110' olarak işaretlenir, örneğin LDA $70 -> user_var110 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0071": {
+    "name": "user_var111",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var111' olarak işaretlenir, örneğin LDA $71 -> user_var111 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0072": {
+    "name": "user_var112",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var112' olarak işaretlenir, örneğin LDA $72 -> user_var112 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0073": {
+    "name": "user_var113",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var113' olarak işaretlenir, örneğin LDA $73 -> user_var113 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0074": {
+    "name": "user_var114",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var114' olarak işaretlenir, örneğin LDA $74 -> user_var114 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0075": {
+    "name": "user_var115",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var115' olarak işaretlenir, örneğin LDA $75 -> user_var115 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0076": {
+    "name": "user_var116",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var116' olarak işaretlenir, örneğin LDA $76 -> user_var116 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0077": {
+    "name": "user_var117",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var117' olarak işaretlenir, örneğin LDA $77 -> user_var117 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0078": {
+    "name": "user_var118",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var118' olarak işaretlenir, örneğin LDA $78 -> user_var118 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0079": {
+    "name": "user_var119",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var119' olarak işaretlenir, örneğin LDA $79 -> user_var119 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$007A": {
+    "name": "user_var120",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var120' olarak işaretlenir, örneğin LDA $7A -> user_var120 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$007B": {
+    "name": "user_var121",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var121' olarak işaretlenir, örneğin LDA $7B -> user_var121 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$007C": {
+    "name": "user_var122",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var122' olarak işaretlenir, örneğin LDA $7C -> user_var122 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$007D": {
+    "name": "user_var123",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var123' olarak işaretlenir, örneğin LDA $7D -> user_var123 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$007E": {
+    "name": "user_var124",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var124' olarak işaretlenir, örneğin LDA $7E -> user_var124 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$007F": {
+    "name": "user_var125",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var125' olarak işaretlenir, örneğin LDA $7F -> user_var125 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0080": {
+    "name": "user_var126",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var126' olarak işaretlenir, örneğin LDA $80 -> user_var126 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0081": {
+    "name": "user_var127",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var127' olarak işaretlenir, örneğin LDA $81 -> user_var127 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0082": {
+    "name": "user_var128",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var128' olarak işaretlenir, örneğin LDA $82 -> user_var128 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0083": {
+    "name": "user_var129",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var129' olarak işaretlenir, örneğin LDA $83 -> user_var129 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0084": {
+    "name": "user_var130",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var130' olarak işaretlenir, örneğin LDA $84 -> user_var130 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0085": {
+    "name": "user_var131",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var131' olarak işaretlenir, örneğin LDA $85 -> user_var131 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0086": {
+    "name": "user_var132",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var132' olarak işaretlenir, örneğin LDA $86 -> user_var132 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0087": {
+    "name": "user_var133",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var133' olarak işaretlenir, örneğin LDA $87 -> user_var133 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0088": {
+    "name": "user_var134",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var134' olarak işaretlenir, örneğin LDA $88 -> user_var134 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$0089": {
+    "name": "user_var135",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var135' olarak işaretlenir, örneğin LDA $89 -> user_var135 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$008A": {
+    "name": "user_var136",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var136' olarak işaretlenir, örneğin LDA $8A -> user_var136 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$008B": {
+    "name": "user_var137",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var137' olarak işaretlenir, örneğin LDA $8B -> user_var137 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$008C": {
+    "name": "user_var138",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var138' olarak işaretlenir, örneğin LDA $8C -> user_var138 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  },
+  "$008D": {
+    "name": "user_var139",
+    "size": 1,
+    "description": "Kullanıcıya açık sıfır sayfası değişkeni, genel amaçlı kullanım için serbest. Decompiler'da 'user_var139' olarak işaretlenir, örneğin LDA $8D -> user_var139 = A.",
+    "usage": "Kullanıcı, serbest değişken"
+  }
+}
