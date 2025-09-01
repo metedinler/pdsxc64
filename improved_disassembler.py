@@ -1,0 +1,1444 @@
+"""
+Gelişmiş C64 PRG dosyası disassembler
+Daha iyi C, BASIC, QBasic, PDSX çıktı formatları ile
+
+🍎 Improved Disassembler v5.3 - Commodore 64 Geliştirme Stüdyosu
+================================================================
+PROJE: KızılElma Ana Plan - Enhanced Universal Disk Reader v2.0 → C64 Development Studio
+MODÜL: improved_disassembler.py - C64 Enhanced Disassembler Motoru
+VERSİYON: 5.3 (4 Disassembler Motor - "improved" seçeneği)
+AMAÇ: Gelişmiş C64 PRG disassembly - C, BASIC, QBasic, PDSX formatları
+================================================================
+
+Bu modül 4 Disassembler Motor sisteminin "improved" motorudur:
+• C64 Enhanced Disassembly: İyileştirilmiş çıktı formatları
+• Multi-Format Output: C, BASIC, QBasic, PDSX format desteği
+• Opcode Manager Integration: Gelişmiş opcode yönetimi
+• py65 Integration: Optional py65 kütüphane desteği
+• GUI Integration: 4 Disassembler dropdown'ında "improved" seçeneği
+
+4 Disassembler Motor Sistemi:
+1. basic - Temel disassembler
+2. advanced - Gelişmiş özellikli disassembler
+3. improved - Bu modül (C64 Enhanced)
+4. py65_professional - Professional py65 tabanlı
+
+Gelişmiş C64 PRG dosyası disassembler - daha iyi format çıktıları
+================================================================
+"""
+
+import json
+import os
+from opcode_manager import OpcodeManager
+
+# Assembly Formatters entegrasyonu
+try:
+    from assembly_formatters import AssemblyFormatters
+    ASSEMBLY_FORMATTERS_AVAILABLE = True
+    print("✅ Assembly Formatters modülü yüklendi - 20+ format desteği")
+except ImportError:
+    ASSEMBLY_FORMATTERS_AVAILABLE = False
+    print("⚠️ Assembly Formatters bulunamadı - Temel formatlar kullanılacak")
+
+# Py65 kütüphanesi - optional import
+try:
+    from py65.devices.mpu6502 import MPU
+    from py65.memory import ObservableMemory as Memory
+    from py65.disassembler import Disassembler as Py65Disassembler
+    PY65_AVAILABLE = True
+    print("py65 kütüphanesi yüklendi")
+except ImportError:
+    PY65_AVAILABLE = False
+    print("py65 kütüphanesi bulunamadı - Professional mode devre dışı")
+
+# Export PY65_AVAILABLE
+__all__ = ['ImprovedDisassembler', 'Py65ProfessionalDisassembler', 'PY65_AVAILABLE']
+
+class ImprovedDisassembler:
+    def __init__(self, start_address, code, output_format='asm', assembly_format='native', use_illegal_opcodes=False):
+        self.start_address = start_address
+        self.code = code
+        self.output_format = output_format
+        self.assembly_format = assembly_format  # Yeni: Assembly format seçimi
+        self.use_illegal_opcodes = use_illegal_opcodes
+        self.opcode_manager = OpcodeManager()
+        self.opcodes = self.opcode_manager.get_all_opcodes()
+        
+        # Assembly Formatters entegrasyonu
+        if ASSEMBLY_FORMATTERS_AVAILABLE:
+            self.assembly_formatters = AssemblyFormatters()
+            print(f"✅ Assembly format: {self.assembly_format}")
+        else:
+            self.assembly_formatters = None
+        
+        # Illegal opcode analyzer
+        if use_illegal_opcodes:
+            try:
+                from illegal_opcode_analyzer import IllegalOpcodeAnalyzer
+                self.illegal_analyzer = IllegalOpcodeAnalyzer()
+                print("✅ Illegal opcode desteği aktif")
+            except ImportError:
+                self.illegal_analyzer = None
+                print("⚠️ Illegal opcode analyzer bulunamadı")
+        else:
+            self.illegal_analyzer = None
+        
+        # C64 Memory Manager - Enhanced version
+        try:
+            from enhanced_c64_memory_manager import enhanced_c64_memory_manager, get_smart_variable_name, get_format_translation, get_instruction_translation
+            self.memory_manager = enhanced_c64_memory_manager
+            self.enhanced_memory = True
+            print("✅ Enhanced C64 Memory Manager aktif - ROM DATA entegrasyonu")
+        except ImportError:
+            try:
+                from c64_memory_manager import c64_memory_manager, get_routine_info, get_memory_info, format_routine_call, format_memory_access
+                self.memory_manager = c64_memory_manager
+                self.enhanced_memory = False
+                print("✅ C64 Memory Manager aktif")
+            except ImportError:
+                self.memory_manager = None
+                self.enhanced_memory = False
+                print("⚠️ C64 Memory Manager bulunamadı")
+        
+        # Değişkenler ve etiketler
+        self.variables = {}
+        self.labels = {}
+        self.memory_locations = {}
+        
+        # Çıktı formatı için başlangıç ve bitiş kodları
+        self.format_setup()
+        
+    def format_setup(self):
+        """Format'a göre başlangıç ve bitiş kodlarını ayarla"""
+        if self.output_format == 'c':
+            self.header = [
+                "// C64 6502 Assembly to C Conversion",
+                "// Generated by D64 Converter",
+                "",
+                "#include <stdio.h>",
+                "#include <stdint.h>",
+                "",
+                "// 6502 Registers",
+                "uint8_t a = 0;    // Accumulator",
+                "uint8_t x = 0;    // X Register", 
+                "uint8_t y = 0;    // Y Register",
+                "uint8_t sp = 0xFF; // Stack Pointer",
+                "uint8_t status = 0; // Status Register",
+                "",
+                "// Memory array",
+                "uint8_t memory[65536];",
+                "",
+                "// Function prototypes",
+                "void set_zero_flag(uint8_t val);",
+                "void set_negative_flag(uint8_t val);",
+                "",
+                "int main() {",
+                "    // Initialize memory",
+                "    for(int i = 0; i < 65536; i++) memory[i] = 0;",
+                "    ",
+                "    // Program starts here"
+            ]
+            
+            self.footer = [
+                "",
+                "    return 0;",
+                "}",
+                "",
+                "// Helper functions",
+                "void set_zero_flag(uint8_t val) {",
+                "    if(val == 0) status |= 0x02;",
+                "    else status &= ~0x02;",
+                "}",
+                "",
+                "void set_negative_flag(uint8_t val) {",
+                "    if(val & 0x80) status |= 0x80;",
+                "    else status &= ~0x80;",
+                "}",
+                "",
+                "void push_stack(uint8_t val) {",
+                "    memory[0x100 + sp] = val;",
+                "    sp--;",
+                "}",
+                "",
+                "uint8_t pop_stack() {",
+                "    sp++;",
+                "    return memory[0x100 + sp];",
+                "}",
+                "",
+                "void call_subroutine(uint16_t addr) {",
+                "    // Push return address to stack",
+                "    push_stack((uint8_t)((addr - 1) >> 8));",
+                "    push_stack((uint8_t)((addr - 1) & 0xFF));",
+                "}",
+                "",
+                "void break_interrupt() {",
+                "    // Break instruction - trigger interrupt",
+                "    push_stack((uint8_t)((0x0000) >> 8));",
+                "    push_stack((uint8_t)((0x0000) & 0xFF));",
+                "    push_stack(status);",
+                "    status |= 0x04; // Set interrupt disable flag",
+                "}"
+            ]
+            
+        elif self.output_format == 'qbasic':
+            self.header = [
+                "REM C64 6502 Assembly to QBasic Conversion",
+                "REM Generated by D64 Converter",
+                "",
+                "REM 6502 Registers",
+                "DIM A AS INTEGER",
+                "DIM X AS INTEGER",
+                "DIM Y AS INTEGER",
+                "DIM SP AS INTEGER",
+                "DIM STATUS AS INTEGER",
+                "",
+                "REM Memory array (simplified)",
+                "DIM MEMORY(65535) AS INTEGER",
+                "",
+                "REM Initialize registers",
+                "A = 0",
+                "X = 0",
+                "Y = 0",
+                "SP = 255",
+                "STATUS = 0",
+                "",
+                "REM Program starts here"
+            ]
+            
+            self.footer = [
+                "",
+                "END"
+            ]
+            
+        elif self.output_format == 'pdsx':
+            self.header = [
+                "REM C64 6502 Assembly to PDSX BASIC Conversion",
+                "REM Generated by D64 Converter",
+                "",
+                "10 REM 6502 Registers",
+                "20 A = 0: X = 0: Y = 0: SP = 255: STATUS = 0",
+                "30 REM Initialize memory array",
+                "40 DIM MEMORY(65535)",
+                "50 REM Program starts here"
+            ]
+            
+            self.footer = [
+                "",
+                "9999 END"
+            ]
+            
+        elif self.output_format == 'commodorebasicv2':
+            self.header = [
+                "10 REM C64 6502 ASSEMBLY TO COMMODORE BASIC V2",
+                "20 REM GENERATED BY D64 CONVERTER",
+                "30 REM",
+                "40 REM 6502 REGISTERS",
+                "50 A=0:X=0:Y=0:SP=255:ST=0",
+                "60 REM MEMORY ARRAY (SIMPLIFIED)",
+                "70 DIM M(65535)",
+                "80 REM",
+                "90 REM PROGRAM STARTS HERE"
+            ]
+            
+            self.footer = [
+                "",
+                "9999 END"
+            ]
+            
+        elif self.output_format == 'pseudo':
+            self.header = [
+                "// C64 6502 Assembly to Pseudo Code Conversion",
+                "// Generated by D64 Converter",
+                "",
+                "// 6502 Registers",
+                "accumulator = 0",
+                "x_register = 0",
+                "y_register = 0",
+                "stack_pointer = 255",
+                "status_register = 0",
+                "",
+                "// Memory",
+                "memory[65536] = {0}",
+                "",
+                "// Program logic:"
+            ]
+            
+            self.footer = [
+                "",
+                "// End of program"
+            ]
+        else:
+            self.header = []
+            self.footer = []
+    
+    def get_memory_reference(self, address, access_type='read'):
+        """Enhanced memory referansı için uygun format döndür"""
+        if self.enhanced_memory and self.memory_manager:
+            # Enhanced memory manager kullan
+            try:
+                from enhanced_c64_memory_manager import get_format_translation
+                return get_format_translation(address, self.output_format, access_type)
+            except ImportError:
+                pass
+        elif self.memory_manager:
+            # Basic memory manager kullan
+            if hasattr(self.memory_manager, 'format_memory_access'):
+                try:
+                    return self.memory_manager.format_memory_access(address, access_type, self.output_format)
+                except:
+                    pass
+        
+        # Fallback: Basic formatting
+        if self.output_format == 'c':
+            return f"memory[{address}]"
+        elif self.output_format == 'qbasic':
+            return f"MEMORY({address})"
+        elif self.output_format == 'pdsx':
+            return f"MEMORY({address})"
+        elif self.output_format == 'commodorebasicv2':
+            return f"M({address})"
+        elif self.output_format == 'pseudo':
+            return f"memory[{address}]"
+        else:
+            return f"${address:04X}"
+    
+    def get_smart_instruction_translation(self, mnemonic, operand=None, addressing_mode=None):
+        """Enhanced instruction çevirisi"""
+        if self.enhanced_memory and self.memory_manager:
+            try:
+                from enhanced_c64_memory_manager import get_instruction_translation
+                
+                # JSR instruction'ları için özel çeviri
+                if mnemonic == 'JSR' and operand:
+                    translation = get_instruction_translation('JSR', operand, self.output_format)
+                    if translation:
+                        return translation
+            except ImportError:
+                pass
+        
+        # Standard çeviri yap
+        return self.translate_6502_to_format(mnemonic, operand, addressing_mode)
+    
+    def translate_6502_to_format(self, mnemonic, operand=None, addressing_mode=None):
+        """6502 instruction'ı target format'a çevir"""
+        if self.output_format == 'c':
+            return self.translate_to_c(mnemonic, operand, addressing_mode)
+        elif self.output_format == 'qbasic':
+            return self.translate_to_qbasic(mnemonic, operand, addressing_mode)
+        elif self.output_format == 'pdsx':
+            return self.translate_to_pdsx(mnemonic, operand, addressing_mode)
+        elif self.output_format == 'commodorebasicv2':
+            return self.translate_to_commodorebasic(mnemonic, operand, addressing_mode)
+        elif self.output_format == 'pseudo':
+            return self.translate_to_pseudo(mnemonic, operand, addressing_mode)
+        else:
+            return None
+    
+    def translate_to_c(self, mnemonic, operand=None, addressing_mode=None):
+        """6502 instruction'ı C koduna çevir"""
+        if mnemonic == 'LDA':
+            if addressing_mode == 'immediate':
+                return f"a = {operand}; set_zero_flag(a); set_negative_flag(a);"
+            elif addressing_mode == 'absolute':
+                return f"a = {self.get_memory_reference(operand)}; set_zero_flag(a); set_negative_flag(a);"
+            elif addressing_mode == 'zeropage':
+                return f"a = {self.get_memory_reference(operand)}; set_zero_flag(a); set_negative_flag(a);"
+            else:
+                return f"a = {self.get_memory_reference(operand)}; set_zero_flag(a); set_negative_flag(a);"
+        
+        elif mnemonic == 'STA':
+            if addressing_mode == 'absolute':
+                return f"{self.get_memory_reference(operand)} = a;"
+            elif addressing_mode == 'zeropage':
+                return f"{self.get_memory_reference(operand)} = a;"
+            else:
+                return f"{self.get_memory_reference(operand)} = a;"
+        
+        elif mnemonic == 'LDX':
+            if addressing_mode == 'immediate':
+                return f"x = {operand}; set_zero_flag(x); set_negative_flag(x);"
+            else:
+                return f"x = {self.get_memory_reference(operand)}; set_zero_flag(x); set_negative_flag(x);"
+        
+        elif mnemonic == 'STX':
+            return f"{self.get_memory_reference(operand)} = x;"
+        
+        elif mnemonic == 'LDY':
+            if addressing_mode == 'immediate':
+                return f"y = {operand}; set_zero_flag(y); set_negative_flag(y);"
+            else:
+                return f"y = {self.get_memory_reference(operand)}; set_zero_flag(y); set_negative_flag(y);"
+        
+        elif mnemonic == 'STY':
+            return f"{self.get_memory_reference(operand)} = y;"
+        
+        elif mnemonic == 'ADC':
+            if addressing_mode == 'immediate':
+                return f"a = a + {operand} + (status & 0x01); set_zero_flag(a); set_negative_flag(a);"
+            else:
+                return f"a = a + {self.get_memory_reference(operand)} + (status & 0x01); set_zero_flag(a); set_negative_flag(a);"
+        
+        elif mnemonic == 'AND':
+            if addressing_mode == 'immediate':
+                return f"a = a & {operand}; set_zero_flag(a); set_negative_flag(a);"
+            else:
+                return f"a = a & {self.get_memory_reference(operand)}; set_zero_flag(a); set_negative_flag(a);"
+        
+        elif mnemonic == 'ORA':
+            if addressing_mode == 'immediate':
+                return f"a = a | {operand}; set_zero_flag(a); set_negative_flag(a);"
+            else:
+                return f"a = a | {self.get_memory_reference(operand)}; set_zero_flag(a); set_negative_flag(a);"
+        
+        elif mnemonic == 'EOR':
+            if addressing_mode == 'immediate':
+                return f"a = a ^ {operand}; set_zero_flag(a); set_negative_flag(a);"
+            else:
+                return f"a = a ^ {self.get_memory_reference(operand)}; set_zero_flag(a); set_negative_flag(a);"
+        
+        elif mnemonic == 'CMP':
+            if addressing_mode == 'immediate':
+                return f"{{ uint8_t temp = a - {operand}; set_zero_flag(temp); set_negative_flag(temp); }}"
+            else:
+                return f"{{ uint8_t temp = a - {self.get_memory_reference(operand)}; set_zero_flag(temp); set_negative_flag(temp); }}"
+        
+        elif mnemonic == 'INX':
+            return "x++; set_zero_flag(x); set_negative_flag(x);"
+        
+        elif mnemonic == 'DEX':
+            return "x--; set_zero_flag(x); set_negative_flag(x);"
+        
+        elif mnemonic == 'INY':
+            return "y++; set_zero_flag(y); set_negative_flag(y);"
+        
+        elif mnemonic == 'DEY':
+            return "y--; set_zero_flag(y); set_negative_flag(y);"
+        
+        elif mnemonic == 'TAX':
+            return "x = a; set_zero_flag(x); set_negative_flag(x);"
+        
+        elif mnemonic == 'TAY':
+            return "y = a; set_zero_flag(y); set_negative_flag(y);"
+        
+        elif mnemonic == 'TXA':
+            return "a = x; set_zero_flag(a); set_negative_flag(a);"
+        
+        elif mnemonic == 'TYA':
+            return "a = y; set_zero_flag(a); set_negative_flag(a);"
+        
+        elif mnemonic == 'CLC':
+            return "status &= ~0x01; // Clear carry flag"
+        
+        elif mnemonic == 'SEC':
+            return "status |= 0x01; // Set carry flag"
+        
+        elif mnemonic == 'CLI':
+            return "status &= ~0x04; // Clear interrupt disable flag"
+        
+        elif mnemonic == 'SEI':
+            return "status |= 0x04; // Set interrupt disable flag"
+        
+        elif mnemonic == 'NOP':
+            return "// No operation"
+        
+        elif mnemonic == 'JMP':
+            return f"goto label_{operand:04X};"
+        
+        elif mnemonic == 'JSR':
+            return f"call_subroutine(0x{operand:04X}); // JSR ${operand:04X}"
+        
+        elif mnemonic == 'RTS':
+            return "return; // Return from subroutine"
+        
+        elif mnemonic == 'BRK':
+            return "break_interrupt(); // Break"
+        
+        elif mnemonic == 'ASL':
+            if addressing_mode == 'accumulator':
+                return "a = a << 1; set_zero_flag(a); set_negative_flag(a);"
+            else:
+                return f"{{ uint8_t temp = {self.get_memory_reference(operand)} << 1; {self.get_memory_reference(operand)} = temp; set_zero_flag(temp); set_negative_flag(temp); }}"
+        
+        elif mnemonic == 'LSR':
+            if addressing_mode == 'accumulator':
+                return "a = a >> 1; set_zero_flag(a); set_negative_flag(a);"
+            else:
+                return f"{{ uint8_t temp = {self.get_memory_reference(operand)} >> 1; {self.get_memory_reference(operand)} = temp; set_zero_flag(temp); set_negative_flag(temp); }}"
+        
+        elif mnemonic == 'PHP':
+            return "push_stack(status); // Push processor status"
+        
+        elif mnemonic == 'PLP':
+            return "status = pop_stack(); // Pop processor status"
+        
+        elif mnemonic == 'PHA':
+            return "push_stack(a); // Push accumulator"
+        
+        elif mnemonic == 'PLA':
+            return "a = pop_stack(); // Pop accumulator"
+        
+        else:
+            return f"/* {mnemonic} {operand if operand is not None else ''} */"
+    
+    def translate_to_qbasic(self, mnemonic, operand=None, addressing_mode=None):
+        """6502 instruction'ı QBasic koduna çevir"""
+        if mnemonic == 'LDA':
+            if addressing_mode == 'immediate':
+                return f"A = {operand}"
+            else:
+                return f"A = {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STA':
+            return f"{self.get_memory_reference(operand)} = A"
+        
+        elif mnemonic == 'LDX':
+            if addressing_mode == 'immediate':
+                return f"X = {operand}"
+            else:
+                return f"X = {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STX':
+            return f"{self.get_memory_reference(operand)} = X"
+        
+        elif mnemonic == 'LDY':
+            if addressing_mode == 'immediate':
+                return f"Y = {operand}"
+            else:
+                return f"Y = {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STY':
+            return f"{self.get_memory_reference(operand)} = Y"
+        
+        elif mnemonic == 'ADC':
+            if addressing_mode == 'immediate':
+                return f"A = A + {operand}"
+            else:
+                return f"A = A + {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'AND':
+            if addressing_mode == 'immediate':
+                return f"A = A AND {operand}"
+            else:
+                return f"A = A AND {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'ORA':
+            if addressing_mode == 'immediate':
+                return f"A = A OR {operand}"
+            else:
+                return f"A = A OR {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'EOR':
+            if addressing_mode == 'immediate':
+                return f"A = A XOR {operand}"
+            else:
+                return f"A = A XOR {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'INX':
+            return "X = X + 1"
+        
+        elif mnemonic == 'DEX':
+            return "X = X - 1"
+        
+        elif mnemonic == 'INY':
+            return "Y = Y + 1"
+        
+        elif mnemonic == 'DEY':
+            return "Y = Y - 1"
+        
+        elif mnemonic == 'TAX':
+            return "X = A"
+        
+        elif mnemonic == 'TAY':
+            return "Y = A"
+        
+        elif mnemonic == 'TXA':
+            return "A = X"
+        
+        elif mnemonic == 'TYA':
+            return "A = Y"
+        
+        elif mnemonic == 'NOP':
+            return "REM No operation"
+        
+        elif mnemonic == 'JMP':
+            return f"GOTO LABEL_{operand:04X}"
+        
+        elif mnemonic == 'JSR':
+            return f"GOSUB LABEL_{operand:04X}"
+        
+        elif mnemonic == 'RTS':
+            return "RETURN"
+        
+        elif mnemonic == 'BRK':
+            return "REM Break"
+        
+        else:
+            operand_str = str(operand) if operand is not None else ''
+            return f"REM {mnemonic} {operand_str}"
+    
+    def translate_to_pdsx(self, mnemonic, operand=None, addressing_mode=None):
+        """6502 instruction'ı PDSX BASIC koduna çevir"""
+        # PDSX BASIC için line numberları ile
+        line_num = getattr(self, 'pdsx_line_num', 100)
+        self.pdsx_line_num = line_num + 10
+        
+        if mnemonic == 'LDA':
+            if addressing_mode == 'immediate':
+                return f"{line_num} A = {operand}"
+            else:
+                return f"{line_num} A = {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STA':
+            return f"{line_num} {self.get_memory_reference(operand)} = A"
+        
+        elif mnemonic == 'LDX':
+            if addressing_mode == 'immediate':
+                return f"{line_num} X = {operand}"
+            else:
+                return f"{line_num} X = {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STX':
+            return f"{line_num} {self.get_memory_reference(operand)} = X"
+        
+        elif mnemonic == 'LDY':
+            if addressing_mode == 'immediate':
+                return f"{line_num} Y = {operand}"
+            else:
+                return f"{line_num} Y = {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STY':
+            return f"{line_num} {self.get_memory_reference(operand)} = Y"
+        
+        elif mnemonic == 'ADC':
+            if addressing_mode == 'immediate':
+                return f"{line_num} A = A + {operand}"
+            else:
+                return f"{line_num} A = A + {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'AND':
+            if addressing_mode == 'immediate':
+                return f"{line_num} A = A AND {operand}"
+            else:
+                return f"{line_num} A = A AND {self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'INX':
+            return f"{line_num} X = X + 1"
+        
+        elif mnemonic == 'DEX':
+            return f"{line_num} X = X - 1"
+        
+        elif mnemonic == 'RTS':
+            return f"{line_num} RETURN"
+        
+        elif mnemonic == 'JSR':
+            # Enhanced JSR handling with memory manager
+            if hasattr(self, 'memory_manager') and self.memory_manager:
+                try:
+                    enhanced_ref = self.memory_manager.get_smart_variable_name(operand, 'call')
+                    return f"{line_num} GOSUB {enhanced_ref}"
+                except:
+                    pass
+            return f"{line_num} GOSUB {operand}"
+        
+        elif mnemonic == 'NOP':
+            return f"{line_num} REM No operation"
+        
+        elif mnemonic == 'JMP':
+            return f"{line_num} GOTO {operand * 10 + 1000}"  # Convert address to line number
+        
+        else:
+            operand_str = str(operand) if operand is not None else ''
+            return f"{line_num} REM {mnemonic} {operand_str}"
+    
+    def translate_to_commodorebasic(self, mnemonic, operand=None, addressing_mode=None):
+        """6502 instruction'ı Commodore BASIC V2 koduna çevir"""
+        line_num = getattr(self, 'basic_line_num', 100)
+        self.basic_line_num = line_num + 10
+        
+        if mnemonic == 'LDA':
+            if addressing_mode == 'immediate':
+                return f"{line_num} A={operand}"
+            else:
+                return f"{line_num} A={self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STA':
+            return f"{line_num} {self.get_memory_reference(operand)}=A"
+        
+        elif mnemonic == 'LDX':
+            if addressing_mode == 'immediate':
+                return f"{line_num} X={operand}"
+            else:
+                return f"{line_num} X={self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STX':
+            return f"{line_num} {self.get_memory_reference(operand)}=X"
+        
+        elif mnemonic == 'LDY':
+            if addressing_mode == 'immediate':
+                return f"{line_num} Y={operand}"
+            else:
+                return f"{line_num} Y={self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'STY':
+            return f"{line_num} {self.get_memory_reference(operand)}=Y"
+        
+        elif mnemonic == 'ADC':
+            if addressing_mode == 'immediate':
+                return f"{line_num} A=A+{operand}"
+            else:
+                return f"{line_num} A=A+{self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'AND':
+            if addressing_mode == 'immediate':
+                return f"{line_num} A=AAND{operand}"
+            else:
+                return f"{line_num} A=AAND{self.get_memory_reference(operand)}"
+        
+        elif mnemonic == 'INX':
+            return f"{line_num} X=X+1"
+        
+        elif mnemonic == 'DEX':
+            return f"{line_num} X=X-1"
+        
+        elif mnemonic == 'NOP':
+            return f"{line_num} REM NOP"
+        
+        elif mnemonic == 'JMP':
+            return f"{line_num} GOTO{operand * 10 + 1000}"
+        
+        else:
+            return f"{line_num} REM {mnemonic} {operand if operand is not None else ''}"
+    
+    def translate_to_pseudo(self, mnemonic, operand=None, addressing_mode=None):
+        """6502 instruction'ı pseudo koduna çevir"""
+        if mnemonic == 'LDA':
+            if addressing_mode == 'immediate':
+                return f"load_accumulator({operand})"
+            else:
+                return f"load_accumulator({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'STA':
+            return f"store_accumulator_to({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'LDX':
+            if addressing_mode == 'immediate':
+                return f"load_x_register({operand})"
+            else:
+                return f"load_x_register({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'STX':
+            return f"store_x_register_to({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'LDY':
+            if addressing_mode == 'immediate':
+                return f"load_y_register({operand})"
+            else:
+                return f"load_y_register({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'STY':
+            return f"store_y_register_to({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'ADC':
+            if addressing_mode == 'immediate':
+                return f"add_with_carry({operand})"
+            else:
+                return f"add_with_carry({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'AND':
+            if addressing_mode == 'immediate':
+                return f"logical_and({operand})"
+            else:
+                return f"logical_and({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'ORA':
+            if addressing_mode == 'immediate':
+                return f"logical_or({operand})"
+            else:
+                return f"logical_or({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'EOR':
+            if addressing_mode == 'immediate':
+                return f"exclusive_or({operand})"
+            else:
+                return f"exclusive_or({self.get_memory_reference(operand)})"
+        
+        elif mnemonic == 'INX':
+            return "increment_x_register()"
+        
+        elif mnemonic == 'DEX':
+            return "decrement_x_register()"
+        
+        elif mnemonic == 'INY':
+            return "increment_y_register()"
+        
+        elif mnemonic == 'DEY':
+            return "decrement_y_register()"
+        
+        elif mnemonic == 'TAX':
+            return "transfer_accumulator_to_x()"
+        
+        elif mnemonic == 'TAY':
+            return "transfer_accumulator_to_y()"
+        
+        elif mnemonic == 'TXA':
+            return "transfer_x_to_accumulator()"
+        
+        elif mnemonic == 'TYA':
+            return "transfer_y_to_accumulator()"
+        
+        elif mnemonic == 'NOP':
+            return "no_operation()"
+        
+        elif mnemonic == 'JMP':
+            return f"jump_to_address({operand})"
+        
+        elif mnemonic == 'JSR':
+            return f"call_subroutine({operand})"
+        
+        elif mnemonic == 'RTS':
+            return "return_from_subroutine()"
+        
+        elif mnemonic == 'BRK':
+            return "break_instruction()"
+        
+        else:
+            return f"// {mnemonic} {operand if operand is not None else ''}"
+    
+    def determine_addressing_mode(self, mnemonic, operand, instruction_length):
+        """Addressing mode'u belirle"""
+        if instruction_length == 1:
+            if mnemonic in ['ASL', 'LSR', 'ROL', 'ROR']:
+                return 'accumulator'
+            return 'implied'
+        elif instruction_length == 2:
+            if mnemonic in ['LDA', 'LDX', 'LDY', 'ADC', 'SBC', 'AND', 'ORA', 'EOR', 'CMP', 'CPX', 'CPY']:
+                return 'immediate'
+            else:
+                return 'zeropage'
+        elif instruction_length == 3:
+            return 'absolute'
+        return 'unknown'
+    
+    def disassemble_to_format(self, prg_data):
+        """PRG dosyasını belirtilen formata çevir"""
+        if not prg_data or len(prg_data) < 1:  # Minimum 1 byte yeterli
+            return "Hata: Geçersiz PRG verisi"
+        
+        # Eğer PRG format header varsa (2+ bytes)
+        if len(prg_data) >= 2:
+            # PRG dosyasının başlangıç adresini al
+            start_addr = prg_data[0] + (prg_data[1] << 8)
+            code_data = prg_data[2:]
+        else:
+            # Tek byte durumu - mevcut start_address kullan
+            start_addr = self.start_address
+            code_data = prg_data
+        
+        # Parametreleri güncelle
+        self.start_address = start_addr
+        self.code = code_data
+        
+        # Çıktı satırları
+        output_lines = []
+        
+        # Header ekle
+        output_lines.extend(self.header)
+        
+        # Ana disassembly
+        pc = self.start_address
+        end_address = self.start_address + len(self.code)
+        
+        while pc < end_address:
+            try:
+                if pc - self.start_address >= len(self.code):
+                    break
+                
+                opcode = self.code[pc - self.start_address]
+                
+                if opcode in self.opcodes:
+                    template, length, mnemonic = self.opcodes[opcode]
+                    operand = None
+                    
+                    if length == 1:
+                        # Implied veya accumulator mode
+                        pass
+                    elif length == 2:
+                        if pc - self.start_address + 1 < len(self.code):
+                            operand = self.code[pc - self.start_address + 1]
+                        else:
+                            break
+                    elif length == 3:
+                        if pc - self.start_address + 2 < len(self.code):
+                            operand_lo = self.code[pc - self.start_address + 1]
+                            operand_hi = self.code[pc - self.start_address + 2]
+                            operand = operand_lo + (operand_hi << 8)
+                        else:
+                            break
+                    
+                    # Addressing mode'u belirle
+                    addressing_mode = self.determine_addressing_mode(mnemonic, operand, length)
+                    
+                    # Label kontrolü (JMP, JSR için)
+                    if mnemonic in ['JMP', 'JSR'] and operand is not None:
+                        self.labels[operand] = f"label_{operand:04X}"
+                    
+                    # Enhanced instruction translation
+                    enhanced_handled = False
+                    if self.enhanced_memory:
+                        try:
+                            # JSR instruction handling
+                            if mnemonic == 'JSR' and operand:
+                                from enhanced_c64_memory_manager import get_instruction_translation
+                                enhanced_line = get_instruction_translation('JSR', operand, self.output_format)
+                                if enhanced_line:
+                                    if self.output_format == 'c':
+                                        output_lines.append(f"    {enhanced_line};  // JSR ${operand:04X}")
+                                    elif self.output_format in ['qbasic', 'pdsx']:
+                                        output_lines.append(f"{enhanced_line}")
+                                    else:
+                                        output_lines.append(enhanced_line)
+                                    enhanced_handled = True
+                            
+                            # Memory access instruction handling
+                            elif mnemonic in ['LDA', 'STA', 'LDX', 'STX', 'LDY', 'STY'] and operand and length == 3:
+                                from enhanced_c64_memory_manager import get_format_translation
+                                access_type = 'write' if mnemonic.startswith('ST') else 'read'
+                                enhanced_ref = get_format_translation(operand, self.output_format, access_type)
+                                
+                                if self.output_format == 'c':
+                                    if access_type == 'write':
+                                        reg = mnemonic[2] if len(mnemonic) > 2 else 'a'
+                                        output_lines.append(f"    {enhanced_ref}{reg.lower()};  // {mnemonic} ${operand:04X}")
+                                    else:
+                                        reg = mnemonic[2] if len(mnemonic) > 2 else 'a'
+                                        output_lines.append(f"    {reg.lower()} = {enhanced_ref};  // {mnemonic} ${operand:04X}")
+                                elif self.output_format in ['qbasic', 'pdsx']:
+                                    if access_type == 'write':
+                                        reg = mnemonic[2] if len(mnemonic) > 2 else 'A'
+                                        output_lines.append(f"{enhanced_ref}{reg}")
+                                    else:
+                                        reg = mnemonic[2] if len(mnemonic) > 2 else 'A'
+                                        output_lines.append(f"{reg} = {enhanced_ref}")
+                                enhanced_handled = True
+                        except Exception as e:
+                            # Fallback to standard handling
+                            pass
+                    
+                    # Standard instruction handling (if not enhanced)
+                    if not enhanced_handled:
+                        if operand is not None:
+                            label_name = f"label_{operand:04X}"
+                            if self.output_format == 'c':
+                                output_lines.append(f"    {label_name}:")
+                        # Skip label generation for instructions without operands (like RTS)
+                    
+                    # Instruction'ı çevir
+                    if self.output_format == 'asm':
+                        if length == 1:
+                            output_lines.append(f"${pc:04X}: {mnemonic}")
+                        elif length == 2 and operand is not None:
+                            output_lines.append(f"${pc:04X}: {mnemonic} ${operand:02X}")
+                        elif length == 3 and operand is not None:
+                            output_lines.append(f"${pc:04X}: {mnemonic} ${operand:04X}")
+                        else:
+                            output_lines.append(f"${pc:04X}: {mnemonic}")
+                    else:
+                        try:
+                            translation = self.translate_6502_to_format(mnemonic, operand, addressing_mode)
+                            if translation and translation != "None":
+                                if self.output_format == 'c':
+                                    output_lines.append(f"    {translation}")
+                                else:
+                                    output_lines.append(translation)
+                            else:
+                                # Fallback: Basic instruction format
+                                if self.output_format == 'c':
+                                    output_lines.append(f"    // {mnemonic} instruction")
+                                else:
+                                    output_lines.append(f"REM {mnemonic} instruction")
+                        except Exception as e:
+                            # Error handling for translation issues
+                            import traceback
+                            output_lines.append(f"// Error at ${pc:04X}: {str(e)}")
+                            output_lines.append(f"// Debug: mnemonic={mnemonic}, operand={operand}, addressing_mode={addressing_mode}")
+                            output_lines.append(f"// Traceback: {traceback.format_exc()}")
+                            # Safe fallback
+                            if self.output_format == 'c':
+                                output_lines.append(f"    // {mnemonic} instruction")
+                            else:
+                                output_lines.append(f"REM {mnemonic} instruction")
+                    
+                    pc += length
+                else:
+                    # Bilinmeyen opcode
+                    if self.output_format == 'asm':
+                        output_lines.append(f"${pc:04X}: .BYTE ${opcode:02X}")
+                    else:
+                        output_lines.append(f"// Unknown opcode: ${opcode:02X}")
+                    pc += 1
+            
+            except Exception as e:
+                output_lines.append(f"// Error at ${pc:04X}: {e}")
+                pc += 1
+        
+        # Footer ekle
+        output_lines.extend(self.footer)
+        
+        return '\n'.join(output_lines)
+
+
+# Py65 desteği zaten yukarıda kontrol edildi - global PY65_AVAILABLE kullan
+# Bu bölüm kaldırıldı - çift import sorunu çözüldü
+
+
+class Py65ProfessionalDisassembler:
+    """
+    Py65 kütüphanesi ile profesyonel seviyede disassembler
+    """
+    def __init__(self, start_address=None, code=None, use_illegal_opcodes=False):
+        """
+        Py65 Professional Disassembler başlatma
+        NOT: output_format parametresi disassemble_to_format() metodunda kullanılır
+        """
+        self.start_address = start_address or 0x0800
+        self.code = code or []
+        self.use_illegal_opcodes = use_illegal_opcodes
+        
+        # Py65 hazır mı kontrol et
+        if not PY65_AVAILABLE:
+            raise ImportError("py65 kütüphanesi bulunamadı. pip install py65 ile yükleyin.")
+        
+        # Py65 disassembler'ı ayarla - MPU ile doğru kullanım
+        self.mpu = MPU()  # MPU örneği oluştur
+        self.memory = Memory(addrWidth=16)
+        self.mpu.memory = self.memory  # MPU'ya memory bağla
+        self.disassembler = Py65Disassembler(self.mpu)  # Disassembler'a MPU ver
+        
+        # Kodu memory'ye yükle (eğer varsa)
+        if self.code:
+            self.load_code_to_memory()
+        
+        # Illegal opcode kullanım analizi
+        self.illegal_opcodes_found = []
+        if self.code:
+            self.illegal_opcodes_found = self.analyze_illegal_opcodes()
+        
+        # Değişkenler ve etiketler
+        self.variables = {}
+        self.labels = {}
+        self.memory_locations = {}
+        self.subroutines = set()
+    
+    def load_code_to_memory(self):
+        """Kodu py65 memory'ye yükle"""
+        for i, byte in enumerate(self.code):
+            self.memory[self.start_address + i] = byte
+    
+    def analyze_illegal_opcodes(self):
+        """Kodun içinde gerçek illegal opcode kullanımını tespit et"""
+        illegal_opcodes_found = []
+        
+        # Bilinen illegal opcode'lar
+        illegal_opcodes = {
+            0x04: "NOP zp", 0x0C: "NOP abs", 0x14: "NOP zp,X", 0x1A: "NOP imp",
+            0x1C: "NOP abs,X", 0x34: "NOP zp,X", 0x3A: "NOP imp", 0x3C: "NOP abs,X",
+            0x44: "NOP zp", 0x54: "NOP zp,X", 0x5A: "NOP imp", 0x5C: "NOP abs,X",
+            0x64: "NOP zp", 0x74: "NOP zp,X", 0x7A: "NOP imp", 0x7C: "NOP abs,X",
+            0x80: "NOP #imm", 0x82: "NOP #imm", 0x89: "NOP #imm", 0xC2: "NOP #imm",
+            0xD4: "NOP zp,X", 0xDA: "NOP imp", 0xDC: "NOP abs,X", 0xE2: "NOP #imm",
+            0xF4: "NOP zp,X", 0xFA: "NOP imp", 0xFC: "NOP abs,X",
+            0x02: "STP", 0x12: "STP", 0x22: "STP", 0x32: "STP", 0x42: "STP",
+            0x52: "STP", 0x62: "STP", 0x72: "STP", 0x92: "STP", 0xB2: "STP",
+            0xD2: "STP", 0xF2: "STP",
+            0x03: "SLO izx", 0x07: "SLO zp", 0x0F: "SLO abs", 0x13: "SLO izy",
+            0x17: "SLO zp,X", 0x1B: "SLO abs,Y", 0x1F: "SLO abs,X"
+        }
+        
+        pc = self.start_address
+        while pc < self.start_address + len(self.code):
+            if pc - self.start_address < len(self.code):
+                opcode = self.code[pc - self.start_address]
+                
+                if opcode in illegal_opcodes:
+                    illegal_opcodes_found.append({
+                        'address': pc,
+                        'opcode': opcode,
+                        'mnemonic': illegal_opcodes[opcode]
+                    })
+                    print(f"Illegal opcode bulundu: ${pc:04X}: {illegal_opcodes[opcode]} (${opcode:02X})")
+                
+                # Instruction length hesapla (basit)
+                pc += 1
+            else:
+                break
+        
+        return illegal_opcodes_found
+    
+    def format_setup(self, output_format='asm'):
+        """Format'a göre başlangıç ve bitiş kodlarını ayarla"""
+        if output_format == 'c':
+            self.header = [
+                "// C64 6502 Assembly to C Conversion (Py65 Professional)",
+                "// Generated by D64 Converter with py65 disassembler",
+                "",
+                "#include <stdio.h>",
+                "#include <stdint.h>",
+                "#include <stdbool.h>",
+                "",
+                "// 6502 CPU State Structure",
+                "typedef struct {",
+                "    uint8_t a;      // Accumulator",
+                "    uint8_t x;      // X Register", 
+                "    uint8_t y;      // Y Register",
+                "    uint8_t sp;     // Stack Pointer",
+                "    uint8_t status; // Status Register",
+                "} cpu_state_t;",
+                "",
+                "// Global CPU state",
+                "cpu_state_t cpu = {0, 0, 0, 0xFF, 0};",
+                "",
+                "// Memory array",
+                "uint8_t memory[65536];",
+                "",
+                "// Status register flags",
+                "#define FLAG_CARRY     0x01",
+                "#define FLAG_ZERO      0x02",
+                "#define FLAG_INTERRUPT 0x04",
+                "#define FLAG_DECIMAL   0x08",
+                "#define FLAG_BREAK     0x10",
+                "#define FLAG_UNUSED    0x20",
+                "#define FLAG_OVERFLOW  0x40",
+                "#define FLAG_NEGATIVE  0x80",
+                "",
+                "// Helper functions",
+                "void set_flag(uint8_t flag, bool value) {",
+                "    if (value) cpu.status |= flag;",
+                "    else cpu.status &= ~flag;",
+                "}",
+                "",
+                "bool get_flag(uint8_t flag) {",
+                "    return (cpu.status & flag) != 0;",
+                "}",
+                "",
+                "void set_nz_flags(uint8_t val) {",
+                "    set_flag(FLAG_ZERO, val == 0);",
+                "    set_flag(FLAG_NEGATIVE, val & 0x80);",
+                "}",
+                "",
+                f"// Illegal opcodes found: {len(self.illegal_opcodes_found)}",
+                f"// Program starts at ${self.start_address:04X}",
+                "void program_start() {",
+                ""
+            ]
+            
+            self.footer = [
+                "}",
+                "",
+                "int main() {",
+                "    printf(\"C64 6502 Program (Py65 Professional)\\n\");",
+                f"    printf(\"Illegal opcodes detected: {len(self.illegal_opcodes_found)}\\n\");",
+                "    program_start();",
+                "    return 0;",
+                "}"
+            ]
+        
+        elif self.output_format == 'qbasic':
+            self.header = [
+                "' C64 6502 Assembly to QBasic Conversion (Py65 Professional)",
+                "' Generated by D64 Converter with py65 disassembler",
+                "",
+                "DEFINT A-Z",
+                "",
+                "' 6502 Registers",
+                "DIM A AS INTEGER       ' Accumulator",
+                "DIM X AS INTEGER       ' X Register",
+                "DIM Y AS INTEGER       ' Y Register", 
+                "DIM SP AS INTEGER      ' Stack Pointer",
+                "DIM STATUS AS INTEGER  ' Status Register",
+                "",
+                "' Memory array",
+                "DIM MEMORY(65535) AS INTEGER",
+                "",
+                "' Status flags",
+                "CONST FLAG_CARRY = 1",
+                "CONST FLAG_ZERO = 2",
+                "CONST FLAG_INTERRUPT = 4",
+                "CONST FLAG_DECIMAL = 8",
+                "CONST FLAG_BREAK = 16",
+                "CONST FLAG_UNUSED = 32",
+                "CONST FLAG_OVERFLOW = 64",
+                "CONST FLAG_NEGATIVE = 128",
+                "",
+                "' Initialize CPU",
+                "A = 0: X = 0: Y = 0: SP = 255: STATUS = 0",
+                "",
+                f"' Illegal opcodes found: {len(self.illegal_opcodes_found)}",
+                f"' Program starts at &H{self.start_address:04X}",
+                "PRINT \"C64 6502 Program (Py65 Professional)\"",
+                f"PRINT \"Illegal opcodes detected: {len(self.illegal_opcodes_found)}\"",
+                ""
+            ]
+            
+            self.footer = [
+                "",
+                "END"
+            ]
+        
+        elif self.output_format == 'pdsx':
+            self.header = [
+                "; C64 6502 Assembly to PDSX Format (Py65 Professional)",
+                "; Generated by D64 Converter with py65 disassembler",
+                "",
+                f"; Illegal opcodes found: {len(self.illegal_opcodes_found)}",
+                f"        .org ${self.start_address:04X}",
+                "",
+                "; Program entry point",
+                "start:",
+                ""
+            ]
+            
+            self.footer = [
+                "",
+                "        .end start"
+            ]
+        
+        elif self.output_format == 'pseudo':
+            self.header = [
+                "// C64 6502 Assembly to Pseudo Code (Py65 Professional)",
+                "// Generated by D64 Converter with py65 disassembler",
+                "",
+                f"// Illegal opcodes found: {len(self.illegal_opcodes_found)}",
+                f"BEGIN PROGRAM AT ADDRESS ${self.start_address:04X}",
+                "",
+                "INITIALIZE:",
+                "    A = 0        // Accumulator",
+                "    X = 0        // X Register",
+                "    Y = 0        // Y Register",
+                "    SP = 255     // Stack Pointer",
+                "    STATUS = 0   // Status Register",
+                "",
+                "ILLEGAL OPCODES DETECTED:",
+            ]
+            
+            # Illegal opcode'ları listele
+            for illegal in self.illegal_opcodes_found:
+                self.header.append(f"    ${illegal['address']:04X}: {illegal['mnemonic']} (${illegal['opcode']:02X})")
+            
+            self.header.extend([
+                "",
+                "MAIN PROGRAM:",
+                ""
+            ])
+            
+            self.footer = [
+                "",
+                "END PROGRAM"
+            ]
+        
+        elif self.output_format == 'commodorebasicv2':
+            self.header = [
+                "10 REM C64 6502 ASSEMBLY TO COMMODORE BASIC V2 (PY65 PROFESSIONAL)",
+                "20 REM GENERATED BY D64 CONVERTER WITH PY65 DISASSEMBLER",
+                "30 REM",
+                f"40 REM ILLEGAL OPCODES FOUND: {len(self.illegal_opcodes_found)}",
+                f"50 REM PROGRAM STARTS AT {self.start_address}",
+                "60 REM",
+                "70 A=0:X=0:Y=0:SP=255:ST=0",
+                "80 DIM M(65535)",
+                "90 REM",
+                f"100 PRINT \"ILLEGAL OPCODES DETECTED: {len(self.illegal_opcodes_found)}\"",
+                "110 REM",
+                ""
+            ]
+            
+            self.footer = [
+                "",
+                "65530 END"
+            ]
+        
+        else:  # assembly
+            self.header = [
+                "; C64 6502 Assembly (Py65 Professional)",
+                "; Generated by D64 Converter with py65 disassembler",
+                "",
+                f"; Illegal opcodes found: {len(self.illegal_opcodes_found)}",
+                f"        .org ${self.start_address:04X}",
+                "",
+                "start:",
+                ""
+            ]
+            
+            self.footer = [
+                "",
+                "        .end start"
+            ]
+    
+    def disassemble_to_format(self, prg_data=None, output_format='asm'):
+        """
+        Py65 ile profesyonel disassembly - output_format parametresi burada alınır
+        """
+        # Parameters update
+        if prg_data is not None:
+            # PRG dosyasının başlangıç adresini al
+            if len(prg_data) >= 2:
+                self.start_address = prg_data[0] + (prg_data[1] << 8)
+                self.code = prg_data[2:]
+            else:
+                self.code = prg_data
+            
+            # Memory'ye yükle
+            self.load_code_to_memory()
+            self.illegal_opcodes_found = self.analyze_illegal_opcodes()
+        
+        # Format setup
+        self.format_setup(output_format)
+        
+        try:
+            lines = []
+            lines.extend(self.header)
+            
+            # Illegal opcode raporu
+            if self.illegal_opcodes_found:
+                if output_format == 'c':
+                    lines.append("    // Illegal opcodes detected in code:")
+                    for illegal in self.illegal_opcodes_found:
+                        lines.append(f"    // ${illegal['address']:04X}: {illegal['mnemonic']} (${illegal['opcode']:02X})")
+                    lines.append("")
+                elif output_format == 'qbasic':
+                    lines.append("' Illegal opcodes detected in code:")
+                    for illegal in self.illegal_opcodes_found:
+                        lines.append(f"' &H{illegal['address']:04X}: {illegal['mnemonic']} (&H{illegal['opcode']:02X})")
+                    lines.append("")
+                elif output_format == 'pdsx':
+                    lines.append("; Illegal opcodes detected in code:")
+                    for illegal in self.illegal_opcodes_found:
+                        lines.append(f"; ${illegal['address']:04X}: {illegal['mnemonic']} (${illegal['opcode']:02X})")
+                    lines.append("")
+            
+            # Disassemble
+            pc = self.start_address
+            line_number = 120  # BASIC için
+            
+            while pc < self.start_address + len(self.code):
+                try:
+                    # Py65 ile instruction'ı decode et
+                    instruction_data = self.disassembler.instruction_at(pc)
+                    
+                    if instruction_data:
+                        opcode_info = instruction_data[0]
+                        length = instruction_data[1]
+                        
+                        # Illegal opcode kontrolü
+                        if not self.use_illegal_opcodes and self.is_illegal_opcode(opcode_info):
+                            # Illegal opcode'u comment olarak işle
+                            line = self.format_illegal_opcode(pc, opcode_info, output_format)
+                            lines.append(line)
+                            pc += 1
+                            continue
+                        
+                        # Format'a göre çevir
+                        line = self.format_instruction(pc, opcode_info, length, output_format)
+                        lines.append(line)
+                        
+                        pc += length
+                    else:
+                        # Decode edilemeyen instruction - data olarak işle
+                        line = self.format_data_byte(pc, self.memory[pc], output_format)
+                        lines.append(line)
+                        pc += 1
+                    
+                    # BASIC için satır numarası artır
+                    if output_format == 'commodorebasicv2':
+                        line_number += 10
+                        
+                except Exception as e:
+                    lines.append(f"// Error at ${pc:04X}: {e}")
+                    pc += 1
+            
+            lines.extend(self.footer)
+            return '\n'.join(lines)
+            
+        except Exception as e:
+            return f"Py65 disassembly error: {str(e)}"
+    
+    def is_illegal_opcode(self, opcode_info):
+        """Illegal opcode olup olmadığını kontrol et"""
+        # Py65'te illegal opcode'lar genellikle "???" ile gösterilir
+        return "???" in opcode_info or opcode_info.startswith(".")
+    
+    def format_illegal_opcode(self, pc, opcode_info, output_format):
+        """Illegal opcode'u comment olarak formatla"""
+        opcode_byte = self.memory[pc]
+        
+        if output_format == 'c':
+            return f"    // ILLEGAL OPCODE: ${pc:04X}: {opcode_info} (${opcode_byte:02X})"
+        elif output_format == 'qbasic':
+            return f"' ILLEGAL OPCODE: &H{pc:04X}: {opcode_info} (&H{opcode_byte:02X})"
+        elif output_format == 'pdsx':
+            return f"; ILLEGAL OPCODE: ${pc:04X}: {opcode_info} (${opcode_byte:02X})"
+        elif output_format == 'pseudo':
+            return f"    // ILLEGAL OPCODE: ${pc:04X}: {opcode_info} (${opcode_byte:02X})"
+        elif output_format == 'commodorebasicv2':
+            line_number = 120 + ((pc - self.start_address) // 3) * 10
+            return f"{line_number} REM ILLEGAL OPCODE: {pc}: {opcode_info} ({opcode_byte})"
+        else:  # assembly
+            return f"; ILLEGAL OPCODE: ${pc:04X}: {opcode_info} (${opcode_byte:02X})"
+    
+    def format_instruction(self, pc, opcode_info, length, output_format):
+        """Instruction'ı format'a göre çevir"""
+        if output_format == 'c':
+            return f"    // ${pc:04X}: {opcode_info}"
+        elif output_format == 'qbasic':
+            return f"' &H{pc:04X}: {opcode_info}"
+        elif output_format == 'pdsx':
+            return f"        {opcode_info.lower()}"
+        elif output_format == 'pseudo':
+            return f"    // ${pc:04X}: {opcode_info}"
+        elif output_format == 'commodorebasicv2':
+            line_number = 120 + ((pc - self.start_address) // 3) * 10
+            return f"{line_number} REM {opcode_info}"
+        else:  # assembly
+            return f"        {opcode_info.lower()}"
+    
+    def format_data_byte(self, pc, byte_value, output_format):
+        """Data byte'ını format'a göre çevir"""
+        if output_format == 'c':
+            return f"    // Data byte: 0x{byte_value:02X} at ${pc:04X}"
+        elif output_format == 'qbasic':
+            return f"' Data byte: &H{byte_value:02X} at &H{pc:04X}"
+        elif output_format == 'pdsx':
+            return f"        .byte ${byte_value:02X}"
+        elif output_format == 'pseudo':
+            return f"    DATA BYTE: ${byte_value:02X}"
+        elif output_format == 'commodorebasicv2':
+            line_number = 120 + ((pc - self.start_address) // 3) * 10
+            return f"{line_number} REM Data byte: {byte_value} at {pc}"
+        else:  # assembly
+            return f"        .byte ${byte_value:02X}"
+    
+    def disassemble_to_format(self, prg_data, output_format='asm'):
+        """
+        PRG verilerini belirtilen formata çevir
+        Bu metod GUI uyumluluğu için eklendi
+        """
+        # output_format'ı instance variable olarak ayarla
+        self.output_format = output_format
+        
+        # PRG data'dan start address ve code'u ayır
+        if isinstance(prg_data, (bytes, bytearray, list)) and len(prg_data) >= 2:
+            # İlk 2 byte start address (little endian)
+            start_addr = prg_data[0] + (prg_data[1] << 8)
+            code_data = prg_data[2:]
+            
+            # Self'i güncelle
+            self.start_address = start_addr
+            self.code = list(code_data)
+            
+            # Memory'ye yükle
+            self.load_code_to_memory()
+            
+            # Analiz et
+            self.illegal_opcodes_found = self.analyze_illegal_opcodes()
+        
+        # Disassemble et
+        return self.disassemble(output_format)
