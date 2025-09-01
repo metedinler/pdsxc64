@@ -1,0 +1,644 @@
+[
+    {
+        "opcode": "ADC",
+        "function": "Akkümülatöre bellekteki değeri carry ile ekle",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "a = a + value + carry;",
+        "qbasic_equivalent": "LET A = A + VALUE + CARRY",
+        "pdsx_equivalent": "LET a = a + value",
+        "commodorebasicv2_equivalent": "A = A + VALUE + C"
+    },
+    {
+        "opcode": "AND",
+        "function": "Akkümülatör ile bellekteki değerin mantıksal VE'sini al",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "a = a & value;",
+        "qbasic_equivalent": "LET A = A AND VALUE",
+        "pdsx_equivalent": "LET a = a AND value",
+        "commodorebasicv2_equivalent": "A = A AND VALUE"
+    },
+    {
+        "opcode": "ASL",
+        "function": "Akkümülatörü veya bellekteki değeri sola kaydır (carry'ye at)",
+        "addressing_modes": ["Accumulator", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
+        "c_equivalent": "value = value << 1;",
+        "qbasic_equivalent": "LET VALUE = VALUE * 2",
+        "pdsx_equivalent": "LET value = value * 2",
+        "commodorebasicv2_equivalent": "VALUE = VALUE * 2"
+    },
+    {
+        "opcode": "BCC",
+        "function": "Carry bayrağı temizse dallan",
+        "addressing_modes": ["Relative"],
+        "c_equivalent": "if (!carry) goto label;",
+        "qbasic_equivalent": "IF CARRY = 0 THEN GOTO label",
+        "pdsx_equivalent": "IF carry = 0 THEN GOTO label",
+        "commodorebasicv2_equivalent": "IF NOT C THEN GOTO label"
+    },
+    {
+        "opcode": "BCS",
+        "function": "Carry bayrağı set ise dallan",
+        "addressing_modes": ["Relative"],
+        "c_equivalent": "if (carry) goto label;",
+        "qbasic_equivalent": "IF CARRY = 1 THEN GOTO label",
+        "pdsx_equivalent": "IF carry = 1 THEN GOTO label",
+        "commodorebasicv2_equivalent": "IF C THEN GOTO label"
+    },
+    {
+        "opcode": "BEQ",
+        "function": "Sonuç sıfır ise dallan",
+        "addressing_modes": ["Relative"],
+        "c_equivalent": "if (zero) goto label;",
+        "qbasic_equivalent": "IF ZERO_FLAG = 1 THEN GOTO label",
+        "pdsx_equivalent": "IF zero = 1 THEN GOTO label",
+        "commodorebasicv2_equivalent": "IF Z THEN GOTO label"
+    },
+    {
+        "opcode": "BIT",
+        "function": "Akkümülatör ile bellekteki değerin bit testi",
+        "addressing_modes": ["Zero Page", "Absolute"],
+        "c_equivalent": "if (a & value) { /* set flags */ }",
+        "qbasic_equivalent": "IF (A AND VALUE) THEN REM Set flags",
+        "pdsx_equivalent": "IF a AND value THEN",
+        "commodorebasicv2_equivalent": "IF (A AND VALUE) THEN REM Set flags"
+    },
+    {
+        "opcode": "BMI",
+        "function": "Negatif bayrağı set ise dallan",
+        "addressing_modes": ["Relative"],
+        "c_equivalent": "if (negative) goto label;",
+        "qbasic_equivalent": "IF NEGATIVE_FLAG = 1 THEN GOTO label",
+        "pdsx_equivalent": "IF negative = 1 THEN GOTO label",
+        "commodorebasicv2_equivalent": "IF S THEN GOTO label"
+    },
+    {
+        "opcode": "BNE",
+        "function": "Sonuç sıfır değilse dallan",
+        "addressing_modes": ["Relative"],
+        "c_equivalent": "if (!zero) goto label;",
+        "qbasic_equivalent": "IF ZERO_FLAG = 0 THEN GOTO label",
+        "pdsx_equivalent": "IF zero = 0 THEN GOTO label",
+        "commodorebasicv2_equivalent": "IF NOT Z THEN GOTO label"
+    },
+    {
+        "opcode": "BPL",
+        "function": "Negatif bayrağı temizse dallan",
+        "addressing_modes": ["Relative"],
+        "c_equivalent": "if (!negative) goto label;",
+        "qbasic_equivalent": "IF NEGATIVE_FLAG = 0 THEN GOTO label",
+        "pdsx_equivalent": "IF negative = 0 THEN GOTO label",
+        "commodorebasicv2_equivalent": "IF NOT S THEN GOTO label"
+    },
+    {
+        "opcode": "BRK",
+        "function": "Kesme (interrupt) oluştur",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "exit(1); /* or trigger interrupt handler */",
+        "qbasic_equivalent": "END",
+        "pdsx_equivalent": "STOP",
+        "commodorebasicv2_equivalent": "END"
+    },
+    {
+        "opcode": "BVC",
+        "function": "Overflow bayrağı temizse dallan",
+        "addressing_modes": ["Relative"],
+        "c_equivalent": "if (!overflow) goto label;",
+        "qbasic_equivalent": "IF OVERFLOW_FLAG = 0 THEN GOTO label",
+        "pdsx_equivalent": "IF overflow = 0 THEN GOTO label",
+        "commodorebasicv2_equivalent": "IF NOT V THEN GOTO label"
+    },
+    {
+        "opcode": "BVS",
+        "function": "Overflow bayrağı set ise dallan",
+        "addressing_modes": ["Relative"],
+        "c_equivalent": "if (overflow) goto label;",
+        "qbasic_equivalent": "IF OVERFLOW_FLAG = 1 THEN GOTO label",
+        "pdsx_equivalent": "IF overflow = 1 THEN GOTO label",
+        "commodorebasicv2_equivalent": "IF V THEN GOTO label"
+    },
+    {
+        "opcode": "CLC",
+        "function": "Carry bayrağını temizle",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "carry = 0;",
+        "qbasic_equivalent": "CARRY = 0",
+        "pdsx_equivalent": "—",
+        "commodorebasicv2_equivalent": "REM CLC (C=0)"
+    },
+    {
+        "opcode": "CLD",
+        "function": "Decimal mod bayrağını temizle",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "decimal_mode = 0;",
+        "qbasic_equivalent": "DECIMAL_MODE = 0",
+        "pdsx_equivalent": "—",
+        "commodorebasicv2_equivalent": "REM CLD (D=0)"
+    },
+    {
+        "opcode": "CLI",
+        "function": "Kesme devre dışı bırakma bayrağını temizle (kesmeleri etkinleştir)",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "interrupt_disable = 0;",
+        "qbasic_equivalent": "INTERRUPTS_ENABLED = 1",
+        "pdsx_equivalent": "—",
+        "commodorebasicv2_equivalent": "REM CLI (I=0)"
+    },
+    {
+        "opcode": "CLV",
+        "function": "Overflow bayrağını temizle",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "overflow = 0;",
+        "qbasic_equivalent": "OVERFLOW_FLAG = 0",
+        "pdsx_equivalent": "—",
+        "commodorebasicv2_equivalent": "REM CLV (V=0)"
+    },
+    {
+        "opcode": "CMP",
+        "function": "Akkümülatörü bellekteki değerle karşılaştır",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "if (a == value) { /* set flags */ }",
+        "qbasic_equivalent": "IF A = VALUE THEN REM Set flags",
+        "pdsx_equivalent": "IF a = value THEN",
+        "commodorebasicv2_equivalent": "IF A = VALUE THEN REM Set flags"
+    },
+    {
+        "opcode": "CPX",
+        "function": "X register'ı bellekteki değerle karşılaştır",
+        "addressing_modes": ["Immediate", "Zero Page", "Absolute"],
+        "c_equivalent": "if (x == value) { /* set flags */ }",
+        "qbasic_equivalent": "IF XREG = VALUE THEN REM Set flags",
+        "pdsx_equivalent": "IF x = value THEN",
+        "commodorebasicv2_equivalent": "IF X = VALUE THEN REM Set flags"
+    },
+    {
+        "opcode": "CPY",
+        "function": "Y register'ı bellekteki değerle karşılaştır",
+        "addressing_modes": ["Immediate", "Zero Page", "Absolute"],
+        "c_equivalent": "if (y == value) { /* set flags */ }",
+        "qbasic_equivalent": "IF YREG = VALUE THEN REM Set flags",
+        "pdsx_equivalent": "IF y = value THEN",
+        "commodorebasicv2_equivalent": "IF Y = VALUE THEN REM Set flags"
+    },
+    {
+        "opcode": "DEC",
+        "function": "Bellekteki değeri azalt",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
+        "c_equivalent": "mem[address]--;",
+        "qbasic_equivalent": "POKE ADDRESS, PEEK(ADDRESS) - 1",
+        "pdsx_equivalent": "POKE address, PEEK(address) - 1",
+        "commodorebasicv2_equivalent": "POKE ADDRESS, PEEK(ADDRESS) - 1"
+    },
+    {
+        "opcode": "DEX",
+        "function": "X register'ı azalt",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "x--;",
+        "qbasic_equivalent": "LET XREG = XREG - 1",
+        "pdsx_equivalent": "LET x = x - 1",
+        "commodorebasicv2_equivalent": "X = X - 1"
+    },
+    {
+        "opcode": "DEY",
+        "function": "Y register'ı azalt",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "y--;",
+        "qbasic_equivalent": "LET YREG = YREG - 1",
+        "pdsx_equivalent": "LET y = y - 1",
+        "commodorebasicv2_equivalent": "Y = Y - 1"
+    },
+    {
+        "opcode": "EOR",
+        "function": "Akkümülatör ile bellekteki değerin mantıksal XOR'unu al",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "a = a ^ value;",
+        "qbasic_equivalent": "LET A = A XOR VALUE",
+        "pdsx_equivalent": "LET a = a XOR value",
+        "commodorebasicv2_equivalent": "A = A XOR VALUE"
+    },
+    {
+        "opcode": "INC",
+        "function": "Bellekteki değeri artır",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
+        "c_equivalent": "mem[address]++;",
+        "qbasic_equivalent": "POKE ADDRESS, PEEK(ADDRESS) + 1",
+        "pdsx_equivalent": "POKE address, PEEK(address) + 1",
+        "commodorebasicv2_equivalent": "POKE ADDRESS, PEEK(ADDRESS) + 1"
+    },
+    {
+        "opcode": "INX",
+        "function": "X register'ı artır",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "x++;",
+        "qbasic_equivalent": "LET XREG = XREG + 1",
+        "pdsx_equivalent": "LET x = x + 1",
+        "commodorebasicv2_equivalent": "X = X + 1"
+    },
+    {
+        "opcode": "INY",
+        "function": "Y register'ı artır",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "y++;",
+        "qbasic_equivalent": "LET YREG = YREG + 1",
+        "pdsx_equivalent": "LET y = y + 1",
+        "commodorebasicv2_equivalent": "Y = Y + 1"
+    },
+    {
+        "opcode": "JMP",
+        "function": "Belirtilen adrese atla",
+        "addressing_modes": ["Absolute", "Indirect"],
+        "c_equivalent": "goto label;",
+        "qbasic_equivalent": "GOTO label",
+        "pdsx_equivalent": "GOTO label",
+        "commodorebasicv2_equivalent": "GOTO label"
+    },
+    {
+        "opcode": "JSR",
+        "function": "Alt programa atla (mevcut adresi stack'e kaydet)",
+        "addressing_modes": ["Absolute"],
+        "c_equivalent": "func();",
+        "qbasic_equivalent": "GOSUB label",
+        "pdsx_equivalent": "CALL func",
+        "commodorebasicv2_equivalent": "GOSUB label"
+    },
+    {
+        "opcode": "LDA",
+        "function": "Akkümülatöre bellekteki değeri yükle",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "a = value;",
+        "qbasic_equivalent": "LET A = VALUE",
+        "pdsx_equivalent": "LET a = value",
+        "commodorebasicv2_equivalent": "A = VALUE"
+    },
+    {
+        "opcode": "LDX",
+        "function": "X register'a bellekteki değeri yükle",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,Y", "Absolute", "Absolute,Y"],
+        "c_equivalent": "x = value;",
+        "qbasic_equivalent": "LET XREG = VALUE",
+        "pdsx_equivalent": "LET x = value",
+        "commodorebasicv2_equivalent": "X = VALUE"
+    },
+    {
+        "opcode": "LDY",
+        "function": "Y register'a bellekteki değeri yükle",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
+        "c_equivalent": "y = value;",
+        "qbasic_equivalent": "LET YREG = VALUE",
+        "pdsx_equivalent": "LET y = value",
+        "commodorebasicv2_equivalent": "Y = VALUE"
+    },
+    {
+        "opcode": "LSR",
+        "function": "Akkümülatörü veya bellekteki değeri sağa kaydır (0'ı sola ekle)",
+        "addressing_modes": ["Accumulator", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
+        "c_equivalent": "value = value >> 1;",
+        "qbasic_equivalent": "LET VALUE = INT(VALUE / 2)",
+        "pdsx_equivalent": "LET value = value / 2",
+        "commodorebasicv2_equivalent": "VALUE = INT(VALUE / 2)"
+    },
+    {
+        "opcode": "NOP",
+        "function": "İşlem yapma",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": ";",
+        "qbasic_equivalent": "REM",
+        "pdsx_equivalent": "—",
+        "commodorebasicv2_equivalent": "REM"
+    },
+    {
+        "opcode": "ORA",
+        "function": "Akkümülatör ile bellekteki değerin mantıksal VEYA'sını al",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "a = a | value;",
+        "qbasic_equivalent": "LET A = A OR VALUE",
+        "pdsx_equivalent": "LET a = a OR value",
+        "commodorebasicv2_equivalent": "A = A OR VALUE"
+    },
+    {
+        "opcode": "PHA",
+        "function": "Akkümülatörü stack'e koy",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "push(a);",
+        "qbasic_equivalent": "CALL PushA(A)",
+        "pdsx_equivalent": "PUSH a",
+        "commodorebasicv2_equivalent": "REM PHA"
+    },
+    {
+        "opcode": "PHP",
+        "function": "İşlemci Durum register'ını stack'e koy",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "push(status_register);",
+        "qbasic_equivalent": "CALL PushStatus(STATUS_REGISTER)",
+        "pdsx_equivalent": "PUSH status",
+        "commodorebasicv2_equivalent": "REM PHP"
+    },
+    {
+        "opcode": "PLA",
+        "function": "Stack'ten değeri Akkümülatöre al",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "a = pop();",
+        "qbasic_equivalent": "A = CALL PopA()",
+        "pdsx_equivalent": "POP a",
+        "commodorebasicv2_equivalent": "REM PLA"
+    },
+    {
+        "opcode": "PLP",
+        "function": "Stack'ten değeri İşlemci Durum register'ına al",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "status_register = pop();",
+        "qbasic_equivalent": "STATUS_REGISTER = CALL PopStatus()",
+        "pdsx_equivalent": "POP status",
+        "commodorebasicv2_equivalent": "REM PLP"
+    },
+    {
+        "opcode": "ROL",
+        "function": "Akkümülatörü veya bellekteki değeri carry ile sola döndür",
+        "addressing_modes": ["Accumulator", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
+        "c_equivalent": "value = (value << 1) | carry;",
+        "qbasic_equivalent": "LET VALUE = (VALUE * 2) OR CARRY",
+        "pdsx_equivalent": "LET value = (value * 2) + carry",
+        "commodorebasicv2_equivalent": "VALUE = (VALUE * 2) OR C"
+    },
+    {
+        "opcode": "ROR",
+        "function": "Akkümülatörü veya bellekteki değeri carry ile sağa döndür",
+        "addressing_modes": ["Accumulator", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
+        "c_equivalent": "value = (value >> 1) | (carry << 7);",
+        "qbasic_equivalent": "LET VALUE = INT(VALUE / 2) OR (CARRY * 128)",
+        "pdsx_equivalent": "LET value = (value / 2) + (carry * 128)",
+        "commodorebasicv2_equivalent": "VALUE = INT(VALUE / 2) OR (C * 128)"
+    },
+    {
+        "opcode": "RTI",
+        "function": "Kesme rutininden dön",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "return_from_interrupt();",
+        "qbasic_equivalent": "RETURN_FROM_INTERRUPT",
+        "pdsx_equivalent": "RETURN_FROM_INTERRUPT",
+        "commodorebasicv2_equivalent": "REM RTI"
+    },
+    {
+        "opcode": "RTS",
+        "function": "Alt programdan dön",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "return;",
+        "qbasic_equivalent": "RETURN",
+        "pdsx_equivalent": "RETURN",
+        "commodorebasicv2_equivalent": "RETURN"
+    },
+    {
+        "opcode": "SBC",
+        "function": "Akkümülatörden bellekteki değeri borrow ile çıkar",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "a = a - value - (1 - carry);",
+        "qbasic_equivalent": "LET A = A - VALUE - (1 - CARRY)",
+        "pdsx_equivalent": "LET a = a - value",
+        "commodorebasicv2_equivalent": "A = A - VALUE - (1 - C)"
+    },
+    {
+        "opcode": "SEC",
+        "function": "Carry bayrağını set et",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "carry = 1;",
+        "qbasic_equivalent": "CARRY = 1",
+        "pdsx_equivalent": "—",
+        "commodorebasicv2_equivalent": "REM SEC (C=1)"
+    },
+    {
+        "opcode": "SED",
+        "function": "Decimal mod bayrağını set et",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "decimal_mode = 1;",
+        "qbasic_equivalent": "DECIMAL_MODE = 1",
+        "pdsx_equivalent": "—",
+        "commodorebasicv2_equivalent": "REM SED (D=1)"
+    },
+    {
+        "opcode": "SEI",
+        "function": "Kesme devre dışı bırakma bayrağını set et (kesmeleri devre dışı bırak)",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "interrupt_disable = 1;",
+        "qbasic_equivalent": "INTERRUPTS_ENABLED = 0",
+        "pdsx_equivalent": "—",
+        "commodorebasicv2_equivalent": "REM SEI (I=1)"
+    },
+    {
+        "opcode": "STA",
+        "function": "Akkümülatörü belleğe yaz",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "mem[address] = a;",
+        "qbasic_equivalent": "POKE ADDRESS, A",
+        "pdsx_equivalent": "POKE address, a",
+        "commodorebasicv2_equivalent": "POKE ADDRESS, A"
+    },
+    {
+        "opcode": "STX",
+        "function": "X register'ı belleğe yaz",
+        "addressing_modes": ["Zero Page", "Zero Page,Y", "Absolute"],
+        "c_equivalent": "mem[address] = x;",
+        "qbasic_equivalent": "POKE ADDRESS, XREG",
+        "pdsx_equivalent": "POKE address, x",
+        "commodorebasicv2_equivalent": "POKE ADDRESS, X"
+    },
+    {
+        "opcode": "STY",
+        "function": "Y register'ı belleğe yaz",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute"],
+        "c_equivalent": "mem[address] = y;",
+        "qbasic_equivalent": "POKE ADDRESS, YREG",
+        "pdsx_equivalent": "POKE address, y",
+        "commodorebasicv2_equivalent": "POKE ADDRESS, Y"
+    },
+    {
+        "opcode": "TAX",
+        "function": "Akkümülatörü X register'a kopyala",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "x = a;",
+        "qbasic_equivalent": "LET XREG = A",
+        "pdsx_equivalent": "LET x = a",
+        "commodorebasicv2_equivalent": "X = A"
+    },
+    {
+        "opcode": "TAY",
+        "function": "Akkümülatörü Y register'a kopyala",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "y = a;",
+        "qbasic_equivalent": "LET YREG = A",
+        "pdsx_equivalent": "LET y = a",
+        "commodorebasicv2_equivalent": "Y = A"
+    },
+    {
+        "opcode": "TSX",
+        "function": "Stack işaretçisini X register'a kopyala",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "x = sp;",
+        "qbasic_equivalent": "LET XREG = SP",
+        "pdsx_equivalent": "LET x = sp",
+        "commodorebasicv2_equivalent": "X = SP"
+    },
+    {
+        "opcode": "TXA",
+        "function": "X register'ı Akkümülatöre kopyala",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "a = x;",
+        "qbasic_equivalent": "LET A = XREG",
+        "pdsx_equivalent": "LET a = x",
+        "commodorebasicv2_equivalent": "A = X"
+    },
+    {
+        "opcode": "TXS",
+        "function": "X register'ı Stack işaretçisine kopyala",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "sp = x;",
+        "qbasic_equivalent": "LET SP = XREG",
+        "pdsx_equivalent": "LET sp = x",
+        "commodorebasicv2_equivalent": "SP = X"
+    },
+    {
+        "opcode": "TYA",
+        "function": "Y register'ı Akkümülatöre kopyala",
+        "addressing_modes": ["Implied"],
+        "c_equivalent": "a = y;",
+        "qbasic_equivalent": "LET A = YREG",
+        "pdsx_equivalent": "LET a = y",
+        "commodorebasicv2_equivalent": "A = Y"
+    },
+    {
+        "opcode": "ALR",
+        "function": "Illegal: AND sonra LSR",
+        "addressing_modes": ["Immediate"],
+        "c_equivalent": "a = (a & value) >> 1;",
+        "qbasic_equivalent": "A = INT((A AND VALUE) / 2)",
+        "pdsx_equivalent": "LET a = (a AND value) / 2",
+        "commodorebasicv2_equivalent": "REM ALR (A=INT((A AND V)/2))"
+    },
+    {
+        "opcode": "ANC",
+        "function": "Illegal: AND sonra C bayrağını A'nın 7. bitine ayarla",
+        "addressing_modes": ["Immediate"],
+        "c_equivalent": "a = a & value; carry = (a >> 7) & 1;",
+        "qbasic_equivalent": "A = A AND VALUE : CARRY = (A AND 128) / 128",
+        "pdsx_equivalent": "LET a = a AND value : REM CARRY = (a AND 128) / 128",
+        "commodorebasicv2_equivalent": "REM ANC (A=A AND V, C=A.7)"
+    },
+    {
+        "opcode": "ARR",
+        "function": "Illegal: AND sonra ROR",
+        "addressing_modes": ["Immediate"],
+        "c_equivalent": "a = a & value; a = (a >> 1) | (carry << 7);",
+        "qbasic_equivalent": "A = A AND VALUE : A = INT(A / 2) OR (CARRY * 128)",
+        "pdsx_equivalent": "LET a = a AND value : LET a = (a / 2) + (carry * 128)",
+        "commodorebasicv2_equivalent": "REM ARR (A=A AND V, then ROR)"
+    },
+    {
+        "opcode": "AXS",
+        "function": "Illegal: (A AND X) sonucunu belleğe yaz",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,Y", "Absolute", "Absolute,Y"],
+        "c_equivalent": "mem[address] = a & x;",
+        "qbasic_equivalent": "POKE ADDRESS, A AND XREG",
+        "pdsx_equivalent": "POKE address, a AND x",
+        "commodorebasicv2_equivalent": "POKE ADDRESS, A AND X"
+    },
+    {
+        "opcode": "DCP",
+        "function": "Illegal: Bellekteki değeri azalt sonra Akkümülatör ile karşılaştır",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "mem[address]--; if (a == mem[address]) { /* set flags */ }",
+        "qbasic_equivalent": "POKE ADDRESS, PEEK(ADDRESS) - 1 : IF A = PEEK(ADDRESS) THEN REM Set flags",
+        "pdsx_equivalent": "POKE address, PEEK(address) - 1 : IF a = PEEK(address) THEN",
+        "commodorebasicv2_equivalent": "POKE ADDR, PEEK(ADDR)-1 : REM CMP A with new value"
+    },
+    {
+        "opcode": "ISC",
+        "function": "Illegal: Bellekteki değeri artır sonra Akkümülatörden çıkar (borrow ile)",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "mem[address]++; a = a - mem[address] - (1 - carry);",
+        "qbasic_equivalent": "POKE ADDRESS, PEEK(ADDRESS) + 1 : A = A - PEEK(ADDRESS) - (1 - CARRY)",
+        "pdsx_equivalent": "POKE address, PEEK(address) + 1 : LET a = a - PEEK(address)",
+        "commodorebasicv2_equivalent": "POKE ADDR, PEEK(ADDR)+1 : REM SBC A with new value"
+    },
+    {
+        "opcode": "LAX",
+        "function": "Illegal: Bellekteki değeri Akkümülatöre ve X register'a yükle",
+        "addressing_modes": ["Immediate", "Zero Page", "Zero Page,Y", "Absolute", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "a = value; x = value;",
+        "qbasic_equivalent": "A = VALUE : XREG = VALUE",
+        "pdsx_equivalent": "LET a = value : LET x = value",
+        "commodorebasicv2_equivalent": "A = VALUE : X = VALUE"
+    },
+    {
+        "opcode": "RLA",
+        "function": "Illegal: Bellekteki değeri carry ile sola döndür sonra Akkümülatör ile VE'sini al",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "value = (value << 1) | carry; a = a & value;",
+        "qbasic_equivalent": "VALUE = (VALUE * 2) OR CARRY : A = A AND VALUE",
+        "pdsx_equivalent": "LET value = (value * 2) + carry : LET a = a AND value",
+        "commodorebasicv2_equivalent": "REM RLA (ROL then AND)"
+    },
+    {
+        "opcode": "RRA",
+        "function": "Illegal: Bellekteki değeri carry ile sağa döndür sonra Akkümülatöre ekle (carry ile)",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "value = (value >> 1) | (carry << 7); a = a + value + carry;",
+        "qbasic_equivalent": "VALUE = INT(VALUE / 2) OR (CARRY * 128) : A = A + VALUE + CARRY",
+        "pdsx_equivalent": "LET value = (value / 2) + (carry * 128) : LET a = a + value",
+        "commodorebasicv2_equivalent": "REM RRA (ROR then ADC)"
+    },
+    {
+        "opcode": "SLO",
+        "function": "Illegal: Bellekteki değeri sola kaydır sonra Akkümülatör ile VEYA'sını al",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "value = value << 1; a = a | value;",
+        "qbasic_equivalent": "VALUE = VALUE * 2 : A = A OR VALUE",
+        "pdsx_equivalent": "LET value = value * 2 : LET a = a OR value",
+        "commodorebasicv2_equivalent": "REM SLO (ASL then ORA)"
+    },
+    {
+        "opcode": "SRE",
+        "function": "Illegal: Bellekteki değeri sağa kaydır sonra Akkümülatör ile XOR'unu al",
+        "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X", "Absolute,Y", "Indirect,X", "Indirect,Y"],
+        "c_equivalent": "value = value >> 1; a = a ^ value;",
+        "qbasic_equivalent": "VALUE = INT(VALUE / 2) : A = A XOR VALUE",
+        "pdsx_equivalent": "LET value = value / 2 : LET a = a XOR value",
+        "commodorebasicv2_equivalent": "REM SRE (LSR then EOR)"
+    },
+    {
+        "opcode": "SHX",
+        "function": "Illegal: X register'ı belleğe yaz (adresin yüksek baytı ile AND'lenmiş)",
+        "addressing_modes": ["Absolute,Y"],
+        "c_equivalent": "mem[address] = x & ((address >> 8) + 1);",
+        "qbasic_equivalent": "POKE ADDRESS, XREG AND (INT(ADDRESS / 256) + 1)",
+        "pdsx_equivalent": "POKE address, x AND (INT(address / 256) + 1)",
+        "commodorebasicv2_equivalent": "REM SHX (X AND (HI_ADDR+1) to MEM)"
+    },
+    {
+        "opcode": "SHY",
+        "function": "Illegal: Y register'ı belleğe yaz (adresin yüksek baytı ile AND'lenmiş)",
+        "addressing_modes": ["Absolute,X"],
+        "c_equivalent": "mem[address] = y & ((address >> 8) + 1);",
+        "qbasic_equivalent": "POKE ADDRESS, YREG AND (INT(ADDRESS / 256) + 1)",
+        "pdsx_equivalent": "POKE address, y AND (INT(address / 256) + 1)",
+        "commodorebasicv2_equivalent": "REM SHY (Y AND (HI_ADDR+1) to MEM)"
+    },
+    {
+        "opcode": "TAS",
+        "function": "Illegal: (A AND X) sonucunu SP'ye yaz, sonra SP'yi belleğe yaz (adresin yüksek baytı ile AND'lenmiş)",
+        "addressing_modes": ["Absolute,Y"],
+        "c_equivalent": "sp = a & x; mem[address] = sp & ((address >> 8) + 1);",
+        "qbasic_equivalent": "SP = A AND XREG : POKE ADDRESS, SP AND (INT(ADDRESS / 256) + 1)",
+        "pdsx_equivalent": "LET sp = a AND x : POKE address, sp AND (INT(address / 256) + 1)",
+        "commodorebasicv2_equivalent": "REM TAS ((A AND X) to SP, then (SP AND (HI_ADDR+1)) to MEM)"
+    },
+    {
+        "opcode": "LAS",
+        "function": "Illegal: Bellekteki değeri ve SP'yi AND'le, sonucu A, X ve SP'ye yükle",
+        "addressing_modes": ["Absolute,Y"],
+        "c_equivalent": "a = value & sp; x = a; sp = a;",
+        "qbasic_equivalent": "VALUE = VALUE AND SP : A = VALUE : XREG = VALUE : SP = VALUE",
+        "pdsx_equivalent": "LET value = value AND sp : LET a = value : LET x = value : LET sp = value",
+        "commodorebasicv2_equivalent": "REM LAS ((MEM AND SP) to A,X,SP)"
+    }
+]
+# This code defines a list of dictionaries, each representing an opcode for the 6502 microprocessor.
+# Each dictionary contains the opcode, its function, addressing modes, and equivalents in C, QBasic, PDSX, and Commodore BASIC V2.
+# The opcodes include operations like loading, storing, arithmetic operations, and control flow instructions.
