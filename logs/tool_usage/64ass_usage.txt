@@ -1,0 +1,120 @@
+=== 64ASS USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64StudioRelease3.5/C64StudioRelease/net3.5/C64Ass/C64Ass.exe
+Category: assemblers
+Learning Date: 2025-07-29 13:03:38.462147
+============================================================
+
+COMMAND: 64ass --help
+----------------------------------------
+STDOUT:
+Call with C64Ass [options] [file]
+
+-H, --HELP                     - Display this help
+-O, --OUTFILE [Filename]       - Determine output file name
+-L, --LABELDUMP [Filename]     - Write a label file
+-LIB, --LIBRARY [Library Path] - Add path(s) to library paths
+                                 Multiple paths are separated by comma
+-F, --FORMAT [PLAIN/CBM]       - Sets the output file format
+                                 PLAIN is a raw binary, CBM a .prg file
+--SETPC [Address]              - Overrides the source start address
+-AUTOTRUNCATELITERALS          - Clamps literal values to bytes/words without error
+-D, --DEFINE [Key=Value]       - Add Predefines
+-N, --NOWARNINGS               - Show no warnings
+-I, --IGNORE [WarningNo]       - Ignore specific Warnings
+                                 Multiple warnings separated by comma
+-V, --VERSION                  - Display version
+-A, --ASSEMBLER [Assembler]    - Use [Assembler]'s syntax
+                                 Valid values are
+                                 C64STUDIO (default)
+                                 ACME
+                                 C64ASM
+                                 CBMPRGSTUDIO
+                                 DASM
+                                 KICKASSEMBLER
+                                 PDS
+                                 TASM
+
+Return Code: 1
+
+============================================================
+
+COMMAND: 64ass -h
+----------------------------------------
+STDOUT:
+Call with C64Ass [options] [file]
+
+-H, --HELP                     - Display this help
+-O, --OUTFILE [Filename]       - Determine output file name
+-L, --LABELDUMP [Filename]     - Write a label file
+-LIB, --LIBRARY [Library Path] - Add path(s) to library paths
+                                 Multiple paths are separated by comma
+-F, --FORMAT [PLAIN/CBM]       - Sets the output file format
+                                 PLAIN is a raw binary, CBM a .prg file
+--SETPC [Address]              - Overrides the source start address
+-AUTOTRUNCATELITERALS          - Clamps literal values to bytes/words without error
+-D, --DEFINE [Key=Value]       - Add Predefines
+-N, --NOWARNINGS               - Show no warnings
+-I, --IGNORE [WarningNo]       - Ignore specific Warnings
+                                 Multiple warnings separated by comma
+-V, --VERSION                  - Display version
+-A, --ASSEMBLER [Assembler]    - Use [Assembler]'s syntax
+                                 Valid values are
+                                 C64STUDIO (default)
+                                 ACME
+                                 C64ASM
+                                 CBMPRGSTUDIO
+                                 DASM
+                                 KICKASSEMBLER
+                                 PDS
+                                 TASM
+
+Return Code: 1
+
+============================================================
+
+COMMAND: 64ass --version
+----------------------------------------
+No output received
+Return Code: 1
+
+============================================================
+
+COMMAND: 64ass -v
+----------------------------------------
+STDOUT:
+C64Ass Assembler V8.1.205.0
+
+Return Code: 1
+
+============================================================
+
+COMMAND: 64ass -?
+----------------------------------------
+STDERR:
+
+˜Ÿlenmeyen ™zel Durum: System.ArgumentException: Yolda ge‡ersiz karakterler var.
+   konum: System.Security.Permissions.FileIOPermission.HasIllegalCharacters(String[] str)
+   konum: System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   konum: System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String[] pathList, Boolean checkForDuplicates, Boolean needFullPath)
+   konum: System.IO.Path.GetFullPath(String path)
+   konum: C64Ass.Program.Main(String[] args)
+
+Return Code: 3762507597
+
+============================================================
+
+COMMAND: 64ass /?
+----------------------------------------
+STDERR:
+
+˜Ÿlenmeyen ™zel Durum: System.ArgumentException: Yolda ge‡ersiz karakterler var.
+   konum: System.Security.Permissions.FileIOPermission.HasIllegalCharacters(String[] str)
+   konum: System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   konum: System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String[] pathList, Boolean checkForDuplicates, Boolean needFullPath)
+   konum: System.IO.Path.GetFullPath(String path)
+   konum: C64Ass.Program.Main(String[] args)
+
+Return Code: 3762507597
+
+============================================================
+
