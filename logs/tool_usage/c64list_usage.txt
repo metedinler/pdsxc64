@@ -1,0 +1,234 @@
+=== C64LIST USAGE LEARNING SESSION ===
+Tool Path: C:/Users/dell/Documents/projeler/disaridan kullanilacak ornek programlar/C64List3.03/C64List.exe
+Category: special
+Learning Date: 2025-07-29 12:32:03.107388
+============================================================
+
+COMMAND: c64list --help
+----------------------------------------
+STDOUT:
+-------------------------------------------------------------------------------
+                C64List (v3.03) Copyright 2012 by Jeff Hoag
+-------------------------------------------------------------------------------
+ Loads Commodore 64 BASIC programs and converts them between various formats.
+ Contact: c64List@gmail.com
+ Automatically determines the format to load by the file extension.
+ Loads these file types
+   prg  (prg C64 format: 2 address bytes followed by program data
+   p00  (same as prg, but contains filename data as well)
+   txt  (prg/p00 files detokenized and converted to text by C64List
+-------------------------------------------------------------------------------
+Syntax:
+	c64list <input filename> [control parameters]
+
+where control parameters include:
+	-ovr  		overwrite an existing file
+	-prg[:name]	save in .prg format
+	-p00[:name]	save in .p00 format (Only p00 is supported--not 01-99)
+	-hex[:name]	save in an ASCII hex dump format
+	-asm[:name]	save in a memory-disassembled format
+	-txt[:name]	save untokenized BASIC code in a text format
+	-lbl[:name]	save, same as -txt, except convert to label format
+
+	-verbose[:list]	output additional information during conversion
+	-tokenizer:name	load a tokenizer map file
+	-b4		load the BASIC 4.0 tokenizer map file
+	-b7		load the BASIC 7.0 tokenizer map file
+	-alpha:<mode>	where <mode> can be normal|upper|lower|invert
+	-range:n1-n2	for .hex/.asm, only output indicated range
+	-con		for .hex/.asm, dump output to screen
+	-sym		dump the asm symbol table to screen
+	-labels		dump the list of labels to screen
+
+Additionally, when converting to and from text files:
+	-crunch	(from text) removes unquoted space
+	-crunch	(to text) adds spacing for readability
+	-crsr	(to text) preserves binary cursor codes
+	-rem	remove all REM statements
+
+For the output format parameters, if you specify
+  <nothing> the input name is used, but the proper extension is applied
+  :<name> the specified name is used
+
+Return Code: 0
+
+============================================================
+
+COMMAND: c64list -h
+----------------------------------------
+STDOUT:
+-------------------------------------------------------------------------------
+                C64List (v3.03) Copyright 2012 by Jeff Hoag
+-------------------------------------------------------------------------------
+ Loads Commodore 64 BASIC programs and converts them between various formats.
+ Contact: c64List@gmail.com
+ Automatically determines the format to load by the file extension.
+ Loads these file types
+   prg  (prg C64 format: 2 address bytes followed by program data
+   p00  (same as prg, but contains filename data as well)
+   txt  (prg/p00 files detokenized and converted to text by C64List
+-------------------------------------------------------------------------------
+Syntax:
+	c64list <input filename> [control parameters]
+
+where control parameters include:
+	-ovr  		overwrite an existing file
+	-prg[:name]	save in .prg format
+	-p00[:name]	save in .p00 format (Only p00 is supported--not 01-99)
+	-hex[:name]	save in an ASCII hex dump format
+	-asm[:name]	save in a memory-disassembled format
+	-txt[:name]	save untokenized BASIC code in a text format
+	-lbl[:name]	save, same as -txt, except convert to label format
+
+	-verbose[:list]	output additional information during conversion
+	-tokenizer:name	load a tokenizer map file
+	-b4		load the BASIC 4.0 tokenizer map file
+	-b7		load the BASIC 7.0 tokenizer map file
+	-alpha:<mode>	where <mode> can be normal|upper|lower|invert
+	-range:n1-n2	for .hex/.asm, only output indicated range
+	-con		for .hex/.asm, dump output to screen
+	-sym		dump the asm symbol table to screen
+	-labels		dump the list of labels to screen
+
+Additionally, when converting to and from text files:
+	-crunch	(from text) removes unquoted space
+	-crunch	(to text) adds spacing for readability
+	-crsr	(to text) preserves binary cursor codes
+	-rem	remove all REM statements
+
+For the output format parameters, if you specify
+  <nothing> the input name is used, but the proper extension is applied
+  :<name> the specified name is used
+
+Return Code: 0
+
+============================================================
+
+COMMAND: c64list --version
+----------------------------------------
+STDOUT:
+-------------------------------------------------------------------------------
+                C64List (v3.03) Copyright 2012 by Jeff Hoag
+-------------------------------------------------------------------------------
+Error: No input file is specified, or it is not the first parameter
+Encountered: 1 Errors; 0 Warnings
+C64List failed.
+
+Return Code: 1
+
+============================================================
+
+COMMAND: c64list -v
+----------------------------------------
+STDOUT:
+-------------------------------------------------------------------------------
+                C64List (v3.03) Copyright 2012 by Jeff Hoag
+-------------------------------------------------------------------------------
+Error: No input file is specified, or it is not the first parameter
+Encountered: 1 Errors; 0 Warnings
+C64List failed.
+
+Return Code: 1
+
+============================================================
+
+COMMAND: c64list -?
+----------------------------------------
+STDOUT:
+-------------------------------------------------------------------------------
+                C64List (v3.03) Copyright 2012 by Jeff Hoag
+-------------------------------------------------------------------------------
+ Loads Commodore 64 BASIC programs and converts them between various formats.
+ Contact: c64List@gmail.com
+ Automatically determines the format to load by the file extension.
+ Loads these file types
+   prg  (prg C64 format: 2 address bytes followed by program data
+   p00  (same as prg, but contains filename data as well)
+   txt  (prg/p00 files detokenized and converted to text by C64List
+-------------------------------------------------------------------------------
+Syntax:
+	c64list <input filename> [control parameters]
+
+where control parameters include:
+	-ovr  		overwrite an existing file
+	-prg[:name]	save in .prg format
+	-p00[:name]	save in .p00 format (Only p00 is supported--not 01-99)
+	-hex[:name]	save in an ASCII hex dump format
+	-asm[:name]	save in a memory-disassembled format
+	-txt[:name]	save untokenized BASIC code in a text format
+	-lbl[:name]	save, same as -txt, except convert to label format
+
+	-verbose[:list]	output additional information during conversion
+	-tokenizer:name	load a tokenizer map file
+	-b4		load the BASIC 4.0 tokenizer map file
+	-b7		load the BASIC 7.0 tokenizer map file
+	-alpha:<mode>	where <mode> can be normal|upper|lower|invert
+	-range:n1-n2	for .hex/.asm, only output indicated range
+	-con		for .hex/.asm, dump output to screen
+	-sym		dump the asm symbol table to screen
+	-labels		dump the list of labels to screen
+
+Additionally, when converting to and from text files:
+	-crunch	(from text) removes unquoted space
+	-crunch	(to text) adds spacing for readability
+	-crsr	(to text) preserves binary cursor codes
+	-rem	remove all REM statements
+
+For the output format parameters, if you specify
+  <nothing> the input name is used, but the proper extension is applied
+  :<name> the specified name is used
+
+Return Code: 0
+
+============================================================
+
+COMMAND: c64list /?
+----------------------------------------
+STDOUT:
+-------------------------------------------------------------------------------
+                C64List (v3.03) Copyright 2012 by Jeff Hoag
+-------------------------------------------------------------------------------
+ Loads Commodore 64 BASIC programs and converts them between various formats.
+ Contact: c64List@gmail.com
+ Automatically determines the format to load by the file extension.
+ Loads these file types
+   prg  (prg C64 format: 2 address bytes followed by program data
+   p00  (same as prg, but contains filename data as well)
+   txt  (prg/p00 files detokenized and converted to text by C64List
+-------------------------------------------------------------------------------
+Syntax:
+	c64list <input filename> [control parameters]
+
+where control parameters include:
+	-ovr  		overwrite an existing file
+	-prg[:name]	save in .prg format
+	-p00[:name]	save in .p00 format (Only p00 is supported--not 01-99)
+	-hex[:name]	save in an ASCII hex dump format
+	-asm[:name]	save in a memory-disassembled format
+	-txt[:name]	save untokenized BASIC code in a text format
+	-lbl[:name]	save, same as -txt, except convert to label format
+
+	-verbose[:list]	output additional information during conversion
+	-tokenizer:name	load a tokenizer map file
+	-b4		load the BASIC 4.0 tokenizer map file
+	-b7		load the BASIC 7.0 tokenizer map file
+	-alpha:<mode>	where <mode> can be normal|upper|lower|invert
+	-range:n1-n2	for .hex/.asm, only output indicated range
+	-con		for .hex/.asm, dump output to screen
+	-sym		dump the asm symbol table to screen
+	-labels		dump the list of labels to screen
+
+Additionally, when converting to and from text files:
+	-crunch	(from text) removes unquoted space
+	-crunch	(to text) adds spacing for readability
+	-crsr	(to text) preserves binary cursor codes
+	-rem	remove all REM statements
+
+For the output format parameters, if you specify
+  <nothing> the input name is used, but the proper extension is applied
+  :<name> the specified name is used
+
+Return Code: 0
+
+============================================================
+
